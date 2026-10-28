@@ -1,0 +1,18 @@
+{
+ "id": "2026-10-28-B",
+ "date": "2026-10-28",
+ "plan": "B",
+ "symbol": "XAUUSDm",
+ "side": "SELL",
+ "type": "STOP",
+ "entry": 4010,
+ "sl": 4045,
+ "tp1": 3975,
+ "tp2": 3930,
+ "tp_mode": "TP1",
+ "lot_mode": "FIXED",
+ "lot": 0.01,
+ "risk_pct": 0,
+ "brief_generated": "2026-10-28 09:40 +07",
+ "created": "2026-10-28T10:49:54.972Z"
+}
