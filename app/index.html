@@ -67,7 +67,7 @@ ul.sum{margin:0;padding-left:18px}ul.sum li{margin:6px 0}
 .md p{margin:8px 0}
 .hist button{display:flex;width:100%;justify-content:space-between;align-items:center;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:8px;font:inherit;text-align:left}
 .hist .res{white-space:nowrap;margin-left:8px;font-size:12px;font-weight:700;padding:2px 8px;border-radius:5px;color:#111;background:var(--dim)}
-nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:#0b0c0e;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+nav{position:fixed;z-index:10;left:0;right:0;bottom:0;display:flex;background:#0b0c0e;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
 nav button{flex:1;background:none;border:0;color:var(--dim);font:13px var(--font);padding:12px 0 14px}
 nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--gold)}
 .refresh{background:none;border:1px solid var(--line);color:var(--dim);border-radius:6px;font:12px var(--font);padding:4px 10px}
@@ -106,11 +106,13 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
   </div>
   <div class="row meta"><span id="gen">กำลังโหลดแผน…</span><button class="refresh" id="refresh" style="margin-left:auto">รีเฟรช</button></div>
   <div class="err" id="err" hidden></div>
+  <div id="revnote" hidden style="margin-top:8px;padding:8px 10px;border-radius:8px;background:rgba(240,166,58,.12);border:1px solid var(--warn);font-size:13px"></div>
 </header>
 
 <main>
   <section id="t-plan">
     <h2>แผนวันนี้</h2>
+    <div id="oldOrders"></div>
     <div id="plans"></div>
     <h2>ระดับราคา</h2>
     <div class="card"><div class="ladder" id="ladder"></div></div>
@@ -168,7 +170,7 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
 </nav>
 
 <script>
-const UI_VERSION = '1.3';
+const UI_VERSION = '1.4';
 const RAW = 'https://raw.githubusercontent.com/mastersurat/master-iot/cyd-brief/';
 const API = 'https://api.github.com/repos/mastersurat/master-iot/contents/history?ref=cyd-brief';
 const $ = id => document.getElementById(id);
@@ -248,6 +250,7 @@ async function loadBrief(date) {
     viewing = date || null;
     try { localStorage.setItem('lastBrief', JSON.stringify(brief)); } catch (e) {}
     render();
+    if (typeof refreshOrders === 'function') refreshOrders();
   } catch (e) {
     try { const c = localStorage.getItem('lastBrief'); if (c && !brief) { brief = JSON.parse(c); render(); } } catch (x) {}
     $('err').hidden = false;
@@ -268,6 +271,8 @@ function render() {
   $('bias').textContent = b.bias || '—';
   $('bias').className = 'badge ' + (b.bias || '');
   $('gen').textContent = (viewing ? 'ดูย้อนหลัง · ' : 'อัปเดต ') + b.generated + (viewing ? ' · แตะ "แผน" เพื่อกลับล่าสุด' : '');
+  $('revnote').hidden = !(b.rev > 0);
+  if (b.rev > 0) $('revnote').innerHTML = `<b style="color:var(--warn)">แผนแก้ไขครั้งที่ ${esc(b.rev)}</b> · ${esc(b.rev_note || '')}`;
   if (price) setPrice(price, lastSrc); else { renderPlans(); renderLadder(); }
   $('invalid').textContent = 'แผนใช้ไม่ได้เมื่อ: ' + (b.invalid || '-');
   $('headline').textContent = b.headline || '';
@@ -418,7 +423,8 @@ let orderState = {};           // id -> {req:true, cancel:true, status:{...}}
 let sentAt = {};               // id -> ms when we sent (to show "waiting for EA")
 const token = () => { try { return localStorage.getItem('ghToken') || ''; } catch (e) { return ''; } };
 const bkkToday = () => new Date(Date.now() + 7 * 3600e3).toISOString().slice(0, 10);
-const planKey = p => brief.date + '-' + p.id;
+// revision 0 keeps the original id; revisions use R<n><plan> so ids never prefix-match each other in the EA
+const planKey = p => brief.date + '-' + (brief.rev > 0 ? 'R' + brief.rev : '') + p.id;
 const canTrade = () => brief && !viewing && brief.date === bkkToday();
 
 async function gh(method, path, body, raw) {
@@ -472,8 +478,35 @@ async function refreshOrders() {
       next[id] = o;
     }
     orderState = next;
+    // orders that belong to an earlier revision of today's plan
+    const today = brief.date, current = (brief.plans || []).map(planKey);
+    const oldIds = files.filter(f => f.startsWith('req-' + today + '-')).map(f => f.slice(4, -5)).filter(id => !current.includes(id));
+    const old = [];
+    for (const id of oldIds) {
+      const o = {id, cancel: files.includes(`cancel-${id}.json`)};
+      if (files.includes(`status-${id}.json`)) { const s = await gh('GET', `/status-${id}.json`, null, true); if (s.ok) o.status = await s.json(); }
+      old.push(o);
+    }
+    renderOldOrders(old);
     renderPlans();
   } catch (e) {}
+}
+
+function renderOldOrders(list) {
+  const live = list.filter(o => !o.status || ['PLACED', 'FILLED'].includes(o.status.state));
+  if (!live.length) { $('oldOrders').innerHTML = ''; return; }
+  $('oldOrders').innerHTML = `<div class="card" style="border-color:var(--warn);margin-bottom:10px">
+    <b style="color:var(--warn)">ออเดอร์จากแผนก่อนแก้ไข</b>
+    <p class="note">ออเดอร์เหล่านี้ตั้งตามแผนเดิม ซึ่งถูกแก้ไขแล้ว ตรวจสอบว่าจะเก็บไว้หรือยกเลิก</p>
+    ${live.map(o => {
+      const st = o.status ? o.status.state : 'WAIT';
+      const label = o.status ? (stThai[st] || st) + (o.status.tickets ? ' #' + esc(o.status.tickets) : '') : 'รอ EA ตอบ…';
+      return `<div class="ord"><span class="st"><b class="num">${esc(o.id)}</b> · <span style="color:${stColor(st)}">${label}</span>
+        <br><span class="note">${esc(o.status?.detail || '')}${st === 'FILLED' ? ' · สถานะเปิดอยู่ จัดการใน MT5' : ''}</span></span>
+        ${st === 'PLACED' && !o.cancel ? `<button class="btn danger" data-oldcancel="${esc(o.id)}">ยกเลิก</button>` : ''}
+        ${o.cancel && st === 'PLACED' ? '<span class="note">กำลังยกเลิก…</span>' : ''}</div>`;
+    }).join('')}</div>`;
+  $('oldOrders').querySelectorAll('[data-oldcancel]').forEach(b => b.onclick = () => cancelOrder(b.dataset.oldcancel, b));
 }
 
 let sheet = {};
