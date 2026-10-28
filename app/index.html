@@ -117,6 +117,11 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
     <h2>ระดับราคา</h2>
     <div class="card"><div class="ladder" id="ladder"></div></div>
     <p class="note" id="invalid"></p>
+    <h2>การแจ้งเตือน</h2>
+    <div class="card" id="notifyCard">
+      <div class="note" id="notifyState">กำลังตรวจสอบ…</div>
+      <div class="row" style="margin-top:8px"><button class="btn ghost" id="notifyToggle" hidden>เปิดการแจ้งเตือน</button><button class="btn ghost" id="notifyTest" hidden>ทดสอบแจ้งเตือน</button></div>
+    </div>
     <h2>เชื่อมต่อ MT5</h2>
     <div class="card">
       <div class="note" id="mt5state">ยังไม่ได้ใส่ GitHub token ปุ่ม "ทำตามแผน" จะใช้ได้เมื่อใส่ token</div>
@@ -170,7 +175,7 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
 </nav>
 
 <script>
-const UI_VERSION = '1.4';
+const UI_VERSION = '1.5';
 const RAW = 'https://raw.githubusercontent.com/mastersurat/master-iot/cyd-brief/';
 const API = 'https://api.github.com/repos/mastersurat/master-iot/contents/history?ref=cyd-brief';
 const $ = id => document.getElementById(id);
@@ -249,6 +254,7 @@ async function loadBrief(date) {
     brief = await getJSON(url);
     viewing = date || null;
     try { localStorage.setItem('lastBrief', JSON.stringify(brief)); } catch (e) {}
+    if (!date && window.Native && Native.markSeen) Native.markSeen(brief.generated || '');
     render();
     if (typeof refreshOrders === 'function') refreshOrders();
   } catch (e) {
@@ -271,8 +277,13 @@ function render() {
   $('bias').textContent = b.bias || '—';
   $('bias').className = 'badge ' + (b.bias || '');
   $('gen').textContent = (viewing ? 'ดูย้อนหลัง · ' : 'อัปเดต ') + b.generated + (viewing ? ' · แตะ "แผน" เพื่อกลับล่าสุด' : '');
-  $('revnote').hidden = !(b.rev > 0);
-  if (b.rev > 0) $('revnote').innerHTML = `<b style="color:var(--warn)">แผนแก้ไขครั้งที่ ${esc(b.rev)}</b> · ${esc(b.rev_note || '')}`;
+  // which market session this plan was written after (ICT): NY close = morning plan, then Asia close, London close
+  const SES = {NY_CLOSE: 'หลังปิดตลาดนิวยอร์ก', ASIA_CLOSE: 'อัปเดตปิดตลาดเอเชีย', LONDON_CLOSE: 'อัปเดตปิดตลาดลอนดอน'};
+  const sesLabel = SES[b.session] || (b.rev > 0 ? `แผนแก้ไขครั้งที่ ${b.rev}` : '');
+  const sesNote = (b.th && (b.th.session_note || b.th.rev_note)) || b.session_note || b.rev_note || '';
+  const showSes = b.rev > 0 || (b.session && b.session !== 'NY_CLOSE');
+  $('revnote').hidden = !showSes;
+  if (showSes) $('revnote').innerHTML = `<b style="color:var(--warn)">${esc(sesLabel)} · ${esc((b.generated || '').slice(11, 16))} น.</b><br>${esc(sesNote)}`;
   if (price) setPrice(price, lastSrc); else { renderPlans(); renderLadder(); }
   $('invalid').textContent = 'แผนใช้ไม่ได้เมื่อ: ' + (b.invalid || '-');
   $('headline').textContent = b.headline || '';
@@ -425,7 +436,14 @@ const token = () => { try { return localStorage.getItem('ghToken') || ''; } catc
 const bkkToday = () => new Date(Date.now() + 7 * 3600e3).toISOString().slice(0, 10);
 // revision 0 keeps the original id; revisions use R<n><plan> so ids never prefix-match each other in the EA
 const planKey = p => brief.date + '-' + (brief.rev > 0 ? 'R' + brief.rev : '') + p.id;
-const canTrade = () => brief && !viewing && brief.date === bkkToday();
+const bkkNow = () => new Date(Date.now() + 7 * 3600e3);
+const canTrade = () => {
+  if (!brief || viewing) return false;
+  const now = bkkNow(), today = now.toISOString().slice(0, 10);
+  if (brief.date === today) return true;
+  const y = new Date(now.getTime() - 86400e3).toISOString().slice(0, 10);
+  return brief.date === y && (now.getUTCHours() * 60 + now.getUTCMinutes()) < 6 * 60 + 30;
+};
 
 async function gh(method, path, body, raw) {
   const r = await fetch(GH_API + path + (method === 'GET' ? (path.includes('?') ? '&' : '?') + 'ref=' + ORD_BRANCH + '&t=' + Date.now() : ''), {
@@ -610,6 +628,24 @@ async function testToken() {
 $('tokSave').onclick = () => { try { localStorage.setItem('ghToken', $('tok').value.trim()); } catch (e) {} $('tok').value = ''; testToken(); renderPlans(); refreshOrders(); };
 $('tokClear').onclick = () => { try { localStorage.removeItem('ghToken'); } catch (e) {} testToken(); renderPlans(); };
 
+/* ---------- notifications (native, APK build 4+) ---------- */
+function renderNotify() {
+  const has = window.Native && Native.setNotify;
+  if (!has) {
+    $('notifyState').textContent = 'ติดตั้งแอปเวอร์ชันใหม่ (แถบสีทองด้านบน) เพื่อรับแจ้งเตือนเมื่อมีแผนใหม่ทุกรอบปิดตลาด';
+    return;
+  }
+  const on = Native.notifyEnabled();
+  $('notifyState').textContent = on
+    ? 'เปิดอยู่ · แจ้งเตือนเมื่อมีแผนใหม่: 06:41 (หลังปิดนิวยอร์ก) · 16:05 (ปิดเอเชีย) · 00:05 (ปิดลอนดอน) อาจช้าได้ถึง ~15 นาที'
+    : 'ปิดอยู่ · กดเปิดเพื่อรับแจ้งเตือนเมื่อมีแผนใหม่';
+  $('notifyToggle').hidden = false;
+  $('notifyToggle').textContent = on ? 'ปิดการแจ้งเตือน' : 'เปิดการแจ้งเตือน';
+  $('notifyTest').hidden = !on;
+}
+$('notifyToggle').onclick = () => { Native.setNotify(!Native.notifyEnabled()); setTimeout(renderNotify, 800); };
+$('notifyTest').onclick = () => { Native.testNotify(); $('notifyState').textContent = 'ส่งแจ้งเตือนทดสอบแล้ว ดูที่แถบแจ้งเตือนของมือถือ'; };
+
 /* ---------- new APK notice (only needed when the native part changes) ---------- */
 async function checkApk() {
   try {
@@ -639,12 +675,12 @@ window.onAppBack = () => {
   if (cur !== 'plan' || viewing) { show('plan'); return true; }
   return false;
 };
-window.onAppResume = () => { loadPrice(); if (!viewing) loadBrief(null); };
+window.onAppResume = () => { loadPrice(); if (!viewing) loadBrief(null); renderNotify(); };
 
 try { const c = localStorage.getItem('lastBrief'); if (c) { brief = JSON.parse(c); render(); } } catch (e) {}
 loadBrief(null); loadPrice();
 $('ver').textContent = 'หน้าจอ v' + UI_VERSION + (window.Native && Native.versionCode ? ' · แอป build ' + Native.versionCode() : '');
-checkApk(); testToken(); refreshOrders();
+checkApk(); testToken(); refreshOrders(); renderNotify();
 setInterval(refreshOrders, 15000);
 setInterval(loadPrice, 20000);
 setInterval(() => { if (!viewing) loadBrief(null); }, 10 * 60 * 1000);
