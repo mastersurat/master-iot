@@ -1,0 +1,93 @@
+{
+  "v": 1,
+  "date": "2026-10-28",
+  "generated": "2026-10-29 00:08 +07",
+  "price_ref": 4042,
+  "bias": "BEARISH",
+  "bias_note": "Bounce faded; firm USD, Fed 01:00",
+  "headline": "Gold slips to ~4,040-4,050 into FOMC; rallies still sold",
+  "summary": [
+    "Day range roughly 4,030-4,065: Asia gave back Tuesday's bounce, London held 4,030-4,050.",
+    "Oil rose after a Saudi refinery attack claim; USD near 2-week high, gold off ~0.3-0.4%.",
+    "Plans A and B were not triggered (high stayed below 4,110, low above 4,010).",
+    "FOMC 01:00 BKK: hold expected, Dec hike odds ~77-84%; Warsh tone decides the next move.",
+    "Wait until after 02:00 BKK to arm new orders; PCE and GDP at 19:30 BKK Thursday."
+  ],
+  "events": [
+    "Thu 01:00 BKK  FOMC decision",
+    "Thu 01:30 BKK  Warsh press conf",
+    "Thu 04:00 BKK  NY daily close",
+    "Thu 19:30 BKK  US Q3 GDP + Sep PCE"
+  ],
+  "levels": {
+    "r": [
+      4065,
+      4100,
+      4125
+    ],
+    "s": [
+      4030,
+      4000,
+      3975
+    ]
+  },
+  "plans": [
+    {
+      "id": "A",
+      "side": "SELL",
+      "type": "LIMIT",
+      "entry": 4110,
+      "sl": 4155,
+      "tp1": 4050,
+      "tp2": 4015,
+      "note": "Sell a post-Fed spike into 4,096-4,125 zone; arm after 02:00 BKK"
+    },
+    {
+      "id": "B",
+      "side": "SELL",
+      "type": "STOP",
+      "entry": 3995,
+      "sl": 4035,
+      "tp1": 3945,
+      "tp2": 3890,
+      "note": "Hawkish Fed break below 4,000; arm after 02:00 BKK; 3,975 low may slow it"
+    }
+  ],
+  "invalid": "Daily close above 4,155 cancels the bearish view (next 4,200)",
+  "risk_note": "No new entries 30 min around FOMC (01:00) and PCE (19:30 BKK). Not financial advice.",
+  "review": {
+    "for_date": "",
+    "result": "NONE",
+    "text": "First brief - no previous plan to review."
+  },
+  "sources": [
+    "Kitco/Reuters 2026-10-28",
+    "Kitco live spot 2026-10-28 09:52 ET",
+    "TradingEconomics 2026-10-28",
+    "FinanceFeeds 2026-10-28",
+    "IndexBox/QNA 2026-10-28",
+    "FXEmpire 2026-10-28",
+    "Tradingpedia 2026-10-28",
+    "RoboForex 2026-10-28"
+  ],
+  "rev": 1,
+  "rev_note": "A SL to 4,155 (above fib 4,154), TPs 4,050/4,015; B moved below 4,000 for R:R 1.25; both armed only after Warsh",
+  "th": {
+    "headline": "ทองอ่อนลงมาราว 4,040-4,050 ก่อนผล Fed ยังมีแรงขายเมื่อเด้ง",
+    "bias_note": "เด้งไม่ผ่าน ดอลลาร์แข็ง Fed ตี 1",
+    "summary": [
+      "กรอบวันนี้ราว 4,030-4,065 เอเชียคืนกำไรเมื่อวาน ลอนดอนแกว่ง 4,030-4,050",
+      "น้ำมันขึ้นหลังข่าวโจมตีโรงกลั่นซาอุ ดอลลาร์ใกล้สูงสุด 2 สัปดาห์ ทองลบราว 0.3-0.4%",
+      "แผน A และ B ไม่ถูกเปิด ราคาไม่ถึง 4,110 และไม่หลุด 4,010",
+      "ผล FOMC ตี 1 คาดคงดอกเบี้ย ตลาดให้โอกาสขึ้นดอกเบี้ย ธ.ค. ราว 77-84%",
+      "รอหลัง 02:00 น. ค่อยตั้งออเดอร์ใหม่ PCE และ GDP พฤหัส 19:30 น."
+    ],
+    "invalid": "แผนใช้ไม่ได้ถ้าแท่งรายวันปิดเหนือ 4,155 (เป้าถัดไป 4,200)",
+    "review_text": "เป็นแผนฉบับแรก ยังไม่มีแผนก่อนหน้าให้ทบทวน",
+    "rev_note": "A เลื่อน SL เป็น 4,155 TP 4,050/4,015 ส่วน B ย้ายลงใต้ 4,000 ตั้งทั้งคู่หลังแถลงข่าว Warsh",
+    "session_note": "ช่วงลอนดอนแกว่ง 4,030-4,050 ดอลลาร์และน้ำมันกดดัน แผน A และ B ไม่ถูกเปิด"
+  },
+  "session": "LONDON_CLOSE",
+  "session_note": "Day range ~4,030-4,065, London held 4,030-4,050 on firm USD/oil; A not triggered, B not triggered; FOMC 01:00 BKK",
+  "lesson_applied": "No standing rules yet; applied brief risk rule: no entries 30 min around FOMC/PCE"
+}

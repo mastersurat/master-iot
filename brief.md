@@ -1,4 +1,45 @@
-# XAUUSD Morning Brief — พุธ 28 ต.ค. 2026 (09:40 น.)
+# XAUUSD Gold Brief — พุธ 28 ต.ค. 2026 (อัปเดต r1)
+
+## อัปเดตปิดตลาดลอนดอน (00:08 น.)
+
+**ราคาอ้างอิง ~4,042 · มุมมอง: ขาลง (Bearish)** ราคาเด้งต่อไม่ผ่าน ดอลลาร์แข็ง ผล Fed ตี 1
+
+### สรุปช่วงตลาดที่เพิ่งปิด
+- กรอบราคาทั้งวันราว 4,030–4,065 ตามแหล่งข่าว ตลาดเอเชียคืนกำไรจากการเด้งเมื่อวาน (Reuters/QNA รายงานต่ำสุดราว 4,030) ช่วงลอนดอนแกว่งราว 4,030–4,050
+- ราคาล่าสุดราว 4,042 (TradingEconomics) Kitco รายงาน 4,049.70 เวลา 20:52 น. ไทย ลบราว 0.3–0.4%
+- ข่าวหลัก: น้ำมันขึ้นกว่า 1% หลังข่าวโจมตีโรงกลั่นในซาอุดีอาระเบีย กังวลเงินเฟ้อ ดอลลาร์ใกล้สูงสุดรอบ 2 สัปดาห์
+- ตลาดคาด Fed คงดอกเบี้ย 3.75–4.00% แต่ให้โอกาสขึ้นดอกเบี้ยเดือน ธ.ค. ราว 77–84% (CME FedWatch)
+
+### ผลของแผนก่อนหน้า (r0)
+- **แผน A** (Sell Limit 4,110): ไม่ถูกเปิด ราคาสูงสุดไม่ถึง 4,110
+- **แผน B** (Sell Stop 4,010): ไม่ถูกเปิด ราคาไม่หลุด 4,010
+
+ออเดอร์ที่ตั้งตามแผนก่อนหน้ายังอยู่ ตรวจสอบและยกเลิกเองได้ในแอป Gold Brief (ระบบไม่ยกเลิกให้อัตโนมัติ)
+
+### แผนใหม่สำหรับช่วงนิวยอร์กที่เหลือ (ถึงปิดตลาด 04:00 น.)
+| แผน | ฝั่ง | ประเภทคำสั่ง | Entry | SL | TP1 | TP2 | เงื่อนไข |
+|---|---|---|---|---|---|---|---|
+| A | SELL | Limit | 4,110 | 4,155 | 4,050 | 4,015 | ขายเมื่อราคาพุ่งหลัง Fed เข้าโซน 4,096–4,125 ตั้งหลัง 02:00 น. (R:R TP1 ≈ 1.33) |
+| B | SELL | Stop | 3,995 | 4,035 | 3,945 | 3,890 | ถ้า Fed เข้มงวดและราคาหลุด 4,000 ตั้งหลัง 02:00 น. ระวังแนวรับ 3,975 (R:R TP1 ≈ 1.25) |
+
+- แนวต้าน: 4,065 · 4,100 · 4,125 (ถัดไป 4,155) · แนวรับ: 4,030 · 4,000 · 3,975 (ถัดไป 3,942)
+- ห้ามเปิดออเดอร์ใหม่ช่วง 30 นาทีรอบผล FOMC และ PCE
+
+**จุดที่แผนใช้ไม่ได้:** แท่งรายวันปิดเหนือ 4,155 มุมมองขาลงจบ เป้าถัดไป 4,200
+
+### ข่าวที่รออยู่ (เวลาไทย)
+| เวลา | เหตุการณ์ |
+|---|---|
+| พฤหัส 01:00 | ผลประชุม FOMC |
+| พฤหัส 01:30 | แถลงข่าว Warsh |
+| พฤหัส 04:00 | ปิดตลาดนิวยอร์กรายวัน |
+| พฤหัส 19:30 | US GDP Q3 + PCE ก.ย. |
+
+**แหล่งข้อมูลรอบนี้:** [Kitco/Reuters](https://www.kitco.com/news/off-the-wire/2026-10-28/gold-slips-higher-oil-prices-ahead-fed-decision) · [Kitco live](https://www.kitco.com/) · [TradingEconomics](https://tradingeconomics.com/commodity/gold) · [FinanceFeeds](https://financefeeds.com/gold-price-today-4038-wednesday-fed-decision-day-pce-thursday-bull-4125-bear-3940/) · [IndexBox/QNA](https://www.indexbox.io/blog/gold-prices-edge-lower-as-oil-gains-lift-inflation-concerns/) · [FXEmpire](https://www.fxempire.com/forecasts/article/gold-price-forecast-4096-4125-zone-sets-the-tone-after-fed-decision-1641005) · [Tradingpedia](https://www.tradingpedia.com/2026/10/28/gold-retreats-ahead-of-fed-decision-as-dollar-strengthens/) · [RoboForex](https://roboforex.com/beginners/analytics/forex-forecast/gold/xau-usd-gold-forecast-2026-10-28/)
+
+---
+
+## แผนเช้า (r0, 09:40 น.) — เก็บไว้อ้างอิง
 
 **ราคาอ้างอิง ~4,060 · มุมมอง: ขาลง (Bearish)** ราคากำลังเด้งขึ้นในแนวโน้มขาลง และคืนนี้มีประชุม Fed
 
