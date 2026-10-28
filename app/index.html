@@ -121,6 +121,10 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
     <div class="card" id="notifyCard">
       <div class="note" id="notifyState">กำลังตรวจสอบ…</div>
       <div class="row" style="margin-top:8px"><button class="btn ghost" id="notifyToggle" hidden>เปิดการแจ้งเตือน</button><button class="btn ghost" id="notifyTest" hidden>ทดสอบแจ้งเตือน</button></div>
+      <div id="nearBox" hidden style="margin-top:10px">
+        <div class="note" id="nearState"></div>
+        <div class="row" style="margin-top:6px" id="nearBtns"></div>
+      </div>
     </div>
     <h2>เชื่อมต่อ MT5</h2>
     <div class="card">
@@ -175,7 +179,7 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
 </nav>
 
 <script>
-const UI_VERSION = '1.5';
+const UI_VERSION = '1.6';
 const RAW = 'https://raw.githubusercontent.com/mastersurat/master-iot/cyd-brief/';
 const API = 'https://api.github.com/repos/mastersurat/master-iot/contents/history?ref=cyd-brief';
 const $ = id => document.getElementById(id);
@@ -244,6 +248,7 @@ function setPrice(p, src) {
   let ref = brief && brief.price_ref ? p - brief.price_ref : null;
   $('pxsrc').innerHTML = (ref !== null ? `<span style="color:${ref >= 0 ? 'var(--up)' : 'var(--down)'}">${ref >= 0 ? '+' : ''}${ref.toFixed(1)}</span> จากราคาตอนเขียนแผน · ` : '') + esc(src);
   if (brief) { renderPlans(); renderLadder(); }
+  try { if (brief && !viewing && window.Native && Native.checkNear) Native.checkNear(p, JSON.stringify(brief)); } catch (e) {}
 }
 
 /* ---------- brief ---------- */
@@ -642,6 +647,19 @@ function renderNotify() {
   $('notifyToggle').hidden = false;
   $('notifyToggle').textContent = on ? 'ปิดการแจ้งเตือน' : 'เปิดการแจ้งเตือน';
   $('notifyTest').hidden = !on;
+  renderNear(on);
+}
+function renderNear(on) {
+  const has = on && window.Native && Native.nearUsd;
+  $('nearBox').hidden = !has;
+  if (!has) return;
+  const cur = Native.nearUsd();
+  $('nearState').textContent = cur > 0
+    ? `แจ้งเมื่อราคาเข้าใกล้จุดเข้าของแผน A/B ไม่เกิน ${cur} $ และเมื่อถึงจุดเข้า (แผนละครั้ง) · ตอนปิดแอปเช็กทุก ~15 นาที ตอนเปิดแอปเช็กทุกครั้งที่ราคาอัปเดต`
+    : 'ปิดการแจ้งเตือนเมื่อราคาใกล้จุดเข้า';
+  $('nearBtns').innerHTML = [0, 3, 5, 10].map(v =>
+    `<button class="btn ${v == cur ? '' : 'ghost'}" data-near="${v}">${v ? v + ' $' : 'ปิด'}</button>`).join('');
+  $('nearBtns').querySelectorAll('button').forEach(b => b.onclick = () => { Native.setNearUsd(+b.dataset.near); renderNear(true); });
 }
 $('notifyToggle').onclick = () => { Native.setNotify(!Native.notifyEnabled()); setTimeout(renderNotify, 800); };
 $('notifyTest').onclick = () => { Native.testNotify(); $('notifyState').textContent = 'ส่งแจ้งเตือนทดสอบแล้ว ดูที่แถบแจ้งเตือนของมือถือ'; };
