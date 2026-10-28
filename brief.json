@@ -1,34 +1,37 @@
 {
   "v": 1,
-  "date": "2026-10-28",
-  "generated": "2026-10-29 00:08 +07",
-  "price_ref": 4042,
+  "date": "2026-10-29",
+  "generated": "2026-10-29 06:54 +07",
+  "rev": 0,
+  "session": "NY_CLOSE",
+  "session_note": "Fed held 10-2 (2 hike dissents); gold dipped to ~4,035, ended NY ~4,054 (-0.3%); day 4,024-4,083; last plans not triggered",
+  "rev_note": "",
+  "price_ref": 4054,
   "bias": "BEARISH",
-  "bias_note": "Bounce faded; firm USD, Fed 01:00",
-  "headline": "Gold slips to ~4,040-4,050 into FOMC; rallies still sold",
+  "bias_note": "Below falling 20D MA; Dec hike odds ~83%",
+  "headline": "Gold steadies ~4,054 after Fed hold; 4,024-4,083 box, PCE at 19:30 BKK decides",
   "summary": [
-    "Day range roughly 4,030-4,065: Asia gave back Tuesday's bounce, London held 4,030-4,050.",
-    "Oil rose after a Saudi refinery attack claim; USD near 2-week high, gold off ~0.3-0.4%.",
-    "Plans A and B were not triggered (high stayed below 4,110, low above 4,010).",
-    "FOMC 01:00 BKK: hold expected, Dec hike odds ~77-84%; Warsh tone decides the next move.",
-    "Wait until after 02:00 BKK to arm new orders; PCE and GDP at 19:30 BKK Thursday."
+    "Fed held 3.75-4.00% by 10-2; Cook and Hammack voted for a hike. Dec hike odds ~83%.",
+    "Gold fell to ~4,035 after the decision, then recovered to ~4,054 by NY close (-0.3% on day).",
+    "Wednesday range 4,024-4,083 (Kitco). Price still below 20-day MA ~4,124, which is falling.",
+    "10Y yield near 5.0%, Brent ~$115 after Saudi refinery attack claim: both weigh on gold.",
+    "US GDP + Sep PCE 19:30 BKK, ECB 20:15 BKK: expect a spike; no new entries 19:00-20:45."
   ],
   "events": [
-    "Thu 01:00 BKK  FOMC decision",
-    "Thu 01:30 BKK  Warsh press conf",
-    "Thu 04:00 BKK  NY daily close",
-    "Thu 19:30 BKK  US Q3 GDP + Sep PCE"
+    "Thu 19:30 BKK  US GDP + PCE + claims",
+    "Thu 20:15 BKK  ECB decision",
+    "Fri 04:00 BKK  NY daily close"
   ],
   "levels": {
     "r": [
-      4065,
-      4100,
-      4125
+      4060,
+      4083,
+      4103
     ],
     "s": [
-      4030,
-      4000,
-      3975
+      4039,
+      4024,
+      4000
     ]
   },
   "plans": [
@@ -36,58 +39,53 @@
       "id": "A",
       "side": "SELL",
       "type": "LIMIT",
-      "entry": 4110,
-      "sl": 4155,
-      "tp1": 4050,
-      "tp2": 4015,
-      "note": "Sell a post-Fed spike into 4,096-4,125 zone; arm after 02:00 BKK"
+      "entry": 4080,
+      "sl": 4108,
+      "tp1": 4045,
+      "tp2": 4025,
+      "note": "Fade retest of Wed high 4,083; SL above 4,103 shelf; RR 1.25"
     },
     {
       "id": "B",
       "side": "SELL",
       "type": "STOP",
-      "entry": 3995,
-      "sl": 4035,
-      "tp1": 3945,
-      "tp2": 3890,
-      "note": "Hawkish Fed break below 4,000; arm after 02:00 BKK; 3,975 low may slow it"
+      "entry": 4020,
+      "sl": 4050,
+      "tp1": 3982,
+      "tp2": 3950,
+      "note": "Break of Wed low 4,024 (hot PCE); 3,975 may slow; RR 1.27"
     }
   ],
-  "invalid": "Daily close above 4,155 cancels the bearish view (next 4,200)",
-  "risk_note": "No new entries 30 min around FOMC (01:00) and PCE (19:30 BKK). Not financial advice.",
+  "invalid": "Daily close above 4,125 (20-day MA) cancels the bearish view; next 4,190",
+  "risk_note": "No new entries 19:00-20:45 BKK (PCE, ECB); spikes can fill pending orders. Not financial advice.",
+  "lesson_applied": "2026-10-28 lesson: entries moved to tested levels within ~30 of price",
   "review": {
-    "for_date": "",
-    "result": "NONE",
-    "text": "First brief - no previous plan to review."
+    "for_date": "2026-10-28",
+    "result": "NOT_TRIGGERED",
+    "text": "r0 and r1: no plan triggered. Day range 4,024-4,083 (Kitco); sell limit 4,110 missed by 27, sell stop 4,010/3,995 missed by 14/29. Fed held; gold ~4,054 at NY close."
   },
   "sources": [
-    "Kitco/Reuters 2026-10-28",
-    "Kitco live spot 2026-10-28 09:52 ET",
-    "TradingEconomics 2026-10-28",
-    "FinanceFeeds 2026-10-28",
-    "IndexBox/QNA 2026-10-28",
+    "Kitco PM Report 2026-10-28",
+    "Kitco news 2026-10-28",
+    "Kitco spot page 2026-10-28 18:30 ET",
+    "Yahoo Finance 2026-10-28",
     "FXEmpire 2026-10-28",
-    "Tradingpedia 2026-10-28",
-    "RoboForex 2026-10-28"
+    "LiteFinance 2026-10-29",
+    "MarketAlleys 2026-10-28"
   ],
-  "rev": 1,
-  "rev_note": "A SL to 4,155 (above fib 4,154), TPs 4,050/4,015; B moved below 4,000 for R:R 1.25; both armed only after Warsh",
   "th": {
-    "headline": "ทองอ่อนลงมาราว 4,040-4,050 ก่อนผล Fed ยังมีแรงขายเมื่อเด้ง",
-    "bias_note": "เด้งไม่ผ่าน ดอลลาร์แข็ง Fed ตี 1",
+    "headline": "ทองทรงตัวราว 4,054 หลัง Fed คงดอกเบี้ย รอ PCE 19:30 น.",
+    "bias_note": "อยู่ใต้ MA 20 วัน ตลาดคาดขึ้นดอกเบี้ย",
     "summary": [
-      "กรอบวันนี้ราว 4,030-4,065 เอเชียคืนกำไรเมื่อวาน ลอนดอนแกว่ง 4,030-4,050",
-      "น้ำมันขึ้นหลังข่าวโจมตีโรงกลั่นซาอุ ดอลลาร์ใกล้สูงสุด 2 สัปดาห์ ทองลบราว 0.3-0.4%",
-      "แผน A และ B ไม่ถูกเปิด ราคาไม่ถึง 4,110 และไม่หลุด 4,010",
-      "ผล FOMC ตี 1 คาดคงดอกเบี้ย ตลาดให้โอกาสขึ้นดอกเบี้ย ธ.ค. ราว 77-84%",
-      "รอหลัง 02:00 น. ค่อยตั้งออเดอร์ใหม่ PCE และ GDP พฤหัส 19:30 น."
+      "Fed คงดอกเบี้ย 3.75-4.00% มติ 10-2 มี 2 เสียงอยากขึ้นดอกเบี้ย โอกาสขึ้น ธ.ค. ราว 83%",
+      "ทองลงไปราว 4,035 หลังผล Fed แล้วฟื้นกลับมาปิดราว 4,054 ทั้งวันลบ 0.3%",
+      "กรอบเมื่อวาน 4,024-4,083 ราคายังอยู่ใต้ MA 20 วัน ราว 4,124 ที่กำลังลง",
+      "บอนด์ 10 ปี ราว 5.0% น้ำมัน Brent ราว 115 ดอลลาร์ ยังกดดันทอง",
+      "GDP และ PCE 19:30 น. ECB 20:15 น. งดเปิดออเดอร์ใหม่ 19:00-20:45 น."
     ],
-    "invalid": "แผนใช้ไม่ได้ถ้าแท่งรายวันปิดเหนือ 4,155 (เป้าถัดไป 4,200)",
-    "review_text": "เป็นแผนฉบับแรก ยังไม่มีแผนก่อนหน้าให้ทบทวน",
-    "rev_note": "A เลื่อน SL เป็น 4,155 TP 4,050/4,015 ส่วน B ย้ายลงใต้ 4,000 ตั้งทั้งคู่หลังแถลงข่าว Warsh",
-    "session_note": "ช่วงลอนดอนแกว่ง 4,030-4,050 ดอลลาร์และน้ำมันกดดัน แผน A และ B ไม่ถูกเปิด"
-  },
-  "session": "LONDON_CLOSE",
-  "session_note": "Day range ~4,030-4,065, London held 4,030-4,050 on firm USD/oil; A not triggered, B not triggered; FOMC 01:00 BKK",
-  "lesson_applied": "No standing rules yet; applied brief risk rule: no entries 30 min around FOMC/PCE"
+    "invalid": "แผนขาลงจบถ้าแท่งรายวันปิดเหนือ 4,125 เป้าถัดไป 4,190",
+    "review_text": "แผน r0 และ r1 ไม่ถูกเปิดเลย กรอบวัน 4,024-4,083 Sell Limit 4,110 ขาด 27 จุด Sell Stop 4,010/3,995 ขาด 14/29 จุด ปิดราว 4,054",
+    "session_note": "Fed คงดอกเบี้ย ทองลงไป 4,035 แล้วฟื้นปิดราว 4,054 กรอบวัน 4,024-4,083 แผนล่าสุดไม่ถูกเปิด",
+    "rev_note": ""
+  }
 }
