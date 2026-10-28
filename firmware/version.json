@@ -1,9 +1,9 @@
 {
-  "version": "1.4.1",
+  "version": "1.4.2",
   "builds": {
     "cyd2usb": "https://raw.githubusercontent.com/mastersurat/master-iot/cyd-brief/firmware/minios-cyd2usb-ota.bin",
     "cyd2usb_st7789": "https://raw.githubusercontent.com/mastersurat/master-iot/cyd-brief/firmware/minios-cyd2usb_st7789-ota.bin",
     "cyd_classic": "https://raw.githubusercontent.com/mastersurat/master-iot/cyd-brief/firmware/minios-cyd_classic-ota.bin"
   },
-  "notes": "1.4.1: Thai UI; self-update streams into OTA (fixes failed HTTPUpdate), /api/status reports fw_check"
+  "notes": "1.4.2: smaller Thai fonts (15/20 px)"
 }
