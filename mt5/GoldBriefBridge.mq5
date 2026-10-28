@@ -289,7 +289,7 @@ void ProcessRequest(Entry &list[], const string id) {
    datetime expGmt = ExpiryGmt(date);
    datetime expServer = expGmt + (TimeTradeServer() - TimeGMT());
    int expModes = (int)SymbolInfoInteger(InpSymbol, SYMBOL_EXPIRATION_MODE);
-   ENUM_ORDER_TYPE_TIME tt = (expModes & SYMBOL_EXPIRATION_SPECIFIED) ? ORDER_TIME_SPECIFIED : ORDER_TIME_GTC;
+   ENUM_ORDER_TYPE_TIME tt = ((expModes & SYMBOL_EXPIRATION_SPECIFIED) != 0) ? ORDER_TIME_SPECIFIED : ORDER_TIME_GTC;
 
    string tickets = ""; double total = 0; string errs = "";
    for(int i = 0; i < ArraySize(lots); i++) {
