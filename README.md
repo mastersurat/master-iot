@@ -20,3 +20,7 @@ Scenario analysis from public sources. Not financial advice.
 - Order ids: revision 0 uses `<date>-<plan>`; revision n uses `<date>-R<n><plan>` so the EA never mixes them.
 - Orders placed on an older revision are never touched automatically; the app flags them with a cancel button.
 - `lessons.md` - the morning review logs why a plan missed and the rule that changes the next plans.
+
+## Board firmware (`firmware/`)
+- Mini OS 1.3+ checks `firmware/version.json` 1 minute after boot and every 6 hours; if `version` is newer it downloads its build (`builds.<variant>`) and reboots.
+- To ship an update: build, copy each `firmware.bin` to `firmware/minios-<variant>-ota.bin`, then raise `version`.
