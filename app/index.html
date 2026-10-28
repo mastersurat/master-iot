@@ -14,6 +14,7 @@
   --mono:"Roboto Mono","DejaVu Sans Mono",ui-monospace,monospace;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font:15px/1.5 var(--font);-webkit-tap-highlight-color:transparent}
 .num{font-family:var(--mono);font-variant-numeric:tabular-nums}
 header{position:sticky;top:0;z-index:5;background:var(--bg);padding:14px 16px 10px;border-bottom:1px solid var(--line)}
@@ -72,6 +73,24 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
 .refresh{background:none;border:1px solid var(--line);color:var(--dim);border-radius:6px;font:12px var(--font);padding:4px 10px}
 .err{color:var(--warn);font-size:13px;margin-top:6px}
 .disc{font-size:12px;color:var(--dim);margin-top:18px}
+.btn{background:var(--gold);color:var(--gold-ink);border:0;border-radius:8px;font:600 14px var(--font);padding:10px 14px}
+.btn.ghost{background:none;color:var(--fg);border:1px solid var(--line)}
+.btn.danger{background:none;color:var(--down);border:1px solid var(--down)}
+.btn:disabled{opacity:.45}
+.btn:focus-visible,.seg button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.ord{display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap}
+.ord .st{font-size:13px;flex:1;min-width:0}
+.sheet-bg{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:20;display:flex;align-items:flex-end}
+.sheet{background:var(--panel);width:100%;border-radius:16px 16px 0 0;padding:16px 16px calc(20px + env(safe-area-inset-bottom));max-height:92vh;overflow:auto}
+.sheet h3{margin:0 0 4px;font-size:17px}
+.seg{display:flex;gap:6px;margin:6px 0 12px}
+.seg button{flex:1;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:9px 4px;font:14px var(--font)}
+.seg button[aria-pressed=true]{border-color:var(--gold);color:var(--gold);font-weight:700}
+.field{display:flex;align-items:center;gap:8px;margin:4px 0 12px}
+.field input{flex:1;min-width:0;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:10px;font:16px var(--mono)}
+.lbl{font-size:12px;color:var(--dim);letter-spacing:.06em}
+.sum2{background:var(--bg);border-radius:8px;padding:10px 12px;font-size:14px;margin:6px 0 12px}
+.sum2 div{display:flex;justify-content:space-between;padding:2px 0}
 </style>
 </head>
 <body>
@@ -96,6 +115,12 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
     <h2>ระดับราคา</h2>
     <div class="card"><div class="ladder" id="ladder"></div></div>
     <p class="note" id="invalid"></p>
+    <h2>เชื่อมต่อ MT5</h2>
+    <div class="card">
+      <div class="note" id="mt5state">ยังไม่ได้ใส่ GitHub token ปุ่ม "ทำตามแผน" จะใช้ได้เมื่อใส่ token</div>
+      <div class="field"><input id="tok" type="password" placeholder="github_pat_..." autocomplete="off" aria-label="GitHub token"></div>
+      <div class="row"><button class="btn ghost" id="tokSave">บันทึก + ทดสอบ</button><button class="btn ghost" id="tokClear">ลบ token</button></div>
+    </div>
   </section>
 
   <section id="t-news" hidden>
@@ -132,6 +157,8 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
   <p class="disc">การวิเคราะห์เชิงสถานการณ์จากข้อมูลสาธารณะ ไม่ใช่คำแนะนำการลงทุน<br><span id="ver"></span></p>
 </main>
 
+<div class="sheet-bg" id="sheetBg" hidden><div class="sheet" id="sheet" role="dialog" aria-modal="true"></div></div>
+
 <nav role="tablist">
   <button role="tab" data-t="plan" aria-selected="true">แผน</button>
   <button role="tab" data-t="news">ข่าว</button>
@@ -141,7 +168,7 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
 </nav>
 
 <script>
-const UI_VERSION = '1.2';
+const UI_VERSION = '1.3';
 const RAW = 'https://raw.githubusercontent.com/mastersurat/master-iot/cyd-brief/';
 const API = 'https://api.github.com/repos/mastersurat/master-iot/contents/history?ref=cyd-brief';
 const $ = id => document.getElementById(id);
@@ -288,8 +315,11 @@ function renderPlans() {
       <div class="status"><span class="dot" style="background:${sc}"></span><span style="color:${sc}">${st}</span>
         <span class="num" style="margin-left:auto;color:var(--dim)">R:R 1:${rr.toFixed(1)}</span></div>
       <div class="note">${esc(p.note)}</div>
+      ${orderRow(p)}
     </div>`;
   }).join('');
+  document.querySelectorAll('[data-follow]').forEach(b => b.onclick = () => openSheet(b.dataset.follow));
+  document.querySelectorAll('[data-cancel]').forEach(b => b.onclick = () => cancelOrder(b.dataset.cancel, b));
 }
 
 function renderLadder() {
@@ -380,6 +410,173 @@ function mdToHtml(md) {
   return out;
 }
 
+/* ---------- MT5 bridge: requests go to GitHub, the GoldBriefBridge EA on the PC places them ---------- */
+const GH_API = 'https://api.github.com/repos/mastersurat/master-iot/contents/orders';
+const ORD_BRANCH = 'cyd-orders';
+const SYMBOL = 'XAUUSDm';
+let orderState = {};           // id -> {req:true, cancel:true, status:{...}}
+let sentAt = {};               // id -> ms when we sent (to show "waiting for EA")
+const token = () => { try { return localStorage.getItem('ghToken') || ''; } catch (e) { return ''; } };
+const bkkToday = () => new Date(Date.now() + 7 * 3600e3).toISOString().slice(0, 10);
+const planKey = p => brief.date + '-' + p.id;
+const canTrade = () => brief && !viewing && brief.date === bkkToday();
+
+async function gh(method, path, body, raw) {
+  const r = await fetch(GH_API + path + (method === 'GET' ? (path.includes('?') ? '&' : '?') + 'ref=' + ORD_BRANCH + '&t=' + Date.now() : ''), {
+    method, cache: 'no-store',
+    headers: {Authorization: 'Bearer ' + token(), Accept: raw ? 'application/vnd.github.raw' : 'application/vnd.github+json',
+              'X-GitHub-Api-Version': '2022-11-28', ...(body ? {'Content-Type': 'application/json'} : {})},
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  return r;
+}
+const b64 = s => btoa(unescape(encodeURIComponent(s)));
+
+const stThai = {PLACED: 'ตั้งออเดอร์แล้ว', REJECTED: 'EA ปฏิเสธ', CANCELLED: 'ยกเลิกแล้ว', FILLED: 'ออเดอร์ทำงานแล้ว (เปิดสถานะ)', EXPIRED: 'หมดอายุ ไม่ถูกเรียก', CLOSED: 'ไม่มีออเดอร์ค้างแล้ว'};
+const stColor = s => s === 'PLACED' || s === 'FILLED' ? 'var(--up)' : s === 'REJECTED' ? 'var(--down)' : 'var(--dim)';
+
+function orderRow(p) {
+  if (!canTrade()) return '';
+  const id = planKey(p), o = orderState[id] || {};
+  if (o.status) {
+    const st = o.status.state;
+    const tk = o.status.tickets ? ' #' + esc(o.status.tickets) : '';
+    const pending = o.cancel && st === 'PLACED' ? ' · กำลังยกเลิก…' : '';
+    return `<div class="ord"><span class="st" style="color:${stColor(st)}">${stThai[st] || esc(st)}${tk}${pending}<br><span class="note">${esc(o.status.detail || '')}</span></span>
+      ${st === 'PLACED' && !o.cancel ? `<button class="btn danger" data-cancel="${id}">ยกเลิก</button>` : ''}</div>`;
+  }
+  if (o.req) {
+    const waited = sentAt[id] ? (Date.now() - sentAt[id]) / 1000 : 0;
+    return `<div class="ord"><span class="st" style="color:var(--warn)">ส่งคำสั่งแล้ว รอ EA ตอบ…${waited > 60 ? '<br><span class="note">เกิน 1 นาที: เช็กว่า MT5 บน PC เปิดอยู่และ EA ทำงาน</span>' : ''}</span></div>`;
+  }
+  return `<div class="ord"><button class="btn" data-follow="${esc(p.id)}" ${token() ? '' : 'disabled'}>ทำตามแผน ${esc(p.id)}</button>
+    ${token() ? '' : '<span class="st note">ใส่ GitHub token ด้านล่างก่อน</span>'}</div>`;
+}
+
+async function refreshOrders() {
+  if (!token() || !canTrade()) return;
+  try {
+    const r = await gh('GET', '');
+    if (r.status === 404) { orderState = {}; renderPlans(); return; }
+    if (!r.ok) { $('mt5state').textContent = 'อ่านสถานะไม่ได้ (HTTP ' + r.status + ') ตรวจสอบ token'; return; }
+    const files = (await r.json()).map(f => f.name);
+    const next = {};
+    for (const p of brief.plans || []) {
+      const id = planKey(p), o = {};
+      o.req = files.includes(`req-${id}.json`);
+      o.cancel = files.includes(`cancel-${id}.json`);
+      if (files.includes(`status-${id}.json`)) {
+        const s = await gh('GET', `/status-${id}.json`, null, true);
+        if (s.ok) o.status = await s.json();
+      }
+      next[id] = o;
+    }
+    orderState = next;
+    renderPlans();
+  } catch (e) {}
+}
+
+let sheet = {};
+function openSheet(pid) {
+  const p = brief.plans.find(x => x.id === pid);
+  if (!p) return;
+  let saved = {};
+  try { saved = JSON.parse(localStorage.getItem('ordPrefs') || '{}'); } catch (e) {}
+  sheet = {p, tp: saved.tp || 'TP1', mode: saved.mode || 'FIXED', lot: saved.lot || 0.01, risk: saved.risk || 1};
+  drawSheet();
+  $('sheetBg').hidden = false;
+}
+function closeSheet() { $('sheetBg').hidden = true; }
+function drawSheet() {
+  const {p, tp, mode, lot, risk} = sheet;
+  const tpTxt = tp === 'SPLIT' ? `${fmt(p.tp1)} / ${fmt(p.tp2)} (แบ่งครึ่ง)` : fmt(tp === 'TP2' ? p.tp2 : p.tp1);
+  const dist = Math.abs(p.entry - p.sl);
+  const riskTxt = mode === 'FIXED'
+    ? `≈ $${(dist * 100 * lot).toFixed(2)} ถ้าโดน SL (คิดสัญญา 100 oz/ล็อต)`
+    : `EA คำนวณล็อตให้เสีย ${risk}% ของ balance ถ้าโดน SL`;
+  $('sheet').innerHTML = `
+    <h3>ทำตามแผน ${esc(p.id)} · ${esc(p.side)} ${esc(p.type)}</h3>
+    <div class="note">${esc(SYMBOL)} · บัญชีเดโม · ออเดอร์หมดอายุพรุ่งนี้ 06:30 น.</div>
+    <div class="sum2 num">
+      <div><span>Entry</span><b>${fmt(p.entry)}</b></div>
+      <div><span>SL</span><b style="color:var(--down)">${fmt(p.sl)}</b></div>
+      <div><span>TP</span><b style="color:var(--up)">${tpTxt}</b></div>
+      ${price ? `<div><span>ราคาตอนนี้</span><span>${fmt(price.toFixed(2))}</span></div>` : ''}
+    </div>
+    <div class="lbl">ปิดกำไรที่</div>
+    <div class="seg">${['TP1', 'TP2', 'SPLIT'].map(v => `<button aria-pressed="${tp === v}" data-tp="${v}">${v === 'SPLIT' ? 'แบ่ง TP1+TP2' : v}</button>`).join('')}</div>
+    <div class="lbl">ขนาดออเดอร์</div>
+    <div class="seg">${[['FIXED', 'ล็อตคงที่'], ['RISK', '% ความเสี่ยง']].map(([v, t]) => `<button aria-pressed="${mode === v}" data-mode="${v}">${t}</button>`).join('')}</div>
+    <div class="field">
+      ${mode === 'FIXED'
+        ? `<input id="lotIn" type="number" inputmode="decimal" step="0.01" min="0.01" value="${lot}" aria-label="lot"><span>ล็อต</span>`
+        : `<input id="riskIn" type="number" inputmode="decimal" step="0.1" min="0.1" max="2" value="${risk}" aria-label="risk percent"><span>% ต่อไม้</span>`}
+    </div>
+    <div class="note" id="riskTxt">${riskTxt}</div>
+    <div class="note">EA จำกัดล็อตสูงสุดและความเสี่ยงไม่เกินค่าที่ตั้งใน MT5 · การวิเคราะห์นี้ไม่ใช่คำแนะนำการลงทุน</div>
+    <div class="row" style="margin-top:14px"><button class="btn ghost" id="shCancel" style="flex:1">ปิด</button>
+      <button class="btn" id="shSend" style="flex:2">ยืนยันส่งคำสั่ง</button></div>
+    <div class="err" id="shErr" hidden></div>`;
+  $('sheet').querySelectorAll('[data-tp]').forEach(b => b.onclick = () => { sheet.tp = b.dataset.tp; drawSheet(); });
+  $('sheet').querySelectorAll('[data-mode]').forEach(b => b.onclick = () => { sheet.mode = b.dataset.mode; drawSheet(); });
+  if ($('lotIn')) $('lotIn').oninput = e => { sheet.lot = +e.target.value; $('riskTxt').textContent = `≈ $${(dist * 100 * sheet.lot).toFixed(2)} ถ้าโดน SL (คิดสัญญา 100 oz/ล็อต)`; };
+  if ($('riskIn')) $('riskIn').oninput = e => { sheet.risk = +e.target.value; $('riskTxt').textContent = `EA คำนวณล็อตให้เสีย ${sheet.risk}% ของ balance ถ้าโดน SL`; };
+  $('shCancel').onclick = closeSheet;
+  $('shSend').onclick = sendOrder;
+}
+$('sheetBg').onclick = e => { if (e.target === $('sheetBg')) closeSheet(); };
+
+async function sendOrder() {
+  const {p, tp, mode, lot, risk} = sheet, id = planKey(p);
+  const bad = msg => { $('shErr').hidden = false; $('shErr').textContent = msg; };
+  if (mode === 'FIXED' && !(lot >= 0.01)) return bad('ล็อตต้องอย่างน้อย 0.01');
+  if (mode === 'RISK' && !(risk > 0 && risk <= 2)) return bad('ความเสี่ยงต้องอยู่ระหว่าง 0.1–2%');
+  if (!canTrade()) return bad('แผนนี้ไม่ใช่แผนของวันนี้');
+  try { localStorage.setItem('ordPrefs', JSON.stringify({tp, mode, lot, risk})); } catch (e) {}
+  const req = {id, date: brief.date, plan: p.id, symbol: SYMBOL, side: p.side, type: p.type, entry: p.entry, sl: p.sl,
+               tp1: p.tp1, tp2: p.tp2, tp_mode: tp, lot_mode: mode, lot: mode === 'FIXED' ? lot : 0, risk_pct: mode === 'RISK' ? risk : 0,
+               brief_generated: brief.generated, created: new Date().toISOString()};
+  $('shSend').disabled = true; $('shSend').textContent = 'กำลังส่ง…';
+  try {
+    const r = await gh('PUT', `/req-${id}.json`, {message: `order request ${id}`, branch: ORD_BRANCH, content: b64(JSON.stringify(req, null, 1))});
+    if (r.status === 422) { $('shSend').disabled = false; $('shSend').textContent = 'ยืนยันส่งคำสั่ง'; return bad('แผนนี้ส่งคำสั่งไปแล้ววันนี้ (1 คำสั่งต่อแผนต่อวัน)'); }
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    sentAt[id] = Date.now();
+    orderState[id] = {req: true};
+    closeSheet(); renderPlans();
+    setTimeout(refreshOrders, 8000);
+  } catch (e) {
+    $('shSend').disabled = false; $('shSend').textContent = 'ยืนยันส่งคำสั่ง';
+    bad('ส่งไม่สำเร็จ: ' + e.message + ' (ตรวจสอบ token และอินเทอร์เน็ต)');
+  }
+}
+
+async function cancelOrder(id, btn) {
+  if (btn.dataset.confirm !== '1') { btn.dataset.confirm = '1'; btn.textContent = 'แตะอีกครั้งเพื่อยืนยัน'; return; }
+  btn.disabled = true;
+  try {
+    const r = await gh('PUT', `/cancel-${id}.json`, {message: `cancel ${id}`, branch: ORD_BRANCH, content: b64(JSON.stringify({id, created: new Date().toISOString()}))});
+    if (!r.ok && r.status !== 422) throw new Error('HTTP ' + r.status);
+    (orderState[id] = orderState[id] || {}).cancel = true;
+    renderPlans(); setTimeout(refreshOrders, 8000);
+  } catch (e) { btn.disabled = false; btn.textContent = 'ยกเลิกไม่สำเร็จ ลองใหม่'; }
+}
+
+async function testToken() {
+  if (!token()) { $('mt5state').textContent = 'ยังไม่ได้ใส่ GitHub token ปุ่ม "ทำตามแผน" จะใช้ได้เมื่อใส่ token'; return; }
+  $('mt5state').textContent = 'กำลังทดสอบ token…';
+  try {
+    const r = await fetch('https://api.github.com/repos/mastersurat/master-iot', {headers: {Authorization: 'Bearer ' + token()}, cache: 'no-store'});
+    const j = await r.json();
+    if (!r.ok) throw new Error(r.status === 401 ? 'token ไม่ถูกต้องหรือหมดอายุ' : 'HTTP ' + r.status);
+    const push = j.permissions ? j.permissions.push : null;
+    $('mt5state').textContent = push === false ? 'token อ่านได้แต่ไม่มีสิทธิ์เขียน: ต้องให้สิทธิ์ Contents แบบ Read and write'
+      : 'token ใช้ได้ · เชื่อมกับ repo ' + j.full_name + ' แล้ว';
+  } catch (e) { $('mt5state').textContent = 'ทดสอบไม่ผ่าน: ' + e.message; }
+}
+$('tokSave').onclick = () => { try { localStorage.setItem('ghToken', $('tok').value.trim()); } catch (e) {} $('tok').value = ''; testToken(); renderPlans(); refreshOrders(); };
+$('tokClear').onclick = () => { try { localStorage.removeItem('ghToken'); } catch (e) {} testToken(); renderPlans(); };
+
 /* ---------- new APK notice (only needed when the native part changes) ---------- */
 async function checkApk() {
   try {
@@ -414,7 +611,8 @@ window.onAppResume = () => { loadPrice(); if (!viewing) loadBrief(null); };
 try { const c = localStorage.getItem('lastBrief'); if (c) { brief = JSON.parse(c); render(); } } catch (e) {}
 loadBrief(null); loadPrice();
 $('ver').textContent = 'หน้าจอ v' + UI_VERSION + (window.Native && Native.versionCode ? ' · แอป build ' + Native.versionCode() : '');
-checkApk();
+checkApk(); testToken(); refreshOrders();
+setInterval(refreshOrders, 15000);
 setInterval(loadPrice, 20000);
 setInterval(() => { if (!viewing) loadBrief(null); }, 10 * 60 * 1000);
 </script>
