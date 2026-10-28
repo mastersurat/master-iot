@@ -1,0 +1,422 @@
+<!doctype html>
+<!--goldbrief-app-->
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Gold Brief</title>
+<style>
+/* Layout: one column; sticky price header, scrolling tab body, fixed bottom tab bar. */
+:root{
+  --bg:#101114; --panel:#181a1f; --line:#262931; --fg:#eceae4; --dim:#8d8f97;
+  --gold:#d9b25c; --gold-ink:#1b1505; --up:#3ccf86; --down:#ef5b5b; --warn:#f0a63a;
+  --font:"Roboto","Noto Sans Thai","Sarabun",system-ui,sans-serif;
+  --mono:"Roboto Mono","DejaVu Sans Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font:15px/1.5 var(--font);-webkit-tap-highlight-color:transparent}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+header{position:sticky;top:0;z-index:5;background:var(--bg);padding:14px 16px 10px;border-bottom:1px solid var(--line)}
+.row{display:flex;align-items:center;gap:10px}
+.sym{font-size:12px;letter-spacing:.12em;color:var(--dim)}
+.px{font-size:34px;font-weight:600;line-height:1.1}
+.chg{font-size:13px}
+.badge{margin-left:auto;padding:4px 10px;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:.08em;color:var(--gold-ink);background:var(--gold)}
+.badge.BEARISH{background:var(--down);color:#fff}.badge.BULLISH{background:var(--up);color:#062014}.badge.NEUTRAL{background:var(--warn)}
+.meta{font-size:12px;color:var(--dim);margin-top:2px}
+main{padding:12px 16px 96px}
+section[hidden]{display:none}
+h2{font-size:13px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin:18px 0 8px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.plan{position:relative;padding-left:18px;margin-bottom:10px}
+.plan::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;border-radius:10px 0 0 10px;background:var(--side,var(--gold))}
+.plan .top{display:flex;align-items:baseline;gap:8px}
+.plan .id{font-weight:700;color:var(--side)}
+.plan .entry{margin-left:auto;font-size:20px;font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
+.grid div{background:var(--bg);border-radius:6px;padding:6px 8px}
+.grid small{display:block;color:var(--dim);font-size:11px}
+.status{margin-top:8px;font-size:13px;display:flex;gap:8px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--dim)}
+.note{font-size:13px;color:var(--dim);margin-top:4px}
+/* level ladder */
+.ladder{position:relative;height:300px;margin-top:4px}
+.ladder .now{z-index:2}
+.ladder .tick{position:absolute;left:0;right:0;height:0;border-top:1px dashed var(--line)}
+.ladder .tick span{position:absolute;top:-9px;font-size:12px;background:var(--panel);padding:0 6px}
+.ladder .tick .l{left:0}.ladder .tick .r{right:0;color:var(--dim)}
+.ladder .tick.R span.l{color:var(--down)}.ladder .tick.S span.l{color:var(--up)}
+.ladder .tick.E{border-top:1px solid var(--gold)}.ladder .tick.E span.l{color:var(--gold)}
+.ladder .tick.SL{border-top:1px solid var(--down)}.ladder .tick.TP{border-top:1px solid var(--up)}
+.ladder .now{position:absolute;left:28%;right:28%;height:0;border-top:2px solid var(--fg);transition:top .6s}
+.ladder .now span{position:absolute;left:50%;transform:translate(-50%,-50%);background:var(--fg);color:var(--bg);font-size:12px;font-weight:700;padding:1px 8px;border-radius:10px}
+ul.sum{margin:0;padding-left:18px}ul.sum li{margin:6px 0}
+.ev{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--line)}.ev:last-child{border:0}
+.ev .t{color:var(--warn);min-width:110px}
+.verdict{display:inline-block;font-size:22px;font-weight:700;padding:6px 14px;border-radius:8px;color:#111;background:var(--dim)}
+.md{font-size:15px}
+.md h1{font-size:19px;line-height:1.35;text-wrap:balance;margin:4px 0 10px}
+.md h2{font-size:14px;color:var(--gold);text-transform:none;letter-spacing:0;margin:20px 0 6px}
+.md table{width:100%;border-collapse:collapse;font-size:13px}
+.md th,.md td{border-bottom:1px solid var(--line);padding:6px 4px;text-align:left;vertical-align:top}
+.md th{color:var(--dim);font-weight:600}
+.tablewrap{overflow-x:auto}
+.md a,.src a{color:var(--gold)}
+.md hr{border:0;border-top:1px solid var(--line);margin:16px 0}
+.md p{margin:8px 0}
+.hist button{display:flex;width:100%;justify-content:space-between;align-items:center;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:8px;font:inherit;text-align:left}
+.hist .res{white-space:nowrap;margin-left:8px;font-size:12px;font-weight:700;padding:2px 8px;border-radius:5px;color:#111;background:var(--dim)}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;background:#0b0c0e;border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom)}
+nav button{flex:1;background:none;border:0;color:var(--dim);font:13px var(--font);padding:12px 0 14px}
+nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--gold)}
+.refresh{background:none;border:1px solid var(--line);color:var(--dim);border-radius:6px;font:12px var(--font);padding:4px 10px}
+.err{color:var(--warn);font-size:13px;margin-top:6px}
+.disc{font-size:12px;color:var(--dim);margin-top:18px}
+</style>
+</head>
+<body>
+<div id="upd" hidden style="background:var(--gold);color:var(--gold-ink);padding:10px 16px;font-size:14px"></div>
+<header>
+  <div class="row">
+    <div>
+      <div class="sym">XAUUSD · SPOT</div>
+      <div class="px num" id="px">----.--</div>
+      <div class="chg num" id="pxsrc">กำลังโหลดราคา…</div>
+    </div>
+    <span class="badge" id="bias">—</span>
+  </div>
+  <div class="row meta"><span id="gen">กำลังโหลดแผน…</span><button class="refresh" id="refresh" style="margin-left:auto">รีเฟรช</button></div>
+  <div class="err" id="err" hidden></div>
+</header>
+
+<main>
+  <section id="t-plan">
+    <h2>แผนวันนี้</h2>
+    <div id="plans"></div>
+    <h2>ระดับราคา</h2>
+    <div class="card"><div class="ladder" id="ladder"></div></div>
+    <p class="note" id="invalid"></p>
+  </section>
+
+  <section id="t-news" hidden>
+    <h2>หัวข้อ</h2>
+    <div class="card"><b id="headline"></b><p class="note" id="biasnote"></p></div>
+    <h2>สรุปข่าว</h2>
+    <div class="card"><ul class="sum" id="summary"></ul></div>
+    <h2>ปฏิทินข่าว (เวลาไทย)</h2>
+    <div class="card" id="events"></div>
+    <h2>แหล่งข้อมูล</h2>
+    <div class="card src note" id="sources"></div>
+  </section>
+
+  <section id="t-review" hidden>
+    <h2>ผลแผนก่อนหน้า</h2>
+    <div class="card">
+      <div class="note" id="rvdate"></div>
+      <div style="margin:8px 0"><span class="verdict" id="rvres">—</span></div>
+      <div id="rvtext"></div>
+    </div>
+    <h2>สถิติจากประวัติ</h2>
+    <div class="card" id="stats">กำลังโหลด…</div>
+  </section>
+
+  <section id="t-full" hidden>
+    <div class="md" id="md">กำลังโหลด…</div>
+  </section>
+
+  <section id="t-hist" hidden>
+    <h2>แผนย้อนหลัง</h2>
+    <div class="hist" id="hist">กำลังโหลด…</div>
+  </section>
+
+  <p class="disc">การวิเคราะห์เชิงสถานการณ์จากข้อมูลสาธารณะ ไม่ใช่คำแนะนำการลงทุน<br><span id="ver"></span></p>
+</main>
+
+<nav role="tablist">
+  <button role="tab" data-t="plan" aria-selected="true">แผน</button>
+  <button role="tab" data-t="news">ข่าว</button>
+  <button role="tab" data-t="review">ทบทวน</button>
+  <button role="tab" data-t="full">ฉบับเต็ม</button>
+  <button role="tab" data-t="hist">ประวัติ</button>
+</nav>
+
+<script>
+const UI_VERSION = '1.2';
+const RAW = 'https://raw.githubusercontent.com/mastersurat/master-iot/cyd-brief/';
+const API = 'https://api.github.com/repos/mastersurat/master-iot/contents/history?ref=cyd-brief';
+const $ = id => document.getElementById(id);
+let brief = null, price = 0, viewing = null;   // viewing = history date shown, null = latest
+
+const fmt = n => Number(n).toLocaleString('en-US', {maximumFractionDigits: 2, minimumFractionDigits: 0});
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const resColor = r => /TP/.test(r) ? 'var(--up)' : /SL/.test(r) ? 'var(--down)' : /NOT|MIXED|OPEN/.test(r) ? 'var(--warn)' : 'var(--dim)';
+const resThai = r => ({TP2_HIT:'ถึง TP2', TP1_HIT:'ถึง TP1', SL_HIT:'โดน SL', NOT_TRIGGERED:'ไม่เข้าเงื่อนไข', OPEN:'ยังเปิดอยู่', MIXED:'ผลผสม', NONE:'ยังไม่มี'}[r] || r || '—');
+
+async function getJSON(url) {
+  const r = await fetch(url + (url.includes('?') ? '&' : '?') + 't=' + Date.now(), {cache: 'no-store'});
+  if (!r.ok) throw new Error(r.status);
+  return r.json();
+}
+async function getText(url) {
+  const r = await fetch(url + '?t=' + Date.now(), {cache: 'no-store'});
+  if (!r.ok) throw new Error(r.status);
+  return r.text();
+}
+
+/* ---------- live price ---------- */
+// native GET when running inside the app, fetch() otherwise (browser testing)
+const pending = {}; let nid = 0;
+window.__netCb = (id, code, body) => { const r = pending[id]; delete pending[id]; r && r({code, body}); };
+function nget(url) {
+  if (window.Native && Native.get) return new Promise(res => {
+    const id = 'n' + (++nid); pending[id] = res; Native.get(id, url);
+    setTimeout(() => { if (pending[id]) { delete pending[id]; res({code: 0, body: 'timeout'}); } }, 12000);
+  });
+  return fetch(url, {cache: 'no-store'}).then(async r => ({code: r.status, body: await r.text()}))
+    .catch(e => ({code: 0, body: String(e)}));
+}
+const PRICE_SOURCES = [
+  {name: 'goldprice.org (spot)', url: 'https://data-asg.goldprice.org/dbXRates/USD', pick: j => j.items[0].xauPrice},
+  {name: 'gold-api.com (spot)', url: 'https://api.gold-api.com/price/XAU', pick: j => j.price},
+  {name: 'Binance PAXG', url: 'https://api.binance.com/api/v3/ticker/price?symbol=PAXGUSDT', pick: j => +j.price, approx: true},
+  {name: 'Coinbase PAXG', url: 'https://api.coinbase.com/v2/prices/PAXG-USD/spot', pick: j => +j.data.amount, approx: true},
+  {name: 'Kraken PAXG', url: 'https://api.kraken.com/0/public/Ticker?pair=PAXGUSD', pick: j => +Object.values(j.result)[0].c[0], approx: true},
+];
+let priceDiag = [];
+async function loadPrice() {
+  priceDiag = [];
+  for (const s of PRICE_SOURCES) {
+    const r = await nget(s.url);
+    let p = 0, why = '';
+    try { p = Number(s.pick(JSON.parse(r.body))); } catch (e) { why = 'อ่านข้อมูลไม่ได้'; }
+    if (p > 100) {
+      priceDiag.push(`✓ ${s.name}: ${p.toFixed(2)}`);
+      setPrice(p, s.name + (s.approx ? ' · ใกล้เคียง spot' : ''));
+      return;
+    }
+    priceDiag.push(`✗ ${s.name}: HTTP ${r.code} ${why || String(r.body).slice(0, 80)}`);
+  }
+  $('pxsrc').textContent = 'ดึงราคาสดไม่ได้ · แตะราคาเพื่อดูสาเหตุ';
+}
+$('px').onclick = $('pxsrc').onclick = () => {
+  $('err').hidden = false;
+  $('err').style.whiteSpace = 'pre-wrap';
+  $('err').textContent = priceDiag.length ? priceDiag.join('\n') : 'ยังไม่ได้ลองดึงราคา';
+};
+let lastSrc = '';
+function setPrice(p, src) {
+  price = p; lastSrc = src;
+  $('px').textContent = fmt(p.toFixed(2));
+  let ref = brief && brief.price_ref ? p - brief.price_ref : null;
+  $('pxsrc').innerHTML = (ref !== null ? `<span style="color:${ref >= 0 ? 'var(--up)' : 'var(--down)'}">${ref >= 0 ? '+' : ''}${ref.toFixed(1)}</span> จากราคาตอนเขียนแผน · ` : '') + esc(src);
+  if (brief) { renderPlans(); renderLadder(); }
+}
+
+/* ---------- brief ---------- */
+async function loadBrief(date) {
+  $('err').hidden = true;
+  try {
+    const url = date ? RAW + 'history/' + date + '.json' : RAW + 'brief.json';
+    brief = await getJSON(url);
+    viewing = date || null;
+    try { localStorage.setItem('lastBrief', JSON.stringify(brief)); } catch (e) {}
+    render();
+  } catch (e) {
+    try { const c = localStorage.getItem('lastBrief'); if (c && !brief) { brief = JSON.parse(c); render(); } } catch (x) {}
+    $('err').hidden = false;
+    $('err').textContent = 'โหลดแผนไม่ได้ (ไม่มีอินเทอร์เน็ต?) แสดงข้อมูลล่าสุดที่เก็บไว้';
+  }
+  loadMd(date);
+}
+
+async function loadMd(date) {
+  try {
+    const md = await getText(date ? RAW + 'history/' + date + '.md' : RAW + 'brief.md');
+    $('md').innerHTML = mdToHtml(md);
+  } catch (e) { $('md').textContent = 'โหลดฉบับภาษาไทยไม่ได้'; }
+}
+
+function render() {
+  const b = brief;
+  $('bias').textContent = b.bias || '—';
+  $('bias').className = 'badge ' + (b.bias || '');
+  $('gen').textContent = (viewing ? 'ดูย้อนหลัง · ' : 'อัปเดต ') + b.generated + (viewing ? ' · แตะ "แผน" เพื่อกลับล่าสุด' : '');
+  if (price) setPrice(price, lastSrc); else { renderPlans(); renderLadder(); }
+  $('invalid').textContent = 'แผนใช้ไม่ได้เมื่อ: ' + (b.invalid || '-');
+  $('headline').textContent = b.headline || '';
+  $('biasnote').textContent = b.bias_note || '';
+  $('summary').innerHTML = (b.summary || []).map(s => `<li>${esc(s)}</li>`).join('');
+  $('events').innerHTML = (b.events || []).map(e => {
+    const m = e.match(/^(.*?BKK)\s+(.*)$/);
+    return `<div class="ev"><span class="t num">${esc(m ? m[1] : '')}</span><span>${esc(m ? m[2] : e)}</span></div>`;
+  }).join('') || '<span class="note">ไม่มี</span>';
+  $('sources').innerHTML = (b.sources || []).map(esc).join(' · ');
+  const r = b.review || {};
+  $('rvdate').textContent = 'แผนของวันที่ ' + (r.for_date || '-');
+  $('rvres').textContent = resThai(r.result);
+  $('rvres').style.background = resColor(r.result);
+  $('rvtext').textContent = r.text || '';
+}
+
+function planStatus(p) {
+  if (!price) return ['var(--dim)', 'ยังไม่มีราคาสด'];
+  const sell = p.side === 'SELL', limit = p.type === 'LIMIT';
+  const past = (lvl) => sell ? price <= lvl : price >= lvl;          // moved in the profit direction past lvl
+  const d = Math.abs(price - p.entry);
+  // a LIMIT order's SL sits on the side where it fills, so crossing it means the plan failed;
+  // a STOP order's SL sits on the side where it has NOT filled yet, so there it just means "waiting"
+  if (limit && (sell ? price >= p.sl : price <= p.sl)) return ['var(--down)', 'ราคาเลย SL แล้ว'];
+  if (d <= 5) return ['var(--warn)', 'ราคาอยู่ที่จุดเข้า'];
+  if (past(p.tp2)) return ['var(--up)', 'ราคาอยู่โซน TP2 (ถ้าเข้าออเดอร์แล้ว)'];
+  if (past(p.tp1)) return ['var(--up)', 'ราคาอยู่โซน TP1 (ถ้าเข้าออเดอร์แล้ว)'];
+  return ['var(--dim)', `รอเข้า · ห่างจุดเข้า ${d.toFixed(1)}`];
+}
+
+function renderPlans() {
+  $('plans').innerHTML = (brief.plans || []).map(p => {
+    const col = p.side === 'SELL' ? 'var(--down)' : 'var(--up)';
+    const rr = Math.abs(p.tp1 - p.entry) / Math.max(1, Math.abs(p.sl - p.entry));
+    const [sc, st] = planStatus(p);
+    return `<div class="card plan" style="--side:${col}">
+      <div class="top"><span class="id">${esc(p.id)} · ${esc(p.side)} ${esc(p.type)}</span>
+        <span class="entry num">${fmt(p.entry)}</span></div>
+      <div class="grid num">
+        <div><small>SL</small>${fmt(p.sl)}</div>
+        <div><small>TP1</small>${fmt(p.tp1)}</div>
+        <div><small>TP2</small>${fmt(p.tp2)}</div>
+      </div>
+      <div class="status"><span class="dot" style="background:${sc}"></span><span style="color:${sc}">${st}</span>
+        <span class="num" style="margin-left:auto;color:var(--dim)">R:R 1:${rr.toFixed(1)}</span></div>
+      <div class="note">${esc(p.note)}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderLadder() {
+  const b = brief, el = $('ladder');
+  const marks = [];
+  (b.levels?.r || []).forEach(v => marks.push({v, cls: 'R', l: 'R', r: ''}));
+  (b.levels?.s || []).forEach(v => marks.push({v, cls: 'S', l: 'S', r: ''}));
+  (b.plans || []).forEach(p => {
+    marks.push({v: p.entry, cls: 'E', l: p.id + ' entry', r: ''});
+    marks.push({v: p.sl, cls: 'SL', l: p.id + ' SL', r: ''});
+    marks.push({v: p.tp1, cls: 'TP', l: p.id + ' TP1', r: ''});
+  });
+  const vals = marks.map(m => m.v).concat(price ? [price] : []);
+  const hi = Math.max(...vals), lo = Math.min(...vals), pad = (hi - lo) * 0.06 || 5;
+  // merge labels that sit on the same price
+  const byV = {};
+  marks.forEach(m => { const k = m.v; (byV[k] = byV[k] || {v: k, cls: m.cls, labels: []}).labels.push(m.l); });
+  const rows = Object.values(byV).sort((a, b) => b.v - a.v);
+  const GAP = 20, H = Math.max(300, rows.length * GAP + 20);
+  el.style.height = H + 'px';
+  const y = v => 10 + ((hi + pad - v) / (hi - lo + 2 * pad)) * (H - 20);
+  // keep labels at least GAP px apart (scale stays in order, spacing nudged)
+  let last = -1e9;
+  rows.forEach(r => { r.y = Math.max(y(r.v), last + GAP); last = r.y; });
+  const over = last - (H - 10);
+  if (over > 0) rows.forEach(r => r.y -= over);
+  let html = rows.map(m =>
+    `<div class="tick ${m.cls}" style="top:${m.y.toFixed(1)}px"><span class="l">${esc(m.labels.join(' · '))}</span><span class="r num">${fmt(m.v)}</span></div>`).join('');
+  if (price) {
+    // place the live-price marker between its neighbouring rows
+    const above = rows.filter(r => r.v >= price).pop(), below = rows.find(r => r.v < price);
+    let py = y(price);
+    if (above && below) py = above.y + (below.y - above.y) * ((above.v - price) / Math.max(0.01, above.v - below.v));
+    else if (above) py = above.y + GAP / 2; else if (below) py = below.y - GAP / 2;
+    html += `<div class="now" style="top:${py.toFixed(1)}px"><span class="num">${fmt(price.toFixed(1))}</span></div>`;
+  }
+  el.innerHTML = html;
+}
+
+/* ---------- history + stats ---------- */
+async function loadHistory() {
+  try {
+    const list = (await getJSON(API)).filter(f => f.name.endsWith('.json')).map(f => f.name.replace('.json', '')).sort().reverse();
+    const items = await Promise.all(list.slice(0, 30).map(async d => {
+      try { return {d, j: await getJSON(RAW + 'history/' + d + '.json')}; } catch (e) { return {d, j: null}; }
+    }));
+    $('hist').innerHTML = items.map(({d, j}) => {
+      const r = j?.review?.result;
+      return `<button data-d="${d}"><span><b class="num">${d}</b><br><span class="note">${esc(j?.bias || '')} · ${esc(j?.headline || '')}</span></span>
+        <span class="res" style="background:${resColor(r)}">${esc(resThai(r))}</span></button>`;
+    }).join('') || '<span class="note">ยังไม่มีประวัติ</span>';
+    $('hist').querySelectorAll('button').forEach(btn => btn.onclick = () => { loadBrief(btn.dataset.d); show('plan', true); });
+    // stats: count verdicts written about earlier plans
+    const res = items.map(x => x.j?.review?.result).filter(r => r && r !== 'NONE');
+    const c = k => res.filter(r => r === k).length;
+    const tp = c('TP1_HIT') + c('TP2_HIT');
+    $('stats').innerHTML = res.length ? `<div class="grid num">
+      <div><small>ถึง TP</small>${tp}</div><div><small>โดน SL</small>${c('SL_HIT')}</div><div><small>ไม่เข้า/ผสม/เปิด</small>${c('NOT_TRIGGERED') + c('MIXED') + c('OPEN')}</div></div>
+      <p class="note">จาก ${res.length} แผนที่ตรวจแล้ว${tp + c('SL_HIT') ? ` · อัตราถึง TP ${(100 * tp / (tp + c('SL_HIT'))).toFixed(0)}% ของแผนที่จบแล้ว` : ''}</p>`
+      : '<span class="note">ยังไม่มีแผนที่ตรวจผลแล้ว สถิติจะเริ่มขึ้นตั้งแต่พรุ่งนี้</span>';
+  } catch (e) { $('hist').textContent = 'โหลดประวัติไม่ได้'; $('stats').textContent = '—'; }
+}
+
+/* ---------- tiny markdown renderer (headings, lists, tables, bold, links, hr) ---------- */
+function inline(s) {
+  return esc(s).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/`(.+?)`/g, '<code>$1</code>')
+    .replace(/\[([^\]]+)\]\((https?:[^)\s]+)\)/g, '<a href="$2">$1</a>');
+}
+function mdToHtml(md) {
+  const lines = md.replace(/\r/g, '').split('\n'); let out = '', i = 0;
+  while (i < lines.length) {
+    const l = lines[i];
+    if (/^\|/.test(l)) {
+      const rows = []; while (i < lines.length && /^\|/.test(lines[i])) rows.push(lines[i++]);
+      const cells = r => r.replace(/^\||\|$/g, '').split('|').map(c => c.trim());
+      const body = rows.filter((r, k) => k !== 1 || !/^\|[\s:|-]+\|$/.test(r));
+      out += '<div class="tablewrap"><table>' + body.map((r, k) => '<tr>' + cells(r).map(c => k ? `<td>${inline(c)}</td>` : `<th>${inline(c)}</th>`).join('') + '</tr>').join('') + '</table></div>';
+      continue;
+    }
+    if (/^- /.test(l)) { out += '<ul class="sum">'; while (i < lines.length && /^- /.test(lines[i])) out += '<li>' + inline(lines[i++].slice(2)) + '</li>'; out += '</ul>'; continue; }
+    if (/^### /.test(l)) out += '<h2>' + inline(l.slice(4)) + '</h2>';
+    else if (/^## /.test(l)) out += '<h2>' + inline(l.slice(3)) + '</h2>';
+    else if (/^# /.test(l)) out += '<h1>' + inline(l.slice(2)) + '</h1>';
+    else if (/^---\s*$/.test(l)) out += '<hr>';
+    else if (l.trim()) out += '<p>' + inline(l) + '</p>';
+    i++;
+  }
+  return out;
+}
+
+/* ---------- new APK notice (only needed when the native part changes) ---------- */
+async function checkApk() {
+  try {
+    const have = window.Native && Native.versionCode ? Native.versionCode() : 0;
+    if (!have) return;
+    const v = await getJSON(RAW + 'app/version.json');
+    if (v.apk_version > have) {
+      $('upd').hidden = false;
+      $('upd').innerHTML = `มีแอปเวอร์ชันใหม่ (${esc(v.apk_name || v.apk_version)}) · <a href="${esc(v.apk_url)}" style="color:inherit;font-weight:700">แตะเพื่อดาวน์โหลด</a>`;
+    }
+  } catch (e) {}
+}
+
+/* ---------- tabs ---------- */
+function show(t, keep) {
+  document.querySelectorAll('nav button').forEach(b => b.setAttribute('aria-selected', b.dataset.t === t));
+  document.querySelectorAll('main section').forEach(s => s.hidden = s.id !== 't-' + t);
+  if (t === 'plan' && !keep && viewing) loadBrief(null);
+  if (t === 'plan') requestAnimationFrame(() => brief && renderLadder());
+  if (t === 'hist' || t === 'review') loadHistory();
+  window.scrollTo(0, 0);
+}
+document.querySelectorAll('nav button').forEach(b => b.onclick = () => show(b.dataset.t));
+$('refresh').onclick = () => { loadBrief(viewing); loadPrice(); };
+window.onAppBack = () => {
+  const cur = document.querySelector('nav button[aria-selected=true]').dataset.t;
+  if (cur !== 'plan' || viewing) { show('plan'); return true; }
+  return false;
+};
+window.onAppResume = () => { loadPrice(); if (!viewing) loadBrief(null); };
+
+try { const c = localStorage.getItem('lastBrief'); if (c) { brief = JSON.parse(c); render(); } } catch (e) {}
+loadBrief(null); loadPrice();
+$('ver').textContent = 'หน้าจอ v' + UI_VERSION + (window.Native && Native.versionCode ? ' · แอป build ' + Native.versionCode() : '');
+checkApk();
+setInterval(loadPrice, 20000);
+setInterval(() => { if (!viewing) loadBrief(null); }, 10 * 60 * 1000);
+</script>
+</body>
+</html>
