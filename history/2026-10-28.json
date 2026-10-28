@@ -18,18 +18,68 @@
     "Thu 01:30 BKK  Warsh press conf",
     "Thu 19:30 BKK  US Q3 GDP + Sep PCE"
   ],
-  "levels": { "r": [4100, 4125, 4145], "s": [4015, 4000, 3975] },
+  "levels": {
+    "r": [
+      4100,
+      4125,
+      4145
+    ],
+    "s": [
+      4015,
+      4000,
+      3975
+    ]
+  },
   "plans": [
-    { "id": "A", "side": "SELL", "type": "LIMIT", "entry": 4110, "sl": 4150, "tp1": 4040, "tp2": 4000,
-      "note": "Sell rally into 4,100-4,125 (20D BB mid)" },
-    { "id": "B", "side": "SELL", "type": "STOP", "entry": 4010, "sl": 4045, "tp1": 3975, "tp2": 3930,
-      "note": "Break and hold below 4,015 / 4,000" }
+    {
+      "id": "A",
+      "side": "SELL",
+      "type": "LIMIT",
+      "entry": 4110,
+      "sl": 4150,
+      "tp1": 4040,
+      "tp2": 4000,
+      "note": "Sell rally into 4,100-4,125 (20D BB mid)"
+    },
+    {
+      "id": "B",
+      "side": "SELL",
+      "type": "STOP",
+      "entry": 4010,
+      "sl": 4045,
+      "tp1": 3975,
+      "tp2": 3930,
+      "note": "Break and hold below 4,015 / 4,000"
+    }
   ],
   "invalid": "Daily close above 4,145 cancels the bearish view (next 4,220)",
   "risk_note": "Avoid new entries 30 min around FOMC and PCE. Not financial advice.",
-  "review": { "for_date": "", "result": "NONE", "text": "First brief - no previous plan to review." },
+  "review": {
+    "for_date": "",
+    "result": "NONE",
+    "text": "First brief - no previous plan to review."
+  },
   "sources": [
-    "FXStreet/Mitrade 2026-10-28", "FXEmpire 2026-10-27", "InvestingCube 2026-10-27",
-    "RoboForex 2026-10-27", "Kitco/Reuters 2026-10-21"
-  ]
+    "FXStreet/Mitrade 2026-10-28",
+    "FXEmpire 2026-10-27",
+    "InvestingCube 2026-10-27",
+    "RoboForex 2026-10-27",
+    "Kitco/Reuters 2026-10-21"
+  ],
+  "rev": 0,
+  "rev_note": "",
+  "th": {
+    "headline": "ทองเด้งขึ้นราว 4,060 ก่อนประชุม Fed แต่แนวโน้มรายวันยังเป็นขาลง",
+    "bias_note": "เด้งในแนวโน้มขาลง คืนนี้มีประชุม Fed",
+    "summary": [
+      "ทองเด้งจาก 3,975 (ต่ำสุดตั้งแต่ ก.ค.) ขึ้นมาราว 4,060 ช่วงเช้าตลาดเอเชีย",
+      "ตลาดคาด Fed คงดอกเบี้ย 3.75-4.00% คืนนี้ แต่ให้โอกาสขึ้นดอกเบี้ยเดือน ธ.ค. ราว 84%",
+      "จับตาแถลงข่าวประธาน Warsh ถ้าน้ำเสียงเข้มงวด ทองจะถูกกดดัน",
+      "ราคายังอยู่ใต้เส้นค่าเฉลี่ย 20 และ 100 วัน RSI ราว 41 เด้งถึงแนวต้านมักมีแรงขาย",
+      "พฤหัสมีตัวเลข PCE และ GDP สหรัฐ ราคาน้ำมันอ่อนตัวช่วยหนุนทองเล็กน้อย"
+    ],
+    "invalid": "แผนใช้ไม่ได้ถ้าแท่งรายวันปิดเหนือ 4,145 (เป้าถัดไป 4,220)",
+    "review_text": "เป็นแผนฉบับแรก ยังไม่มีแผนก่อนหน้าให้ทบทวน",
+    "rev_note": ""
+  }
 }
