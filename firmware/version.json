@@ -1,9 +1,9 @@
 {
-  "version": "1.4.3",
+  "version": "1.4.4",
   "builds": {
     "cyd2usb": "https://raw.githubusercontent.com/mastersurat/master-iot/cyd-brief/firmware/minios-cyd2usb-ota.bin",
     "cyd2usb_st7789": "https://raw.githubusercontent.com/mastersurat/master-iot/cyd-brief/firmware/minios-cyd2usb_st7789-ota.bin",
     "cyd_classic": "https://raw.githubusercontent.com/mastersurat/master-iot/cyd-brief/firmware/minios-cyd_classic-ota.bin"
   },
-  "notes": "1.4.3: Thai fonts 13/17 px"
+  "notes": "1.4.4: Thai 12/15 px, English labels use the same small Sarabun font"
 }
