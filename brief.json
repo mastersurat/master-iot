@@ -1,37 +1,37 @@
 {
   "v": 1,
   "date": "2026-10-29",
-  "generated": "2026-10-29 06:54 +07",
-  "rev": 0,
-  "session": "NY_CLOSE",
-  "session_note": "Fed held 10-2 (2 hike dissents); gold dipped to ~4,035, ended NY ~4,054 (-0.3%); day 4,024-4,083; last plans not triggered",
-  "rev_note": "",
-  "price_ref": 4054,
+  "generated": "2026-10-29 16:20 +07",
+  "rev": 1,
+  "session": "ASIA_CLOSE",
+  "session_note": "Asia sold off from ~4,057 to ~4,028-4,032 (-0.6%) on hike bets; A not triggered, B (4,020) not reached; PCE 19:30",
+  "rev_note": "A limit lowered 4,080->4,055 (NY close/pivot, 23 from price); B kept 4,020 below 4,024 support, SL cut to 4,056",
+  "price_ref": 4032,
   "bias": "BEARISH",
-  "bias_note": "Below falling 20D MA; Dec hike odds ~83%",
-  "headline": "Gold steadies ~4,054 after Fed hold; 4,024-4,083 box, PCE at 19:30 BKK decides",
+  "bias_note": "Lower highs below 4,084; Dec hike odds ~78%",
+  "headline": "Gold slips to ~4,032 in Asia on hike bets; 4,024 support vs PCE at 19:30 BKK",
   "summary": [
-    "Fed held 3.75-4.00% by 10-2; Cook and Hammack voted for a hike. Dec hike odds ~83%.",
-    "Gold fell to ~4,035 after the decision, then recovered to ~4,054 by NY close (-0.3% on day).",
-    "Wednesday range 4,024-4,083 (Kitco). Price still below 20-day MA ~4,124, which is falling.",
-    "10Y yield near 5.0%, Brent ~$115 after Saudi refinery attack claim: both weigh on gold.",
-    "US GDP + Sep PCE 19:30 BKK, ECB 20:15 BKK: expect a spike; no new entries 19:00-20:45."
+    "Asia: gold fell from ~4,057 (late NY) to ~4,028-4,032, down ~0.6-0.7%; plans A and B not triggered.",
+    "Driver: Fed hike bets (CME ~78% for Dec) and Middle East risk lifting USD; DXY ~102.2.",
+    "Price sits just above 4,024-4,025 support (Wed low, daily S1); next 4,000 and 3,975-3,986.",
+    "Resistance 4,054 (pivot/NY close), then 4,083-4,084 (Wed high). Bearish while below 4,084.",
+    "US GDP + Sep PCE 19:30 BKK, ECB 20:15 BKK: no new entries 19:00-20:45; spikes can fill orders."
   ],
   "events": [
-    "Thu 19:30 BKK  US GDP + PCE + claims",
+    "Thu 19:30 BKK  US GDP Q3 + Sep PCE + claims",
     "Thu 20:15 BKK  ECB decision",
     "Fri 04:00 BKK  NY daily close"
   ],
   "levels": {
     "r": [
-      4060,
-      4083,
-      4103
+      4054,
+      4084,
+      4125
     ],
     "s": [
-      4039,
       4024,
-      4000
+      4000,
+      3975
     ]
   },
   "plans": [
@@ -39,53 +39,53 @@
       "id": "A",
       "side": "SELL",
       "type": "LIMIT",
-      "entry": 4080,
-      "sl": 4108,
-      "tp1": 4045,
-      "tp2": 4025,
-      "note": "Fade retest of Wed high 4,083; SL above 4,103 shelf; RR 1.25"
+      "entry": 4055,
+      "sl": 4086,
+      "tp1": 4016,
+      "tp2": 3990,
+      "note": "Fade retest of 4,054 pivot/NY close; SL above Wed high 4,084; RR 1.26"
     },
     {
       "id": "B",
       "side": "SELL",
       "type": "STOP",
       "entry": 4020,
-      "sl": 4050,
-      "tp1": 3982,
+      "sl": 4056,
+      "tp1": 3976,
       "tp2": 3950,
-      "note": "Break of Wed low 4,024 (hot PCE); 3,975 may slow; RR 1.27"
+      "note": "Break of 4,024 Wed low; SL above 4,054 pivot; 3,975 may slow; RR 1.22"
     }
   ],
-  "invalid": "Daily close above 4,125 (20-day MA) cancels the bearish view; next 4,190",
+  "invalid": "H4 close above 4,084 cancels both sells; daily close above 4,125 ends bearish view",
   "risk_note": "No new entries 19:00-20:45 BKK (PCE, ECB); spikes can fill pending orders. Not financial advice.",
-  "lesson_applied": "2026-10-28 lesson: entries moved to tested levels within ~30 of price",
+  "lesson_applied": "2026-10-28 lesson: A within ~30 of price (23); B stop not moved further from price (kept 4,020)",
   "review": {
     "for_date": "2026-10-28",
     "result": "NOT_TRIGGERED",
     "text": "r0 and r1: no plan triggered. Day range 4,024-4,083 (Kitco); sell limit 4,110 missed by 27, sell stop 4,010/3,995 missed by 14/29. Fed held; gold ~4,054 at NY close."
   },
   "sources": [
-    "Kitco PM Report 2026-10-28",
-    "Kitco news 2026-10-28",
-    "Kitco spot page 2026-10-28 18:30 ET",
-    "Yahoo Finance 2026-10-28",
-    "FXEmpire 2026-10-28",
+    "FXEmpire 2026-10-29 06:30 GMT",
+    "FXEmpire gold ticker 2026-10-29 09:12 UTC",
+    "Investing.com/Reuters 2026-10-29 04:51 GMT",
+    "Business Recorder/Reuters 2026-10-29 04:10 GMT",
+    "NordFX Market Pulse 2026-10-29",
     "LiteFinance 2026-10-29",
-    "MarketAlleys 2026-10-28"
+    "Mitrade 2026-10-29"
   ],
   "th": {
-    "headline": "ทองทรงตัวราว 4,054 หลัง Fed คงดอกเบี้ย รอ PCE 19:30 น.",
-    "bias_note": "อยู่ใต้ MA 20 วัน ตลาดคาดขึ้นดอกเบี้ย",
+    "headline": "ทองอ่อนตัวช่วงเอเชีย ราว 4,032 ใกล้แนวรับ 4,024 รอ PCE 19:30 น.",
+    "bias_note": "ขาลง ตราบใดที่อยู่ใต้ 4,084",
     "summary": [
-      "Fed คงดอกเบี้ย 3.75-4.00% มติ 10-2 มี 2 เสียงอยากขึ้นดอกเบี้ย โอกาสขึ้น ธ.ค. ราว 83%",
-      "ทองลงไปราว 4,035 หลังผล Fed แล้วฟื้นกลับมาปิดราว 4,054 ทั้งวันลบ 0.3%",
-      "กรอบเมื่อวาน 4,024-4,083 ราคายังอยู่ใต้ MA 20 วัน ราว 4,124 ที่กำลังลง",
-      "บอนด์ 10 ปี ราว 5.0% น้ำมัน Brent ราว 115 ดอลลาร์ ยังกดดันทอง",
+      "ช่วงเอเชีย ทองลงจากราว 4,057 มาราว 4,028-4,032 ลบราว 0.6% แผน A และ B ไม่ถูกเปิด",
+      "แรงกดดัน ตลาดคาด Fed ขึ้นดอกเบี้ย ธ.ค. ราว 78% และความเสี่ยงตะวันออกกลางหนุนดอลลาร์",
+      "ราคาอยู่เหนือแนวรับ 4,024-4,025 (ต่ำสุดเมื่อวาน) เล็กน้อย ถัดไป 4,000 และ 3,975-3,986",
+      "แนวต้าน 4,054 (Pivot และราคาปิดนิวยอร์ก) ถัดไป 4,083-4,084 (สูงสุดเมื่อวาน)",
       "GDP และ PCE 19:30 น. ECB 20:15 น. งดเปิดออเดอร์ใหม่ 19:00-20:45 น."
     ],
-    "invalid": "แผนขาลงจบถ้าแท่งรายวันปิดเหนือ 4,125 เป้าถัดไป 4,190",
+    "invalid": "แท่ง H4 ปิดเหนือ 4,084 ยกเลิกแผนขาย แท่งรายวันปิดเหนือ 4,125 จบขาลง",
     "review_text": "แผน r0 และ r1 ไม่ถูกเปิดเลย กรอบวัน 4,024-4,083 Sell Limit 4,110 ขาด 27 จุด Sell Stop 4,010/3,995 ขาด 14/29 จุด ปิดราว 4,054",
-    "session_note": "Fed คงดอกเบี้ย ทองลงไป 4,035 แล้วฟื้นปิดราว 4,054 กรอบวัน 4,024-4,083 แผนล่าสุดไม่ถูกเปิด",
-    "rev_note": ""
+    "session_note": "เอเชียทองลงจาก 4,057 มาราว 4,028-4,032 แผน A ไม่ถูกเปิด แผน B 4,020 ราคายังลงไปไม่ถึง",
+    "rev_note": "ลด A จาก 4,080 เป็น 4,055 ให้ใกล้ราคา คง B ที่ 4,020 ใต้แนวรับ 4,024 และลด SL เป็น 4,056"
   }
 }

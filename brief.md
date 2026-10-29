@@ -1,4 +1,47 @@
-# XAUUSD Gold Brief — พฤหัส 29 ต.ค. 2026 (06:54 น.)
+# XAUUSD Gold Brief — พฤหัส 29 ต.ค. 2026 (อัปเดต 16:20 น.)
+
+## อัปเดตปิดตลาดเอเชีย (16:20 น.)
+
+**ราคาอ้างอิง ~4,032 (FXEmpire 16:12 น.) · มุมมอง: ขาลง (Bearish)** ตราบใดที่ราคาอยู่ใต้ 4,084
+
+### สรุปช่วงตลาดที่เพิ่งปิด (เอเชีย)
+- ทองลงจากราว 4,057 (ราคาปิดนิวยอร์ก) มาราว 4,028–4,032 ลบราว 0.6–0.7% (Reuters 4,038 เวลา 11:51 น. · NordFX 4,028 · FXEmpire 4,032 เวลา 16:12 น.)
+- ปัจจัย: ตลาดให้โอกาส Fed ขึ้นดอกเบี้ยเดือน ธ.ค. ราว 78% (CME FedWatch) ความเสี่ยงตะวันออกกลางหนุนดอลลาร์ DXY ราว 102.2
+- ราคามาอยู่เหนือแนวรับ 4,024–4,025 (ต่ำสุดเมื่อวาน และ S1 รายวัน) เพียงเล็กน้อย
+
+### ผลของแผนก่อนหน้า (r0 06:54 น.)
+- **A Sell Limit 4,080:** ไม่ถูกเปิด ราคาช่วงเอเชียสูงสุดราว 4,057
+- **B Sell Stop 4,020:** ไม่ถูกเปิด ต่ำสุดเท่าที่แหล่งข่าวรายงานราว 4,028 (ตรวจสอบสถานะจริงในแอป)
+
+### แผนใหม่สำหรับช่วงลอนดอน + นิวยอร์ก (r1)
+| แผน | ฝั่ง | ประเภทคำสั่ง | Entry | SL | TP1 | TP2 | เงื่อนไข |
+|---|---|---|---|---|---|---|---|
+| A | SELL | Limit | 4,055 | 4,086 | 4,016 | 3,990 | ขายเมื่อเด้งกลับไปทดสอบ 4,054 (Pivot และราคาปิดนิวยอร์ก) SL เหนือสูงสุดเมื่อวาน 4,084 (R:R TP1 ≈ 1.26) |
+| B | SELL | Stop | 4,020 | 4,056 | 3,976 | 3,950 | ถ้าหลุดแนวรับ 4,024 SL เหนือ Pivot 4,054 ระวังแนวรับ 3,975 (R:R TP1 ≈ 1.22) |
+
+- B อยู่ห่างราคาเพียงราว 12 จุด อาจถูกเปิดก่อนข่าว ถ้าไม่อยากเสี่ยงช่วงข่าว ให้ตั้งหลัง 20:45 น.
+
+**แนวต้าน:** 4,054 · 4,084 · 4,125 · **แนวรับ:** 4,024 · 4,000 · 3,975
+
+**แผนใช้ไม่ได้เมื่อ:** แท่ง H4 ปิดเหนือ 4,084 ยกเลิกแผนขายทั้งสอง แท่งรายวันปิดเหนือ 4,125 มุมมองขาลงจบ
+
+**ความเสี่ยง:** งดเปิดออเดอร์ใหม่ช่วง 19:00–20:45 น. (PCE และ ECB) ราคาอาจกระชากจนออเดอร์ที่ตั้งไว้ถูกเปิด
+
+### ข่าวที่รออยู่ (เวลาไทย)
+| เวลา | เหตุการณ์ |
+|---|---|
+| พฤหัส 19:30 | US GDP Q3 (advance) + PCE ก.ย. + จำนวนคนขอรับสวัสดิการว่างงาน |
+| พฤหัส 20:15 | ECB ประกาศดอกเบี้ย |
+| ศุกร์ 04:00 | ปิดตลาดนิวยอร์กรายวัน |
+
+### บทเรียนที่นำมาใช้
+- จาก 28 ต.ค.: Entry ของ A ห่างราคาไม่เกินราว 30 จุด (ห่าง 23 จุด) และไม่ย้าย Stop ของ B ออกไปไกลขึ้น (คง 4,020)
+
+ออเดอร์ที่ตั้งตามแผนก่อนหน้ายังอยู่ ตรวจสอบและยกเลิกเองได้ในแอป Gold Brief (ระบบไม่ยกเลิกให้อัตโนมัติ)
+
+---
+
+## แผนเช้า (06:54 น.) — แผน r0 เดิม ใช้แทนแล้ว
 
 **อัปเดตปิดตลาดนิวยอร์ก:** Fed คงดอกเบี้ย 3.75–4.00% มติ 10-2 ทองลงไปราว 4,035 หลังประกาศ แล้วฟื้นกลับมาปิดราว 4,054 (ทั้งวันลบราว 0.3%) กรอบทั้งวัน 4,024–4,083 แผนเมื่อวานทั้ง r0 และ r1 ไม่ถูกเปิด
 
@@ -47,4 +90,6 @@
 ---
 แผนนี้เป็นการวิเคราะห์เชิงสถานการณ์จากข้อมูลสาธารณะ ไม่ใช่คำแนะนำการลงทุน (Not financial advice.) ผู้จัดทำไม่ใช่ที่ปรึกษาการลงทุนที่มีใบอนุญาต การตัดสินใจและการคุมขนาดไม้เป็นความรับผิดชอบของผู้เทรด
 
-**แหล่งข้อมูล:** [Kitco PM Report](https://www.kitco.com/news/article/2026-10-28/gold-steadies-silver-falls-fed-holds-rates-two-officials-favor-hike-kitco) · [Kitco: Fed 10-2](https://www.kitco.com/news/article/2026-10-28/gold-price-drops-4035oz-fed-votes-10-2-favor-rate-hold) · [Kitco spot](https://www.kitco.com/price/precious-metals) · [Yahoo Finance](https://finance.yahoo.com/economy/policy/articles/fed-holds-rates-2-officials-180903695.html) · [FXEmpire](https://www.fxempire.com/forecasts/article/gold-xauusd-silver-platinum-forecasts-gold-pulls-back-as-traders-prepare-for-fed-decision-2-1641084) · [FXEmpire (Powers)](https://www.fxempire.com/forecasts/article/gold-xau-usd-price-forecast-short-term-strength-faces-major-resistance-1640783) · [LiteFinance](https://www.litefinance.org/blog/analysts-opinions/gold-price-prediction-forecast/daily-and-weekly/) · [MarketAlleys calendar](https://www.marketalleys.com/post/forex-calendar-fomc-ecb-and-us-gdp-pce-scheduled-2026-10-28)
+**แหล่งข้อมูล (อัปเดตเอเชีย):** [FXEmpire 29 ต.ค.](https://www.fxempire.com/forecasts/article/gold-xauusd-silver-price-forecast-split-fed-keeps-december-hike-alive-can-gold-hold-4024-1641191) · [FXEmpire gold](https://www.fxempire.com/forecasts/gold) · [Investing.com/Reuters](https://uk.investing.com/news/commodities-news/gold-slips-after-fed-holds-rates-pce-inflation-data-in-focus-4939656) · [Business Recorder/Reuters](https://www.brecorder.com/news/40446473/gold-slips-as-markets-assess-fed-signals-await-us-inflation-data) · [NordFX](https://nordfx.com/market-news/market-pulse-october-29-2026) · [LiteFinance](https://www.litefinance.org/blog/analysts-opinions/short-term-analysis-for-oil-gold-and-eurusd-for-29102026/) · [Mitrade](https://www.mitrade.com/insights/commodity-analysis/gold/fed-holds-rates-two-hawkish-dissents-gold)
+
+**แหล่งข้อมูล (แผนเช้า):** [Kitco PM Report](https://www.kitco.com/news/article/2026-10-28/gold-steadies-silver-falls-fed-holds-rates-two-officials-favor-hike-kitco) · [Kitco: Fed 10-2](https://www.kitco.com/news/article/2026-10-28/gold-price-drops-4035oz-fed-votes-10-2-favor-rate-hold) · [Kitco spot](https://www.kitco.com/price/precious-metals) · [Yahoo Finance](https://finance.yahoo.com/economy/policy/articles/fed-holds-rates-2-officials-180903695.html) · [FXEmpire](https://www.fxempire.com/forecasts/article/gold-xauusd-silver-platinum-forecasts-gold-pulls-back-as-traders-prepare-for-fed-decision-2-1641084) · [FXEmpire (Powers)](https://www.fxempire.com/forecasts/article/gold-xau-usd-price-forecast-short-term-strength-faces-major-resistance-1640783) · [LiteFinance](https://www.litefinance.org/blog/analysts-opinions/gold-price-prediction-forecast/daily-and-weekly/) · [MarketAlleys calendar](https://www.marketalleys.com/post/forex-calendar-fomc-ecb-and-us-gdp-pce-scheduled-2026-10-28)
