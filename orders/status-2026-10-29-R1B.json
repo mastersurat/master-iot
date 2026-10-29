@@ -1,1 +1,1 @@
-{"id":"2026-10-29-R1B","state":"PLACED","tickets":"5335292806","lot":0.01,"detail":"SELL STOP 0.01 @ 4020.00 SL 4056.00 TP 3950.00","account":"DEMO","time":"2026-10-29T17:00:06+07:00"}
+{"id":"2026-10-29-R1B","state":"FILLED","tickets":"5335292806","lot":0.00,"detail":"Order triggered - position open","account":"DEMO","time":"2026-10-29T18:57:26+07:00"}
