@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "date": "2026-10-30",
+ "generated": "2026-10-30 06:50 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "NY fell to ~4,009 (Reuters 01:09 BKK), closed ~4,013 (-1.35%) on GDP/PCE hike bets; r1 B 4,020 filled, open; r2 not reached",
+ "rev_note": "",
+ "price_ref": 4013,
+ "bias": "BEARISH",
+ "bias_note": "Below 4,024; Dec hike odds ~80%",
+ "headline": "Gold ~4,013 after 1.35% drop on hot GDP/PCE; 4,000 is the line, ECI 19:30 BKK",
+ "summary": [
+  "Thu: day high 4,069.90, NY low ~4,009 (Reuters 18:09 GMT); close ~4,013, -1.35% (TradingEconomics).",
+  "Q3 GDP 3.4%, Sep PCE 3.6% y/y, core 3.1%; CME FedWatch ~80-83% for a Dec 8-9 hike; 10y yield ~5.0%.",
+  "Brent fell to 114.88 on US-Iran talk; ECB held. Gold on track for a 2nd monthly loss (Reuters).",
+  "Kitco: resistance 4,084/4,146, support 4,024/3,986. LiteFinance: 4,007.83 support, 4,057.82 resistance, H4 RSI ~48.",
+  "Risks: Q3 ECI 19:30 BKK, BoJ decision, month-end, thin liquidity before Nov 3 US midterms (JPMorgan)."
+ ],
+ "events": [
+  "Fri 19:30 BKK  US Q3 ECI",
+  "Fri 20:45 BKK  Chicago PMI Oct",
+  "Sat 04:00 BKK  NY close, month-end"
+ ],
+ "levels": {
+  "r": [
+   4024,
+   4058,
+   4084
+  ],
+  "s": [
+   4008,
+   3986,
+   3952
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "LIMIT",
+   "entry": 4028,
+   "sl": 4060,
+   "tp1": 3988,
+   "tp2": 3955,
+   "note": "Retest of broken 4,024 (15 away); SL > 4,058; RR 1.25"
+  },
+  {
+   "id": "B",
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 4004,
+   "sl": 4026,
+   "tp1": 3976,
+   "tp2": 3955,
+   "note": "Break of NY low ~4,008; SL > 4,024; 4,000 may slow; RR 1.27"
+  }
+ ],
+ "invalid": "H4 close above 4,060 cancels both sells; daily close above 4,084 ends bearish view",
+ "risk_note": "Old r1 sell 4,020 may be open (SL 4,056); do not double up. Avoid new entries 19:15-21:00 BKK. Not financial advice.",
+ "lesson_applied": "Rule 1: A limit 15 from price (<=20); Rule 2: B stop 4,004 just under NY low ~4,008",
+ "review": {
+  "for_date": "2026-10-29",
+  "result": "NOT_TRIGGERED",
+  "text": "r2 A 4,035/B 3,996 not reached (NY low ~4,009, close ~4,013). Earlier r1 B sell stop 4,020 filled (low 4,015-4,009), still open. r0/r1 A limits 4,080/4,055 not filled."
+ },
+ "sources": [
+  "Kitco PM Report 2026-10-29",
+  "Kitco AM Report 2026-10-29",
+  "Reuters via Mining.com 2026-10-29",
+  "Mining.com.au 2026-10-29",
+  "TradingEconomics 2026-10-29",
+  "LiteFinance 2026-10-29",
+  "Metalcharts 2026-10-29",
+  "TradingCharts calendar 2026-10-30"
+ ],
+ "th": {
+  "headline": "ทองราว 4,013 ร่วง 1.35% หลัง GDP และ PCE ร้อน จับตา 4,000",
+  "bias_note": "ขาลง ใต้ 4,024 ตลาดคาด Fed ขึ้นดอกเบี้ย",
+  "summary": [
+   "วันพฤหัส สูงสุด 4,069.90 ต่ำสุดช่วงนิวยอร์กราว 4,009 ปิดราว 4,013 ลบ 1.35%",
+   "GDP ไตรมาส 3 โต 3.4% PCE 3.6% Core 3.1% ตลาดให้โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ราว 80-83%",
+   "น้ำมัน Brent ลงมา 114.88 จากข่าวเจรจาอิหร่าน ECB คงดอกเบี้ย ทองจะลงเป็นเดือนที่ 2",
+   "Kitco แนวต้าน 4,084 และ 4,146 แนวรับ 4,024 และ 3,986 LiteFinance แนวรับ 4,007.83",
+   "ระวัง ECI 19:30 น. ผล BoJ สิ้นเดือน และเลือกตั้งกลางเทอมสหรัฐ 3 พ.ย."
+  ],
+  "invalid": "H4 ปิดเหนือ 4,060 ยกเลิกแผนขาย รายวันปิดเหนือ 4,084 จบมุมมองขาลง",
+  "review_text": "แผน r2 A 4,035 และ B 3,996 ไม่ถูกเปิด ต่ำสุดราว 4,009 ปิดราว 4,013 ส่วน B ของ r1 ขายที่ 4,020 ถูกเปิดและยังถืออยู่ A ของ r0 และ r1 ไม่ถูกเปิด",
+  "session_note": "นิวยอร์กลงไปราว 4,009 ปิดราว 4,013 ลบ 1.35% จากคาด Fed ขึ้นดอกเบี้ย B ของ r1 ยังเปิดอยู่ r2 ไม่ถูกเปิด",
+  "rev_note": ""
+ }
+}
