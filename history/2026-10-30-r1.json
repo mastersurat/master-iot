@@ -1,0 +1,93 @@
+{
+ "v": 1,
+ "date": "2026-10-30",
+ "generated": "2026-10-30 16:25 +07",
+ "rev": 1,
+ "session": "ASIA_CLOSE",
+ "session_note": "Asia ~3,985.5-4,027.3 (Kitco), ~3,996 at 16:03; A 4,028 not filled; B 4,004 filled, TP1 not hit; BoJ held",
+ "rev_note": "Sells moved lower: A limit at broken 4,008, B stop under Asia low 3,986; SLs above 4,027 high and 4,000",
+ "price_ref": 3996,
+ "bias": "BEARISH",
+ "bias_note": "Below 4,000; Dec hike odds ~75%",
+ "headline": "Gold ~3,996 after Asia dip to ~3,985; 4,000 now resistance, ECI 19:30 BKK",
+ "summary": [
+  "Asia: spot 3,997.93 at 08:12 BKK, 3,987.20 at 13:43 (range 3,985.50-4,027.30 Kitco); 3,996.38 at 16:03 (FXEmpire).",
+  "BoJ kept policy unchanged (FXStreet); Tokyo core CPI well above 2%. CME FedWatch ~75% for a Dec hike (Reuters).",
+  "Oil up after a tanker attack near Hormuz; gold, silver, platinum set for monthly losses. KCM: 4,000 support being tested.",
+  "Levels: Mitrade S 3,980-4,000 / 3,932-3,951, R 4,032-4,044; Oct 23 low 3,975.23; LiteFinance target zone 3,978-3,957.",
+  "Open: r0 B sell 4,004 (SL 4,026) and r1 sell 4,020 (SL 4,056) likely still open; r0 A limit 4,028 may be pending."
+ ],
+ "events": [
+  "Fri 19:30 BKK  US Q3 ECI",
+  "Fri 20:45 BKK  Chicago PMI Oct",
+  "Sat 04:00 BKK  NY close, month-end",
+  "Sun Nov 1  US clocks back; NY close 05:00 BKK"
+ ],
+ "levels": {
+  "r": [
+   4008,
+   4027,
+   4044
+  ],
+  "s": [
+   3986,
+   3975,
+   3951
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "LIMIT",
+   "entry": 4008,
+   "sl": 4031,
+   "tp1": 3978,
+   "tp2": 3958,
+   "note": "Retest of broken NY low 4,008 (12 away); SL > Asia high 4,027; RR 1.30"
+  },
+  {
+   "id": "B",
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 3982,
+   "sl": 4006,
+   "tp1": 3952,
+   "tp2": 3935,
+   "note": "Break of Asia low ~3,985.5; SL > 4,000/4,004; Oct 23 low 3,975 may slow; RR 1.25"
+  }
+ ],
+ "invalid": "H4 close above 4,031 cancels both sells; daily close above 4,044 ends bearish view",
+ "risk_note": "r0 B 4,004 and r1 4,020 sells may be open; do not stack size. No new entries 19:15-21:00 BKK. Not financial advice.",
+ "lesson_applied": "Rule 1: A limit 12 from price at broken 4,008; Rule 2: B stop 3,982 just under Asia low ~3,985.5",
+ "review": {
+  "for_date": "2026-10-29",
+  "result": "NOT_TRIGGERED",
+  "text": "r2 A 4,035/B 3,996 not reached (NY low ~4,009, close ~4,013). Earlier r1 B sell stop 4,020 filled (low 4,015-4,009), still open. r0/r1 A limits 4,080/4,055 not filled."
+ },
+ "sources": [
+  "FinanceFeeds/Kitco 2026-10-30",
+  "Business Recorder/Reuters 2026-10-30",
+  "FXEmpire 2026-10-30",
+  "Mitrade 2026-10-30",
+  "LiteFinance 2026-10-30",
+  "TokenPost 2026-10-30",
+  "Goodreturns 2026-10-30",
+  "FXStreet Forex Today 2026-10-30"
+ ],
+ "th": {
+  "headline": "ทองราว 3,996 ช่วงเอเชียลงไปราว 3,985 จับตา 4,000 และ ECI 19:30 น.",
+  "bias_note": "ขาลง ใต้ 4,000 คาด Fed ขึ้นดอกเบี้ย",
+  "summary": [
+   "เอเชีย กรอบราว 3,985.50-4,027.30 (Kitco) 16:03 น. ราว 3,996.38 (FXEmpire)",
+   "BoJ คงนโยบาย เงินเฟ้อโตเกียวสูงกว่า 2% ตลาดให้โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ราว 75%",
+   "น้ำมันขึ้นหลังเรือถูกโจมตีใกล้ฮอร์มุซ ทองเงินแพลทินัมกำลังปิดลบรายเดือน",
+   "แนวรับ 3,980-4,000 3,975 และ 3,951 แนวต้าน 4,008 4,027 และ 4,032-4,044",
+   "ขาย 4,004 ของ r0 และขาย 4,020 ของ r1 อาจยังเปิดอยู่ Limit 4,028 อาจยังค้าง"
+  ],
+  "invalid": "H4 ปิดเหนือ 4,031 ยกเลิกแผนขาย รายวันปิดเหนือ 4,044 จบมุมมองขาลง",
+  "review_text": "แผน r2 A 4,035 และ B 3,996 ไม่ถูกเปิด ต่ำสุดราว 4,009 ปิดราว 4,013 ส่วน B ของ r1 ขายที่ 4,020 ถูกเปิดและยังถืออยู่ A ของ r0 และ r1 ไม่ถูกเปิด",
+  "session_note": "เอเชียลงไปราว 3,985.5 สูงสุด 4,027.3 ราว 3,996 ตอนปิด A 4,028 ไม่ถูกเปิด B 4,004 ถูกเปิด ยังไม่ถึง TP1",
+  "rev_note": "ย้ายจุดขายลง A รอเด้งที่ 4,008 B ขายเมื่อหลุดต่ำสุดเอเชีย 3,982 SL เหนือ 4,027 และ 4,000"
+ }
+}
