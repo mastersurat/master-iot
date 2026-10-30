@@ -1,0 +1,94 @@
+{
+ "v": 1,
+ "date": "2026-10-30",
+ "generated": "2026-10-31 00:08 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "London/NY ~3,996 -> low 3,872-3,892, 3,893.7 at 00:06; A 4,008 not seen; B 3,982 filled, TP1/TP2 levels reached",
+ "rev_note": "Sells moved ~90 lower: A limit retest 3,914 (SL > 3,942), B stop under day low 3,872; targets use R-multiples",
+ "price_ref": 3894,
+ "bias": "BEARISH",
+ "bias_note": "1-yr low, hike odds ~74%; oversold",
+ "headline": "Gold -3% to ~3,894, 1-year low under 3,900; oversold into month-end close",
+ "summary": [
+  "Rout: spot 3,892.78 at 21:28 BKK (-3.19%, TokenPost), US$3,890 at 21:33 (Rio Times); 3,893.70 at 00:06 (FXEmpire).",
+  "Lows: 3,891.67 (Reuters via Mining.com), 3,871.98 weekly low (FXEmpire feed); lowest since Oct 2025; Oct -6%.",
+  "Drivers: oil (Brent >110) after Hormuz tanker mine, hot Sep PCE; FedWatch ~74% Dec hike. Silver < 50 (-5.8%).",
+  "Levels: R 3,900 / 3,914 / 3,942 (broken swing), S 3,886.46 (Oct 2025 low) / 3,872 / 3,708 (61.8%). Hourly RSI 17.",
+  "Prior B sells (r0 4,004, r1 3,982, Oct29 4,020) had TP levels reached; check in app what closed and what is still open."
+ ],
+ "events": [
+  "Sat 04:00 BKK  NY close, weekly + monthly close",
+  "Sun Nov 1  US clocks back; NY close 05:00 BKK",
+  "Mon Nov 2 22:00 BKK  US ISM Manufacturing Oct",
+  "Tue Nov 3  US midterm elections; 22:00 JOLTS",
+  "Fri Nov 6 20:30 BKK  US NFP Oct"
+ ],
+ "levels": {
+  "r": [
+   3900,
+   3914,
+   3942
+  ],
+  "s": [
+   3886,
+   3872,
+   3708
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "LIMIT",
+   "entry": 3914,
+   "sl": 3944,
+   "tp1": 3876,
+   "tp2": 3854,
+   "note": "Retest of 3,910-3,915 traded after break (20 away); SL > broken 3,942; TP1 above 3,872 low RR 1.27; TP2 = 2R"
+  },
+  {
+   "id": "B",
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 3868,
+   "sl": 3903,
+   "tp1": 3826,
+   "tp2": 3798,
+   "note": "Break of day low ~3,872; SL > 3,900; no sourced level until 3,708 so TP1 1.2R, TP2 2R; thin Fri liquidity"
+  }
+ ],
+ "invalid": "H4 close above 3,944 cancels both sells; daily close above 3,996 ends bearish view",
+ "risk_note": "Oversold (H1 RSI 17), month-end short covering risk. Cancel unfilled orders before 03:30 BKK to avoid weekend gap. Not financial advice.",
+ "lesson_applied": "Rule 1: A limit 20 from price at the 3,910-3,915 retest area; Rule 2: B stop 3,868 just under day low 3,872",
+ "review": {
+  "for_date": "2026-10-29",
+  "result": "NOT_TRIGGERED",
+  "text": "r2 A 4,035/B 3,996 not reached (NY low ~4,009, close ~4,013). Earlier r1 B sell stop 4,020 filled (low 4,015-4,009), still open. r0/r1 A limits 4,080/4,055 not filled."
+ },
+ "sources": [
+  "TokenPost 2026-10-30",
+  "Rio Times 2026-10-30",
+  "Mining.com/Reuters 2026-10-30",
+  "FXEmpire 2026-10-30",
+  "TradingKey 2026-10-30",
+  "TradingEconomics 2026-10-30",
+  "InstaForex 2026-10-30",
+  "GSI Exchange 2026-10-30"
+ ],
+ "th": {
+  "headline": "ทองดิ่ง 3% เหลือราว 3,894 ต่ำสุดรอบ 1 ปี หลุด 3,900",
+  "bias_note": "ขาลง แต่ Oversold ระวังเด้ง",
+  "summary": [
+   "21:28 น. 3,892.78 ลบ 3.19% (TokenPost) 00:06 น. ราว 3,893.70 (FXEmpire)",
+   "ต่ำสุด 3,891.67 (Reuters) ฟีด FXEmpire 3,871.98 ต่ำสุดตั้งแต่ ต.ค. 2025 เดือนนี้ลบ 6%",
+   "น้ำมันพุ่งหลังเรือโดนทุ่นระเบิดที่ฮอร์มุซ PCE ร้อน ตลาดให้โอกาส Fed ขึ้นดอกเบี้ย ราว 74%",
+   "แนวต้าน 3,900 3,914 3,942 แนวรับ 3,886 3,872 และ 3,708 RSI รายชั่วโมง 17",
+   "ไม้ขายเดิม 4,004 3,982 และ 4,020 ราคาผ่าน TP แล้ว ตรวจในแอปว่าปิดแล้วหรือยังเปิดอยู่"
+  ],
+  "invalid": "H4 ปิดเหนือ 3,944 ยกเลิกแผนขาย รายวันปิดเหนือ 3,996 จบมุมมองขาลง",
+  "review_text": "แผน r2 A 4,035 และ B 3,996 ไม่ถูกเปิด ต่ำสุดราว 4,009 ปิดราว 4,013 ส่วน B ของ r1 ขายที่ 4,020 ถูกเปิดและยังถืออยู่ A ของ r0 และ r1 ไม่ถูกเปิด",
+  "session_note": "ลอนดอนและนิวยอร์กร่วงจากราว 3,996 ลงไป 3,872-3,892 A 4,008 ไม่พบว่าถึง B 3,982 ถูกเปิด ราคาผ่าน TP1 TP2",
+  "rev_note": "ย้ายจุดขายลงราว 90 จุด A รอเด้งที่ 3,914 SL เหนือ 3,942 B ขายเมื่อหลุด 3,872 เป้าตามระยะ R"
+ }
+}
