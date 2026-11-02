@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "date": "2026-11-02",
+ "generated": "2026-11-02 22:45 +07",
+ "rev": 1,
+ "session": "LONDON_CLOSE",
+ "session_note": "Mon Asia/London 3,879.40 -> ~3,959 (+1.9%); r0 A sell lmt 3,977 and B buy stop 4,010 not triggered; no top-tier data tonight",
+ "rev_note": "Plans kept: price 3,959 still below 3,965/3,978, no new level since r0 (22:10); A 18 away (rule 1), B = 4,000 reclaim (rule 3)",
+ "price_ref": 3959,
+ "bias": "NEUTRAL",
+ "bias_note": "Relief bounce; <3,978/4,000, hike odds ~75%",
+ "headline": "Gold holds ~3,959 (+1.9%) after rebound from 3,879 low; 3,965-3,978 caps, 4,000 is the test",
+ "summary": [
+  "Mon low 3,879.40 (Kitco); 3,902 at 12:39 GMT (Reuters), 3,945.70 at 20:56 BKK (Kitco), ~3,958.84 near 22:30 BKK.",
+  "Drivers: oil -4% on Iran-Qatar Doha talks eased inflation fears; analysts call it a relief bounce in a downtrend.",
+  "Fed futures: ~75% odds of another hike by year-end; 3 Fed officials argued for hikes Fri. RBA, BoE decide this week.",
+  "Levels: R 3,965 / 3,978 (broken support) / 4,008 / 4,035; S 3,952 / 3,922 / 3,879. Kitco S 3,817.",
+  "r0 plans unfilled; same setups for the rest of NY (closes 05:00 BKK). Midterms Tue, NFP Fri: keep size small."
+ ],
+ "events": [
+  "Tue  US midterms; results Wed BKK morning",
+  "Tue 22:00 BKK  JOLTS",
+  "Wed 20:15 BKK  ADP; 22:00 ISM Svcs",
+  "Thu  BoE rate decision",
+  "Fri 20:30 BKK  US NFP Oct"
+ ],
+ "levels": {
+  "r": [
+   3965,
+   3978,
+   4008
+  ],
+  "s": [
+   3952,
+   3922,
+   3879
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "LIMIT",
+   "entry": 3977,
+   "sl": 4011,
+   "tp1": 3936,
+   "tp2": 3922,
+   "note": "Fade into broken 3,978 (18 away) under 3,965 cap; SL > 4,000/4,007.8; RR1.21"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 4010,
+   "sl": 3975,
+   "tp1": 4052,
+   "tp2": 4084,
+   "note": "Reclaim of 4,000/4,007.8; SL < 3,978; TP2 < 4,086; RR 1.2"
+  }
+ ],
+ "invalid": "H4 close above 4,011 voids A; H4 close below 3,921 voids B and resumes the downtrend",
+ "risk_note": "Midterms Tue, results Wed BKK morning; NFP Fri. Rebound after RSI-17 rout can be sharp both ways; size small. Not financial advice.",
+ "lesson_applied": "Rule 1: A limit 3,977 is 18 from 3,959 at broken 3,978; rule 3: no sell stop after the rout, B is the 4,000 reclaim",
+ "review": {
+  "for_date": "2026-10-30",
+  "result": "NOT_TRIGGERED",
+  "text": "r2 A sell lmt 3,914 / B sell stop 3,868 unfilled: after 00:08 3,894->3,885->close 3,875.5, low 3,870.25 (B missed by 2). r0 B 4,004 and r1 B 3,982 filled, TP levels reached."
+ },
+ "sources": [
+  "Kitco 2026-11-02 AM report",
+  "IBTimes AU/GoldPrice.org 2026-11-02",
+  "Reuters via Rallies.ai 2026-11-02",
+  "Reuters via MarketScreener 2026-11-02",
+  "Goodreturns 2026-11-02",
+  "FXEmpire 2026-11-02"
+ ],
+ "th": {
+  "headline": "ทองยืนราว 3,959 บวก 1.9% ติดต้าน 3,965-3,978 รอทดสอบ 4,000",
+  "bias_note": "กลางๆ เด้งพักตัว ยังใต้ 3,978",
+  "summary": [
+   "จันทร์ ต่ำสุด 3,879.40 (Kitco) 20:56 น. 3,945.70 ราว 22:30 น. ราว 3,958.84 บวก 1.9%",
+   "น้ำมันลง 4% จากเจรจาอิหร่าน-กาตาร์ ลดกังวลเงินเฟ้อ นักวิเคราะห์มองเป็นการเด้งในขาลง",
+   "ตลาดให้โอกาส Fed ขึ้นดอกเบี้ยอีกครั้งในปีนี้ราว 75% RBA และ BoE ประกาศดอกเบี้ยสัปดาห์นี้",
+   "แนวต้าน 3,965 3,978 4,008 แนวรับ 3,952 3,922 3,879",
+   "แผน r0 ยังไม่ถูกเปิด ใช้แผนเดิมต่อช่วงนิวยอร์กถึง 05:00 น. ใช้ไม้เล็ก"
+  ],
+  "invalid": "H4 ปิดเหนือ 4,011 ยกเลิก A H4 ปิดใต้ 3,921 ยกเลิก B ขาลงกลับมา",
+  "review_text": "r2 ขาย Limit 3,914 และ Stop 3,868 ไม่ถูกเปิด หลัง 00:08 น. ราคาลงไปปิด 3,875.5 ต่ำสุด 3,870.25 B ขาด 2 จุด ส่วน B ของ r0 4,004 และ r1 3,982 ถูกเปิด ผ่าน TP",
+  "session_note": "เอเชีย ลอนดอน ทองเด้งจาก 3,879.40 ไปราว 3,959 บวก 1.9% แผน A 3,977 และ B 4,010 ยังไม่ถูกเปิด",
+  "rev_note": "คงแผนเดิม ราคายังใต้ 3,965 และ 3,978 ไม่มีแนวใหม่ตั้งแต่ r0 A ห่าง 18 จุด B รอกลับเหนือ 4,000"
+ }
+}
