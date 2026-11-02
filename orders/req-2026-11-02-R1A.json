@@ -1,0 +1,18 @@
+{
+ "id": "2026-11-02-R1A",
+ "date": "2026-11-02",
+ "plan": "A",
+ "symbol": "XAUUSDm",
+ "side": "SELL",
+ "type": "LIMIT",
+ "entry": 3977,
+ "sl": 4011,
+ "tp1": 3936,
+ "tp2": 3922,
+ "tp_mode": "TP1",
+ "lot_mode": "FIXED",
+ "lot": 0.01,
+ "risk_pct": 0,
+ "brief_generated": "2026-11-02 22:45 +07",
+ "created": "2026-11-02T16:58:30.869Z"
+}
