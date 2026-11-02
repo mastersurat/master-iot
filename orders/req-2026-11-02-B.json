@@ -1,0 +1,18 @@
+{
+ "id": "2026-11-02-B",
+ "date": "2026-11-02",
+ "plan": "B",
+ "symbol": "XAUUSDm",
+ "side": "BUY",
+ "type": "STOP",
+ "entry": 4010,
+ "sl": 3975,
+ "tp1": 4052,
+ "tp2": 4084,
+ "tp_mode": "TP2",
+ "lot_mode": "FIXED",
+ "lot": 0.01,
+ "risk_pct": 0,
+ "brief_generated": "2026-11-02 22:10 +07",
+ "created": "2026-11-02T15:43:50.959Z"
+}
