@@ -5,12 +5,18 @@ The morning brief must read the latest 10 entries before writing a plan and say 
 
 ## Standing rules
 <!-- Rules promoted from repeated lessons. Keep this list short (max 8). -->
-- 1. Plan A rally-fade SELL/BUY LIMIT: entry no more than 20 from price_ref, at the nearest broken/tested level; if no level within 20, make the stop setup the main plan. (10-28 and 10-29: all 4 rally-fade limits, 18-50 away, never filled.)
+- 1. (rev 11-03) Plan A is a STOP entry 2-5 past the prior session's extreme (or tested level) in the plan direction; rally-fade/dip-buy LIMITs only as Plan B, max 15 from price_ref at a level tested in the last session. (A limits 10-28 to 11-02: 0-for-10, missed by 0.7-50.)
 - 2. Plan B stop entry just past the prior session's extreme (prior day low/high), not a further round number. (10-29: stop 4,020 under the 4,024 low filled; r2 3,996 under 4,000 did not.)
 - 3. After a day move > 2.5% with H1 RSI < 20 (or > 80), do not add new stop entries in that direction for the next session; Plan B becomes the reclaim/counter setup at the broken level. (10-30: r2 sells 90 lower after a 3% drop, nothing filled; Mon rebounded +2%.)
 
 ## Log
 <!-- newest first: "### YYYY-MM-DD  RESULT" then Expected / Happened / Why / Adjust -->
+
+### 2026-11-02  NOT_TRIGGERED
+- Expected: NEUTRAL relief bounce. r0 (22:10) and r1 (22:45) same plans: A sell lmt 3,977 at broken 3,978 (17-18 away), B buy stop 4,010 on a 4,000/4,007.8 reclaim.
+- Happened: Kitco day range 3,879.40-3,971.00; ~3,946.7 at 17:05 NY (+1.84%), Reuters spot settle ~3,946 (+1.8%). Oil -7.6% (Brent 104.77), FedWatch Dec hike 77%. A missed by 6 (high 3,971.00 vs 3,977), B never near. No order filled.
+- Why: the limit sat 6 past the session high/R1 3,972.99 instead of at it; the bounce stalled at the first resistance, as rallies in a downtrend tend to. Rule 1 limits are now 0-for-10 since 10-28 while stops past extremes filled on 10-29 and 10-30.
+- Adjust: standing rule 1 rewritten - Plan A is a stop entry just past the prior session extreme; limits only as Plan B, max 15 away at a level tested in the last session.
 
 ### 2026-10-30  NOT_TRIGGERED
 - Expected: BEARISH. r0 A sell lmt 4,028 / B sell stop 4,004; r1 A 4,008 / B 3,982; r2 (after -3%) A sell lmt 3,914 / B sell stop 3,868.
