@@ -1,0 +1,93 @@
+{
+ "v": 1,
+ "date": "2026-11-04",
+ "generated": "2026-11-04 06:56 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "NY: ~3,928 after JOLTS, closed ~3,930 (-0.45%); day 3,893-3,966, 10y 4.95%. r2 A 3,900 / B 3,944 not hit; r1 B SL hit",
+ "rev_note": "",
+ "price_ref": 3930,
+ "bias": "BEARISH",
+ "bias_note": "Below 3,942 and 20DMA 4,078; hike odds 79%",
+ "headline": "Gold ends ~3,930 (-0.45%) as yields rise on hot JOLTS; midterm results, ADP/ISM today",
+ "summary": [
+  "Tue range 3,893.31-3,965.80, an inside day vs Mon 3,879-3,971; close ~3,930 (-0.45%)",
+  "JOLTS 7.523M vs ~7.15M exp, factory orders +1.8%; 10y yield +5.8bp to 4.951%, USD firmer",
+  "FedWatch: ~79% odds of a Dec hike; WTI 96.09, Brent 103.60 despite US strike on Qeshm",
+  "Midterm results arrive in Asia today: Dem sweep could weaken USD (gold up), GOP hold the reverse",
+  "Levels: R 3,942 / 3,966 / 4,006; S 3,893 / 3,870 / 3,797; 4H RSI ~40, below 100 EMA ~4,053"
+ ],
+ "events": [
+  "Wed AM BKK  US midterm results",
+  "Wed 20:15 BKK  ADP; 22:00 ISM Svcs",
+  "Fri 20:30 BKK  US NFP Oct"
+ ],
+ "levels": {
+  "r": [
+   3942,
+   3966,
+   4006
+  ],
+  "s": [
+   3893,
+   3870,
+   3797
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 3889,
+   "sl": 3914,
+   "tp1": 3858,
+   "tp2": 3800,
+   "note": "4 under Tue low 3,893.31; SL > 3,904; RR 1.24 / 3.6"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 3970,
+   "sl": 3940,
+   "tp1": 4006,
+   "tp2": 4075,
+   "note": "4 over Tue high 3,965.80; SL < 3,942; TP2<20DMA; RR 1.2/3.5"
+  }
+ ],
+ "invalid": "Before fill: H4 close > 3,942 voids A; H4 < 3,904 voids B. No new entry 20:00-22:15 BKK",
+ "risk_note": "Midterm results (Asia), ADP/ISM tonight and NFP Fri can gap price past SL; use small size. Not financial advice.",
+ "lesson_applied": "Rule 1-2: both stops 4 past Tue inside-day high/low; new: SL >= 1/3 of day range (~24)",
+ "review": {
+  "for_date": "2026-11-03",
+  "result": "NOT_TRIGGERED",
+  "text": "r0 stops 3,975/3,866 missed (day 3,893.31-3,965.80). r1 B sell lmt 3,912 filled, SL 3,927 hit. r2 A 3,900/B 3,944 not hit in NY prints 3,924-3,931; close ~3,930"
+ },
+ "sources": [
+  "Kitco PM Report 2026-11-03",
+  "Reuters via Mining.com 2026-11-03",
+  "Reuters via Daily Beirut 2026-11-03",
+  "FXEmpire 2026-11-03",
+  "BullionVault 2026-11-03",
+  "FXStreet via TMGM 2026-11-03",
+  "Trading Economics 2026-11-03",
+  "BigGo Finance 2026-11-03",
+  "Admirals 2026-10-21"
+ ],
+ "th": {
+  "headline": "ทองปิดราว 3,930 ลบ 0.45% ยีลด์ขึ้นหลัง JOLTS แข็ง วันนี้รอผลเลือกตั้ง",
+  "bias_note": "ขาลง ใต้ 3,942 และ 20DMA",
+  "summary": [
+   "อังคาร กรอบ 3,893.31-3,965.80 อยู่ในกรอบวันจันทร์ ปิดราว 3,930 ลบ 0.45%",
+   "JOLTS 7.523 ล้าน สูงกว่าคาด ยีลด์ 10 ปี ขึ้นเป็น 4.951% ดอลลาร์แข็งขึ้น",
+   "FedWatch ให้โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ราว 79% น้ำมัน WTI 96.09 Brent 103.60",
+   "ผลเลือกตั้งออกช่วงเช้าไทย ถ้าเดโมแครตชนะขาด ดอลลาร์อาจอ่อน หนุนทอง",
+   "แนวต้าน 3,942 3,966 4,006 แนวรับ 3,893 3,870 3,797 RSI 4H ราว 40"
+  ],
+  "invalid": "ก่อนเข้า H4 ปิดเหนือ 3,942 ยกเลิก A ปิดใต้ 3,904 ยกเลิก B",
+  "review_text": "r0 Stop 3,975/3,866 ไม่ถูกเปิด (กรอบวัน 3,893.31-3,965.80) r1 B ขาย Limit 3,912 ถูกเปิด แล้วโดน SL 3,927 r2 A 3,900 B 3,944 ไม่ถูกเปิด ปิดราว 3,930",
+  "session_note": "นิวยอร์ก ทองแกว่งราว 3,924-3,931 ปิดราว 3,930 ลบ 0.45% แผน r2 ไม่ถูกเปิด แผน r1 B โดน SL",
+  "rev_note": ""
+ }
+}

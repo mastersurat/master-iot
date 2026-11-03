@@ -12,6 +12,12 @@ The morning brief must read the latest 10 entries before writing a plan and say 
 ## Log
 <!-- newest first: "### YYYY-MM-DD  RESULT" then Expected / Happened / Why / Adjust -->
 
+### 2026-11-03  NOT_TRIGGERED
+- Expected: r0 NEUTRAL range break (A buy stop 3,975 / B sell stop 3,866); r1 BEARISH (A sell stop 3,866 / B sell lmt 3,912, SL 3,927); r2 BEARISH (A sell stop 3,900 / B sell lmt 3,944).
+- Happened: day range 3,893.31 (Reuters spot low) to 3,965.80 (Kitco, early US), inside Monday's 3,879.40-3,971.00; JOLTS 7.523M hot, 10y 4.951%; close ~3,930 (-0.45%, FXEmpire 21:59 UTC). r0 both stops missed (by 9 and 27). r1 B filled on the London rally and hit SL 3,927 (-15) on the way to 3,965.80; r1 A missed by 27. r2 A 3,900 / B 3,944 not hit in NY prints 3,924-3,931 (17:11-22:22 GMT; full post-00:08 range not confirmed).
+- Why: an inside day (~72 range) - stops at Monday's outer extremes could not fill; the one fill was a rally-fade limit with a 15-pt SL, about 1/5 of the day range, taken out by a normal London swing. Limits now 1 fill in 13, and that fill lost.
+- Adjust: SL distance at least 1/3 of the prior day range (~24 today) and beyond a real level; after an inside day, stop entries go 2-5 past that inside day's own high/low, not the outer bar's.
+
 ### 2026-11-02  NOT_TRIGGERED
 - Expected: NEUTRAL relief bounce. r0 (22:10) and r1 (22:45) same plans: A sell lmt 3,977 at broken 3,978 (17-18 away), B buy stop 4,010 on a 4,000/4,007.8 reclaim.
 - Happened: Kitco day range 3,879.40-3,971.00; ~3,946.7 at 17:05 NY (+1.84%), Reuters spot settle ~3,946 (+1.8%). Oil -7.6% (Brent 104.77), FedWatch Dec hike 77%. A missed by 6 (high 3,971.00 vs 3,977), B never near. No order filled.
