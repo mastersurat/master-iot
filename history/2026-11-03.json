@@ -1,38 +1,38 @@
 {
  "v": 1,
  "date": "2026-11-03",
- "generated": "2026-11-03 16:09 +07",
- "rev": 1,
- "session": "ASIA_CLOSE",
- "session_note": "Asia ~3,950 high to ~3,896 (-1.3%); oil up on Qeshm strike. A 3,975 and B 3,866 not triggered",
- "rev_note": "Bias to BEARISH after pivot 3,921 lost; A sell stop 3,866 kept, B now sell lmt 3,912 fade; buy stop dropped",
- "price_ref": 3897,
+ "generated": "2026-11-04 00:08 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "London/NY range ~3,904-3,966; JOLTS 7.52M hot, back to ~3,930. A 3,866 not triggered; B 3,912 filled, SL 3,927 hit",
+ "rev_note": "Range now 3,904-3,966: A sell stop moved up to 3,900 (4 under London low), B sell lmt 3,944 at prior close; old A 3,866 dropped",
+ "price_ref": 3930,
  "bias": "BEARISH",
- "bias_note": "Below pivot 3,921; 1-yr low 3,870 in play",
- "headline": "Gold gives back Monday bounce, ~3,897 (-1.3%) as oil rebounds; JOLTS tonight, midterm results Wed",
+ "bias_note": "Rebound failed below 3,975; JOLTS hot",
+ "headline": "Gold rebounds to ~3,966 then fades to ~3,930 after hot JOLTS; midterm results due Wed morning BKK",
  "summary": [
-  "Asia: ~3,940-3,950 early (Mitrade 3,948.48), 3,926.52 at 03:53 GMT (Reuters), 3,899.78 at 08:53 GMT, TE ~3,896 (-1.29%).",
-  "Oil rebounded after a reported US strike on Iran's Qeshm Island (Brent ~105.5); revives inflation and Fed hike fears.",
-  "FedWatch Dec hike ~73-74%. KCM Trade: gold sold for liquidity/margin calls; needs a move above 4,000 to turn up.",
-  "Levels: R 3,921 (pivot) / 3,950 (Asia high) / 3,971; S 3,894 / 3,879 (Mon low) / 3,870 (1-yr low) / 3,830.",
-  "No plan was triggered; any unfilled r0 orders stay in the app (Buy stop 3,975 is now far, consider cancelling)."
+  "London/NY: day low 3,904.10 (Forbes), rally to 3,965.80 (Kitco, ~20:55 BKK) and ~3,960 at 21:30 BKK.",
+  "JOLTS Sep 7.52M vs 7.15M expected; gold back to 3,938.10 (IndexBox) and 3,928.14, -0.48% (Trading Economics).",
+  "Oil firm after the Qeshm strike (Brent ~106); FedWatch Dec hike ~75%; Saxo calls it fragile, momentum-driven selling.",
+  "Levels: R 3,946 (prior close) / 3,966 (day high) / 3,975; S 3,904 (day low) / 3,871 (1-yr low area) / 3,830.",
+  "r1 B sell lmt 3,912 filled and SL 3,927 was hit (TP1 3,894 not reached); r1 A sell stop 3,866 still unfilled in the app."
  ],
  "events": [
-  "Tue 22:00 BKK  US JOLTS Sep",
   "Wed AM BKK  US midterm results",
-  "Wed 20:15 BKK  ADP; 22:00 ISM Svcs",
+  "Wed 20:15 BKK  ADP Oct; 22:00 ISM Svcs",
+  "Thu 20:30 BKK  Jobless claims; BoE",
   "Fri 20:30 BKK  US NFP Oct"
  ],
  "levels": {
   "r": [
-   3921,
-   3950,
-   3971
+   3946,
+   3966,
+   3975
   ],
   "s": [
-   3894,
-   3879,
-   3870
+   3904,
+   3871,
+   3830
   ]
  },
  "plans": [
@@ -40,55 +40,54 @@
    "id": "A",
    "side": "SELL",
    "type": "STOP",
-   "entry": 3866,
-   "sl": 3896,
-   "tp1": 3830,
-   "tp2": 3801,
-   "note": "Break of 1-yr low 3,870.25 (4 past); SL > 3,894; TP1 3,830, TP2 > 3,797; RR 1.2 / 2.2. Same entry as r0 B"
+   "entry": 3900,
+   "sl": 3923,
+   "tp1": 3872,
+   "tp2": 3833,
+   "note": "Break of London low 3,904.10 (4 past); SL > pivot 3,921; TP1 above 1-yr low 3,870, TP2 > 3,830; RR 1.2 / 2.9"
   },
   {
    "id": "B",
    "side": "SELL",
    "type": "LIMIT",
-   "entry": 3912,
-   "sl": 3927,
-   "tp1": 3894,
-   "tp2": 3873,
-   "note": "Fade back into broken 3,921-3,926 area, 15 above price; SL > 3,926.52; TP > 3,870; RR 1.2 / 2.6"
+   "entry": 3944,
+   "sl": 3968,
+   "tp1": 3915,
+   "tp2": 3906,
+   "note": "Fade into prior close 3,945.7 retested after JOLTS, 14 above price; SL > high 3,965.80; TP2 > 3,904; RR 1.2 / 1.6"
   }
  ],
- "invalid": "Before fill: H1 close > 3,927 voids B; H4 close > 3,950 voids A. No new entry 21:45-22:15 (JOLTS)",
- "risk_note": "Midterm results Wed BKK morning and NFP Fri can gap price through stops; size small. Scenario analysis only. Not financial advice.",
- "lesson_applied": "Rule 1: A stop 4 past the 1-yr low; B limit 15 from price at today's broken 3,921-3,926. Rule 3 n/a (-1.3%)",
+ "invalid": "Before fill: H1 close > 3,966 voids both. No new entry after 04:30 BKK or into midterm results Wed AM",
+ "risk_note": "Midterm results Wed BKK morning, ADP/ISM Wed and NFP Fri can gap price through stops; size small. Scenario analysis only. Not financial advice.",
+ "lesson_applied": "Rule 1: A stop 4 past London low 3,904.10; B limit 14 from price at prior close 3,945.7 tested after JOLTS. Rule 3 n/a (-0.5%)",
  "review": {
   "for_date": "2026-11-02",
   "result": "NOT_TRIGGERED",
   "text": "r0 22:10 and r1 22:45 same plans. A sell lmt 3,977 missed by 6 (Kitco high 3,971.00); B buy stop 4,010 not reached. Day 3,879.40-3,971.00, ~3,946.7 at NY close (+1.84%)."
  },
  "sources": [
-  "Reuters via Business Recorder 2026-11-03",
+  "Kitco AM Report 2026-11-03",
+  "Forbes 2026-11-03",
+  "IndexBox 2026-11-03",
   "Trading Economics 2026-11-03",
-  "TokenPost 2026-11-03",
-  "FXEmpire 2026-11-03",
-  "Mitrade 2026-11-03",
-  "FinanceFeeds 2026-11-03",
-  "Tradingpedia 2026-11-03",
-  "Investing.com 2026-11-03",
-  "Goodreturns 2026-11-03"
+  "Gold Traders Association (Kitco) 2026-11-03",
+  "Whalesbook 2026-11-03",
+  "Reuters via Business Recorder 2026-11-03",
+  "FXEmpire 2026-11-03"
  ],
  "th": {
-  "headline": "ทองคืนกำไรวันจันทร์ ลงมาราว 3,897 ลบ 1.3% น้ำมันเด้ง คืนนี้ JOLTS",
-  "bias_note": "ขาลง ใต้ Pivot 3,921",
+  "headline": "ทองเด้งถึง 3,966 แล้วย่อกลับราว 3,930 หลัง JOLTS แข็ง รอผลเลือกตั้ง",
+  "bias_note": "ขาลง เด้งไม่ผ่าน 3,975",
   "summary": [
-   "เอเชีย เปิดราว 3,940-3,950 แล้วไหลลง 3,926 (10:53 น.) และ 3,899.78 (15:53 น.)",
-   "น้ำมันเด้งหลังข่าวสหรัฐโจมตีเกาะ Qeshm ของอิหร่าน กังวลเงินเฟ้อ Fed ขึ้นดอกเบี้ย",
-   "โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ราว 73-74% ทองถูกขายหาเงินสด ต้องกลับเหนือ 4,000 ถึงจะพลิก",
-   "แนวต้าน 3,921 3,950 3,971 แนวรับ 3,894 3,879 3,870 (ต่ำสุดรอบปี) 3,830",
-   "แผนเดิมไม่ถูกเปิด ออเดอร์ Buy Stop 3,975 ยังค้างในแอป ไกลราคาแล้ว พิจารณายกเลิกเอง"
+   "ลอนดอน นิวยอร์ก ต่ำสุด 3,904.10 แล้วเด้งถึง 3,965.80 (ราว 20:55 น.) ราว 3,960 ตอน 21:30",
+   "JOLTS ก.ย. 7.52 ล้าน สูงกว่าคาด 7.15 ล้าน ทองย่อกลับ 3,938 และราว 3,928 ลบ 0.48%",
+   "น้ำมันยังแข็ง Brent ราว 106 โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ราว 75% แรงขายยังเปราะบาง",
+   "แนวต้าน 3,946 3,966 3,975 แนวรับ 3,904 3,871 (ต่ำสุดรอบปี) 3,830",
+   "แผน B เดิม ขาย Limit 3,912 ถูกเปิด แล้วโดน SL 3,927 แผน A เดิม 3,866 ยังค้างในแอป"
   ],
-  "invalid": "ก่อนเข้า H1 ปิดเหนือ 3,927 ยกเลิก B H4 ปิดเหนือ 3,950 ยกเลิก A",
+  "invalid": "ก่อนเข้า H1 ปิดเหนือ 3,966 ยกเลิกทั้งสองแผน ไม่เข้าใหม่หลัง 04:30 น.",
   "review_text": "r0 และ r1 แผนเดียวกัน A ขาย Limit 3,977 ไม่ถูกเปิด ขาด 6 จุด (สูงสุด 3,971.00) B ซื้อ Stop 4,010 ไม่ถึง วันจันทร์ปิดราว 3,946.7 บวก 1.84%",
-  "session_note": "เอเชีย สูงราว 3,950 ลงมาราว 3,896 ลบ 1.3% น้ำมันเด้ง แผน A 3,975 และ B 3,866 ไม่ถูกเปิด",
-  "rev_note": "เปลี่ยนเป็นมุมมองขาลง หลังหลุด Pivot 3,921 A ขาย Stop 3,866 คงเดิม B ขาย Limit 3,912"
+  "session_note": "ลอนดอน นิวยอร์ก กรอบราว 3,904-3,966 JOLTS แข็ง ย่อกลับราว 3,930 แผน A ไม่ถูกเปิด แผน B ถูกเปิดแล้วโดน SL",
+  "rev_note": "ขยับ A เป็นขาย Stop 3,900 ใต้ต่ำสุดลอนดอน B ขาย Limit 3,944 ที่ราคาปิดวันจันทร์ เลิกใช้ A 3,866"
  }
 }
