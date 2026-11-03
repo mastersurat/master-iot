@@ -7,12 +7,17 @@
 //| cyd-orders) -> this EA polls, validates, places the pending      |
 //| order(s) with SL/TP -> writes orders/status-<id>.json back.      |
 //|                                                                  |
+//| Auto mode (v1.10): when switched on in the app (orders/auto.json)|
+//| the EA reads the live brief, picks the best of plan A/B and opens |
+//| a market order when price reaches that plan's entry. Status goes  |
+//| to orders/auto-status.json.                                       |
+//|                                                                  |
 //| Setup: Tools > Options > Expert Advisors > Allow WebRequest for  |
 //|   https://api.github.com                                         |
 //| Attach to any chart (one instance only). Needs Algo Trading ON.  |
 //+------------------------------------------------------------------+
 #property copyright "mastersurat"
-#property version   "1.00"
+#property version   "1.10"
 #property strict
 
 #include <Trade/Trade.mqh>
@@ -28,6 +33,10 @@ input int    InpPollSec    = 10;
 input bool   InpAllowLive  = false;                  // refuse to trade a REAL account unless true
 input int    InpExpireHour = 6;                      // pending orders expire next day at this hour (Bangkok)
 input int    InpExpireMin  = 30;
+input bool   InpAutoAllowed   = true;               // let the app switch on auto mode
+input double InpAutoMaxSlip   = 3.0;                // auto: never open further than this past entry (USD)
+input double InpAutoMaxSpread = 1.0;                // auto: wait while spread is wider than this (USD)
+input string InpBriefBranch   = "cyd-brief";        // where brief.json lives
 
 CTrade trade;
 
@@ -35,6 +44,24 @@ struct Entry { string name; string sha; };
 string g_doneIds[];           // ids already handled in this run (status written or attempted)
 string g_trackIds[];          // ids we placed and still watch (PLACED -> FILLED / EXPIRED)
 string g_lastErr = "";
+#define EA_VER "1.10"
+
+// ---- auto mode state
+string   g_autoSha = "";                // sha of orders/auto.json last read ("" = none)
+bool     g_autoOn = false;
+string   g_autoLotMode = "FIXED", g_autoTp = "SPLIT";
+double   g_autoLot = 0.01, g_autoRisk = 0.5, g_autoSlip = 2.0;
+string   g_briefGen = "", g_briefDate = "", g_briefBias = "";
+int      g_briefRev = 0;
+string   g_plans[];                     // plan objects of the live brief (raw JSON)
+datetime g_lastBriefFetch = 0;
+string   g_excluded[];                  // plan keys ruled out for this revision (missed / invalid)
+string   g_selKey = "", g_selId = "", g_selSide = "", g_selType = "", g_selReason = "";
+double   g_selEntry = 0, g_selSl = 0, g_selTp1 = 0, g_selTp2 = 0, g_selScore = 0;
+string   g_autoState = "OFF", g_autoDetail = "", g_autoTickets = "";
+string   g_openedGen = "";              // brief revision in which auto already opened a trade
+string   g_autoStatusSig = "";
+datetime g_lastHeartbeat = 0;
 
 //------------------------------------------------------------------ helpers
 string BkkDate(datetime gmt) {
@@ -108,7 +135,8 @@ int Http(const string method, const string url, const string body, const string 
    resp = CharArrayToString(res, 0, WHOLE_ARRAY, CP_UTF8);
    return code;
 }
-string ApiUrl(const string path) { return "https://api.github.com/repos/" + InpRepo + "/contents/" + path + "?ref=" + InpBranch; }
+string ApiUrlRef(const string path, const string ref) { return "https://api.github.com/repos/" + InpRepo + "/contents/" + path + "?ref=" + ref; }
+string ApiUrl(const string path) { return ApiUrlRef(path, InpBranch); }
 
 int ListOrders(Entry &out[]) {
    string resp;
@@ -133,21 +161,21 @@ string ReadFile(const string path) {
    int code = Http("GET", ApiUrl(path), "", "application/vnd.github.raw", resp);
    return code == 200 ? resp : "";
 }
+string ReadFileRef(const string path, const string ref) {
+   string resp;
+   int code = Http("GET", ApiUrlRef(path, ref), "", "application/vnd.github.raw", resp);
+   return code == 200 ? resp : "";
+}
 string FindSha(Entry &list[], const string name) { for(int i = 0; i < ArraySize(list); i++) if(list[i].name == name) return list[i].sha; return ""; }
 
-bool WriteStatus(Entry &list[], const string id, const string state, const string tickets, double lot, const string detail) {
-   string js = "{\"id\":\"" + JEsc(id) + "\",\"state\":\"" + state + "\",\"tickets\":\"" + tickets +
-               "\",\"lot\":" + DoubleToString(lot, 2) + ",\"detail\":\"" + JEsc(detail) +
-               "\",\"account\":\"" + (AccountInfoInteger(ACCOUNT_TRADE_MODE) == ACCOUNT_TRADE_MODE_DEMO ? "DEMO" : "REAL") +
-               "\",\"time\":\"" + IsoNowBkk() + "\"}";
+bool PutFile(Entry &list[], const string name, const string js, const string msg) {
    uchar raw[], b64[], key[];
    int len = StringToCharArray(js, raw, 0, WHOLE_ARRAY, CP_UTF8);
    ArrayResize(raw, len - 1);
    CryptEncode(CRYPT_BASE64, raw, key, b64);
    string content = CharArrayToString(b64);
-   string name = "status-" + id + ".json";
    string sha = FindSha(list, name);
-   string body = "{\"message\":\"status " + id + " " + state + "\",\"branch\":\"" + InpBranch + "\",\"content\":\"" + content + "\"" +
+   string body = "{\"message\":\"" + JEsc(msg) + "\",\"branch\":\"" + InpBranch + "\",\"content\":\"" + content + "\"" +
                  (sha != "" ? ",\"sha\":\"" + sha + "\"" : "") + "}";
    string resp;
    int code = Http("PUT", ApiUrl("orders/" + name), body, "application/vnd.github+json", resp);
@@ -156,11 +184,20 @@ bool WriteStatus(Entry &list[], const string id, const string state, const strin
       bool found = false;
       for(int i = 0; i < ArraySize(list); i++) if(list[i].name == name) { list[i].sha = newSha; found = true; }
       if(!found) { int n = ArraySize(list); ArrayResize(list, n + 1); list[n].name = name; list[n].sha = newSha; }
-      PrintFormat("GoldBrief: %s -> %s %s %s", id, state, tickets, detail);
       return true;
    }
-   PrintFormat("GoldBrief: status write failed for %s (HTTP %d) %s", id, code, StringSubstr(resp, 0, 200));
+   PrintFormat("GoldBrief: write %s failed (HTTP %d) %s", name, code, StringSubstr(resp, 0, 200));
    return false;
+}
+string AccountKind() { return AccountInfoInteger(ACCOUNT_TRADE_MODE) == ACCOUNT_TRADE_MODE_DEMO ? "DEMO" : "REAL"; }
+
+bool WriteStatus(Entry &list[], const string id, const string state, const string tickets, double lot, const string detail) {
+   string js = "{\"id\":\"" + JEsc(id) + "\",\"state\":\"" + state + "\",\"tickets\":\"" + tickets +
+               "\",\"lot\":" + DoubleToString(lot, 2) + ",\"detail\":\"" + JEsc(detail) +
+               "\",\"account\":\"" + AccountKind() + "\",\"time\":\"" + IsoNowBkk() + "\"}";
+   bool ok = PutFile(list, "status-" + id + ".json", js, "status " + id + " " + state);
+   if(ok) PrintFormat("GoldBrief: %s -> %s %s %s", id, state, tickets, detail);
+   return ok;
 }
 
 //------------------------------------------------------------------ trading
@@ -217,6 +254,42 @@ double NormLot(double lot) {
    return NormalizeDouble(MathMin(lot, mx), 2);
 }
 
+// lot from a fixed size or a risk %, capped by the EA inputs; 0 with a reason when not possible
+double CalcLot(const string lotMode, double lotReq, double riskPct, double entry, double sl, string &err) {
+   err = "";
+   double lot = 0;
+   if(lotMode == "RISK") {
+      if(riskPct <= 0 || riskPct > InpMaxRiskPct) { err = StringFormat("Risk %.2f%% outside 0-%.2f%%", riskPct, InpMaxRiskPct); return 0; }
+      double tickSize = SymbolInfoDouble(InpSymbol, SYMBOL_TRADE_TICK_SIZE);
+      double tickVal  = SymbolInfoDouble(InpSymbol, SYMBOL_TRADE_TICK_VALUE_LOSS);
+      if(tickVal <= 0) tickVal = SymbolInfoDouble(InpSymbol, SYMBOL_TRADE_TICK_VALUE);
+      double lossPerLot = tickSize > 0 ? MathAbs(entry - sl) / tickSize * tickVal : 0;
+      double money = AccountInfoDouble(ACCOUNT_BALANCE) * riskPct / 100.0;
+      lot = lossPerLot > 0 ? money / lossPerLot : 0;
+   } else lot = lotReq;
+   if(lot > InpMaxLot) lot = InpMaxLot;
+   lot = NormLot(lot);
+   if(lot <= 0) err = "Lot below broker minimum";
+   return lot;
+}
+
+void SplitParts(double lot, const string tpMode, double tp1, double tp2, double &lots[], double &tps[]) {
+   if(tpMode == "SPLIT" && tp2 > 0) {
+      double half = NormLot(lot / 2.0);
+      if(half > 0) {
+         ArrayResize(lots, 2); ArrayResize(tps, 2);
+         lots[0] = half; tps[0] = tp1;
+         lots[1] = NormLot(lot - half); tps[1] = tp2;
+         if(lots[1] <= 0) { ArrayResize(lots, 1); ArrayResize(tps, 1); }
+         return;
+      }
+      ArrayResize(lots, 1); ArrayResize(tps, 1); lots[0] = lot; tps[0] = tp1;
+      return;
+   }
+   ArrayResize(lots, 1); ArrayResize(tps, 1);
+   lots[0] = lot; tps[0] = (tpMode == "TP2" && tp2 > 0) ? tp2 : tp1;
+}
+
 // Bangkok "next day hh:mm" after the request date, as GMT
 datetime ExpiryGmt(const string date) {
    string d = date; StringReplace(d, "-", ".");
@@ -256,34 +329,13 @@ void ProcessRequest(Entry &list[], const string id) {
    }
 
    // --- volume
-   double lot = 0;
-   if(lotMode == "RISK") {
-      if(riskPct <= 0 || riskPct > InpMaxRiskPct) { WriteStatus(list, id, "REJECTED", "", 0, StringFormat("Risk %.2f%% outside 0-%.2f%%", riskPct, InpMaxRiskPct)); return; }
-      double tickSize = SymbolInfoDouble(InpSymbol, SYMBOL_TRADE_TICK_SIZE);
-      double tickVal  = SymbolInfoDouble(InpSymbol, SYMBOL_TRADE_TICK_VALUE_LOSS);
-      if(tickVal <= 0) tickVal = SymbolInfoDouble(InpSymbol, SYMBOL_TRADE_TICK_VALUE);
-      double lossPerLot = MathAbs(entry - sl) / tickSize * tickVal;
-      double money = AccountInfoDouble(ACCOUNT_BALANCE) * riskPct / 100.0;
-      lot = lossPerLot > 0 ? money / lossPerLot : 0;
-   } else lot = lotReq;
-   if(lot > InpMaxLot) lot = InpMaxLot;
-   lot = NormLot(lot);
-   if(lot <= 0) { WriteStatus(list, id, "REJECTED", "", 0, "Lot below broker minimum"); return; }
+   string lotErr;
+   double lot = CalcLot(lotMode, lotReq, riskPct, entry, sl, lotErr);
+   if(lot <= 0) { WriteStatus(list, id, "REJECTED", "", 0, lotErr); return; }
 
    // --- split into parts
    double lots[]; double tps[];
-   if(tpMode == "SPLIT" && tp2 > 0) {
-      double half = NormLot(lot / 2.0);
-      if(half > 0) {
-         ArrayResize(lots, 2); ArrayResize(tps, 2);
-         lots[0] = half; tps[0] = tp1;
-         lots[1] = NormLot(lot - half); tps[1] = tp2;
-         if(lots[1] <= 0) { ArrayResize(lots, 1); ArrayResize(tps, 1); }
-      } else { ArrayResize(lots, 1); ArrayResize(tps, 1); lots[0] = lot; tps[0] = tp1; }
-   } else {
-      ArrayResize(lots, 1); ArrayResize(tps, 1);
-      lots[0] = lot; tps[0] = (tpMode == "TP2" && tp2 > 0) ? tp2 : tp1;
-   }
+   SplitParts(lot, tpMode, tp1, tp2, lots, tps);
 
    // --- expiry: broker-side if supported, otherwise this EA deletes it later
    datetime expGmt = ExpiryGmt(date);
@@ -342,6 +394,176 @@ void TrackPlaced(Entry &list[]) {
    }
 }
 
+
+//------------------------------------------------------------------ auto mode
+string AutoTag() { return "GB AUTO "; }
+string PlanKeyOf(const string id) { return g_briefDate + "-" + (g_briefRev > 0 ? "R" + IntegerToString(g_briefRev) : "") + id; }
+
+int CountAutoPositions() {
+   int n = 0;
+   for(int i = PositionsTotal() - 1; i >= 0; i--) {
+      PositionGetTicket(i);
+      if(PositionGetInteger(POSITION_MAGIC) == InpMagic && StringFind(PositionGetString(POSITION_COMMENT), AutoTag()) == 0) n++;
+   }
+   return n;
+}
+
+// the brief is the live plan: its date is today in Bangkok, or yesterday before the 06:30 expiry
+bool BriefLive() {
+   if(g_briefDate == "") return false;
+   if(g_briefDate == BkkDate(TimeGMT())) return true;
+   return g_briefDate == BkkDate(TimeGMT() - 86400) && TimeGMT() <= ExpiryGmt(g_briefDate);
+}
+
+void SplitPlans(const string js) {
+   ArrayResize(g_plans, 0);
+   int k = StringFind(js, "\"plans\"");
+   if(k < 0) return;
+   int a = StringFind(js, "[", k), end = StringFind(js, "]", a);
+   if(a < 0 || end < 0) return;
+   int pos = a;
+   while(true) {
+      int o = StringFind(js, "{", pos);
+      if(o < 0 || o > end) break;
+      int c = StringFind(js, "}", o);
+      if(c < 0) break;
+      int n = ArraySize(g_plans); ArrayResize(g_plans, n + 1);
+      g_plans[n] = StringSubstr(js, o, c - o + 1);
+      pos = c + 1;
+   }
+}
+
+bool Reached(bool sell, const string type, double ref, double entry) {
+   return sell ? (type == "LIMIT" ? ref >= entry : ref <= entry) : (type == "LIMIT" ? ref <= entry : ref >= entry);
+}
+
+// pick the best plan of this revision: reward:risk to TP1, +1 if it follows the bias, +0.25 for plan A
+// (the primary setup), minus a little for distance; plans already past entry/SL are left out
+void SelectBest() {
+   g_selKey = ""; g_selId = ""; g_selReason = ""; g_selScore = -1e9;
+   MqlTick tk; if(!SymbolInfoTick(InpSymbol, tk)) return;
+   double slip = MathMin(g_autoSlip, InpAutoMaxSlip);
+   for(int i = 0; i < ArraySize(g_plans); i++) {
+      string pj = g_plans[i];
+      string id = JStr(pj, "id"), side = JStr(pj, "side"), type = JStr(pj, "type");
+      double entry = JNum(pj, "entry"), sl = JNum(pj, "sl"), tp1 = JNum(pj, "tp1"), tp2 = JNum(pj, "tp2");
+      string key = PlanKeyOf(id);
+      if(InList(g_excluded, key)) continue;
+      bool sell = side == "SELL";
+      double risk = MathAbs(entry - sl);
+      if(risk <= 0 || !(sell ? (sl > entry && tp1 < entry) : (sl < entry && tp1 > entry))) continue;
+      double ref = sell ? tk.bid : tk.ask;
+      if(sell ? ref >= sl : ref <= sl) continue;                                   // already beyond SL
+      double dist = MathAbs(ref - entry);
+      if(Reached(sell, type, ref, entry) && dist > slip) continue;                 // already ran past entry
+      bool aligned = (g_briefBias == "BEARISH" && sell) || (g_briefBias == "BULLISH" && !sell);
+      double rr = MathAbs(tp1 - entry) / risk;
+      double score = rr + (aligned ? 1.0 : 0.0) + (id == "A" ? 0.25 : 0.0) - 0.5 * MathMin(1.0, dist / (3.0 * risk));
+      if(score > g_selScore) {
+         g_selScore = score; g_selKey = key; g_selId = id; g_selSide = side; g_selType = type;
+         g_selEntry = entry; g_selSl = sl; g_selTp1 = tp1; g_selTp2 = tp2;
+         g_selReason = StringFormat("RR %.2f%s%s, %.1f away", rr, aligned ? ", follows " + g_briefBias : "", id == "A" ? ", primary plan" : "", dist);
+      }
+   }
+   if(g_selKey == "") { g_autoState = "NONE"; g_autoDetail = "No plan is still valid for auto entry"; }
+   else { g_autoState = "WAITING"; g_autoDetail = "Waiting for " + g_selSide + " " + g_selType + " " + DoubleToString(g_selEntry, 2); }
+}
+
+void RuleOut(const string why) {
+   AddList(g_excluded, g_selKey);
+   string was = "Plan " + g_selId + ": " + why;
+   SelectBest();
+   g_autoDetail = was + (g_selKey != "" ? " -> now plan " + g_selId : "");
+}
+
+// runs every second and on ticks: open the selected plan when price reaches its entry
+void CheckAuto() {
+   if(!g_autoOn || !InpAutoAllowed) return;
+   if(g_selKey == "" || g_openedGen == g_briefGen) return;
+   if(!BriefLive()) { g_autoState = "EXPIRED"; g_autoDetail = "Plan of " + g_briefDate + " expired"; g_selKey = ""; return; }
+   MqlTick tk; if(!SymbolInfoTick(InpSymbol, tk)) return;
+   bool sell = g_selSide == "SELL";
+   double ref = sell ? tk.bid : tk.ask;
+   if(sell ? ref >= g_selSl : ref <= g_selSl) { RuleOut("price went beyond SL before entry"); return; }
+   if(!Reached(sell, g_selType, ref, g_selEntry)) return;
+   double slip = MathMin(g_autoSlip, InpAutoMaxSlip);
+   if(MathAbs(ref - g_selEntry) > slip) { RuleOut(StringFormat("price %.2f jumped %.2f past entry (max %.2f)", ref, MathAbs(ref - g_selEntry), slip)); return; }
+   if(tk.ask - tk.bid > InpAutoMaxSpread) { g_autoDetail = StringFormat("Entry reached, waiting: spread %.2f > %.2f", tk.ask - tk.bid, InpAutoMaxSpread); return; }
+   if(AccountInfoInteger(ACCOUNT_TRADE_MODE) != ACCOUNT_TRADE_MODE_DEMO && !InpAllowLive) { g_autoState = "BLOCKED"; g_autoDetail = "Real account: EA is set to demo only"; g_openedGen = g_briefGen; return; }
+   if(CountAutoPositions() > 0) { g_autoDetail = "Entry reached, waiting: an earlier auto position is still open"; return; }
+   string tks;
+   if(HasOurOrders(g_selKey, tks)) { g_autoState = "SKIPPED"; g_autoDetail = "You already placed plan " + g_selId + " from the app (#" + tks + ")"; g_openedGen = g_briefGen; return; }
+
+   string err;
+   double lot = CalcLot(g_autoLotMode, g_autoLot, g_autoRisk, ref, g_selSl, err);
+   if(lot <= 0) { g_autoState = "ERROR"; g_autoDetail = err; g_openedGen = g_briefGen; return; }
+   double lots[], tps[];
+   SplitParts(lot, g_autoTp, g_selTp1, g_selTp2, lots, tps);
+   int digits = (int)SymbolInfoInteger(InpSymbol, SYMBOL_DIGITS);
+   string tickets = "", errs = ""; double total = 0;
+   for(int i = 0; i < ArraySize(lots); i++) {
+      string cm = AutoTag() + g_selKey + (ArraySize(lots) > 1 ? "/" + IntegerToString(i + 1) : "");
+      double s = NormalizeDouble(g_selSl, digits), t = NormalizeDouble(tps[i], digits);
+      bool ok = sell ? trade.Sell(lots[i], InpSymbol, 0, s, t, cm) : trade.Buy(lots[i], InpSymbol, 0, s, t, cm);
+      if(ok && (trade.ResultRetcode() == TRADE_RETCODE_DONE || trade.ResultRetcode() == TRADE_RETCODE_PLACED)) {
+         tickets += (tickets == "" ? "" : ",") + (string)trade.ResultOrder(); total += lots[i];
+      } else errs += (errs == "" ? "" : "; ") + trade.ResultRetcodeDescription();
+   }
+   g_openedGen = g_briefGen;
+   g_autoTickets = tickets;
+   if(tickets == "") { g_autoState = "ERROR"; g_autoDetail = "Broker: " + errs; return; }
+   g_autoState = "OPENED";
+   g_autoDetail = StringFormat("%s %.2f @ ~%.2f (plan %s, entry %.2f) SL %.2f TP %s", g_selSide, total, ref, g_selId, g_selEntry, g_selSl,
+                               ArraySize(tps) > 1 ? DoubleToString(tps[0], 2) + "/" + DoubleToString(tps[1], 2) : DoubleToString(tps[0], 2));
+   if(errs != "") g_autoDetail += " (part failed: " + errs + ")";
+   PrintFormat("GoldBrief AUTO: %s %s", g_autoDetail, tickets);
+}
+
+// read orders/auto.json (switched from the app) and the live brief; publish auto-status.json
+void PollAuto(Entry &list[]) {
+   string sha = FindSha(list, "auto.json");
+   if(sha != g_autoSha) {
+      g_autoSha = sha;
+      bool was = g_autoOn;
+      if(sha == "") g_autoOn = false;
+      else {
+         string js = ReadFile("orders/auto.json");
+         if(js == "") { g_autoSha = ""; return; }                    // retry next poll
+         g_autoOn = JStr(js, "enabled") == "true";
+         g_autoLotMode = JStr(js, "lot_mode") == "RISK" ? "RISK" : "FIXED";
+         g_autoLot = JNum(js, "lot"); g_autoRisk = JNum(js, "risk_pct");
+         string tp = JStr(js, "tp_mode"); g_autoTp = (tp == "TP1" || tp == "TP2") ? tp : "SPLIT";
+         double sl = JNum(js, "max_slip"); g_autoSlip = sl > 0 ? sl : 2.0;
+      }
+      if(g_autoOn && !was) { ArrayResize(g_excluded, 0); g_lastBriefFetch = 0; }
+      if(!g_autoOn) { g_autoState = InpAutoAllowed ? "OFF" : "DISABLED_IN_EA"; g_autoDetail = ""; g_selKey = ""; }
+   }
+   if(g_autoOn && TimeGMT() - g_lastBriefFetch >= 60) {
+      g_lastBriefFetch = TimeGMT();
+      string bj = ReadFileRef("brief.json", InpBriefBranch);
+      string gen = JStr(bj, "generated");
+      if(gen != "" && gen != g_briefGen) {
+         g_briefGen = gen; g_briefDate = JStr(bj, "date"); g_briefRev = (int)StringToInteger(JStr(bj, "rev"));
+         g_briefBias = JStr(bj, "bias");
+         SplitPlans(bj);
+         ArrayResize(g_excluded, 0);
+         if(g_openedGen != g_briefGen) SelectBest();
+      } else if(g_selKey == "" && g_autoState != "OPENED" && g_openedGen != g_briefGen && BriefLive()) SelectBest();
+   }
+   if(!InpAutoAllowed && g_autoOn) { g_autoState = "DISABLED_IN_EA"; g_autoDetail = "InpAutoAllowed is false in MT5"; }
+
+   string sig = g_autoState + "|" + g_selKey + "|" + g_autoDetail + "|" + g_autoTickets + "|" + (g_autoOn ? "1" : "0");
+   if(sig == g_autoStatusSig && TimeGMT() - g_lastHeartbeat < 15 * 60) return;
+   string js = "{\"state\":\"" + g_autoState + "\",\"enabled\":" + (g_autoOn ? "true" : "false") +
+               ",\"brief\":\"" + JEsc(g_briefGen) + "\",\"key\":\"" + JEsc(g_selKey) + "\",\"plan\":\"" + JEsc(g_selId) +
+               "\",\"side\":\"" + g_selSide + "\",\"type\":\"" + g_selType + "\",\"entry\":" + DoubleToString(g_selEntry, 2) +
+               ",\"sl\":" + DoubleToString(g_selSl, 2) + ",\"tp1\":" + DoubleToString(g_selTp1, 2) + ",\"tp2\":" + DoubleToString(g_selTp2, 2) +
+               ",\"score\":" + DoubleToString(g_selScore > -1e8 ? g_selScore : 0, 2) + ",\"reason\":\"" + JEsc(g_selReason) +
+               "\",\"detail\":\"" + JEsc(g_autoDetail) + "\",\"tickets\":\"" + g_autoTickets + "\",\"account\":\"" + AccountKind() +
+               "\",\"ea\":\"" + EA_VER + "\",\"time\":\"" + IsoNowBkk() + "\"}";
+   if(PutFile(list, "auto-status.json", js, "auto " + g_autoState + " " + g_selKey)) { g_autoStatusSig = sig; g_lastHeartbeat = TimeGMT(); }
+}
+
 void Poll() {
    if(InpToken == "") { Comment("GoldBriefBridge: set InpToken"); return; }
    Entry list[];
@@ -374,19 +596,25 @@ void Poll() {
       }
    }
    TrackPlaced(list);
-   Comment(StringFormat("GoldBriefBridge  %s  %s\nlast poll %s BKK  watching %d",
-                        AccountInfoInteger(ACCOUNT_TRADE_MODE) == ACCOUNT_TRADE_MODE_DEMO ? "DEMO" : (InpAllowLive ? "REAL (allowed)" : "REAL (blocked)"),
-                        InpSymbol, TimeToString(TimeGMT() + 7 * 3600, TIME_SECONDS), ArraySize(g_trackIds)));
+   PollAuto(list);
+   Comment(StringFormat("GoldBriefBridge %s  %s  %s\nlast poll %s BKK  watching %d\nAUTO %s %s %s",
+                        EA_VER, AccountInfoInteger(ACCOUNT_TRADE_MODE) == ACCOUNT_TRADE_MODE_DEMO ? "DEMO" : (InpAllowLive ? "REAL (allowed)" : "REAL (blocked)"),
+                        InpSymbol, TimeToString(TimeGMT() + 7 * 3600, TIME_SECONDS), ArraySize(g_trackIds),
+                        g_autoState, g_selKey, g_autoDetail));
 }
 
 int OnInit() {
    trade.SetExpertMagicNumber(InpMagic);
    trade.SetDeviationInPoints(50);
    if(!SymbolSelect(InpSymbol, true)) { Alert("GoldBriefBridge: symbol ", InpSymbol, " not found"); return INIT_PARAMETERS_INCORRECT; }
-   EventSetTimer(MathMax(5, InpPollSec));
+   EventSetTimer(1);                                        // 1 s: auto entry check; GitHub every InpPollSec
    Poll();
    return INIT_SUCCEEDED;
 }
 void OnDeinit(const int reason) { EventKillTimer(); Comment(""); }
-void OnTimer() { Poll(); }
-void OnTick() {}
+datetime g_lastPoll = 0;
+void OnTimer() {
+   CheckAuto();
+   if(TimeLocal() - g_lastPoll >= MathMax(5, InpPollSec)) { g_lastPoll = TimeLocal(); Poll(); }
+}
+void OnTick() { CheckAuto(); }

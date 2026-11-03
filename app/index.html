@@ -114,6 +114,8 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
     <h2>แผนวันนี้</h2>
     <div id="oldOrders"></div>
     <div id="plans"></div>
+    <h2>เปิดออเดอร์อัตโนมัติ</h2>
+    <div class="card" id="autoCard"><div class="note">กำลังโหลด…</div></div>
     <h2>ระดับราคา</h2>
     <div class="card"><div class="ladder" id="ladder"></div></div>
     <p class="note" id="invalid"></p>
@@ -179,7 +181,7 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
 </nav>
 
 <script>
-const UI_VERSION = '1.6';
+const UI_VERSION = '1.7';
 const RAW = 'https://raw.githubusercontent.com/mastersurat/master-iot/cyd-brief/';
 const API = 'https://api.github.com/repos/mastersurat/master-iot/contents/history?ref=cyd-brief';
 const $ = id => document.getElementById(id);
@@ -248,6 +250,7 @@ function setPrice(p, src) {
   let ref = brief && brief.price_ref ? p - brief.price_ref : null;
   $('pxsrc').innerHTML = (ref !== null ? `<span style="color:${ref >= 0 ? 'var(--up)' : 'var(--down)'}">${ref >= 0 ? '+' : ''}${ref.toFixed(1)}</span> จากราคาตอนเขียนแผน · ` : '') + esc(src);
   if (brief) { renderPlans(); renderLadder(); }
+  renderAutoPick();
   try { if (brief && !viewing && window.Native && Native.checkNear) Native.checkNear(p, JSON.stringify(brief)); } catch (e) {}
 }
 
@@ -341,6 +344,7 @@ function renderPlans() {
   }).join('');
   document.querySelectorAll('[data-follow]').forEach(b => b.onclick = () => openSheet(b.dataset.follow));
   document.querySelectorAll('[data-cancel]').forEach(b => b.onclick = () => cancelOrder(b.dataset.cancel, b));
+  renderAutoPick();
 }
 
 function renderLadder() {
@@ -630,8 +634,135 @@ async function testToken() {
       : 'token ใช้ได้ · เชื่อมกับ repo ' + j.full_name + ' แล้ว';
   } catch (e) { $('mt5state').textContent = 'ทดสอบไม่ผ่าน: ' + e.message; }
 }
-$('tokSave').onclick = () => { try { localStorage.setItem('ghToken', $('tok').value.trim()); } catch (e) {} $('tok').value = ''; testToken(); renderPlans(); refreshOrders(); };
+$('tokSave').onclick = () => { try { localStorage.setItem('ghToken', $('tok').value.trim()); } catch (e) {} $('tok').value = ''; testToken(); renderPlans(); refreshOrders(); refreshAuto(); };
 $('tokClear').onclick = () => { try { localStorage.removeItem('ghToken'); } catch (e) {} testToken(); renderPlans(); };
+
+
+/* ---------- auto mode: EA opens the best plan when price reaches its entry ---------- */
+var autoCfg = null, autoSha = null, autoSt = null, autoDraft = null, autoBusy = false;
+const autoThai = {OFF: 'ปิดอยู่', WAITING: 'รอราคาถึงจุดเข้า', OPENED: 'เปิดออเดอร์แล้ว', NONE: 'ไม่มีแผนที่ยังใช้ได้',
+  EXPIRED: 'แผนหมดอายุ', BLOCKED: 'ไม่เปิด', SKIPPED: 'ข้าม (ตั้งออเดอร์แผนนี้เองแล้ว)', ERROR: 'ผิดพลาด', DISABLED_IN_EA: 'ปิดไว้ใน EA'};
+const autoColor = s => s === 'OPENED' ? 'var(--up)' : s === 'WAITING' ? 'var(--gold)' : ['ERROR', 'BLOCKED'].includes(s) ? 'var(--down)' : 'var(--dim)';
+
+// same scoring as the EA: RR to TP1, +1 with the bias, +0.25 for plan A, minus a little for distance
+function bestPlanLocal() {
+  if (!brief || !brief.plans || !price) return null;
+  const slip = (autoDraft || {}).max_slip || 2;
+  let best = null;
+  for (const p of brief.plans) {
+    const sell = p.side === 'SELL', risk = Math.abs(p.entry - p.sl);
+    if (!(risk > 0) || !(sell ? p.sl > p.entry && p.tp1 < p.entry : p.sl < p.entry && p.tp1 > p.entry)) continue;
+    if (sell ? price >= p.sl : price <= p.sl) continue;
+    const dist = Math.abs(price - p.entry);
+    const reached = sell ? (p.type === 'LIMIT' ? price >= p.entry : price <= p.entry) : (p.type === 'LIMIT' ? price <= p.entry : price >= p.entry);
+    if (reached && dist > slip) continue;
+    const aligned = (brief.bias === 'BEARISH' && sell) || (brief.bias === 'BULLISH' && !sell);
+    const rr = Math.abs(p.tp1 - p.entry) / risk;
+    const score = rr + (aligned ? 1 : 0) + (p.id === 'A' ? 0.25 : 0) - 0.5 * Math.min(1, dist / (3 * risk));
+    if (!best || score > best.score) best = {p, score, rr, aligned, dist};
+  }
+  return best;
+}
+function autoPickHtml() {
+  if (!brief || viewing) return '';
+  const on = autoCfg && autoCfg.enabled;
+  const st = autoSt && autoSt.brief === brief.generated && autoSt.key ? autoSt : null;
+  if (on && st) {
+    return `<div class="ord" style="margin-top:8px"><span class="st"><b>EA เลือก Plan ${esc(st.plan)}</b> · ${esc(st.side)} ${esc(st.type)} <span class="num">${fmt(st.entry)}</span>
+      <br><span style="color:${autoColor(st.state)}">${autoThai[st.state] || esc(st.state)}${st.tickets ? ' #' + esc(st.tickets) : ''}</span>
+      <br><span class="note">${esc(st.reason || '')}${st.detail ? ' · ' + esc(st.detail) : ''}</span></span></div>`;
+  }
+  if (!price) return '<div class="note" style="margin-top:8px">รอราคาสดเพื่อเลือกแผนที่ดีที่สุด…</div>';
+  const b = bestPlanLocal();
+  if (!b) return `<div class="note" style="margin-top:8px">ตอนนี้ไม่มีแผนที่ยังเข้าได้ (ราคาเลยจุดเข้าหรือเลย SL แล้ว)</div>`;
+  return `<div class="note" style="margin-top:8px">แผนที่ดีที่สุดตอนนี้: <b style="color:var(--fg)">Plan ${esc(b.p.id)}</b> ${esc(b.p.side)} ${esc(b.p.type)} <span class="num">${fmt(b.p.entry)}</span>
+    · RR ${b.rr.toFixed(2)}${b.aligned ? ' · ตามมุมมอง ' + esc(brief.bias) : ''} · ห่าง ${b.dist.toFixed(1)} $</div>`;
+}
+function renderAutoPick() { const el = $('autoPick'); if (el) el.innerHTML = autoPickHtml(); }
+
+function renderAuto() {
+  const c = $('autoCard');
+  if (!token()) { c.innerHTML = '<div class="note">ใส่ GitHub token ในการ์ด "เชื่อมต่อ MT5" ก่อน แล้วจะเปิดโหมดอัตโนมัติได้</div>'; return; }
+  if (!autoDraft) {
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem('ordPrefs') || '{}'); } catch (e) {}
+    autoDraft = Object.assign({lot_mode: saved.mode || 'FIXED', lot: saved.lot || 0.01, risk_pct: saved.risk || 0.5, tp_mode: 'SPLIT', max_slip: 2}, autoCfg || {});
+  }
+  const d = autoDraft, on = !!(autoCfg && autoCfg.enabled);
+  let ea = 'ยังไม่เห็น EA เวอร์ชัน 1.10 ตอบ · ต้องอัปเดต EA ใน MT5 ก่อน';
+  if (autoSt && autoSt.time) {
+    const age = (Date.now() - Date.parse(autoSt.time)) / 60000;
+    ea = age < 20 ? `EA ${esc(autoSt.ea || '')} ออนไลน์ · ${esc(autoSt.account || '')} · ตอบล่าสุด ${esc(autoSt.time.slice(11, 16))} น.`
+                  : `<span style="color:var(--down)">EA ไม่ตอบมา ${Math.round(age)} นาที · เช็กว่าคอมไม่หลับ และ MT5 เปิดอยู่</span>`;
+  }
+  c.innerHTML = `
+    <div class="row"><b style="color:${on ? 'var(--up)' : 'var(--dim)'}">${on ? 'เปิดอยู่' : 'ปิดอยู่'}</b>
+      <span class="note" style="margin:0 0 0 auto;text-align:right">${ea}</span></div>
+    <div class="note">เมื่อราคาถึงจุดเข้าของแผนที่ดีที่สุด EA จะเปิดออเดอร์ทันที (market) พร้อม SL/TP ของแผน · 1 ไม้ต่อแผน 1 ฉบับ · ไม่ไล่ราคาถ้าวิ่งเลยจุดเข้าเกินที่ตั้ง · บัญชีเดโมเท่านั้น</div>
+    <div id="autoPick">${autoPickHtml()}</div>
+    <div class="lbl">ขนาดออเดอร์</div>
+    <div class="seg">${[['FIXED', 'ล็อตคงที่'], ['RISK', '% ความเสี่ยง']].map(([v, t]) => `<button aria-pressed="${d.lot_mode === v}" data-alot="${v}">${t}</button>`).join('')}</div>
+    <div class="field">${d.lot_mode === 'FIXED'
+      ? `<input id="aLot" type="number" inputmode="decimal" step="0.01" min="0.01" value="${d.lot}" aria-label="lot"><span>ล็อต</span>`
+      : `<input id="aRisk" type="number" inputmode="decimal" step="0.1" min="0.1" max="2" value="${d.risk_pct}" aria-label="risk percent"><span>% ต่อไม้</span>`}</div>
+    <div class="lbl">ปิดกำไรที่</div>
+    <div class="seg">${['TP1', 'TP2', 'SPLIT'].map(v => `<button aria-pressed="${d.tp_mode === v}" data-atp="${v}">${v === 'SPLIT' ? 'แบ่ง TP1+TP2' : v}</button>`).join('')}</div>
+    <div class="lbl">ยอมให้ราคาเลยจุดเข้าได้ไม่เกิน</div>
+    <div class="seg">${[1, 2, 3].map(v => `<button aria-pressed="${d.max_slip == v}" data-aslip="${v}">${v} $</button>`).join('')}</div>
+    <div class="row">${on
+      ? `<button class="btn ghost" id="aSave" style="flex:1">บันทึกการตั้งค่า</button><button class="btn danger" id="aOff" style="flex:1">ปิดอัตโนมัติ</button>`
+      : `<button class="btn" id="aOn" style="flex:1">เปิดอัตโนมัติ</button>`}</div>
+    <div class="err" id="aErr" hidden></div>
+    <div class="note">การวิเคราะห์นี้ไม่ใช่คำแนะนำการลงทุน ตรวจสอบออเดอร์ใน MT5 เสมอ</div>`;
+  c.querySelectorAll('[data-alot]').forEach(b => b.onclick = () => { d.lot_mode = b.dataset.alot; renderAuto(); });
+  c.querySelectorAll('[data-atp]').forEach(b => b.onclick = () => { d.tp_mode = b.dataset.atp; renderAuto(); });
+  c.querySelectorAll('[data-aslip]').forEach(b => b.onclick = () => { d.max_slip = +b.dataset.aslip; renderAuto(); });
+  if ($('aLot')) $('aLot').oninput = e => d.lot = +e.target.value;
+  if ($('aRisk')) $('aRisk').oninput = e => d.risk_pct = +e.target.value;
+  if ($('aSave')) $('aSave').onclick = () => saveAuto(true, $('aSave'));
+  if ($('aOff')) $('aOff').onclick = () => saveAuto(false, $('aOff'));
+  if ($('aOn')) $('aOn').onclick = () => {
+    const b = $('aOn');
+    if (b.dataset.confirm !== '1') { b.dataset.confirm = '1'; b.textContent = 'แตะอีกครั้งเพื่อยืนยันเปิดอัตโนมัติ'; return; }
+    saveAuto(true, b);
+  };
+}
+
+async function saveAuto(enabled, btn) {
+  const d = autoDraft, bad = m => { $('aErr').hidden = false; $('aErr').textContent = m; };
+  if (enabled && d.lot_mode === 'FIXED' && !(d.lot >= 0.01)) return bad('ล็อตต้องอย่างน้อย 0.01');
+  if (enabled && d.lot_mode === 'RISK' && !(d.risk_pct > 0 && d.risk_pct <= 2)) return bad('ความเสี่ยงต้องอยู่ระหว่าง 0.1–2%');
+  if (autoBusy) return;
+  autoBusy = true; btn.disabled = true; btn.textContent = 'กำลังบันทึก…';
+  const cfg = {enabled, symbol: SYMBOL, lot_mode: d.lot_mode, lot: d.lot_mode === 'FIXED' ? d.lot : 0, risk_pct: d.lot_mode === 'RISK' ? d.risk_pct : 0,
+               tp_mode: d.tp_mode, max_slip: d.max_slip, updated: new Date().toISOString()};
+  try {
+    for (let i = 0; i < 2; i++) {
+      const r = await gh('PUT', '/auto.json', {message: `auto ${enabled ? 'on' : 'off'}`, branch: ORD_BRANCH,
+        content: b64(JSON.stringify(cfg, null, 1)), ...(autoSha ? {sha: autoSha} : {})});
+      if (r.ok) { autoSha = (await r.json()).content.sha; autoCfg = cfg; break; }
+      if ((r.status === 409 || r.status === 422) && i === 0) { await refreshAuto(true); continue; }
+      throw new Error('HTTP ' + r.status);
+    }
+  } catch (e) { autoBusy = false; renderAuto(); return bad('บันทึกไม่สำเร็จ: ' + e.message); }
+  autoBusy = false;
+  renderAuto();
+  setTimeout(refreshAuto, 15000);
+}
+
+async function refreshAuto(quiet) {
+  if (!token()) { renderAuto(); return; }
+  try {
+    const r = await gh('GET', '/auto.json');
+    if (r.ok) { const j = await r.json(); autoSha = j.sha; autoCfg = JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\s/g, ''))))); }
+    else if (r.status === 404) { autoSha = null; autoCfg = null; }
+    const s = await gh('GET', '/auto-status.json', null, true);
+    autoSt = s.ok ? await s.json() : null;
+  } catch (e) {}
+  if (quiet === true) return;
+  const editing = document.activeElement && ['aLot', 'aRisk'].includes(document.activeElement.id);
+  if (!autoBusy && !editing) { if (autoCfg) autoDraft = Object.assign({}, autoDraft || {}, autoCfg); renderAuto(); }
+}
 
 /* ---------- notifications (native, APK build 4+) ---------- */
 function renderNotify() {
@@ -698,8 +829,9 @@ window.onAppResume = () => { loadPrice(); if (!viewing) loadBrief(null); renderN
 try { const c = localStorage.getItem('lastBrief'); if (c) { brief = JSON.parse(c); render(); } } catch (e) {}
 loadBrief(null); loadPrice();
 $('ver').textContent = 'หน้าจอ v' + UI_VERSION + (window.Native && Native.versionCode ? ' · แอป build ' + Native.versionCode() : '');
-checkApk(); testToken(); refreshOrders(); renderNotify();
+checkApk(); testToken(); refreshOrders(); renderNotify(); refreshAuto();
 setInterval(refreshOrders, 15000);
+setInterval(refreshAuto, 30000);
 setInterval(loadPrice, 20000);
 setInterval(() => { if (!viewing) loadBrief(null); }, 10 * 60 * 1000);
 </script>
