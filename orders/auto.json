@@ -1,0 +1,10 @@
+{
+ "enabled": true,
+ "symbol": "XAUUSDm",
+ "lot_mode": "FIXED",
+ "lot": 0.01,
+ "risk_pct": 0,
+ "tp_mode": "SPLIT",
+ "max_slip": 2,
+ "updated": "2026-11-03T10:33:04.082Z"
+}
