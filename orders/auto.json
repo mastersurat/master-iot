@@ -4,7 +4,7 @@
  "lot_mode": "FIXED",
  "lot": 0.01,
  "risk_pct": 0,
- "tp_mode": "SPLIT",
+ "tp_mode": "TP2",
  "max_slip": 2,
- "updated": "2026-11-03T10:34:33.841Z"
+ "updated": "2026-11-03T15:14:24.884Z"
 }
