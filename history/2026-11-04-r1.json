@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "date": "2026-11-04",
+ "generated": "2026-11-04 16:13 +07",
+ "rev": 1,
+ "session": "ASIA_CLOSE",
+ "session_note": "Asia 3,919.85-~4,035 (+2.6%) on Dem midterm sweep, DXY 101.5; A not triggered, B filled 3,970 and reached TP1 4,006",
+ "rev_note": "Bias to BULLISH after 4,000 reclaim: A buy stop past Asia high 4,034.5, B buy limit 4,020 dip; SL under 4,011/4,000",
+ "price_ref": 4035,
+ "bias": "BULLISH",
+ "bias_note": "Above 4,000, DXY 5-wk low; 20DMA 4,078 above",
+ "headline": "Gold jumps ~2.6% to ~4,035 as Democrats win Congress and USD slides; ADP/ISM tonight",
+ "summary": [
+  "Asia range 3,919.85-~4,035: spot 3,931 at 03:06 GMT, 4,016 at 06:19, 4,034.51 at 09:02 UTC",
+  "AP: Democrats won House and Senate; DXY 101.87 -> 101.50, Treasury yields fell sharply",
+  "FedWatch still ~77-79% Dec hike odds; StoneX: 4,000 the key level; NFP Fri",
+  "Prior plan: B buy stop 3,970 filled, TP1 4,006 hit; if still open, TP2 4,075 / SL 3,940 manage in app",
+  "Levels: R 4,035 / 4,050 / 4,080; S 4,011 / 4,000 / 3,970; H1 RSI 72.6, 4H RSI 59.7 (07:31 UTC)"
+ ],
+ "events": [
+  "Wed 20:15 BKK  ADP Oct",
+  "Wed 20:30 BKK  Trade balance; 22:00 ISM Svcs",
+  "Thu 20:30 BKK  Jobless claims; BoE Thu",
+  "Fri 20:30 BKK  US NFP Oct"
+ ],
+ "levels": {
+  "r": [
+   4035,
+   4050,
+   4080
+  ],
+  "s": [
+   4011,
+   4000,
+   3970
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 4039,
+   "sl": 4009,
+   "tp1": 4075,
+   "tp2": 4110,
+   "note": "4.5 over Asia high 4,034.5; SL < 4,010.8 sup; TP1 < 4,078 20DMA; RR 1.2/2.4"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "LIMIT",
+   "entry": 4020,
+   "sl": 3996,
+   "tp1": 4049,
+   "tp2": 4075,
+   "note": "Dip to 4,016-4,023 tested in Asia, 15 below ref; SL < 4,000; TP1 < 4,050; RR 1.2/2.3"
+  }
+ ],
+ "invalid": "Before fill: H1 close < 4,000 voids A and B; H1 close > 4,080 voids B. No new entry 20:00-22:15 BKK",
+ "risk_note": "ADP/ISM tonight and NFP Fri can gap price past SL; day already +2.6%, use small size. Not financial advice.",
+ "lesson_applied": "Rule 1: A stop 4.5 past Asia high, B limit 15 from ref at tested 4,016-4,023; SL >= 24 (1/3 Tue range); rule 3 not met (H1 RSI 72.6)",
+ "review": {
+  "for_date": "2026-11-03",
+  "result": "NOT_TRIGGERED",
+  "text": "r0 stops 3,975/3,866 missed (day 3,893.31-3,965.80). r1 B sell lmt 3,912 filled, SL 3,927 hit. r2 A 3,900/B 3,944 not hit in NY prints 3,924-3,931; close ~3,930"
+ },
+ "sources": [
+  "Reuters via Yahoo Finance 2026-11-04",
+  "Reuters via The Standard HK 2026-11-04",
+  "Reuters via Aaj English 2026-11-04",
+  "TradingKey 2026-11-04",
+  "FinanceFeeds 2026-11-04",
+  "FXEmpire gold page 2026-11-04",
+  "ForexDevice 2026-11-04"
+ ],
+ "th": {
+  "headline": "ทองพุ่งราว 2.6% ขึ้นไปราว 4,035 หลังเดโมแครตชนะสภา ดอลลาร์อ่อน",
+  "bias_note": "ขาขึ้น เหนือ 4,000 ดอลลาร์อ่อน",
+  "summary": [
+   "เอเชีย กรอบ 3,919.85 ถึงราว 4,035 ราคา 3,931 ตอน 10:06 น. ขึ้นเป็น 4,034.51 ตอน 16:02 น.",
+   "AP รายงาน เดโมแครตชนะทั้งสภาล่างและวุฒิสภา ดัชนีดอลลาร์ 101.87 ลงเป็น 101.50 ยีลด์ลงแรง",
+   "FedWatch ยังให้โอกาสขึ้นดอกเบี้ย ธ.ค. ราว 77-79% StoneX มอง 4,000 เป็นจุดสำคัญ",
+   "แผน B เดิม Buy Stop 3,970 ถูกเปิด และถึง TP1 4,006 แล้ว ถ้ายังเปิดอยู่ ดูแลเองในแอป",
+   "แนวต้าน 4,035 4,050 4,080 แนวรับ 4,011 4,000 3,970 RSI H1 72.6 RSI 4H 59.7"
+  ],
+  "invalid": "ก่อนเข้า H1 ปิดใต้ 4,000 ยกเลิก A และ B ปิดเหนือ 4,080 ยกเลิก B",
+  "review_text": "r0 Stop 3,975/3,866 ไม่ถูกเปิด (กรอบวัน 3,893.31-3,965.80) r1 B ขาย Limit 3,912 ถูกเปิด แล้วโดน SL 3,927 r2 A 3,900 B 3,944 ไม่ถูกเปิด ปิดราว 3,930",
+  "session_note": "เอเชีย ทองขึ้นจาก 3,919.85 ถึงราว 4,035 บวกราว 2.6% A ไม่ถูกเปิด B ถูกเปิดที่ 3,970 และถึง TP1",
+  "rev_note": "เปลี่ยนเป็นขาขึ้นหลังยืนเหนือ 4,000 A ซื้อเมื่อผ่านสูงสุดเอเชีย B รอซื้อย่อที่ 4,020"
+ }
+}
