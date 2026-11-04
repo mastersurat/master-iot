@@ -7,10 +7,16 @@ The morning brief must read the latest 10 entries before writing a plan and say 
 <!-- Rules promoted from repeated lessons. Keep this list short (max 8). -->
 - 1. (rev 11-03) Plan A is a STOP entry 2-5 past the prior session's extreme (or tested level) in the plan direction; rally-fade/dip-buy LIMITs only as Plan B, max 15 from price_ref at a level tested in the last session. (A limits 10-28 to 11-02: 0-for-10, missed by 0.7-50.)
 - 2. Plan B stop entry just past the prior session's extreme (prior day low/high), not a further round number. (10-29: stop 4,020 under the 4,024 low filled; r2 3,996 under 4,000 did not.)
-- 3. After a day move > 2.5% with H1 RSI < 20 (or > 80), do not add new stop entries in that direction for the next session; Plan B becomes the reclaim/counter setup at the broken level. (10-30: r2 sells 90 lower after a 3% drop, nothing filled; Mon rebounded +2%.)
+- 3. (rev 11-05) After a day move > 2.5% with H1 RSI < 20 (or > 80) - or > 2.5% alone when H1 RSI is not available - do not add new stop entries in that direction for the next session; Plan A may then be a retest LIMIT at the broken level (overrides rule 1 for that session); Plan B becomes the reclaim/counter setup at the broken level. (10-30 r2 sells 90 lower after -3%: nothing filled; 11-04 r2 buy stop 4,069 after +3.3% filled ~1 below the day's top, RSI unknown.)
 
 ## Log
 <!-- newest first: "### YYYY-MM-DD  RESULT" then Expected / Happened / Why / Adjust -->
+
+### 2026-11-04  OPEN
+- Expected: r0 BEARISH (A sell stop 3,889 / B buy stop 3,970); r1 BULLISH after the 4,000 reclaim (A buy stop 4,039 / B buy lmt 4,020); r2 BULLISH (A buy stop 4,069 / B buy lmt 4,047).
+- Happened: Democratic sweep, DXY -0.6% to 101.27, 10y 4.915%, oil -8% to -9%; gold 3,919.85 (Asia low) -> 4,040s (London) -> ~4,062 (TE, +3.32%) / 4,070 (+3.56%, Gate via ChainCatcher); JM Bullion ask 4,079.70 at 18:49 ET. r0 A missed; r0 B filled, TP1 4,006 hit, TP2 4,075 likely (ask only). r1 A filled 4,039, TP1 4,075 likely (ask only), SL 4,009 not reported; r1 B 4,020 unconfirmed. r2 A 4,069 filled about 1 point into the move (4,070 print), TP1 4,100 / SL 4,044 not hit -> open; r2 B 4,047 unconfirmed.
+- Why: worked - stop entries just past the session extreme in the direction of a fresh driver (rules 1-2) caught the trend day twice (r0 B, r1 A). Weak spot - r2 chased with another buy stop after +3.3% because H1 RSI was unknown, so rule 3 was skipped; it filled near the top with TP1 31 away and NFP ahead. Limits again unconfirmed.
+- Adjust: rule 3 now triggers on a > 2.5% day move alone when RSI is unavailable; after a trend day, Plan A is a retest limit at the broken level (max 15 away) and Plan B the counter stop below it.
 
 ### 2026-11-03  NOT_TRIGGERED
 - Expected: r0 NEUTRAL range break (A buy stop 3,975 / B sell stop 3,866); r1 BEARISH (A sell stop 3,866 / B sell lmt 3,912, SL 3,927); r2 BEARISH (A sell stop 3,900 / B sell lmt 3,944).
