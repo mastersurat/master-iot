@@ -1,0 +1,90 @@
+{
+ "v": 1,
+ "date": "2026-11-04",
+ "generated": "2026-11-05 00:09 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "London/NY AM 4,035 -> 4,050.99 -> ~4,060-4,065 (+3%); A buy stop 4,039 filled, TP1/SL not hit; B 4,020 fill unconfirmed",
+ "rev_note": "Still BULLISH: A buy stop past ~4,065 high, B buy limit 4,047 retest of broken 4,046-4,051; SL under 4,046/4,035",
+ "price_ref": 4060,
+ "bias": "BULLISH",
+ "bias_note": "Holds above 4,046 breakout; Dec hike odds 82-83% cap",
+ "headline": "Gold up ~3% near 4,060 on Democratic sweep and weak USD; biggest gain since Aug",
+ "summary": [
+  "Spot 4,021.68 at 07:18 GMT, 4,040.15 (Reuters), high 4,050.99 (Kitco), 4,059.59 at 17:02 UTC (FXEmpire)",
+  "Trading Economics ~4,062-4,065 (+3.3%); highest since Oct 29; silver +4.8% to 52.13",
+  "ISM services Oct 54.5 (Sep 54.9); FedWatch Dec hike 82-83%; ADP result not found in sources",
+  "Prior plan: A buy stop 4,039 filled, open; TP1 4,075 / SL 4,009 not seen hit; manage in app",
+  "Levels: R 4,073 fib / 4,078 20DMA / 4,087 pivot / 4,104-4,115; S 4,046-4,051 / 4,035 / 4,011"
+ ],
+ "events": [
+  "Thu 19:00 BKK  BoE rate decision",
+  "Thu 20:30 BKK  US jobless claims",
+  "Fri 20:30 BKK  US NFP Oct (high impact)"
+ ],
+ "levels": {
+  "r": [
+   4073,
+   4087,
+   4110
+  ],
+  "s": [
+   4046,
+   4035,
+   4011
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 4069,
+   "sl": 4044,
+   "tp1": 4100,
+   "tp2": 4110,
+   "note": "~4 past session high ~4,065; SL < 4,046 breakout; TP1 < 4,104 zone; RR 1.24/1.64"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "LIMIT",
+   "entry": 4047,
+   "sl": 4022,
+   "tp1": 4078,
+   "tp2": 4099,
+   "note": "Retest of broken 4,046-4,051, 13 below ref; SL < 4,035 Asia high; TP1 at 20DMA; RR 1.24/2.08"
+  }
+ ],
+ "invalid": "Before fill: H1 close < 4,035 voids A and B; H1 close > 4,087 voids B. No new entry 20:00-21:00 BKK Thu",
+ "risk_note": "Day already +3%; NFP Fri can gap past SL; Dec hike odds high. Use small size. Not financial advice.",
+ "lesson_applied": "Rule 1: A stop ~4 past session high, B limit 13 from ref at tested 4,046-4,051; SL 25 >= 24; rule 3 not applied (H1 RSI unknown)",
+ "review": {
+  "for_date": "2026-11-03",
+  "result": "NOT_TRIGGERED",
+  "text": "r0 stops 3,975/3,866 missed (day 3,893.31-3,965.80). r1 B sell lmt 3,912 filled, SL 3,927 hit. r2 A 3,900/B 3,944 not hit in NY prints 3,924-3,931; close ~3,930"
+ },
+ "sources": [
+  "Reuters via Investing.com 2026-11-04",
+  "Kitco (Reuters wire) 2026-11-04",
+  "FXEmpire gold page 2026-11-04 17:02 UTC",
+  "Trading Economics gold 2026-11-04",
+  "Trading and Investment News (IG levels) 2026-11-04",
+  "ISM via PR Newswire 2026-11-04"
+ ],
+ "th": {
+  "headline": "ทองบวกราว 3% ใกล้ 4,060 ดอลลาร์อ่อนหลังเดโมแครตชนะสภา",
+  "bias_note": "ขาขึ้น ยืนเหนือ 4,046",
+  "summary": [
+   "ราคา 4,021.68 ตอน 14:18 น. ขึ้นเป็น 4,050.99 แล้ว 4,059.59 ตอน 00:02 น. (FXEmpire)",
+   "Trading Economics ราว 4,062-4,065 บวก 3.3% สูงสุดตั้งแต่ 29 ต.ค. เงินบวก 4.8%",
+   "ISM ภาคบริการ ต.ค. 54.5 (ก.ย. 54.9) FedWatch ให้โอกาสขึ้นดอกเบี้ย ธ.ค. 82-83%",
+   "แผน A เดิม Buy Stop 4,039 ถูกเปิดแล้ว ยังไม่ถึง TP1 4,075 หรือ SL 4,009 ดูแลเองในแอป",
+   "แนวต้าน 4,073 4,078 4,087 4,104-4,115 แนวรับ 4,046-4,051 4,035 4,011"
+  ],
+  "invalid": "ก่อนเข้า H1 ปิดใต้ 4,035 ยกเลิก A และ B ปิดเหนือ 4,087 ยกเลิก B",
+  "review_text": "r0 Stop 3,975/3,866 ไม่ถูกเปิด (กรอบวัน 3,893.31-3,965.80) r1 B ขาย Limit 3,912 ถูกเปิด แล้วโดน SL 3,927 r2 A 3,900 B 3,944 ไม่ถูกเปิด ปิดราว 3,930",
+  "session_note": "ลอนดอน ทองขึ้นต่อจาก 4,035 ถึง 4,050.99 และราว 4,060-4,065 A ถูกเปิดที่ 4,039 ยังเปิดอยู่ B ไม่ยืนยัน",
+  "rev_note": "ยังขาขึ้น A ซื้อเมื่อผ่านสูงสุดราว 4,065 B รอซื้อย่อทดสอบ 4,047 SL ใต้ 4,046 และ 4,035"
+ }
+}
