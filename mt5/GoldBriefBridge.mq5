@@ -11,13 +11,16 @@
 //| the EA reads the live brief, picks the best of plan A/B and opens |
 //| a market order when price reaches that plan's entry. Status goes  |
 //| to orders/auto-status.json.                                       |
+//| v1.11: plans re-checked every second; a plan skipped because      |
+//| price ran past entry comes back when price returns; tickets of an |
+//| older plan are cleared when a new brief arrives.                  |
 //|                                                                  |
 //| Setup: Tools > Options > Expert Advisors > Allow WebRequest for  |
 //|   https://api.github.com                                         |
 //| Attach to any chart (one instance only). Needs Algo Trading ON.  |
 //+------------------------------------------------------------------+
 #property copyright "mastersurat"
-#property version   "1.10"
+#property version   "1.11"
 #property strict
 
 #include <Trade/Trade.mqh>
@@ -44,7 +47,7 @@ struct Entry { string name; string sha; };
 string g_doneIds[];           // ids already handled in this run (status written or attempted)
 string g_trackIds[];          // ids we placed and still watch (PLACED -> FILLED / EXPIRED)
 string g_lastErr = "";
-#define EA_VER "1.10"
+#define EA_VER "1.11"
 
 // ---- auto mode state
 string   g_autoSha = "";                // sha of orders/auto.json last read ("" = none)
@@ -438,35 +441,56 @@ bool Reached(bool sell, const string type, double ref, double entry) {
 }
 
 // pick the best plan of this revision: reward:risk to TP1, +1 if it follows the bias, +0.25 for plan A
-// (the primary setup), minus a little for distance; plans already past entry/SL are left out
-void SelectBest() {
-   g_selKey = ""; g_selId = ""; g_selReason = ""; g_selScore = -1e9;
+// (the primary setup), minus a little for distance. Runs every second (v1.11), so a plan skipped because
+// price had run past its entry comes back once price returns. A plan whose SL was touched before entry
+// is ruled out for good. keep=true holds the current choice unless another plan is clearly better
+// (+0.25) or is at its entry right now.
+void SelectBest(bool keep = false) {
+   string prevKey = g_selKey, prevId = g_selId;
    MqlTick tk; if(!SymbolInfoTick(InpSymbol, tk)) return;
    double slip = MathMin(g_autoSlip, InpAutoMaxSlip);
-   for(int i = 0; i < ArraySize(g_plans); i++) {
+   int n = ArraySize(g_plans);
+   int best = -1, prev = -1; double bestScore = -1e9, prevScore = -1e9;
+   string reasons[]; ArrayResize(reasons, n);
+   for(int i = 0; i < n; i++) {
       string pj = g_plans[i];
       string id = JStr(pj, "id"), side = JStr(pj, "side"), type = JStr(pj, "type");
-      double entry = JNum(pj, "entry"), sl = JNum(pj, "sl"), tp1 = JNum(pj, "tp1"), tp2 = JNum(pj, "tp2");
+      double entry = JNum(pj, "entry"), sl = JNum(pj, "sl"), tp1 = JNum(pj, "tp1");
       string key = PlanKeyOf(id);
       if(InList(g_excluded, key)) continue;
       bool sell = side == "SELL";
       double risk = MathAbs(entry - sl);
       if(risk <= 0 || !(sell ? (sl > entry && tp1 < entry) : (sl < entry && tp1 > entry))) continue;
       double ref = sell ? tk.bid : tk.ask;
-      if(sell ? ref >= sl : ref <= sl) continue;                                   // already beyond SL
+      if(sell ? ref >= sl : ref <= sl) { AddList(g_excluded, key); continue; }    // SL touched before entry: out for good
       double dist = MathAbs(ref - entry);
-      if(Reached(sell, type, ref, entry) && dist > slip) continue;                 // already ran past entry
+      bool reached = Reached(sell, type, ref, entry);
+      if(reached && dist > slip) continue;                                         // past entry now; may come back later
       bool aligned = (g_briefBias == "BEARISH" && sell) || (g_briefBias == "BULLISH" && !sell);
       double rr = MathAbs(tp1 - entry) / risk;
       double score = rr + (aligned ? 1.0 : 0.0) + (id == "A" ? 0.25 : 0.0) - 0.5 * MathMin(1.0, dist / (3.0 * risk));
-      if(score > g_selScore) {
-         g_selScore = score; g_selKey = key; g_selId = id; g_selSide = side; g_selType = type;
-         g_selEntry = entry; g_selSl = sl; g_selTp1 = tp1; g_selTp2 = tp2;
-         g_selReason = StringFormat("RR %.2f%s%s, %.1f away", rr, aligned ? ", follows " + g_briefBias : "", id == "A" ? ", primary plan" : "", dist);
-      }
+      if(reached) score += 100.0;                                                  // at its entry right now: take it
+      reasons[i] = StringFormat("RR %.2f%s%s, %.1f away", rr, aligned ? ", follows " + g_briefBias : "", id == "A" ? ", primary plan" : "", dist);
+      if(key == prevKey) { prev = i; prevScore = score; }
+      if(score > bestScore) { bestScore = score; best = i; }
    }
-   if(g_selKey == "") { g_autoState = "NONE"; g_autoDetail = "No plan is still valid for auto entry"; }
-   else { g_autoState = "WAITING"; g_autoDetail = "Waiting for " + g_selSide + " " + g_selType + " " + DoubleToString(g_selEntry, 2); }
+   if(keep && prev >= 0 && best != prev && bestScore < 100.0 && bestScore < prevScore + 0.25) { best = prev; bestScore = prevScore; }
+   if(best < 0) {
+      g_selKey = ""; g_selId = ""; g_selReason = ""; g_selScore = -1e9;
+      g_autoState = "NONE";
+      g_autoDetail = prevKey != "" ? "Plan " + prevId + " ran past entry or SL; no plan valid right now (rechecked every second)"
+                                   : "No plan is valid right now (rechecked every second)";
+      return;
+   }
+   string pj = g_plans[best];
+   g_selId = JStr(pj, "id"); g_selKey = PlanKeyOf(g_selId); g_selSide = JStr(pj, "side"); g_selType = JStr(pj, "type");
+   g_selEntry = JNum(pj, "entry"); g_selSl = JNum(pj, "sl"); g_selTp1 = JNum(pj, "tp1"); g_selTp2 = JNum(pj, "tp2");
+   g_selScore = bestScore; g_selReason = reasons[best];
+   if(g_selKey != prevKey || g_autoState != "WAITING") {
+      g_autoState = "WAITING";
+      g_autoDetail = (prevKey != "" && prevKey != g_selKey ? "Switched from plan " + prevId + ". " : "") +
+                     "Waiting for " + g_selSide + " " + g_selType + " " + DoubleToString(g_selEntry, 2);
+   }
 }
 
 void RuleOut(const string why) {
@@ -479,15 +503,20 @@ void RuleOut(const string why) {
 // runs every second and on ticks: open the selected plan when price reaches its entry
 void CheckAuto() {
    if(!g_autoOn || !InpAutoAllowed) return;
-   if(g_selKey == "" || g_openedGen == g_briefGen) return;
+   if(g_briefGen == "" || g_openedGen == g_briefGen) return;
    if(!BriefLive()) { g_autoState = "EXPIRED"; g_autoDetail = "Plan of " + g_briefDate + " expired"; g_selKey = ""; return; }
+   SelectBest(true);                                                   // re-check A/B every second
+   if(g_selKey == "") return;
    MqlTick tk; if(!SymbolInfoTick(InpSymbol, tk)) return;
    bool sell = g_selSide == "SELL";
    double ref = sell ? tk.bid : tk.ask;
    if(sell ? ref >= g_selSl : ref <= g_selSl) { RuleOut("price went beyond SL before entry"); return; }
-   if(!Reached(sell, g_selType, ref, g_selEntry)) return;
+   if(!Reached(sell, g_selType, ref, g_selEntry)) { g_autoDetail = "Waiting for " + g_selSide + " " + g_selType + " " + DoubleToString(g_selEntry, 2); return; }
    double slip = MathMin(g_autoSlip, InpAutoMaxSlip);
-   if(MathAbs(ref - g_selEntry) > slip) { RuleOut(StringFormat("price %.2f jumped %.2f past entry (max %.2f)", ref, MathAbs(ref - g_selEntry), slip)); return; }
+   if(MathAbs(ref - g_selEntry) > slip) {                              // not ruled out: rechecked when price comes back
+      g_autoDetail = StringFormat("Plan %s: price ran more than %.2f past entry %.2f, waiting for it to come back", g_selId, slip, g_selEntry);
+      return;
+   }
    if(tk.ask - tk.bid > InpAutoMaxSpread) { g_autoDetail = StringFormat("Entry reached, waiting: spread %.2f > %.2f", tk.ask - tk.bid, InpAutoMaxSpread); return; }
    if(AccountInfoInteger(ACCOUNT_TRADE_MODE) != ACCOUNT_TRADE_MODE_DEMO && !InpAllowLive) { g_autoState = "BLOCKED"; g_autoDetail = "Real account: EA is set to demo only"; g_openedGen = g_briefGen; return; }
    if(CountAutoPositions() > 0) { g_autoDetail = "Entry reached, waiting: an earlier auto position is still open"; return; }
@@ -535,7 +564,7 @@ void PollAuto(Entry &list[]) {
          string tp = JStr(js, "tp_mode"); g_autoTp = (tp == "TP1" || tp == "TP2") ? tp : "SPLIT";
          double sl = JNum(js, "max_slip"); g_autoSlip = sl > 0 ? sl : 2.0;
       }
-      if(g_autoOn && !was) { ArrayResize(g_excluded, 0); g_lastBriefFetch = 0; }
+      if(g_autoOn && !was) { ArrayResize(g_excluded, 0); g_lastBriefFetch = 0; if(g_openedGen != g_briefGen) g_autoTickets = ""; }
       if(!g_autoOn) { g_autoState = InpAutoAllowed ? "OFF" : "DISABLED_IN_EA"; g_autoDetail = ""; g_selKey = ""; }
    }
    if(g_autoOn && TimeGMT() - g_lastBriefFetch >= 60) {
@@ -547,6 +576,7 @@ void PollAuto(Entry &list[]) {
          g_briefBias = JStr(bj, "bias");
          SplitPlans(bj);
          ArrayResize(g_excluded, 0);
+         g_selKey = ""; g_autoTickets = "";                            // new plan: forget the last plan's tickets
          if(g_openedGen != g_briefGen) SelectBest();
       } else if(g_selKey == "" && g_autoState != "OPENED" && g_openedGen != g_briefGen && BriefLive()) SelectBest();
    }
