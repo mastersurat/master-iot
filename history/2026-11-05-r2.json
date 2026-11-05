@@ -1,0 +1,89 @@
+{
+ "v": 1,
+ "date": "2026-11-05",
+ "generated": "2026-11-06 00:13 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "London: high 4,146.63, 4,119.50-4,120.60 by 08:53 ET; BoE hiked, claims 189k. A 4,151 not hit; B 4,115 unconfirmed",
+ "rev_note": "Same direction, day +1.5% so rule 3 off: A buy stop 4,151 over 4,146-4,148 highs; B limit 4,107 in 4,104-4,115, SL<4,075",
+ "price_ref": 4120,
+ "bias": "BULLISH",
+ "bias_note": "Holding above 4,104-4,115; NFP Fri and 80% Dec hike odds cap",
+ "headline": "Gold ~4,120 after 4,146.63 high; BoE hiked, claims 189k; NFP Fri 20:30 BKK",
+ "summary": [
+  "Kitco: spot 4,120.60 (+1.5%) at 08:32 ET (20:32 BKK), off highs; earlier high 4,146.63, top since Oct 20",
+  "BoE hiked (USAGOLD); US claims 189k vs ~196k, Q3 productivity 3.6%, ULC -0.7%",
+  "FedWatch ~80% for a Dec 8-9 hike; 10y ~4.84-4.89%, DXY ~101.45; no price after 09:02 ET found",
+  "r1 A 4,151 not triggered (high 4,146.63-4,148); r1 B 4,115 unconfirmed (low seen 4,119.50)",
+  "Still open: r0 A 4,067 (TP1 hit; TP2 4,155 / SL 4,033 open). Levels R 4,146-4,148/4,212; S 4,104-4,115/4,075"
+ ],
+ "events": [
+  "Fri 20:30 BKK  US NFP Oct (high; ~50-65k exp, UR 4.2%)",
+  "Fri 22:00 BKK  UMich sentiment prelim Nov"
+ ],
+ "levels": {
+  "r": [
+   4148,
+   4187,
+   4212
+  ],
+  "s": [
+   4115,
+   4075,
+   3989
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 4151,
+   "sl": 4112,
+   "tp1": 4200,
+   "tp2": 4208,
+   "note": "3 over session high 4,148 (rule 1); SL<4,115 zone; TP2 under Kitco R 4,212; RR 1.26/1.46"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "LIMIT",
+   "entry": 4107,
+   "sl": 4072,
+   "tp1": 4150,
+   "tp2": 4185,
+   "note": "Dip into broken 4,104-4,115, 13 below ref; SL<Kitco S 4,075; RR 1.23/2.23"
+  }
+ ],
+ "invalid": "Before fill: H1 close < 4,100 voids A, < 4,072 voids B. Cancel unfilled orders before NFP Fri 20:30 BKK",
+ "risk_note": "Gold +5% in 2 days; NFP Fri can gap past SL; Dec hike odds ~80%. Small size. Not financial advice.",
+ "lesson_applied": "Rules 1-2: day +1.5% <2.5% so rule 3 off; A stop 3 past session high, B limit 13 away; SL 35-39 > 1/3 of 90 range",
+ "review": {
+  "for_date": "2026-11-04",
+  "result": "OPEN",
+  "text": "r0 B buy stop 3,970 filled, TP1 4,006 hit; r1 A 4,039 filled, TP1 4,075 likely (ask 4,079.70); r2 A 4,069 filled (4,070 print), TP1 4,100/SL 4,044 not hit; B limits unconfirmed"
+ },
+ "sources": [
+  "Kitco 2026-11-05 08:32 ET (claims 189k)",
+  "Kitco AM Report 2026-11-05 08:53 ET",
+  "Trading Economics 2026-11-05",
+  "USAGOLD daily report 2026-11-05 (headline)",
+  "FinanceFeeds 2026-11-05 07:00 GMT",
+  "NordFX Market Pulse 2026-11-05"
+ ],
+ "th": {
+  "headline": "ทองราว 4,120 หลังขึ้นไป 4,146.63 BoE ขึ้นดอกเบี้ย รอ NFP ศุกร์ 20:30",
+  "bias_note": "ขาขึ้น ยืนเหนือ 4,104-4,115",
+  "summary": [
+   "Kitco ทอง 4,120.60 บวก 1.5% ตอน 20:32 น. ต่ำกว่ายอด 4,146.63 สูงสุดตั้งแต่ 20 ต.ค.",
+   "BoE ขึ้นดอกเบี้ย Jobless Claims 189k ดีกว่าคาด ผลิตภาพ Q3 3.6% ต้นทุนแรงงาน -0.7%",
+   "FedWatch ขึ้นดอกเบี้ย ธ.ค. ราว 80% ยีลด์ 10 ปี 4.84-4.89% หาราคาหลัง 21:02 น. ไม่ได้",
+   "r1 A 4,151 ไม่ถูกเปิด ยอด 4,146.63-4,148 r1 B 4,115 ยืนยันไม่ได้ ต่ำสุดที่เห็น 4,119.50",
+   "r0 A 4,067 ยังถือ ถึง TP1 แล้ว รอ TP2 4,155 SL 4,033 ต้าน 4,148 4,212 รับ 4,115 4,075"
+  ],
+  "invalid": "H1 ปิดใต้ 4,100 ยกเลิก A ใต้ 4,072 ยกเลิก B ยกเลิกที่ค้างก่อน NFP",
+  "review_text": "r0 B Buy Stop 3,970 ถูกเปิด ถึง TP1 4,006 r1 A 4,039 ถูกเปิด น่าจะถึง TP1 4,075 r2 A 4,069 ถูกเปิด ยังไม่ถึง TP1 4,100 หรือ SL 4,044 B ยืนยันไม่ได้",
+  "session_note": "ลอนดอน ทองขึ้นไป 4,146.63 แล้วย่อมา 4,120 BoE ขึ้นดอกเบี้ย แผน A 4,151 ไม่ถูกเปิด แผน B 4,115 ยืนยันไม่ได้",
+  "rev_note": "ยังเป็นขาขึ้น A Buy Stop 4,151 เหนือยอด 4,148 B ขยับ Limit ลงมา 4,107 ในโซน 4,104-4,115 SL ใต้ 4,075"
+ }
+}
