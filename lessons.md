@@ -8,9 +8,16 @@ The morning brief must read the latest 10 entries before writing a plan and say 
 - 1. (rev 11-03) Plan A is a STOP entry 2-5 past the prior session's extreme (or tested level) in the plan direction; rally-fade/dip-buy LIMITs only as Plan B, max 15 from price_ref at a level tested in the last session. (A limits 10-28 to 11-02: 0-for-10, missed by 0.7-50.)
 - 2. Plan B stop entry just past the prior session's extreme (prior day low/high), not a further round number. (10-29: stop 4,020 under the 4,024 low filled; r2 3,996 under 4,000 did not.)
 - 3. (rev 11-05) After a day move > 2.5% with H1 RSI < 20 (or > 80) - or > 2.5% alone when H1 RSI is not available - do not add new stop entries in that direction for the next session; Plan A may then be a retest LIMIT at the broken level (overrides rule 1 for that session); Plan B becomes the reclaim/counter setup at the broken level. (10-30 r2 sells 90 lower after -3%: nothing filled; 11-04 r2 buy stop 4,069 after +3.3% filled ~1 below the day's top, RSI unknown.)
+- 4. (11-06) Stop entries max 25 from price_ref; if the session extreme is farther, use the nearest tested level within 25 or skip it. (Stops 27-50 away missed on 10-28, 11-02, 11-03 r0, 11-05 r1/r2 4,151 by 3 after a 30+ pullback.)
 
 ## Log
 <!-- newest first: "### YYYY-MM-DD  RESULT" then Expected / Happened / Why / Adjust -->
+
+### 2026-11-05  OPEN
+- Expected: BULLISH all day. r0 A buy lmt 4,067 / B sell stop 4,031; r1 A buy stop 4,151 / B buy lmt 4,115; r2 A buy stop 4,151 / B buy lmt 4,107 (SL 4,072).
+- Happened: Kitco day 4,057.50-4,148.00 (high in Asia/London, top since Oct 20); 4,120.60 at 08:32 ET, then faded with a tech selloff (S&P -4.36%) to 4,087.26 (+0.64%) late NY, 4,084.70 at 18:24 ET. Dec hike odds fell to ~66-69% from 83%, 10y ~4.82%. r0 A likely filled (low time unknown), TP1 4,108 hit, TP2 4,155 / SL 4,033 not hit. r0 B, r1 A, r2 A not triggered (4,151 missed by 3). r1 B 4,115 and r2 B 4,107 filled in the NY fade; NY low not reported, so SL 4,083 / 4,072 hit is unknown; TP1 4,156 / 4,150 not hit.
+- Why: the day's high was set before r1; r2 kept the buy stop 31 above price after a 30-pt pullback, and the dip-buy limits caught a fade driven by equity liquidation, not by gold drivers (yields and hike odds actually fell). Bullish bias stayed while price was making lower highs after 4,148.
+- Adjust: stop entries max 25 from price_ref (standing rule 4); when price has faded 25+ from the session high into a high-impact release, go NEUTRAL with a two-sided plan instead of adding dip-buy limits.
 
 ### 2026-11-04  OPEN
 - Expected: r0 BEARISH (A sell stop 3,889 / B buy stop 3,970); r1 BULLISH after the 4,000 reclaim (A buy stop 4,039 / B buy lmt 4,020); r2 BULLISH (A buy stop 4,069 / B buy lmt 4,047).
