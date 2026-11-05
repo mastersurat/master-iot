@@ -1,0 +1,89 @@
+{
+ "v": 1,
+ "date": "2026-11-05",
+ "generated": "2026-11-05 16:09 +07",
+ "rev": 1,
+ "session": "ASIA_CLOSE",
+ "session_note": "Asia 4,057.50-4,148.00 (Kitco), 4,126 at 16:03; r0 A 4,067 likely filled (timing n/a), TP1 hit; B 4,031 not triggered",
+ "rev_note": "Day +1.65% (<2.5%), rule 3 off: A buy stop 3 over Asia high 4,148; B buy limit at broken 4,115 zone, 11 below ref",
+ "price_ref": 4126,
+ "bias": "BULLISH",
+ "bias_note": "Above 4,104-4,115; Dec hike odds ~79-82% cap",
+ "headline": "Gold 2-week high 4,148 in Asia, ~4,126 now; BoE 19:00, claims 20:30, NFP Fri",
+ "summary": [
+  "Asia (Kitco day) 4,057.50-4,148.00; bid 4,126.10 at 04:03 ET (16:03 BKK), +66.90 / +1.65%",
+  "Reuters: spot 4,134.83 (+1.9%) at 03:16 GMT, highest since Oct 22; 10y 4.87%, dollar softer",
+  "FedWatch Dec hike 79-82% caps gold; oil down 4th day on Iran de-escalation hopes",
+  "Prior plans: r0 A 4,067 likely filled, TP1 4,108 hit, TP2 4,155/SL 4,033 open; r0 B 4,031 untriggered",
+  "Levels: R 4,148 / 4,187-4,227; S 4,104-4,115 / 4,087 / 4,068 / 4,057"
+ ],
+ "events": [
+  "Thu 19:00 BKK  BoE rate decision (hike to 4.00% expected)",
+  "Thu 20:30 BKK  US jobless claims, productivity Q3",
+  "Fri 20:30 BKK  US NFP Oct (high)"
+ ],
+ "levels": {
+  "r": [
+   4148,
+   4187,
+   4227
+  ],
+  "s": [
+   4115,
+   4087,
+   4068
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 4151,
+   "sl": 4112,
+   "tp1": 4200,
+   "tp2": 4225,
+   "note": "3 over Asia high 4,148 (rule 1); SL<4,115 zone; TP in 4,187-4,227; RR 1.26/1.90"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "LIMIT",
+   "entry": 4115,
+   "sl": 4083,
+   "tp1": 4156,
+   "tp2": 4185,
+   "note": "Retest broken 4,104-4,115, 11 below ref; SL<4,087; RR 1.28/2.19"
+  }
+ ],
+ "invalid": "Before fill: H1 close < 4,100 voids A, < 4,083 voids B. No new entry 19:00-21:00 BKK; review before NFP",
+ "risk_note": "Gold +5% in 2 days; BoE/claims tonight and NFP Fri can gap past SL; hike odds high. Small size. Not financial advice.",
+ "lesson_applied": "Rule 1-2: day +1.65% <2.5% so rule 3 off; A stop 3 past Asia high, B limit 11 away at tested 4,115",
+ "review": {
+  "for_date": "2026-11-04",
+  "result": "OPEN",
+  "text": "r0 B buy stop 3,970 filled, TP1 4,006 hit; r1 A 4,039 filled, TP1 4,075 likely (ask 4,079.70); r2 A 4,069 filled (4,070 print), TP1 4,100/SL 4,044 not hit; B limits unconfirmed"
+ },
+ "sources": [
+  "Kitco gold chart 2026-11-05 04:03 ET",
+  "Reuters via Business Recorder 2026-11-05",
+  "1Trader 2026-11-05 02:31 GMT",
+  "Trading Economics 2026-11-05",
+  "Mitrade 2026-11-05"
+ ],
+ "th": {
+  "headline": "ทองขึ้นสูงสุดรอบ 2 สัปดาห์ 4,148 ช่วงเอเชีย ตอนนี้ราว 4,126 คืนนี้ BoE",
+  "bias_note": "ขาขึ้น ยืนเหนือ 4,104-4,115",
+  "summary": [
+   "เอเชีย กรอบ 4,057.50-4,148.00 ราคา 4,126.10 ตอน 16:03 น. บวก 1.65%",
+   "Reuters ทอง 4,134.83 บวก 1.9% สูงสุดตั้งแต่ 22 ต.ค. ยีลด์ 10 ปี 4.87% ดอลลาร์อ่อน",
+   "FedWatch ขึ้นดอกเบี้ย ธ.ค. 79-82% ยังกดทอง น้ำมันลงวันที่ 4 จากความหวังเรื่องอิหร่าน",
+   "แผนเช้า A 4,067 น่าจะถูกเปิด ถึง TP1 4,108 แล้ว รอ TP2 4,155 SL 4,033 B 4,031 ไม่ถูกเปิด",
+   "แนวต้าน 4,148 4,187-4,227 แนวรับ 4,104-4,115 4,087 4,068 4,057"
+  ],
+  "invalid": "H1 ปิดใต้ 4,100 ยกเลิก A ใต้ 4,083 ยกเลิก B งดเข้า 19:00-21:00",
+  "review_text": "r0 B Buy Stop 3,970 ถูกเปิด ถึง TP1 4,006 r1 A 4,039 ถูกเปิด น่าจะถึง TP1 4,075 r2 A 4,069 ถูกเปิด ยังไม่ถึง TP1 4,100 หรือ SL 4,044 B ยืนยันไม่ได้",
+  "session_note": "เอเชีย ทองขึ้นจาก 4,057.50 ไป 4,148.00 ตอนนี้ราว 4,126 แผน A 4,067 น่าจะถูกเปิด ถึง TP1 แผน B ไม่ถูกเปิด",
+  "rev_note": "วันนี้ขึ้น 1.65% ไม่ถึง 2.5% กลับใช้กฎข้อ 1 A Buy Stop เหนือยอดเอเชีย B Buy Limit ที่โซน 4,115"
+ }
+}
