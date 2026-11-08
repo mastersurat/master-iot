@@ -9,9 +9,16 @@ The morning brief must read the latest 10 entries before writing a plan and say 
 - 2. Plan B stop entry just past the prior session's extreme (prior day low/high), not a further round number. (10-29: stop 4,020 under the 4,024 low filled; r2 3,996 under 4,000 did not.)
 - 3. (rev 11-05) After a day move > 2.5% with H1 RSI < 20 (or > 80) - or > 2.5% alone when H1 RSI is not available - do not add new stop entries in that direction for the next session; Plan A may then be a retest LIMIT at the broken level (overrides rule 1 for that session); Plan B becomes the reclaim/counter setup at the broken level. (10-30 r2 sells 90 lower after -3%: nothing filled; 11-04 r2 buy stop 4,069 after +3.3% filled ~1 below the day's top, RSI unknown.)
 - 4. (11-06) Stop entries max 25 from price_ref; if the session extreme is farther, use the nearest tested level within 25 or skip it. (Stops 27-50 away missed on 10-28, 11-02, 11-03 r0, 11-05 r1/r2 4,151 by 3 after a 30+ pullback.)
+- 5. (11-09) Put TP1/TP2 3-5 inside the nearest tested extreme or level (before it), never at or past it. (11-05 r0 TP2 4,155 vs high 4,148; 11-06 r0 B TP1 4,030 vs low 4,033.29, missed by 3.)
 
 ## Log
 <!-- newest first: "### YYYY-MM-DD  RESULT" then Expected / Happened / Why / Adjust -->
+
+### 2026-11-06  NOT_TRIGGERED
+- Expected: r0 NEUTRAL into NFP (A buy stop 4,112 / B sell stop 4,072, SL 4,106, TP1 4,030); r1 NEUTRAL two-sided after NFP (A sell stop 4,040 / B buy stop 4,080), cancel by 04:30 BKK Sat.
+- Happened: Asia-London slid ~4,098 -> 4,044 (12:01 BKK); NFP 165k vs 65k, low 4,033.29; 4,047.71 at 15:00 ET; close 4,060.20 (PMI) / ~4,069-4,070 (TE, Gold Investor); Rio Times 4,045 is the outlier. Week +4.4-4.6%. r0 A missed; r0 B filled in Asia, TP1 4,030 missed by 3, SL 4,106 not reported hit, open into the weekend ~+2 to +12. r1 A/B: no source shows < 4,040 or > 4,080 after 12:16 ET (late NY ~4,047-4,070); one untimed ~4,035 print (InvestingLive) most likely the NFP low.
+- Why: r0 B direction and entry worked (stop under Kitco S 4,075, rule 4) but TP1 sat 3 past the reaction low, so a ~39-pt winner was not banked. r1 put stops 18-22 away in a post-NFP, pre-weekend NY session whose range was only ~23 (4,047-4,070) - the release had already used the day's range.
+- Adjust: TPs 3-5 inside the nearest tested extreme/level (standing rule 5, second miss after 11-05 TP2 4,155 vs 4,148). After a high-impact release has printed, revisions for the rest of that session use stops max 15 from ref or post no new entry.
 
 ### 2026-11-05  OPEN
 - Expected: BULLISH all day. r0 A buy lmt 4,067 / B sell stop 4,031; r1 A buy stop 4,151 / B buy lmt 4,115; r2 A buy stop 4,151 / B buy lmt 4,107 (SL 4,072).

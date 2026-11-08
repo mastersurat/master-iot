@@ -1,36 +1,37 @@
 {
  "v": 1,
- "date": "2026-11-06",
- "generated": "2026-11-07 00:16 +07",
- "rev": 1,
- "session": "LONDON_CLOSE",
- "session_note": "Fri 4,033-4,098 (srcs); NFP 165k vs 65k sank gold to 4,033; ~4,062 now. A 4,112 missed; B 4,072 filled, TP1 4,030 missed by 3",
- "rev_note": "Strong NFP, dollar +0.7%, hike odds 78%, but 29 bounce off 4,033: neutral two-sided; sell stop 4,040, buy stop 4,080",
+ "date": "2026-11-09",
+ "generated": "2026-11-09 06:45 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "Fri NY: 4,047.71 at 15:00 ET, close ~4,060-4,070 (-0.4%), week +4.4%; r1 A 4,040/B 4,080 not hit, r0 B 4,072 open",
+ "rev_note": "",
  "price_ref": 4062,
  "bias": "NEUTRAL",
- "bias_note": "4,033-4,080 range; weekend close 05:00 BKK",
- "headline": "Gold ~4,062 after NFP 165k drop to 4,033; hike odds 78%; weekend close 05:00",
+ "bias_note": "4,040-4,080 box; US CPI Tue 20:30 BKK",
+ "headline": "Gold ~4,062 at Monday open after NFP dip; Dec hike odds ~78%; US CPI Tue 20:30 BKK",
  "summary": [
-  "NFP Oct +165k vs 65k exp, UR 4.1%, AHE +0.4%, Aug-Sep revised +84k (BLS via Reuters/TE)",
-  "Spot low 4,033.29, 4,047.10 at 8:46 ET (-1%); TE ~4,061.60 (-0.64%) late in the day",
-  "DXY +0.7% to 102.22; 2y 4.52%, 10y 4.87%; Dec hike odds 78% from 70% (Reuters)",
-  "Week still +4.5% (best since Aug); Asia-London slid from ~4,098 to 4,044 before NFP",
-  "Prev B sell stop 4,072 filled in Asia, open: TP1 4,030 missed by 3, SL 4,106 not reported hit"
+  "Fri: NFP 165k sank gold to 4,033.29, 4,047.71 at 15:00 ET; close 4,060.20-4,070.41 by source",
+  "Week +4.4% to +4.6% vs 3,875-3,883 Oct 30 close; Thu high 4,134.83-4,148 by source",
+  "Dec Fed hike odds ~76-81% (CME via Reuters/Substack); DXY +0.7% to 102.28; 10y 4.87%",
+  "FXEmpire 4,062.22 at 06:41 BKK Mon, daily signal Neutral; pivots S 4,031.25 / R 4,069.17",
+  "Oct CPI Tue (m/m only, exp +0.3%, core +0.2%); US bond market shut Wed; PPI Fri"
  ],
  "events": [
-  "Sat 05:00 BKK  weekly close (gap risk to Mon 05:00 BKK open)",
-  "Dec 8-9  FOMC meeting"
+  "Mon 08:30 BKK  China CPI/PPI Oct",
+  "Tue 20:30 BKK  US CPI Oct",
+  "Fri 20:30 BKK  US PPI Oct"
  ],
  "levels": {
   "r": [
-   4075,
+   4069.17,
    4088.5,
    4115
   ],
   "s": [
    4044,
    4033.3,
-   4000
+   4022
   ]
  },
  "plans": [
@@ -39,52 +40,56 @@
    "side": "SELL",
    "type": "STOP",
    "entry": 4040,
-   "sl": 4068,
-   "tp1": 4005,
-   "tp2": 3980,
-   "note": "Break of 4,044-4,047 tested zone, 22 below ref; must clear 4,033 low; SL>4,065; RR 1.25/2.14"
+   "sl": 4070,
+   "tp1": 4004,
+   "tp2": 3973,
+   "note": "Break of 4,044-4,047 zone, 22 below ref; RR 1.20/2.23"
   },
   {
    "id": "B",
    "side": "BUY",
    "type": "STOP",
-   "entry": 4080,
-   "sl": 4052,
-   "tp1": 4115,
-   "tp2": 4145,
-   "note": "Reclaim 4,065-4,075 zone, 18 above ref; SL<4,055; TP2 under 4,148; RR 1.25/2.32"
+   "entry": 4082,
+   "sl": 4058,
+   "tp1": 4111,
+   "tp2": 4142,
+   "note": "Clear 4,080 zone, 20 above; SL<4,060; RR 1.21/2.50"
   }
  ],
- "invalid": "Cancel unfilled A/B by 04:30 BKK Sat (weekend close); no carry of new entries over weekend",
- "risk_note": "Thin late-Friday NY liquidity and weekend gap risk; hike odds 78% after hot NFP. Small size. Not financial advice.",
- "lesson_applied": "Rule 4: stops 22/18 from ref (4,030 under low = 32, skipped); rule 3 off (-0.6%); two-sided after 29 bounce",
+ "invalid": "Cancel unfilled A/B by Tue 20:15 BKK (US CPI); no new entry 20:15-21:30 BKK",
+ "risk_note": "CPI Tue can gap past SL; Dec hike ~3/4 priced; sources split on Fri close. Small size. Not financial advice.",
+ "lesson_applied": "Rules 1+4: stops 20-22 from ref at tested zones; new rule 5: TPs 3-5 inside tested levels",
  "review": {
-  "for_date": "2026-11-05",
-  "result": "OPEN",
-  "text": "r2 A buy stop 4,151 missed (high 4,148); r2 B 4,107 and r1 B 4,115 limits filled as NY fell to ~4,085, SL 4,072/4,083 unconfirmed; r0 A TP1 4,108 hit, TP2/SL open"
+  "for_date": "2026-11-06",
+  "result": "NOT_TRIGGERED",
+  "text": "r1 A 4,040/B 4,080 not hit after 12:16 ET in sources (4,047.71-4,070). r0 B 4,072 filled, TP1 4,030 missed by 3 (low 4,033.29), open ~4,060-70; r0 A 4,112 missed"
  },
  "sources": [
-  "Kitco NFP article 2026-11-06 08:31 ET",
-  "Reuters via Yahoo Finance 2026-11-06 06:45 PST",
-  "Reuters via rallies.ai 2026-11-06",
-  "Trading Economics 2026-11-06",
-  "FinanceFeeds 2026-11-06 07:30 GMT",
-  "Mitrade 2026-11-06",
-  "TradingKey 2026-11-06"
+  "FinanceFeeds 2026-11-07",
+  "Kitco 2026-11-06 15:00 ET",
+  "Trading Economics 2026-11-08",
+  "The Gold Investor 2026-11-07",
+  "PMI Week in Review 2026-11-07",
+  "SEE News 2026-11-07",
+  "NordFX 2026-11-07",
+  "Open Outcry 2026-11-07",
+  "FXEmpire 2026-11-08",
+  "investingLive 2026-11-08",
+  "Fedratecalc 2026-11"
  ],
  "th": {
-  "headline": "ทองราว 4,062 หลัง NFP 165k ดันลงถึง 4,033 ตลาดปิดสุดสัปดาห์ 05:00",
-  "bias_note": "กลางๆ กรอบ 4,033-4,080",
+  "headline": "ทองราว 4,062 เปิดสัปดาห์ หลัง NFP กดลง รอ CPI อังคาร 20:30 น.",
+  "bias_note": "กลางๆ กรอบ 4,040-4,080 รอ CPI",
   "summary": [
-   "NFP ต.ค. +165k คาด 65k ว่างงาน 4.1% ค่าจ้าง +0.4% ปรับเพิ่ม 2 เดือนก่อน 84k",
-   "ทองลงต่ำสุด 4,033.29 ราว 4,047 ตอน 20:46 น. ล่าสุด TE ราว 4,061.60 ลบ 0.64%",
-   "ดอลลาร์ +0.7% เป็น 102.22 ยีลด์ 2 ปี 4.52% 10 ปี 4.87% โอกาสขึ้นดอกเบี้ย ธ.ค. 78%",
-   "ทั้งสัปดาห์ยังบวก 4.5% ช่วงเอเชีย ลอนดอน ไหลจากราว 4,098 ลงมา 4,044 ก่อน NFP",
-   "แผน B Sell Stop 4,072 ถูกเปิดช่วงเอเชีย ยังถือ TP1 4,030 ขาด 3 จุด SL 4,106 ไม่มีรายงาน"
+   "ศุกร์ NFP 165k กดทองลงถึง 4,033.29 ตอนบ่ายนิวยอร์ก 4,047.71 ปิดราว 4,060-4,070",
+   "ทั้งสัปดาห์บวกราว 4.4-4.6% ยอดวันพฤหัส 4,134.83-4,148 แล้วแต่แหล่ง",
+   "โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ราว 76-81% ดอลลาร์ +0.7% เป็น 102.28 ยีลด์ 10 ปี 4.87%",
+   "FXEmpire 4,062.22 ตอน 06:41 น. สัญญาณกลางๆ แนวรับ 4,031.25 แนวต้าน 4,069.17",
+   "CPI ต.ค. อังคาร คาด +0.3% Core +0.2% พุธตลาดพันธบัตรสหรัฐปิด ศุกร์ PPI"
   ],
-  "invalid": "ยกเลิก A B ที่ยังไม่เข้าก่อน 04:30 น. เสาร์ ไม่ถือข้ามสุดสัปดาห์",
-  "review_text": "r2 A 4,151 ไม่ถูกเปิด ยอด 4,148 r2 B 4,107 และ r1 B 4,115 ถูกเปิด ตอนนิวยอร์กย่อถึงราว 4,085 SL ยืนยันไม่ได้ r0 A ถึง TP1 4,108",
-  "session_note": "ลอนดอน+NFP ทองลงถึง 4,033 แล้วเด้งมาราว 4,062 แผน A 4,112 ไม่ถูกเปิด แผน B 4,072 ถูกเปิด ยังถืออยู่",
-  "rev_note": "NFP แรง ดอลลาร์ขึ้น แต่ทองเด้งจาก 4,033 แล้ว 29 จุด จึงวางสองทาง Sell Stop 4,040 Buy Stop 4,080"
+  "invalid": "ยกเลิก A B ที่ยังไม่เข้า ก่อน 20:15 น. อังคาร ไม่เข้าใหม่ถึง 21:30 น.",
+  "review_text": "r1 A 4,040 B 4,080 ไม่ถูกเปิด นิวยอร์กช่วงท้ายอยู่ 4,047-4,070 r0 B 4,072 ถูกเปิด TP1 4,030 ขาด 3 จุด ยังถืออยู่ r0 A 4,112 ไม่ถูกเปิด",
+  "session_note": "นิวยอร์กศุกร์ ทองเด้งจาก 4,047 ปิดราว 4,060-4,070 ทั้งสัปดาห์บวก 4.4% แผน r1 ไม่ถูกเปิด r0 B 4,072 ยังถือ",
+  "rev_note": ""
  }
 }
