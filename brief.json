@@ -1,95 +1,90 @@
 {
  "v": 1,
  "date": "2026-11-09",
- "generated": "2026-11-09 06:45 +07",
- "rev": 0,
- "session": "NY_CLOSE",
- "session_note": "Fri NY: 4,047.71 at 15:00 ET, close ~4,060-4,070 (-0.4%), week +4.4%; r1 A 4,040/B 4,080 not hit, r0 B 4,072 open",
- "rev_note": "",
- "price_ref": 4062,
+ "generated": "2026-11-09 16:13 +07",
+ "rev": 1,
+ "session": "ASIA_CLOSE",
+ "session_note": "Asia 4,066-4,123.46+ (04:28 GMT), 4,094.64 at 14:43 BKK; A 4,040 not hit; B 4,082 filled, TP1 4,111 hit, TP2 not hit",
+ "rev_note": "Price rose past r0 box; NEUTRAL two-sided: buy stop 4,116 over the 4,113 shelf, sell stop 4,072 under the 4,074-82 zone",
+ "price_ref": 4095,
  "bias": "NEUTRAL",
- "bias_note": "4,040-4,080 box; US CPI Tue 20:30 BKK",
- "headline": "Gold ~4,062 at Monday open after NFP dip; Dec hike odds ~78%; US CPI Tue 20:30 BKK",
+ "bias_note": "4,095 after 4,123 Asia top; 4,072-4,116 box",
+ "headline": "Gold +1.2% to 4,123 in Asia on softer oil/USD, eased to ~4,095; US CPI Tue 20:30 BKK",
  "summary": [
-  "Fri: NFP 165k sank gold to 4,033.29, 4,047.71 at 15:00 ET; close 4,060.20-4,070.41 by source",
-  "Week +4.4% to +4.6% vs 3,875-3,883 Oct 30 close; Thu high 4,134.83-4,148 by source",
-  "Dec Fed hike odds ~76-81% (CME via Reuters/Substack); DXY +0.7% to 102.28; 10y 4.87%",
-  "FXEmpire 4,062.22 at 06:41 BKK Mon, daily signal Neutral; pivots S 4,031.25 / R 4,069.17",
-  "Oct CPI Tue (m/m only, exp +0.3%, core +0.2%); US bond market shut Wed; PPI Fri"
+  "Fri Kitco NY close 4,070.10; Mon Asia ~4,066 early, 4,123.46 at 04:28 GMT (Reuters, +1.2-1.4%)",
+  "Eased to 4,112.9 (06:30 GMT) and 4,094.64 at 07:43 GMT (FXEmpire, +0.59%): ~29 off the Asia high",
+  "Drivers: oil fell after Trump said new Iran attacks unlikely; softer USD (Reuters)",
+  "Dec Fed hike odds 79-81% (CME FedWatch via Reuters/SEE News), up from 71% pre-NFP",
+  "China Oct CPI 0.7% y/y vs 0.8% exp (Mitrade); r0 B buy 4,082 open past TP1, SL 4,058"
  ],
  "events": [
-  "Mon 08:30 BKK  China CPI/PPI Oct",
-  "Tue 20:30 BKK  US CPI Oct",
+  "Tue 20:30 BKK  US CPI Oct (m/m, exp +0.3%)",
+  "Wed  US Veterans Day, bond market shut",
   "Fri 20:30 BKK  US PPI Oct"
  ],
  "levels": {
   "r": [
-   4069.17,
-   4088.5,
-   4115
+   4112.9,
+   4123.46,
+   4148
   ],
   "s": [
-   4044,
-   4033.3,
-   4022
+   4082,
+   4070.1,
+   4036
   ]
  },
  "plans": [
   {
    "id": "A",
-   "side": "SELL",
+   "side": "BUY",
    "type": "STOP",
-   "entry": 4040,
-   "sl": 4070,
-   "tp1": 4004,
-   "tp2": 3973,
-   "note": "Break of 4,044-4,047 zone, 22 below ref; RR 1.20/2.23"
+   "entry": 4116,
+   "sl": 4092,
+   "tp1": 4145,
+   "tp2": 4182,
+   "note": "3 over 4,112.9 shelf, 21 from ref; SL under 4,094.64; TP 3 in 4,148 / 5 in 4,187; RR 1.21/2.75"
   },
   {
    "id": "B",
-   "side": "BUY",
+   "side": "SELL",
    "type": "STOP",
-   "entry": 4082,
-   "sl": 4058,
-   "tp1": 4111,
-   "tp2": 4142,
-   "note": "Clear 4,080 zone, 20 above; SL<4,060; RR 1.21/2.50"
+   "entry": 4072,
+   "sl": 4097,
+   "tp1": 4040,
+   "tp2": 3984,
+   "note": "Under 4,074-4,082 zone, 23 from ref; SL over 4,094.64; TP 4 in 4,036 / 3,980; RR 1.28/3.52"
   }
  ],
  "invalid": "Cancel unfilled A/B by Tue 20:15 BKK (US CPI); no new entry 20:15-21:30 BKK",
- "risk_note": "CPI Tue can gap past SL; Dec hike ~3/4 priced; sources split on Fri close. Small size. Not financial advice.",
- "lesson_applied": "Rules 1+4: stops 20-22 from ref at tested zones; new rule 5: TPs 3-5 inside tested levels",
+ "risk_note": "Asia already ran ~57 (4,066-4,123); CPI Tue can gap past SL; Asia high/low not fully reported. Small size. Not financial advice.",
+ "lesson_applied": "Rules 1+4: stops 21-23 from ref at tested levels (Asia high 4,123 is 28 away); rule 5 TPs inside 4,148/4,036; 11-05 fade -> NEUTRAL",
  "review": {
   "for_date": "2026-11-06",
   "result": "NOT_TRIGGERED",
   "text": "r1 A 4,040/B 4,080 not hit after 12:16 ET in sources (4,047.71-4,070). r0 B 4,072 filled, TP1 4,030 missed by 3 (low 4,033.29), open ~4,060-70; r0 A 4,112 missed"
  },
  "sources": [
-  "FinanceFeeds 2026-11-07",
-  "Kitco 2026-11-06 15:00 ET",
-  "Trading Economics 2026-11-08",
-  "The Gold Investor 2026-11-07",
-  "PMI Week in Review 2026-11-07",
-  "SEE News 2026-11-07",
-  "NordFX 2026-11-07",
-  "Open Outcry 2026-11-07",
-  "FXEmpire 2026-11-08",
-  "investingLive 2026-11-08",
-  "Fedratecalc 2026-11"
+  "Reuters via Business Recorder 2026-11-09",
+  "SEE News 2026-11-09",
+  "FinanceFeeds 2026-11-09 07:00 GMT",
+  "FXEmpire 2026-11-09 07:43 UTC",
+  "Mitrade 2026-11-09",
+  "Business Standard 2026-11-09"
  ],
  "th": {
-  "headline": "ทองราว 4,062 เปิดสัปดาห์ หลัง NFP กดลง รอ CPI อังคาร 20:30 น.",
-  "bias_note": "กลางๆ กรอบ 4,040-4,080 รอ CPI",
+  "headline": "ทองขึ้นถึง 4,123 ช่วงเอเชีย แล้วย่อมาราว 4,095 รอ CPI อังคาร 20:30 น.",
+  "bias_note": "กลางๆ กรอบ 4,072-4,116",
   "summary": [
-   "ศุกร์ NFP 165k กดทองลงถึง 4,033.29 ตอนบ่ายนิวยอร์ก 4,047.71 ปิดราว 4,060-4,070",
-   "ทั้งสัปดาห์บวกราว 4.4-4.6% ยอดวันพฤหัส 4,134.83-4,148 แล้วแต่แหล่ง",
-   "โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ราว 76-81% ดอลลาร์ +0.7% เป็น 102.28 ยีลด์ 10 ปี 4.87%",
-   "FXEmpire 4,062.22 ตอน 06:41 น. สัญญาณกลางๆ แนวรับ 4,031.25 แนวต้าน 4,069.17",
-   "CPI ต.ค. อังคาร คาด +0.3% Core +0.2% พุธตลาดพันธบัตรสหรัฐปิด ศุกร์ PPI"
+   "ศุกร์ปิด 4,070.10 จันทร์เอเชียเช้าราว 4,066 ขึ้นถึง 4,123.46 ตอน 11:28 น. บวก 1.2-1.4%",
+   "ย่อลงมา 4,112.9 ตอน 13:30 น. และ 4,094.64 ตอน 14:43 น. ห่างจากยอดเอเชียราว 29 จุด",
+   "แรงหนุน น้ำมันลงหลัง Trump บอกไม่น่าโจมตีอิหร่านอีก ดอลลาร์อ่อนลง",
+   "โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. 79-81% เพิ่มจาก 71% ก่อน NFP",
+   "CPI จีน ต.ค. 0.7% คาด 0.8% แผน r0 B ซื้อ 4,082 ผ่าน TP1 แล้ว ยังถืออยู่ SL 4,058"
   ],
   "invalid": "ยกเลิก A B ที่ยังไม่เข้า ก่อน 20:15 น. อังคาร ไม่เข้าใหม่ถึง 21:30 น.",
   "review_text": "r1 A 4,040 B 4,080 ไม่ถูกเปิด นิวยอร์กช่วงท้ายอยู่ 4,047-4,070 r0 B 4,072 ถูกเปิด TP1 4,030 ขาด 3 จุด ยังถืออยู่ r0 A 4,112 ไม่ถูกเปิด",
-  "session_note": "นิวยอร์กศุกร์ ทองเด้งจาก 4,047 ปิดราว 4,060-4,070 ทั้งสัปดาห์บวก 4.4% แผน r1 ไม่ถูกเปิด r0 B 4,072 ยังถือ",
-  "rev_note": ""
+  "session_note": "เอเชีย 4,066-4,123 ย่อเหลือ 4,095 แผน A 4,040 ไม่ถูกเปิด B 4,082 ถูกเปิด ถึง TP1 4,111 ยังไม่ถึง TP2",
+  "rev_note": "ราคาหลุดกรอบเดิมขึ้นไป แผนใหม่สองทาง ซื้อเหนือ 4,116 ขายใต้ 4,072 ใช้ Stop ห่างไม่เกิน 25 จุด"
  }
 }
