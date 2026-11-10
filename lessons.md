@@ -9,10 +9,16 @@ The morning brief must read the latest 10 entries before writing a plan and say 
 - 2. Plan B stop entry just past the prior session's extreme (prior day low/high), not a further round number. (10-29: stop 4,020 under the 4,024 low filled; r2 3,996 under 4,000 did not.)
 - 3. (rev 11-05) After a day move > 2.5% with H1 RSI < 20 (or > 80) - or > 2.5% alone when H1 RSI is not available - do not add new stop entries in that direction for the next session; Plan A may then be a retest LIMIT at the broken level (overrides rule 1 for that session); Plan B becomes the reclaim/counter setup at the broken level. (10-30 r2 sells 90 lower after -3%: nothing filled; 11-04 r2 buy stop 4,069 after +3.3% filled ~1 below the day's top, RSI unknown.)
 - 4. (11-06) Stop entries max 25 from price_ref; if the session extreme is farther, use the nearest tested level within 25 or skip it. (Stops 27-50 away missed on 10-28, 11-02, 11-03 r0, 11-05 r1/r2 4,151 by 3 after a 30+ pullback.)
-- 5. (11-09) Put TP1/TP2 3-5 inside the nearest tested extreme or level (before it), never at or past it. (11-05 r0 TP2 4,155 vs high 4,148; 11-06 r0 B TP1 4,030 vs low 4,033.29, missed by 3.)
+- 5. (rev 11-10) Put TP1/TP2 3-5 inside the nearest tested extreme or level (before it), never at or past it - including the current session's own high/low once it is printed; a TP may sit past it only as TP2. (11-05 TP2 4,155 vs high 4,148; 11-06 TP1 4,030 vs low 4,033.29; 11-10 r1 TP1 4,004 vs low 4,012.70, missed by 8.7.)
 
 ## Log
 <!-- newest first: "### YYYY-MM-DD  RESULT" then Expected / Happened / Why / Adjust -->
+
+### 2026-11-10  OPEN
+- Expected: BEARISH after hot CPI. r0 A sell stop 4,042 (SL 4,073, TP1 4,004) / B buy stop 4,068; r1 (rule 3 after -2.84%) A sell lmt 4,032 retest (SL 4,052, TP1 4,004) / B buy lmt 4,014 at day low.
+- Happened: Kitco day 4,012.70-4,147.40; 4,049.47 at 10:30 ET (FXEmpire), 4,021.36 at 11:33 ET (Reuters), 4,021.80 at 12:05 ET, 4,034.20 bid at 18:34 ET; TE close ~4,034.7 (-2.56%). r0 A filled, r1 A filled on the late bounce to ~4,034; TP1 4,004 missed by 8.7 (low held), SL 4,073 / 4,052 not reported hit (no NY afternoon high found) -> both open. r0 B 4,068 and r1 B 4,014 not seen (low 4,012.70 was set before r1).
+- Why: direction and entries worked (stop past the CPI low, then rule-3 retest limit filled), but TP1 4,004 was put past the day's fresh 4,012.70 low and the 4,009.5 support, so a ~30-pt move was not banked; r1 even noted "TP1 past 4,012.7". Third TP-past-extreme miss (11-05, 11-06, 11-10).
+- Adjust: standing rule 5 now counts the current session's own extreme: TP1 3-5 inside it (4,016 vs 4,012.70), never past it.
 
 ### 2026-11-09  TP1_HIT
 - Expected: r0 NEUTRAL 4,040-4,080 box (A sell stop 4,040 / B buy stop 4,082); r1 NEUTRAL two-sided (A buy stop 4,116 / B sell stop 4,072), cancel unfilled by Tue 20:15 BKK before CPI.

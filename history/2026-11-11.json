@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "date": "2026-11-11",
+ "generated": "2026-11-11 06:55 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "Tue NY: hot CPI, gold 4,147.40 -> 4,012.70 low, ~4,034 late (-2.6%). r1 A 4,032 short filled, open; r0 A 4,042 open",
+ "rev_note": "",
+ "price_ref": 4034,
+ "bias": "BEARISH",
+ "bias_note": "Hike priced; bearish below 4,052",
+ "headline": "Gold holds 4,012-4,035 after -2.6% CPI drop; Veterans Day bonds shut, PPI Fri",
+ "summary": [
+  "Kitco 18:34 ET bid 4,034.20; Tue range 4,012.70-4,147.40; TE close ~4,034.7 (-2.56%)",
+  "Oct CPI +0.4% m/m (exp 0.3%), core +0.3% (exp 0.2%); Waller: weigh 50bp in Dec",
+  "FedWatch: Dec 25bp hike fully priced, 50bp odds 10.5-14.7% (Reuters, FXEmpire)",
+  "10y ~4.94-4.99%, DXY 102.21 (+0.54%, TE); Brent ~90-92 on Iran de-escalation",
+  "Levels: pivot 4,029.83, support 4,009.51-3,976.66 (FXEmpire); R 4,051.45/4,088.51"
+ ],
+ "events": [
+  "Wed  Veterans Day, US bonds shut",
+  "Thu 20:30 BKK  US jobless claims",
+  "Fri 20:30 BKK  US PPI Oct"
+ ],
+ "levels": {
+  "r": [
+   4046,
+   4051.5,
+   4067.8
+  ],
+  "s": [
+   4029.8,
+   4012.7,
+   4000
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "LIMIT",
+   "entry": 4046,
+   "sl": 4069,
+   "tp1": 4016,
+   "tp2": 4004,
+   "note": "Retest 4,046, 12 away; TP1 4 above low; RR 1.30/1.83"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 4053,
+   "sl": 4028,
+   "tp1": 4084,
+   "tp2": 4110,
+   "note": "Reclaim 4,051.45, 19 away; SL < pivot; RR 1.24/2.28"
+  }
+ ],
+ "invalid": "Bear view void on 1h close above 4,068; cancel unfilled A/B by Thu 18:30 BKK (claims)",
+ "risk_note": "After a -2.6% day price may base near 4,000-4,013; thin Veterans Day liquidity; Tue NY afternoon prints scarce. Small size. Not financial advice.",
+ "lesson_applied": "Rule 3 (-2.6%): A retest limit, no sell stop; rule 5 tightened: TP1 4 above 4,012.70",
+ "review": {
+  "for_date": "2026-11-10",
+  "result": "OPEN",
+  "text": "r1 A sell lmt 4,032 filled (4,022 -> 4,034.20 late), r0 A 4,042 filled; low 4,012.70 held, TP1 4,004 missed by 8.7; SLs not reported hit. r0 B, r1 B not seen"
+ },
+ "sources": [
+  "Kitco 2026-11-10 18:34 ET",
+  "Kitco 2026-11-10 09:08 ET",
+  "Trading Economics 2026-11-10",
+  "Reuters via Mining.com 2026-11-10",
+  "FXEmpire 2026-11-10",
+  "Le Private Banker 2026-11-10",
+  "Discovery Alert 2026-11-10",
+  "Cannon Trading 2026-11-10"
+ ],
+ "th": {
+  "headline": "ทองยืน 4,012-4,035 หลังร่วง 2.6% จาก CPI พุธพันธบัตรปิด ศุกร์ PPI",
+  "bias_note": "ขาลง ต่ำกว่า 4,052 ยังเป็นขาลง",
+  "summary": [
+   "Kitco 06:34 น. 4,034.20 กรอบอังคาร 4,012.70-4,147.40 ปิดราว 4,034.7 ลบ 2.56%",
+   "CPI ต.ค. +0.4% คาด 0.3% Core +0.3% คาด 0.2% Waller เปิดทางขึ้น 50bp",
+   "FedWatch ขึ้น 25bp ธ.ค. เต็ม 100% โอกาส 50bp 10.5-14.7%",
+   "ยีลด์ 10 ปี ราว 4.94-4.99% ดอลลาร์ 102.21 น้ำมัน Brent ราว 90-92",
+   "แนวรับ 4,029.83 และ 4,009.51-3,976.66 แนวต้าน 4,051.45 และ 4,088.51"
+  ],
+  "invalid": "ปิดรายชั่วโมงเหนือ 4,068 ขาลงใช้ไม่ได้ ยกเลิกที่ค้าง 18:30 น. พฤหัส",
+  "review_text": "r1 A ขาย Limit 4,032 ถูกเปิด r0 A ขาย 4,042 ถูกเปิด ต่ำสุด 4,012.70 TP1 4,004 ขาด 8.7 จุด ไม่มีรายงานโดน SL ยังถือ r0 B r1 B ไม่ถูกเปิด",
+  "session_note": "นิวยอร์กอังคาร CPI ร้อน ทองลงจาก 4,147.40 ถึง 4,012.70 ปิดราว 4,034 ลบ 2.6% แผน A ขาย 4,032 ยังถือ",
+  "rev_note": ""
+ }
+}
