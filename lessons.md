@@ -14,6 +14,12 @@ The morning brief must read the latest 10 entries before writing a plan and say 
 ## Log
 <!-- newest first: "### YYYY-MM-DD  RESULT" then Expected / Happened / Why / Adjust -->
 
+### 2026-11-09  TP1_HIT
+- Expected: r0 NEUTRAL 4,040-4,080 box (A sell stop 4,040 / B buy stop 4,082); r1 NEUTRAL two-sided (A buy stop 4,116 / B sell stop 4,072), cancel unfilled by Tue 20:15 BKK before CPI.
+- Happened: Mon 4,066 -> 4,123.46 (11:28 BKK) -> 4,094.64 (14:43) -> ~4,140 late US (+1.7%), high ~4,147-4,148 (Kitco 4,147.40, Mitrade); Kitco prior close ~4,139.40. Tue Waller backed a hike and floated 50bp, odds ~99%: 4,084.11 (~17:00 BKK), 4,071.07 (18:53), Kitco low 4,067.80 by 19:07; CPI 0.4%/core 0.3% vs 0.3/0.2 -> 4,046 (TokenPost) / 4,053 (-2.1%, USAGold). r0 B TP1 4,111 and TP2 4,142 hit; r0 A not hit. r1 A filled 4,116, TP1 4,145 hit (no reported dip to SL 4,092 in between), TP2 4,182 not hit, remainder SL 4,092 hit Tue. r1 B 4,072 filled by 18:53 BKK, ~1.5 h before the cancel time; SL 4,097 not reported hit, TP1 4,040 not reached (lowest seen 4,046) -> open.
+- Why: worked - stops 20-23 from ref at tested levels (rules 1, 4) caught the Monday breakout twice, and TPs set inside 4,148 (rule 5) were banked. r1 B fill came from pre-CPI Fed-speak, not the data; it happened to be the right side, but the 15-min pre-release cancel did not protect against pre-positioning.
+- Adjust: keep rules 1/4/5. Pre-release cancel time = 2 h before a high-impact release (18:30 BKK for 20:30), not 15 min.
+
 ### 2026-11-06  NOT_TRIGGERED
 - Expected: r0 NEUTRAL into NFP (A buy stop 4,112 / B sell stop 4,072, SL 4,106, TP1 4,030); r1 NEUTRAL two-sided after NFP (A sell stop 4,040 / B buy stop 4,080), cancel by 04:30 BKK Sat.
 - Happened: Asia-London slid ~4,098 -> 4,044 (12:01 BKK); NFP 165k vs 65k, low 4,033.29; 4,047.71 at 15:00 ET; close 4,060.20 (PMI) / ~4,069-4,070 (TE, Gold Investor); Rio Times 4,045 is the outlier. Week +4.4-4.6%. r0 A missed; r0 B filled in Asia, TP1 4,030 missed by 3, SL 4,106 not reported hit, open into the weekend ~+2 to +12. r1 A/B: no source shows < 4,040 or > 4,080 after 12:16 ET (late NY ~4,047-4,070); one untimed ~4,035 print (InvestingLive) most likely the NFP low.
