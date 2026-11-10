@@ -1,96 +1,90 @@
 {
  "v": 1,
  "date": "2026-11-10",
- "generated": "2026-11-10 21:40 +07",
- "rev": 0,
- "session": "NY_CLOSE",
- "session_note": "Mon NY +1.7% to ~4,139 (Kitco), high ~4,147; Tue hot CPI hit gold to 4,046-4,053. r1 A TP1 hit; r1 B 4,072 short open",
- "rev_note": "",
- "price_ref": 4053,
+ "generated": "2026-11-11 00:14 +07",
+ "rev": 1,
+ "session": "LONDON_CLOSE",
+ "session_note": "London/NY AM -2.84% to 4,021.80 (Kitco 12:05 ET), low 4,012.70; A 4,042 short filled, open; B not seen; 11-09 r1 B TP1 hit",
+ "rev_note": "Rule 3 after -2.84%: no new sell stops; A = sell limit retest 4,032 under broken 4,033.3; B = buy limit at day low 4,012.70",
+ "price_ref": 4022,
  "bias": "BEARISH",
- "bias_note": "Hot CPI, hike ~99%; bearish below 4,068",
- "headline": "Hot Oct CPI (0.4%, core 0.3%) knocks gold ~90 to 4,046-4,053; Dec hike odds ~99%",
+ "bias_note": "Hot CPI, -2.8%; bearish below 4,046",
+ "headline": "Gold extends CPI loss to 4,012.70 low, -2.84% at 4,021.80; Dec hike priced, bonds shut Wed",
  "summary": [
-  "Oct CPI +0.4% m/m (exp 0.3%), core +0.3% (exp 0.2%); 10y +6.5bp to 4.93%, 2y +14bp (CoinDesk)",
-  "Dec Fed hike odds 98.8% from 84% pre-CPI (FedWatch via IBTimes); Waller: weigh 50bp if core >= 0.3%",
-  "Gold -2.1% to 4,053 (USAGold), 4,046 after CPI (TokenPost); Kitco Tue high 4,147.40, pre-CPI low 4,067.80",
-  "Mon +1.7%: Asia 4,123.46, late US ~4,140 on softer oil/USD; FXEmpire Nov 9 pivot 4,114.01",
-  "Supports 4,033.29 (Nov 6 low), 4,000 (FXEmpire); 4,067.80-4,082 now resistance (Kitco, Mitrade)"
+  "Kitco 12:05 ET: bid 4,021.80, -117.60 (-2.84%); day range 4,012.70-4,147.40",
+  "Oct CPI +0.4% m/m (exp 0.3%), core +0.3% (exp 0.2%); Waller floated 50bp in Dec (Kitco)",
+  "Post-CPI print 4,046 at ~08:33 ET (TechFlow/Bitget), then lower; 4,033.29 Nov 6 low now broken",
+  "r0 A sell stop 4,042 filled (price 4,053 -> 4,021.80), TP1 4,004 not reached, SL 4,073 not reported hit",
+  "11-09 r1 B sell 4,072 reached TP1 4,040 (low 4,012.70); TP2 3,984 still open"
  ],
  "events": [
-  "Wed  US Veterans Day, bonds shut",
+  "Wed 05:00 BKK  daily close; US Veterans Day, bonds shut",
   "Thu 20:30 BKK  US jobless claims",
   "Fri 20:30 BKK  US PPI Oct"
  ],
  "levels": {
   "r": [
-   4067.8,
-   4082,
-   4114
+   4033.3,
+   4046,
+   4067.8
   ],
   "s": [
-   4046,
-   4033.3,
-   4000
+   4012.7,
+   4000,
+   3980
   ]
  },
  "plans": [
   {
    "id": "A",
    "side": "SELL",
-   "type": "STOP",
-   "entry": 4042,
-   "sl": 4073,
+   "type": "LIMIT",
+   "entry": 4032,
+   "sl": 4052,
    "tp1": 4004,
    "tp2": 3984,
-   "note": "4 under 4,046 CPI low, 11 away; TP1 past 4,033; RR 1.23/1.87"
+   "note": "Retest under broken 4,033.3, 10 away; SL above 4,046; TP1 past 4,012.7 before 4,000; RR 1.40/2.40"
   },
   {
    "id": "B",
    "side": "BUY",
-   "type": "STOP",
-   "entry": 4068,
-   "sl": 4041,
-   "tp1": 4110,
-   "tp2": 4143,
-   "note": "Reclaim 4,067.80, 15 away; SL under 4,046; RR 1.56/2.78"
+   "type": "LIMIT",
+   "entry": 4014,
+   "sl": 3996,
+   "tp1": 4029,
+   "tp2": 4042,
+   "note": "Counter at day low 4,012.70, 8 away; SL under 4,000; TP before 4,033/4,046; RR 0.83/1.56, TP1 < 1.2: levels too tight"
   }
  ],
- "invalid": "Bear view void on 1h close above 4,082; cancel unfilled A/B by Thu 18:30 BKK (claims)",
- "risk_note": "Brief written after CPI; gold already -2% into 4,033 support and can snap back; bonds shut Wed. Small size. Not financial advice.",
- "lesson_applied": "Rules 1+4: stops 11-15 from ref past CPI extremes; 11-06 cap 15 after release; rule 5 TPs",
+ "invalid": "Bear view void on 1h close above 4,046; cancel unfilled A/B by 04:30 BKK Wed (before daily close)",
+ "risk_note": "Gold -2.8% in a day, extended near 4,000; thin Veterans Day liquidity Wed. Small size. Not financial advice.",
+ "lesson_applied": "Rule 3 (-2.84%): A retest limit, B counter; 11-06 cap 15 after release (10/8 away); rule 5 TPs",
  "review": {
   "for_date": "2026-11-09",
   "result": "TP1_HIT",
   "text": "r0 B 4,082 hit TP1 4,111 and TP2 4,142 (high ~4,147). r1 A 4,116 hit TP1 4,145, rest SL 4,092 Tue. r1 B 4,072 filled 18:53 BKK pre-CPI, low 4,046, TP1 4,040 open. A sells not hit"
  },
  "sources": [
-  "Kitco 2026-11-10 07:07 ET",
-  "Reuters via Business Recorder 2026-11-10",
-  "CoinDesk 2026-11-10",
-  "IBTimes 2026-11-10",
-  "TokenPost 2026-11-10",
-  "USAGold 2026-11-10",
-  "FXEmpire 2026-11-10",
-  "Mitrade 2026-11-10",
-  "LiteFinance 2026-11-10",
-  "investingLive 2026-11-10",
-  "Gold Stock Canada 2026-11-10",
-  "Stocktitan 2026-11-10"
+  "Kitco charts 2026-11-10 12:05 ET",
+  "Kitco 2026-11-10 08:30 ET (CPI)",
+  "BullionVault 2026-11-10",
+  "IndexBox 2026-11-10",
+  "TechFlow 2026-11-10 13:33 UTC",
+  "ChainCatcher 2026-11-10"
  ],
  "th": {
-  "headline": "CPI ร้อนกว่าคาด ทองร่วงเหลือ 4,046-4,053 โอกาสขึ้นดอกเบี้ย 99%",
-  "bias_note": "ขาลง ต่ำกว่า 4,068 ยังเป็นขาลง",
+  "headline": "ทองลงต่อหลัง CPI ต่ำสุด 4,012.70 ล่าสุด 4,021.80 ลบ 2.84%",
+  "bias_note": "ขาลง ต่ำกว่า 4,046 ยังเป็นขาลง",
   "summary": [
-   "CPI ต.ค. +0.4% คาด 0.3% Core +0.3% คาด 0.2% ยีลด์ 10 ปี +6.5bp เป็น 4.93%",
-   "โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. 98.8% จาก 84% ก่อน CPI Waller บอกควรคิดถึง 50bp",
-   "ทองลง 2.1% เหลือ 4,053 หลัง CPI แตะ 4,046 อังคารสูงสุด 4,147.40 ก่อน CPI ต่ำสุด 4,067.80",
-   "จันทร์ทองบวก 1.7% เอเชีย 4,123.46 ช่วงท้ายสหรัฐราว 4,140 จากน้ำมันและดอลลาร์อ่อน",
-   "แนวรับ 4,033.29 (ต่ำสุด 6 พ.ย.) และ 4,000 โซน 4,067.80-4,082 กลายเป็นแนวต้าน"
+   "Kitco 00:05 น. ราคา 4,021.80 ลบ 117.60 (2.84%) กรอบวัน 4,012.70-4,147.40",
+   "CPI ต.ค. +0.4% คาด 0.3% Core +0.3% คาด 0.2% Waller เปิดทางขึ้น 50bp ใน ธ.ค.",
+   "หลัง CPI แตะ 4,046 แล้วลงต่อ หลุดต่ำสุด 6 พ.ย. 4,033.29 แล้ว",
+   "แผน A Sell Stop 4,042 ถูกเปิด ยังไม่ถึง TP1 4,004 ไม่มีรายงานโดน SL 4,073",
+   "r1 B ขาย 4,072 (9 พ.ย.) ถึง TP1 4,040 แล้ว TP2 3,984 ยังเปิดอยู่"
   ],
-  "invalid": "ปิดเหนือ 4,082 รายชั่วโมง ขาลงใช้ไม่ได้ ยกเลิกก่อน 18:30 น. พฤหัส",
+  "invalid": "ปิดรายชั่วโมงเหนือ 4,046 ขาลงใช้ไม่ได้ ยกเลิกที่ค้างก่อน 04:30 น. พุธ",
   "review_text": "r0 B 4,082 ถึง TP1 4,111 และ TP2 4,142 r1 A 4,116 ถึง TP1 4,145 ส่วนที่เหลือโดน SL อังคาร r1 B ขาย 4,072 เข้า 18:53 น. ก่อน CPI ต่ำสุด 4,046 ยังถือ",
-  "session_note": "นิวยอร์กจันทร์ทองบวก 1.7% ปิดราว 4,139 อังคาร CPI ร้อน ทองลงเหลือ 4,046-4,053 r1 A ถึง TP1 r1 B ขายยังถือ",
-  "rev_note": ""
+  "session_note": "ลอนดอนถึงนิวยอร์กช่วงเช้า ทองลง 2.84% ต่ำสุด 4,012.70 แผน A ขาย 4,042 ถูกเปิด ยังถือ แผน B ไม่ถูกเปิด",
+  "rev_note": "ลงเกิน 2.5% ตามกฎ 3 ไม่ไล่ขาย A ขาย Limit รอรีเทสต์ 4,032 B ซื้อ Limit ที่ต่ำสุดวัน 4,014"
  }
 }
