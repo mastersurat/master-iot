@@ -1,0 +1,94 @@
+{
+ "v": 1,
+ "date": "2026-11-11",
+ "generated": "2026-11-11 16:15 +07",
+ "rev": 1,
+ "session": "ASIA_CLOSE",
+ "session_note": "Asia ~4,030 -> 4,057.33 (13:37) / ~4,058, ~4,049 late; A 4,046 and B 4,053 both filled, open; 11-10 r1 A SL 4,052 hit",
+ "rev_note": "Rule 3 lapsed: A buy stop 4,070 past 4,067.8, B sell lmt 4,057 at Asia high; bias neutral after +0.6-1% bounce",
+ "price_ref": 4050,
+ "bias": "NEUTRAL",
+ "bias_note": "Bounce capped 4,058-4,068; break decides",
+ "headline": "Gold rebounds to ~4,057 in Asia after CPI rout; hike fully priced, claims Thu",
+ "summary": [
+  "Spot 4,043.62 (03:03 GMT), 4,041.67 (04:56), 4,057.33 (06:37 GMT, Reuters); ~4,049 late Asia",
+  "StoneX calls it a technical retracement; ANZ: near-term macro setup not positive",
+  "FedWatch: Dec hike 100% (Reuters); Logan wants 50bp+, Goolsbee: CPI borderline disturbing",
+  "DXY 102.27 (+0.02%, Investing); US bonds shut for Veterans Day, thin liquidity",
+  "Levels: R 4,058 Asia high, 4,067.8, 4,080 fib; S 4,030, 4,024 200h SMA, 4,012.70",
+  "Open: 11-11 r0 A sell 4,046 and B buy 4,053 both filled; 11-10 r0 A sell 4,042 still open"
+ ],
+ "events": [
+  "Thu 20:30 BKK  US jobless claims",
+  "Thu 22:00 BKK  US existing home sales",
+  "Fri 20:30 BKK  US PPI Oct",
+  "Dec 9  Fed decision"
+ ],
+ "levels": {
+  "r": [
+   4058,
+   4067.8,
+   4080
+  ],
+  "s": [
+   4030,
+   4024,
+   4012.7
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 4070,
+   "sl": 4054,
+   "tp1": 4090,
+   "tp2": 4106,
+   "note": "Reclaim 4,067.8, 20 away; SL < Asia high 4,058; TP before 4,094.64/4,110; RR 1.25/2.25"
+  },
+  {
+   "id": "B",
+   "side": "SELL",
+   "type": "LIMIT",
+   "entry": 4057,
+   "sl": 4071,
+   "tp1": 4033,
+   "tp2": 4016,
+   "note": "Fade Asia high ~4,058, 7 away; SL > 4,067.8; TP before 4,030/4,012.70; RR 1.71/2.93"
+  }
+ ],
+ "invalid": "B void on 1h close above 4,071; A void below 4,024 (200h SMA); cancel unfilled A/B by Thu 18:30 BKK",
+ "risk_note": "Asia high/low only from timed prints (no full range found); thin Veterans Day liquidity; both r0 orders open as a hedge. Small size. Not financial advice.",
+ "lesson_applied": "Rule 1+4: A stop 3 past 4,067.8 (20 away); rule 1: B limit 7 away at Asia high; rule 5: TPs 4 inside levels; rule 3 lapsed",
+ "review": {
+  "for_date": "2026-11-10",
+  "result": "OPEN",
+  "text": "r1 A sell lmt 4,032 filled (4,022 -> 4,034.20 late), r0 A 4,042 filled; low 4,012.70 held, TP1 4,004 missed by 8.7; SLs not reported hit. r0 B, r1 B not seen"
+ },
+ "sources": [
+  "Reuters via The Star 2026-11-11 06:37 GMT",
+  "Reuters via Business Recorder 2026-11-11 03:03 GMT",
+  "Investing.com 2026-11-11 04:56 GMT",
+  "Gulf News 2026-11-11",
+  "Goodreturns 2026-11-11 13:46 IST",
+  "FinanceFeeds 2026-11-11 06:45 GMT",
+  "KuCoin/FX678 2026-11-11"
+ ],
+ "th": {
+  "headline": "ทองเด้งขึ้นราว 4,057 ช่วงเอเชีย หลังร่วงจาก CPI ตลาดรอ Claims พฤหัส",
+  "bias_note": "กลางๆ กรอบ 4,058-4,068 รอเลือกทาง",
+  "summary": [
+   "สปอต 4,043.62 (10:03 น.) 4,041.67 (11:56 น.) 4,057.33 (13:37 น.) ท้ายเอเชียราว 4,049",
+   "StoneX มองเป็นการเด้งทางเทคนิค ANZ มองปัจจัยระยะสั้นยังไม่บวก",
+   "FedWatch ขึ้นดอกเบี้ย ธ.ค. 100% Logan อยากขึ้น 50bp ขึ้นไป",
+   "ดอลลาร์ 102.27 ทรงตัว พันธบัตรสหรัฐปิดวันนี้ สภาพคล่องบาง",
+   "แนวต้าน 4,058 4,067.8 4,080 แนวรับ 4,030 4,024 4,012.70",
+   "ออเดอร์ค้าง ขาย 4,046 และซื้อ 4,053 ของเช้านี้ถูกเปิดทั้งคู่ ขาย 4,042 ของ 10 พ.ย. ยังถือ"
+  ],
+  "invalid": "เหนือ 4,071 B ใช้ไม่ได้ หลุด 4,024 A ใช้ไม่ได้ ยกเลิก 18:30 น. พฤหัส",
+  "review_text": "r1 A ขาย Limit 4,032 ถูกเปิด r0 A ขาย 4,042 ถูกเปิด ต่ำสุด 4,012.70 TP1 4,004 ขาด 8.7 จุด ไม่มีรายงานโดน SL ยังถือ r0 B r1 B ไม่ถูกเปิด",
+  "session_note": "เอเชียเด้งจากราว 4,030 ถึง 4,057-4,058 ท้ายตลาด 4,049 แผน A ขาย 4,046 และ B ซื้อ 4,053 ถูกเปิดทั้งคู่ ยังถือ",
+  "rev_note": "กฎ 3 หมดผล A เป็น Buy Stop 4,070 เหนือ 4,067.8 B เป็น Sell Limit 4,057 ที่ยอดเอเชีย มุมมองกลางๆ หลังเด้ง"
+ }
+}
