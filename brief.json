@@ -1,37 +1,36 @@
 {
  "v": 1,
- "date": "2026-11-12",
- "generated": "2026-11-13 00:25 +07",
- "rev": 1,
- "session": "LONDON_CLOSE",
- "session_note": "London 3,931.54 (09:12 GMT) -> 3,867.96 low print after claims, ~3,875 at close; A/B (3,888/3,897) not seen filled",
- "rev_note": "Same retest-sell/reclaim-buy idea; SLs widened to 1/3 of Wed 100-pt range (rule 6); TP1 inside 3,867.96 low; cancel 18:30 Fri",
- "price_ref": 3875,
+ "date": "2026-11-13",
+ "generated": "2026-11-13 07:05 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "Thu NY 3,880.93 (13:53 ET), low 3,852, close ~3,877 (-2.8%) on hike bets, oil up; 11-12 A/B (3,888/3,897+) not filled",
+ "rev_note": "",
+ "price_ref": 3877,
  "bias": "BEARISH",
- "bias_note": "1-yr low, hike bets ~90%, 3,896 lost",
- "headline": "Gold holds near 3,875 after -2.8% day at 1-year low; rest of NY quiet, PPI Fri 20:30 BKK",
+ "bias_note": "1-yr low, hike odds ~90%, USD 19-mo high",
+ "headline": "Gold ~3,877 after -2.8% day, low 3,852; PPI Fri 20:30 BKK, Fed speakers follow",
  "summary": [
-  "TE 3,874.80 (-2.83%) Nov 12; Reuters 3,867.96 at 10:01 ET, lowest since Oct 2025",
-  "London path: 3,959.03 07:32 GMT, 3,931.54 09:12 GMT, 3,903.98 after claims 08:31 ET",
-  "Claims 200k vs 195k; Dec 25bp hike ~90%, 50bp ~10%; 10y ~5.00%, DXY ~102.85",
-  "Waller open to 50bp, Logan backs 2 more hikes; oil firm on unresolved US-Iran standoff",
-  "Prior A sell lmt 3,888 / B buy stop 3,897 not seen filled; no print above 3,879 found after"
+  "Spot 3,880.93 at 13:53 ET, low 3,852, close ~3,877 (-2.8%); COMEX Dec settled 3,885.30 (-2.9%)",
+  "Dec hike odds 87-91% (25bp), 50bp ~10-11%; DXY hit 103.08, 19-month high; yields up",
+  "Brent +3.3% to 95.82 on Saudi/Hormuz attacks; Trump: no Iran deal needed; Nasdaq -0.39%",
+  "PPI Oct seen +0.4% m/m vs 1.3%; past PPI days moved gold -1.4% (Sep) and +1% (Oct)",
+  "After -2.8% day: range plan, entries within 10 (rule 7); no sell stops (rule 3)"
  ],
  "events": [
   "Fri 18:30 BKK  Cancel unfilled A/B",
   "Fri 20:30 BKK  US PPI Oct",
-  "Mon Nov 16  Empire State index",
-  "Dec 8-9  Fed meeting"
+  "Fri 21:10 BKK  Fed Collins, Logan"
  ],
  "levels": {
   "r": [
+   3880.93,
    3893.96,
-   3919.18,
-   3944
+   3903.98
   ],
   "s": [
-   3870,
    3867.96,
+   3852,
    3820
   ]
  },
@@ -40,53 +39,54 @@
    "id": "A",
    "side": "SELL",
    "type": "LIMIT",
-   "entry": 3888,
-   "sl": 3925,
-   "tp1": 3872,
-   "tp2": 3824,
-   "note": "Retest broken 3,890-3,896, 13 away; SL 6 > 3,919.18; RR 0.43 (low caps TP1)/1.73"
+   "entry": 3884,
+   "sl": 3920,
+   "tp1": 3871,
+   "tp2": 3856,
+   "note": "Fade to 3,880.93 area, 7 away; SL 16>3,903.98; RR 0.36/0.78"
   },
   {
    "id": "B",
    "side": "BUY",
-   "type": "STOP",
-   "entry": 3899,
-   "sl": 3862,
-   "tp1": 3915,
-   "tp2": 3940,
-   "note": "Reclaim 3,896/3,893.96, 24 away; SL 6 < 3,867.96; RR 0.43/1.11, levels cap TPs"
+   "type": "LIMIT",
+   "entry": 3868,
+   "sl": 3832,
+   "tp1": 3877,
+   "tp2": 3889,
+   "note": "Dip to 3,867.96, 9 away; SL 20<3,852; RR 0.25/0.58 low"
   }
  ],
  "invalid": "Bear view void on 1h close above 3,920; cancel unfilled A/B by Fri 18:30 BKK (PPI)",
- "risk_note": "Day -2.8% after a 3-day slide; H1 RSI and NY afternoon range not found; rule-6 SLs make RR low. Size small. Scenario analysis from public sources. Not financial advice.",
- "lesson_applied": "Rule 3 (-2.8%, RSI n/a): no sell stop, A retest limit; rule 4 B 24 away; rule 5 TP1 4 > 3,867.96; rule 6 SL 37",
+ "risk_note": "3rd day down, H1 RSI not found; rule-6 SLs (1/3 of 107 range) make RR low - size small or skip. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 7 (new): entries 7-9 from ref; rule 3 no sell stop; rule 5 TPs in lows; rule 6 SL 36",
  "review": {
-  "for_date": "2026-11-11",
-  "result": "TP2_HIT",
-  "text": "r2 sell stop 3,994 filled Wed (3,987 15:46 ET); TP1 3,978 and TP2 3,908 hit Thu (3,903.98), SL 4,014 not reported. r0 A/r1 B TPs hit, r0 B SL, r1 A missed"
+  "for_date": "2026-11-12",
+  "result": "NOT_TRIGGERED",
+  "text": "r0/r1 A sell lmt 3,888 and B buy stop 3,897/3,899 not filled: after 11:20 ET NY ranged ~3,852-3,881 (3,880.93 13:53 ET), close ~3,877. NY afternoon high not reported."
  },
  "sources": [
-  "Kitco AM Report 2026-11-12",
-  "Kitco 2026-11-12 (claims)",
-  "Kitco prices 2026-11-11",
-  "Reuters via Rallies 2026-11-12",
-  "Trading Economics 2026-11-12",
-  "LiteFinance 2026-11-12",
-  "JournalArta 2026-11-12"
+  "Reuters via Mining.com 2026-11-12",
+  "Biggo Finance 2026-11-12",
+  "Kitco via Eurasia Business News 2026-11-12",
+  "USAGOLD 2026-11-12",
+  "GoldStockCanada 2026-11-12",
+  "Mining.com.au 2026-11-12",
+  "BeInCrypto via Yahoo 2026-11-12",
+  "Rallies (Reuters) 2026-11-12"
  ],
  "th": {
-  "headline": "ทองยืนราว 3,875 หลังร่วง 2.8% ต่ำสุดรอบ 1 ปี รอ PPI ศุกร์ 20:30",
-  "bias_note": "ขาลง Fed ขึ้นดอกเบี้ย หลุด 3,896",
+  "headline": "ทองราว 3,877 หลังลง 2.8% ต่ำสุด 3,852 รอ PPI ศุกร์ 20:30",
+  "bias_note": "ขาลง ต่ำสุดรอบ 1 ปี Fed ขึ้นดอกเบี้ย",
   "summary": [
-   "TE 3,874.80 ลบ 2.83% · Reuters 3,867.96 ตอน 22:01 น. ต่ำสุดตั้งแต่ ต.ค. 2025",
-   "ลอนดอน 3,959 (14:32) 3,931.54 (16:12) แล้ว 3,903.98 หลัง Claims (20:31)",
-   "Claims 200k คาด 195k · Fed ขึ้น 25bp ธ.ค. ราว 90% · 10 ปี ราว 5.00% · DXY 102.85",
-   "Waller เปิดทาง 50bp · Logan หนุนขึ้นอีก 2 ครั้ง · ความตึงเครียดสหรัฐ อิหร่านยังอยู่",
-   "แผนเดิม A 3,888 และ B 3,897 ยังไม่พบว่าถูกเปิด · ไม่พบราคาเหนือ 3,879 หลังจากนั้น"
+   "ทอง 3,880.93 ตอน 01:53 น. ต่ำสุด 3,852 ปิดราว 3,877 ลบ 2.8% · COMEX ธ.ค. 3,885.30",
+   "Fed ขึ้น 25bp ธ.ค. 87-91% · 50bp ราว 10% · DXY 103.08 สูงสุด 19 เดือน · บอนด์ขึ้น",
+   "น้ำมัน Brent ขึ้น 3.3% ที่ 95.82 · Trump บอกไม่ต้องดีลอิหร่าน · หุ้น Nasdaq ลบ 0.39%",
+   "คาด PPI ต.ค. +0.4% · PPI ก.ย. ทองลง 1.4% · PPI ต.ค. ทองขึ้นราว 1%",
+   "หลังลงแรง 2.8% ใช้แผนกรอบ ตั้งออเดอร์ห่างไม่เกิน 10 จุด (กฎ 7) ไม่ตั้ง Sell Stop (กฎ 3)"
   ],
   "invalid": "ปิดแท่ง 1 ชม. เหนือ 3,920 มุมมองขาลงใช้ไม่ได้ · ยกเลิกก่อน 18:30 ศุกร์",
-  "review_text": "r2 Sell Stop 3,994 ถูกเปิดวันพุธ TP1 3,978 และ TP2 3,908 ถึงวันพฤหัส ไม่มีรายงานถึง SL 4,014 · r0 A กับ r1 B ถึง TP · r0 B โดน SL · r1 A ไม่เปิด",
-  "session_note": "ลอนดอนลงจาก 3,931 ถึงราว 3,868 หลัง Claims ปิดราว 3,875 · แผน A B เดิมยังไม่พบว่าถูกเปิด",
-  "rev_note": "คงแนวคิดเดิม ขายรีเทสต์ ซื้อเมื่อกลับขึ้น · ขยาย SL ตามกฎ 6 · TP1 ก่อนต่ำสุด 3,867.96"
+  "review_text": "r0 r1 A Sell Limit 3,888 และ B Buy Stop 3,897/3,899 ไม่ถูกเปิด · หลัง 23:20 น. ราคาแกว่ง 3,852-3,881 ปิดราว 3,877 · ไม่พบจุดสูงสุดช่วงบ่ายนิวยอร์ก",
+  "session_note": "นิวยอร์กลงต่ำสุด 3,852 ปิดราว 3,877 ลบ 2.8% จาก Fed และน้ำมันขึ้น · แผน A B เมื่อวานไม่ถูกเปิด",
+  "rev_note": ""
  }
 }

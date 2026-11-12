@@ -11,9 +11,16 @@ The morning brief must read the latest 10 entries before writing a plan and say 
 - 4. (11-06) Stop entries max 25 from price_ref; if the session extreme is farther, use the nearest tested level within 25 or skip it. (Stops 27-50 away missed on 10-28, 11-02, 11-03 r0, 11-05 r1/r2 4,151 by 3 after a 30+ pullback.)
 - 5. (rev 11-10) Put TP1/TP2 3-5 inside the nearest tested extreme or level (before it), never at or past it - including the current session's own high/low once it is printed; a TP may sit past it only as TP2. (11-05 TP2 4,155 vs high 4,148; 11-06 TP1 4,030 vs low 4,033.29; 11-10 r1 TP1 4,004 vs low 4,012.70, missed by 8.7.)
 - 6. (11-12) SL at least 5 past the level it guards and at least 1/3 of the prior day range from entry. (11-03 limit SL 15 = 1/5 of range, hit; 11-11 r0 SL 1.2 past 4,067.8 survived by 1.1.)
+- 7. (11-13) In the session right after a > 2.5% day, put both entries max 10 from price_ref; if no level within 10, post no entry for that side. (Follow-up sessions ranged only 23-30: 10-30 r2 3,870-3,894, 11-06 post-NFP 4,047-4,070; 11-12 r0/r1 limits 13-15 away and stops 24-26 away all missed, NY high after 11:20 ET seen ~3,881.)
 
 ## Log
 <!-- newest first: "### YYYY-MM-DD  RESULT" then Expected / Happened / Why / Adjust -->
+
+### 2026-11-12  NOT_TRIGGERED
+- Expected: r0 (23:20) BEARISH after -3%: A sell lmt 3,888 retest (SL 3,916, TP1 3,868) / B buy stop 3,897 reclaim; r1 (00:25) same idea, A sell lmt 3,888 (SL 3,925) / B buy stop 3,899 (SL 3,862); cancel by Fri 18:30 BKK.
+- Happened: Thu low 3,852 (Biggo, untimed; Reuters 3,867.96 at 10:01 ET), 3,880.93 at 13:53 ET (Reuters), late ~3,876.40 (Kitco via Eurasia) / close ~3,877 (-2.8%, Biggo); COMEX Dec settled 3,885.30. No source shows >= 3,888 after 11:20 ET, so A (r0, r1) and B (3,897/3,899) not seen filled. NY afternoon high not reported, so a quick touch of 3,888 cannot be fully ruled out.
+- Why: after a -3% day the rest of NY just ranged ~3,852-3,881; retest limits 13-15 away and reclaim stops 24-26 away sat outside that narrow follow-up range (same as 10-30 r2 and 11-06 r1). No loss, but no trade either.
+- Adjust: after a > 2.5% day, next-session entries max 10 from price_ref (promoted to standing rule 7, third case).
 
 ### 2026-11-11  TP2_HIT
 - Expected: r0 BEARISH (A sell lmt 4,046 SL 4,069 / B buy stop 4,053); r1 NEUTRAL (A buy stop 4,070 / B sell lmt 4,057); r2 BEARISH after 4,000 broke (A sell stop 3,994 SL 4,014 TP1 3,978 TP2 3,908 / B buy stop 4,016).
