@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "date": "2026-11-12",
+ "generated": "2026-11-13 00:25 +07",
+ "rev": 1,
+ "session": "LONDON_CLOSE",
+ "session_note": "London 3,931.54 (09:12 GMT) -> 3,867.96 low print after claims, ~3,875 at close; A/B (3,888/3,897) not seen filled",
+ "rev_note": "Same retest-sell/reclaim-buy idea; SLs widened to 1/3 of Wed 100-pt range (rule 6); TP1 inside 3,867.96 low; cancel 18:30 Fri",
+ "price_ref": 3875,
+ "bias": "BEARISH",
+ "bias_note": "1-yr low, hike bets ~90%, 3,896 lost",
+ "headline": "Gold holds near 3,875 after -2.8% day at 1-year low; rest of NY quiet, PPI Fri 20:30 BKK",
+ "summary": [
+  "TE 3,874.80 (-2.83%) Nov 12; Reuters 3,867.96 at 10:01 ET, lowest since Oct 2025",
+  "London path: 3,959.03 07:32 GMT, 3,931.54 09:12 GMT, 3,903.98 after claims 08:31 ET",
+  "Claims 200k vs 195k; Dec 25bp hike ~90%, 50bp ~10%; 10y ~5.00%, DXY ~102.85",
+  "Waller open to 50bp, Logan backs 2 more hikes; oil firm on unresolved US-Iran standoff",
+  "Prior A sell lmt 3,888 / B buy stop 3,897 not seen filled; no print above 3,879 found after"
+ ],
+ "events": [
+  "Fri 18:30 BKK  Cancel unfilled A/B",
+  "Fri 20:30 BKK  US PPI Oct",
+  "Mon Nov 16  Empire State index",
+  "Dec 8-9  Fed meeting"
+ ],
+ "levels": {
+  "r": [
+   3893.96,
+   3919.18,
+   3944
+  ],
+  "s": [
+   3870,
+   3867.96,
+   3820
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "LIMIT",
+   "entry": 3888,
+   "sl": 3925,
+   "tp1": 3872,
+   "tp2": 3824,
+   "note": "Retest broken 3,890-3,896, 13 away; SL 6 > 3,919.18; RR 0.43 (low caps TP1)/1.73"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 3899,
+   "sl": 3862,
+   "tp1": 3915,
+   "tp2": 3940,
+   "note": "Reclaim 3,896/3,893.96, 24 away; SL 6 < 3,867.96; RR 0.43/1.11, levels cap TPs"
+  }
+ ],
+ "invalid": "Bear view void on 1h close above 3,920; cancel unfilled A/B by Fri 18:30 BKK (PPI)",
+ "risk_note": "Day -2.8% after a 3-day slide; H1 RSI and NY afternoon range not found; rule-6 SLs make RR low. Size small. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 3 (-2.8%, RSI n/a): no sell stop, A retest limit; rule 4 B 24 away; rule 5 TP1 4 > 3,867.96; rule 6 SL 37",
+ "review": {
+  "for_date": "2026-11-11",
+  "result": "TP2_HIT",
+  "text": "r2 sell stop 3,994 filled Wed (3,987 15:46 ET); TP1 3,978 and TP2 3,908 hit Thu (3,903.98), SL 4,014 not reported. r0 A/r1 B TPs hit, r0 B SL, r1 A missed"
+ },
+ "sources": [
+  "Kitco AM Report 2026-11-12",
+  "Kitco 2026-11-12 (claims)",
+  "Kitco prices 2026-11-11",
+  "Reuters via Rallies 2026-11-12",
+  "Trading Economics 2026-11-12",
+  "LiteFinance 2026-11-12",
+  "JournalArta 2026-11-12"
+ ],
+ "th": {
+  "headline": "ทองยืนราว 3,875 หลังร่วง 2.8% ต่ำสุดรอบ 1 ปี รอ PPI ศุกร์ 20:30",
+  "bias_note": "ขาลง Fed ขึ้นดอกเบี้ย หลุด 3,896",
+  "summary": [
+   "TE 3,874.80 ลบ 2.83% · Reuters 3,867.96 ตอน 22:01 น. ต่ำสุดตั้งแต่ ต.ค. 2025",
+   "ลอนดอน 3,959 (14:32) 3,931.54 (16:12) แล้ว 3,903.98 หลัง Claims (20:31)",
+   "Claims 200k คาด 195k · Fed ขึ้น 25bp ธ.ค. ราว 90% · 10 ปี ราว 5.00% · DXY 102.85",
+   "Waller เปิดทาง 50bp · Logan หนุนขึ้นอีก 2 ครั้ง · ความตึงเครียดสหรัฐ อิหร่านยังอยู่",
+   "แผนเดิม A 3,888 และ B 3,897 ยังไม่พบว่าถูกเปิด · ไม่พบราคาเหนือ 3,879 หลังจากนั้น"
+  ],
+  "invalid": "ปิดแท่ง 1 ชม. เหนือ 3,920 มุมมองขาลงใช้ไม่ได้ · ยกเลิกก่อน 18:30 ศุกร์",
+  "review_text": "r2 Sell Stop 3,994 ถูกเปิดวันพุธ TP1 3,978 และ TP2 3,908 ถึงวันพฤหัส ไม่มีรายงานถึง SL 4,014 · r0 A กับ r1 B ถึง TP · r0 B โดน SL · r1 A ไม่เปิด",
+  "session_note": "ลอนดอนลงจาก 3,931 ถึงราว 3,868 หลัง Claims ปิดราว 3,875 · แผน A B เดิมยังไม่พบว่าถูกเปิด",
+  "rev_note": "คงแนวคิดเดิม ขายรีเทสต์ ซื้อเมื่อกลับขึ้น · ขยาย SL ตามกฎ 6 · TP1 ก่อนต่ำสุด 3,867.96"
+ }
+}
