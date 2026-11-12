@@ -10,9 +10,16 @@ The morning brief must read the latest 10 entries before writing a plan and say 
 - 3. (rev 11-05) After a day move > 2.5% with H1 RSI < 20 (or > 80) - or > 2.5% alone when H1 RSI is not available - do not add new stop entries in that direction for the next session; Plan A may then be a retest LIMIT at the broken level (overrides rule 1 for that session); Plan B becomes the reclaim/counter setup at the broken level. (10-30 r2 sells 90 lower after -3%: nothing filled; 11-04 r2 buy stop 4,069 after +3.3% filled ~1 below the day's top, RSI unknown.)
 - 4. (11-06) Stop entries max 25 from price_ref; if the session extreme is farther, use the nearest tested level within 25 or skip it. (Stops 27-50 away missed on 10-28, 11-02, 11-03 r0, 11-05 r1/r2 4,151 by 3 after a 30+ pullback.)
 - 5. (rev 11-10) Put TP1/TP2 3-5 inside the nearest tested extreme or level (before it), never at or past it - including the current session's own high/low once it is printed; a TP may sit past it only as TP2. (11-05 TP2 4,155 vs high 4,148; 11-06 TP1 4,030 vs low 4,033.29; 11-10 r1 TP1 4,004 vs low 4,012.70, missed by 8.7.)
+- 6. (11-12) SL at least 5 past the level it guards and at least 1/3 of the prior day range from entry. (11-03 limit SL 15 = 1/5 of range, hit; 11-11 r0 SL 1.2 past 4,067.8 survived by 1.1.)
 
 ## Log
 <!-- newest first: "### YYYY-MM-DD  RESULT" then Expected / Happened / Why / Adjust -->
+
+### 2026-11-11  TP2_HIT
+- Expected: r0 BEARISH (A sell lmt 4,046 SL 4,069 / B buy stop 4,053); r1 NEUTRAL (A buy stop 4,070 / B sell lmt 4,057); r2 BEARISH after 4,000 broke (A sell stop 3,994 SL 4,014 TP1 3,978 TP2 3,908 / B buy stop 4,016).
+- Happened: Wed Asia 4,057.33, London-NY high 4,067.90, low 3,997.70 by 12:02 ET (Kitco), 3,987 at 15:46 ET, ~3,983.20 late (-1.21%); Thu 3,959.03 (07:32 GMT), 3,931.54 (09:12 GMT), 3,903.98 after claims 200k (08:31 ET), 3,867.96 at 10:01 ET (-3%, 1-yr low). r2 A filled Wed, TP1 and TP2 hit Thu; no source shows spot back near SL 4,014 (Thu Asia high not reported). r2 B not triggered. r0 A filled, survived SL 4,069 by 1.1, TP1 4,016 / TP2 4,004 hit; r0 B filled, SL 4,028 hit. r1 A missed by 2.1; r1 B 4,057 filled, TP 4,033/4,016 reached.
+- Why: worked - stop 3.7 past the session low (rules 1, 2, 4) in the direction of a fresh driver (USD at 19-month high, hike odds ~90%) caught a ~90-pt leg, and TPs set inside levels (rule 5) were banked. Weak spots: r0 A SL sat only 1.2 past 4,067.8 and survived by 1.1 (luck); r0 two-sided plan filled both legs.
+- Adjust: keep rules 1/2/4/5. SL at least 5 past the level it guards (not 1-2); with 11-03 promoted to standing rule 6.
 
 ### 2026-11-10  OPEN
 - Expected: BEARISH after hot CPI. r0 A sell stop 4,042 (SL 4,073, TP1 4,004) / B buy stop 4,068; r1 (rule 3 after -2.84%) A sell lmt 4,032 retest (SL 4,052, TP1 4,004) / B buy lmt 4,014 at day low.

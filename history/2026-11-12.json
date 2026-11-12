@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "date": "2026-11-12",
+ "generated": "2026-11-12 23:20 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "Wed NY 4,067.90 -> ~3,983 (-1.2%); Thu claims 200k: 3,903.98 -> ~3,864-3,873 (-3%). 11-11 r2 sell stop 3,994 hit TP2 3,908",
+ "rev_note": "",
+ "price_ref": 3873,
+ "bias": "BEARISH",
+ "bias_note": "1-yr low, USD 19-mo high, 3,900 lost",
+ "headline": "Gold slides 3% to ~3,868, 1-year low, after claims; dollar and hike bets weigh, PPI Fri",
+ "summary": [
+  "Spot 3,867.96 at 10:01 ET (-3%, lowest since Oct 2025); 3,873.08 at 16:06 UTC (FXEmpire)",
+  "Path: Wed late 3,983.20; Thu 3,959.03 07:32 GMT, 3,931.54 09:12 GMT, 3,903.98 after claims",
+  "Claims 200k vs 195k; Dec 25bp hike ~90.8%, 50bp 9.2%; USD index near 19-month high",
+  "Oil up >1% as Trump says US does not need Iran deal; TD saw 3,900 retest, now broken",
+  "Levels: R 3,890, 3,910, 3,919.18; S 3,864, 3,830.33, 3,820; LiteFinance RSI 36"
+ ],
+ "events": [
+  "Fri 18:30 BKK  Cancel unfilled A/B",
+  "Fri 20:30 BKK  US PPI Oct",
+  "Wed Dec 9  Fed decision"
+ ],
+ "levels": {
+  "r": [
+   3890,
+   3910,
+   3919.2
+  ],
+  "s": [
+   3864,
+   3830.3,
+   3820
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "LIMIT",
+   "entry": 3888,
+   "sl": 3916,
+   "tp1": 3868,
+   "tp2": 3834,
+   "note": "Retest broken 3,890, 15 away; RR 0.71 (low caps TP1)/1.93"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 3897,
+   "sl": 3859,
+   "tp1": 3915,
+   "tp2": 3947,
+   "note": "Reclaim 3,893.96, 24 away; SL 5 < 3,864; RR 0.47/1.32"
+  }
+ ],
+ "invalid": "Bear view void on 1h close above 3,920; cancel unfilled A/B by Fri 18:30 BKK (PPI)",
+ "risk_note": "Day move -3% after a 2-day slide; thin data on intraday highs; PPI Fri can swing 30+. Size small. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 3 (-3%): A retest sell limit, no sell stop; rule 5 TP1 4 > 3,864; new rule 6 SL",
+ "review": {
+  "for_date": "2026-11-11",
+  "result": "TP2_HIT",
+  "text": "r2 sell stop 3,994 filled Wed (3,987 15:46 ET); TP1 3,978 and TP2 3,908 hit Thu (3,903.98), SL 4,014 not reported. r0 A/r1 B TPs hit, r0 B SL, r1 A missed"
+ },
+ "sources": [
+  "Kitco 2026-11-11",
+  "Kitco 2026-11-12",
+  "Reuters via Rallies 2026-11-12",
+  "TradingKey 2026-11-12",
+  "FXEmpire 2026-11-12",
+  "LiteFinance 2026-11-12",
+  "RoboForex 2026-11-12",
+  "Yahoo Finance 2026-11-12"
+ ],
+ "th": {
+  "headline": "ทองร่วง 3% ลงราว 3,868 ต่ำสุดรอบ 1 ปี หลัง Jobless Claims",
+  "bias_note": "ขาลง ดอลลาร์แข็ง หลุด 3,900",
+  "summary": [
+   "ทองสปอต 3,867.96 เวลา 22:01 น. ลง 3% ต่ำสุดตั้งแต่ ต.ค. 2025",
+   "เส้นทาง: พุธปิด 3,983.20 · พฤหัส 3,959 3,931 และ 3,903.98 หลัง Claims",
+   "Claims 200k คาด 195k · Fed ขึ้น 25bp ธ.ค. ราว 90.8% · ดอลลาร์สูงสุด 19 เดือน",
+   "น้ำมันขึ้นเกิน 1% หลัง Trump บอกไม่ต้องดีลอิหร่าน · แนวรับ 3,900 หลุดแล้ว",
+   "แนวต้าน 3,890 3,910 3,919 · แนวรับ 3,864 3,830 3,820 · RSI 36"
+  ],
+  "invalid": "ปิดแท่ง 1 ชม. เหนือ 3,920 มุมมองขาลงใช้ไม่ได้ · ยกเลิกก่อน 18:30 ศุกร์",
+  "review_text": "r2 Sell Stop 3,994 ถูกเปิดวันพุธ TP1 3,978 และ TP2 3,908 ถึงวันพฤหัส ไม่มีรายงานถึง SL 4,014 · r0 A กับ r1 B ถึง TP · r0 B โดน SL · r1 A ไม่เปิด",
+  "session_note": "พุธนิวยอร์ก 4,067.90 ลง 3,983 · พฤหัสหลัง Claims ลงถึงราว 3,864 · แผน r2 Sell ถึง TP2",
+  "rev_note": ""
+ }
+}
