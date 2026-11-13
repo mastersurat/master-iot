@@ -1,0 +1,96 @@
+{
+ "v": 1,
+ "date": "2026-11-13",
+ "generated": "2026-11-14 00:20 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "London/early NY 3,872.90-3,906, day high 3,924 in Asia; PPI 0.3% vs 0.4%; A 3,926 not hit, B 3,884 not seen filled",
+ "rev_note": "Post-PPI box 3,873-3,906: sell stop under day low 3,872.90, buy stop over NY top 3,906; cancel unfilled by Sat 04:00",
+ "price_ref": 3895,
+ "bias": "NEUTRAL",
+ "bias_note": "Bounce capped 3,906; weekend",
+ "headline": "Gold ~3,895 after soft PPI; capped under 3,906, week still ~-4%",
+ "summary": [
+  "Kitco 9:53 ET (21:53 BKK) bid 3,894.40 +0.46%; day 3,872.90-3,924.00 (high in Asia)",
+  "PPI Oct +0.3% m/m vs 0.4% (Sep rev 1.4%), core +0.3%, y/y 6.5%; gold spiked to 3,906 then 3,873",
+  "Before PPI Dec hike odds 89% 25bp / 11% 50bp; soft PPI may trim 50bp bets; DXY ~103.2, 10y ~5.13%",
+  "r1 A buy stop 3,926 not hit; r1 B sell stop 3,884: price ~3,881 at 21:00 BKK, skip rule; no fill seen",
+  "No gold print found after 21:53 BKK; Fed Daly speaks 00:00 BKK; thin pre-weekend trade",
+  "Morning r0 A sell 3,884 likely stopped at 3,920, r0 B 3,868 hit TP2; check open orders in app"
+ ],
+ "events": [
+  "Sat 00:00 BKK  Fed Daly",
+  "Sat 04:00 BKK  Cancel unfilled A/B",
+  "Sat 05:00 BKK  Weekly close",
+  "Mon 20:30 BKK  Empire State mfg",
+  "Tue 20:30 BKK  US retail sales Oct",
+  "Thu 02:00 BKK  FOMC minutes"
+ ],
+ "levels": {
+  "r": [
+   3906.0,
+   3911.36,
+   3924.0
+  ],
+  "s": [
+   3886.0,
+   3872.9,
+   3852.0
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 3870,
+   "sl": 3912,
+   "tp1": 3856,
+   "tp2": 3827,
+   "note": "2.9 under day low 3,872.90, 25 from ref; SL 0.6>3,911.36 and 6>3,906; TP1 4>3,852, TP2 4>3,823; RR 0.33/1.02 low"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 3909,
+   "sl": 3867,
+   "tp1": 3920,
+   "tp2": 3966,
+   "note": "3 over NY top 3,906, 14 from ref; SL 5.9<3,872.90; TP1 4<3,924, TP2 4<3,970.14; RR 0.26/1.36 low"
+  }
+ ],
+ "invalid": "Skip a side if price is already past its entry; cancel unfilled by Sat 04:00 BKK; no weekend holds without SL",
+ "risk_note": "Thin Friday NY afternoon, latest print 21:53 BKK. Rule 6 SL 42 (>= 1/3 of Thu 107 range) vs tight levels gives TP1 RR < 1.2. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 1/2 stops 2.9-3 past session extremes; rule 4 entries <= 25; rule 5 TPs 4 inside levels; rule 6 SL 42; not >2.5% day so rule 3/7 off",
+ "review": {
+  "for_date": "2026-11-12",
+  "result": "NOT_TRIGGERED",
+  "text": "r0/r1 A sell lmt 3,888 and B buy stop 3,897/3,899 not filled: after 11:20 ET NY ranged ~3,852-3,881 (3,880.93 13:53 ET), close ~3,877. NY afternoon high not reported."
+ },
+ "sources": [
+  "Kitco gold chart 2026-11-13 09:53 ET",
+  "Kitco: Gold prices testing resistance at $3,900 2026-11-13 08:41 ET",
+  "Kitco AM Report 2026-11-13 08:57 ET",
+  "MQL5 blog XAUUSD NY session plan 2026-11-13",
+  "Reuters via Investing.com 2026-11-13",
+  "FinanceFeeds 2026-11-13 13:30 GMT",
+  "Cryptonews 2026-11-13 14:31 UTC"
+ ],
+ "th": {
+  "headline": "ทองราว 3,895 หลัง PPI ต่ำกว่าคาด ติดต้าน 3,906",
+  "bias_note": "เด้งแต่ติด 3,906 ใกล้ปิดสัปดาห์",
+  "summary": [
+   "Kitco 21:53 น. 3,894.40 บวก 0.46% · กรอบวัน 3,872.90-3,924.00 (สูงสุดช่วงเอเชีย)",
+   "PPI ต.ค. 0.3% คาด 0.4% · Core 0.3% · ทองพุ่ง 3,906 แล้วลง 3,873",
+   "ก่อน PPI ตลาดคาด Fed ขึ้น 25bp 89% · 50bp 11% · DXY ราว 103.2 · บอนด์ 10 ปี 5.13%",
+   "r1 A Buy Stop 3,926 ไม่ถูกเปิด · B Sell Stop 3,884 ต้องข้าม (21:00 น. ราคา 3,881)",
+   "ไม่พบราคาหลัง 21:53 น. · Fed Daly พูด 00:00 น. · ตลาดบางก่อนปิดสัปดาห์",
+   "แผนเช้า A ขาย 3,884 น่าจะโดน SL 3,920 · B 3,868 ถึง TP2 · เช็กออเดอร์ในแอป"
+  ],
+  "invalid": "เลยจุดเข้าแล้วให้ข้าม · ยกเลิกที่ค้าง 04:00 เสาร์ · ไม่ถือข้ามสัปดาห์",
+  "review_text": "r0 r1 A Sell Limit 3,888 และ B Buy Stop 3,897/3,899 ไม่ถูกเปิด · หลัง 23:20 น. ราคาแกว่ง 3,852-3,881 ปิดราว 3,877 · ไม่พบจุดสูงสุดช่วงบ่ายนิวยอร์ก",
+  "session_note": "ลอนดอนถึงต้นนิวยอร์ก 3,872.90-3,906 หลัง PPI 0.3% · A 3,926 ไม่ถูกเปิด · B 3,884 ไม่พบการเปิด",
+  "rev_note": "ดักเบรกกรอบหลัง PPI · Sell Stop 3,870 ใต้ต่ำสุดวัน · Buy Stop 3,909 เหนือ 3,906 · ยกเลิก 04:00 น."
+ }
+}
