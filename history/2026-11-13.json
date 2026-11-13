@@ -1,92 +1,97 @@
 {
  "v": 1,
  "date": "2026-11-13",
- "generated": "2026-11-13 07:05 +07",
- "rev": 0,
- "session": "NY_CLOSE",
- "session_note": "Thu NY 3,880.93 (13:53 ET), low 3,852, close ~3,877 (-2.8%) on hike bets, oil up; 11-12 A/B (3,888/3,897+) not filled",
- "rev_note": "",
- "price_ref": 3877,
- "bias": "BEARISH",
- "bias_note": "1-yr low, hike odds ~90%, USD 19-mo high",
- "headline": "Gold ~3,877 after -2.8% day, low 3,852; PPI Fri 20:30 BKK, Fed speakers follow",
+ "generated": "2026-11-13 16:12 +07",
+ "rev": 1,
+ "session": "ASIA_CLOSE",
+ "session_note": "Asia 3,865.72-3,923.14, 3,900.5 at 09:05 UTC; A 3,884 filled, SL 3,920 likely hit; B 3,868 filled, TP1/TP2 hit",
+ "rev_note": "Two-sided PPI breakout: buy stop past Asia high 3,923, sell stop under 3,888; place only after PPI 20:30 BKK",
+ "price_ref": 3901,
+ "bias": "NEUTRAL",
+ "bias_note": "Bounce in downtrend; PPI decides",
+ "headline": "Gold bounces to ~3,901 from 3,866 in Asia; PPI 20:30 BKK, Fed Collins/Bowman follow",
  "summary": [
-  "Spot 3,880.93 at 13:53 ET, low 3,852, close ~3,877 (-2.8%); COMEX Dec settled 3,885.30 (-2.9%)",
-  "Dec hike odds 87-91% (25bp), 50bp ~10-11%; DXY hit 103.08, 19-month high; yields up",
-  "Brent +3.3% to 95.82 on Saudi/Hormuz attacks; Trump: no Iran deal needed; Nasdaq -0.39%",
-  "PPI Oct seen +0.4% m/m vs 1.3%; past PPI days moved gold -1.4% (Sep) and +1% (Oct)",
-  "After -2.8% day: range plan, entries within 10 (rule 7); no sell stops (rule 3)"
+  "Asia/early Europe 3,865.72-3,923.14 (Swissquote); Reuters 3,918.59 +1.1% at 05:18 GMT; 3,900.5 at 09:05 UTC",
+  "Bargain hunting after 3-day -6% rout; week still -3.6%; Thu low 3,852.68",
+  "Dec hike odds 89% (25bp), 50bp 11%; DXY ~103.1-103.2 near 19-mo high; US 10y ~5.1%",
+  "PPI Oct 20:30 BKK: seen +0.4% m/m vs 1.3%, core +0.3% vs 0.7%",
+  "r0 B buy 3,868 filled, TP1/TP2 hit; r0 A sell 3,884 filled, SL 3,920 likely hit (high 3,923.14), check app",
+  "New A/B are a PPI straddle: place after 21:00 BKK only, skip if price already beyond the entry"
  ],
  "events": [
-  "Fri 18:30 BKK  Cancel unfilled A/B",
   "Fri 20:30 BKK  US PPI Oct",
-  "Fri 21:10 BKK  Fed Collins, Logan"
+  "Fri 21:10 BKK  Fed Collins",
+  "Fri 21:40 BKK  Fed Logan",
+  "Fri 22:50 BKK  Fed Bowman",
+  "Sat 00:00 BKK  Fed Daly",
+  "Sat 05:00 BKK  Weekly close"
  ],
  "levels": {
   "r": [
-   3880.93,
-   3893.96,
-   3903.98
+   3911.36,
+   3923.14,
+   3970.14
   ],
   "s": [
-   3867.96,
-   3852,
-   3820
+   3894.75,
+   3865.72,
+   3852.68
   ]
  },
  "plans": [
   {
    "id": "A",
-   "side": "SELL",
-   "type": "LIMIT",
-   "entry": 3884,
-   "sl": 3920,
-   "tp1": 3871,
-   "tp2": 3856,
-   "note": "Fade to 3,880.93 area, 7 away; SL 16>3,903.98; RR 0.36/0.78"
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 3926,
+   "sl": 3889,
+   "tp1": 3966,
+   "tp2": 4003,
+   "note": "After 21:00 BKK: 2.9 past Asia high 3,923.14, 25 away; SL 6<3,894.75; TP1<3,970.14, TP2<4,007.89; RR 1.08/2.08"
   },
   {
    "id": "B",
-   "side": "BUY",
-   "type": "LIMIT",
-   "entry": 3868,
-   "sl": 3832,
-   "tp1": 3877,
-   "tp2": 3889,
-   "note": "Dip to 3,867.96, 9 away; SL 20<3,852; RR 0.25/0.58 low"
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 3884,
+   "sl": 3920,
+   "tp1": 3869,
+   "tp2": 3826,
+   "note": "After 21:00 BKK: 4 under 3,888 print, 17 away; SL 8.6>3,911.36; TP1>3,865.72, TP2>3,821.99; RR 0.42/1.61 low"
   }
  ],
- "invalid": "Bear view void on 1h close above 3,920; cancel unfilled A/B by Fri 18:30 BKK (PPI)",
- "risk_note": "3rd day down, H1 RSI not found; rule-6 SLs (1/3 of 107 range) make RR low - size small or skip. Scenario analysis from public sources. Not financial advice.",
- "lesson_applied": "Rule 7 (new): entries 7-9 from ref; rule 3 no sell stop; rule 5 TPs in lows; rule 6 SL 36",
+ "invalid": "Skip a side if price is already past its entry at 21:00 BKK; cancel unfilled by Sat 04:00 BKK",
+ "risk_note": "PPI can whipsaw both stops; SL 36-37 = 1/3 of the 107 Thu range used in r0 (rule 6), so TP1 RR < 1.2. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 1/2 stops past Asia extreme/tested print; rule 4 entries <= 25; rule 5 TPs inside levels; rule 6 SL 36-37; no entry pre-PPI",
  "review": {
   "for_date": "2026-11-12",
   "result": "NOT_TRIGGERED",
   "text": "r0/r1 A sell lmt 3,888 and B buy stop 3,897/3,899 not filled: after 11:20 ET NY ranged ~3,852-3,881 (3,880.93 13:53 ET), close ~3,877. NY afternoon high not reported."
  },
  "sources": [
-  "Reuters via Mining.com 2026-11-12",
-  "Biggo Finance 2026-11-12",
-  "Kitco via Eurasia Business News 2026-11-12",
-  "USAGOLD 2026-11-12",
-  "GoldStockCanada 2026-11-12",
-  "Mining.com.au 2026-11-12",
-  "BeInCrypto via Yahoo 2026-11-12",
-  "Rallies (Reuters) 2026-11-12"
+  "Reuters via Business Recorder 2026-11-13",
+  "BigGo Finance 2026-11-13",
+  "FXEmpire 2026-11-13 07:23 GMT",
+  "FXEmpire gold hub 2026-11-13 09:05 UTC",
+  "xauad (Swissquote spot) 2026-11-13 09:05 UTC",
+  "AK Order Flow 2026-11-13",
+  "1trader 2026-11-13",
+  "Rio Times 2026-11-13"
  ],
  "th": {
-  "headline": "ทองราว 3,877 หลังลง 2.8% ต่ำสุด 3,852 รอ PPI ศุกร์ 20:30",
-  "bias_note": "ขาลง ต่ำสุดรอบ 1 ปี Fed ขึ้นดอกเบี้ย",
+  "headline": "ทองเด้งจาก 3,866 มาราว 3,901 ช่วงเอเชีย รอ PPI 20:30 น.",
+  "bias_note": "เด้งในขาลง รอ PPI ชี้ทาง",
   "summary": [
-   "ทอง 3,880.93 ตอน 01:53 น. ต่ำสุด 3,852 ปิดราว 3,877 ลบ 2.8% · COMEX ธ.ค. 3,885.30",
-   "Fed ขึ้น 25bp ธ.ค. 87-91% · 50bp ราว 10% · DXY 103.08 สูงสุด 19 เดือน · บอนด์ขึ้น",
-   "น้ำมัน Brent ขึ้น 3.3% ที่ 95.82 · Trump บอกไม่ต้องดีลอิหร่าน · หุ้น Nasdaq ลบ 0.39%",
-   "คาด PPI ต.ค. +0.4% · PPI ก.ย. ทองลง 1.4% · PPI ต.ค. ทองขึ้นราว 1%",
-   "หลังลงแรง 2.8% ใช้แผนกรอบ ตั้งออเดอร์ห่างไม่เกิน 10 จุด (กฎ 7) ไม่ตั้ง Sell Stop (กฎ 3)"
+   "เอเชีย 3,865.72-3,923.14 · Reuters 3,918.59 ตอน 12:18 น. · 3,900.5 ตอน 16:05 น.",
+   "แรงซื้อของถูกหลังลง 3 วัน 6% · ทั้งสัปดาห์ยังลบ 3.6% · ต่ำสุดพฤหัส 3,852.68",
+   "Fed ขึ้น 25bp ธ.ค. 89% · 50bp 11% · DXY ราว 103.1-103.2 · บอนด์ 10 ปี ราว 5.1%",
+   "PPI ต.ค. 20:30 น. คาด +0.4% (เดิม 1.3%) · Core คาด +0.3% (เดิม 0.7%)",
+   "แผนเช้า B ซื้อ 3,868 ถูกเปิด ถึง TP1 TP2 · A ขาย 3,884 ถูกเปิด น่าจะโดน SL 3,920 เช็กในแอป",
+   "แผนใหม่ A B ดักเบรกหลัง PPI ตั้งหลัง 21:00 น. เท่านั้น ถ้าราคาเลยจุดเข้าแล้วให้ข้าม"
   ],
-  "invalid": "ปิดแท่ง 1 ชม. เหนือ 3,920 มุมมองขาลงใช้ไม่ได้ · ยกเลิกก่อน 18:30 ศุกร์",
+  "invalid": "21:00 น. ราคาเลยจุดเข้าแล้ว ข้ามฝั่งนั้น · ยกเลิกที่ค้าง 04:00 เสาร์",
   "review_text": "r0 r1 A Sell Limit 3,888 และ B Buy Stop 3,897/3,899 ไม่ถูกเปิด · หลัง 23:20 น. ราคาแกว่ง 3,852-3,881 ปิดราว 3,877 · ไม่พบจุดสูงสุดช่วงบ่ายนิวยอร์ก",
-  "session_note": "นิวยอร์กลงต่ำสุด 3,852 ปิดราว 3,877 ลบ 2.8% จาก Fed และน้ำมันขึ้น · แผน A B เมื่อวานไม่ถูกเปิด",
-  "rev_note": ""
+  "session_note": "เอเชียเด้ง 3,865.72-3,923.14 อยู่ราว 3,901 · B ถูกเปิด ถึง TP1 TP2 · A ถูกเปิด น่าจะโดน SL 3,920",
+  "rev_note": "ดักเบรกสองฝั่งหลัง PPI · Buy Stop เหนือจุดสูงเอเชีย 3,923 · Sell Stop ใต้ 3,888 · ตั้งหลัง 21:00 น."
  }
 }

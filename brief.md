@@ -1,4 +1,49 @@
-# XAUUSD Gold Brief — ศุกร์ 13 พ.ย. 2026 (07:05 น.)
+# XAUUSD Gold Brief — ศุกร์ 13 พ.ย. 2026 (อัปเดต 16:12 น.)
+
+## อัปเดตปิดตลาดเอเชีย (16:12 น.)
+
+**สรุปช่วงเอเชียที่เพิ่งปิด (ศุกร์ 13 พ.ย.):** ทองเด้งหลังลง 3 วันติด (รวมราว 6%) · กรอบวัน (Swissquote ถึง 16:05 น.) ต่ำสุด 3,865.72 สูงสุด 3,923.14 · Reuters 3,918.59 บวก 1.1% ตอน 12:18 น. · FXEmpire 3,894.75 ตอน 14:30 น. และ 3,900.5 ตอน 16:05 น. · ทั้งสัปดาห์ยังลบ 3.6%
+**ข่าว/ปัจจัย:** แรงซื้อของถูก (bargain hunting) · FedWatch ขึ้น 25bp ธ.ค. 89% และ 50bp 11% · Williams (NY Fed) บอกน่าจะขึ้นดอกเบี้ยอีก · DXY ราว 103.1–103.2 ใกล้สูงสุด 19 เดือน · บอนด์ 10 ปี ราว 5.1%
+
+**ผลของแผนก่อนหน้า (r0 07:05 น.):**
+- **B Buy Limit 3,868** — ถูกเปิด (ต่ำสุด 3,865.72) · SL 3,832 ไม่โดน · ราคาขึ้นไปถึง 3,900 กว่า จึงถึง TP1 3,877 และ TP2 3,889
+- **A Sell Limit 3,884** — ถูกเปิดตอนราคาขึ้น · สูงสุด 3,923.14 เลย SL 3,920 ไป 3.14 จุด จึงน่าจะโดน SL (ขาดทุน 36) · ไม่ทราบว่าราคาลงถึง TP1 3,871 ก่อนหรือไม่ (ไม่รู้เวลาของจุดต่ำสุด) · ราคาโบรกเกอร์แต่ละเจ้าต่างกันเล็กน้อย ตรวจสอบสถานะจริงในแอป
+- กฎ 7 (ตั้งออเดอร์ห่างไม่เกิน 10 จุด) ทำให้ทั้งสองฝั่งถูกเปิดได้จริง
+
+**ราคาอ้างอิง ~3,901 · มุมมอง: กลาง (Neutral)** เด้งในขาลง รอ PPI ชี้ทาง
+
+### แผนใหม่ช่วงลอนดอน–นิวยอร์ก (ตั้งหลัง 21:00 น. เท่านั้น)
+| Plan | Side | Type | Entry | SL | TP1 | TP2 | เงื่อนไข |
+|---|---|---|---|---|---|---|---|
+| A | BUY | Stop | 3,926 | 3,889 | 3,966 | 4,003 | ตั้งหลัง PPI · เหนือจุดสูงเอเชีย 3,923.14 ราว 3 จุด (ห่าง 25) · SL ใต้ 3,894.75 6 จุด · TP1 ก่อน 3,970.14 · TP2 ก่อน 4,007.89 · R:R 1.08 / 2.08 |
+| B | SELL | Stop | 3,884 | 3,920 | 3,869 | 3,826 | ตั้งหลัง PPI · ใต้ราคาที่ทดสอบ 3,888 4 จุด (ห่าง 17) · SL เหนือ pivot 3,911.36 · TP1 ก่อน 3,865.72 · TP2 ก่อน 3,821.99 · R:R 0.42 / 1.61 ต่ำ |
+
+**จุดที่แผนใช้ไม่ได้:** ถ้าเวลา 21:00 น. ราคาวิ่งเลยจุดเข้าฝั่งไหนไปแล้ว ให้ข้ามฝั่งนั้น (ไม่ไล่ราคา) · ยกเลิกออเดอร์ที่ยังไม่ถูกเปิดก่อน 04:00 น. เสาร์ (ตลาดปิด 05:00 น.)
+
+**ความเสี่ยง:** PPI อาจกระชากทั้งสองฝั่ง · SL 36–37 จุดตามกฎ 6 (1/3 ของกรอบ 107 จุดวันพฤหัส ตามแผนเช้า) ทำให้ TP1 ได้ R:R ต่ำกว่า 1.2 · ไม่ตั้งออเดอร์ก่อน PPI · ใช้ไม้เล็ก
+
+### ข่าวที่รออยู่ (เวลาไทย)
+| เวลา | เหตุการณ์ |
+|---|---|
+| ศุกร์ 13 พ.ย. 20:30 | US PPI ต.ค. คาด +0.4% (เดิม 1.3%) · Core คาด +0.3% (เดิม 0.7%) |
+| ศุกร์ 13 พ.ย. 21:10 / 21:40 | Fed Collins / Logan |
+| ศุกร์ 13 พ.ย. 22:50 | Fed Bowman |
+| เสาร์ 14 พ.ย. 00:00 | Fed Daly |
+| เสาร์ 14 พ.ย. 05:00 | ตลาดปิดสัปดาห์ |
+
+**แหล่งข้อมูลรอบนี้:**
+- [Reuters via Business Recorder: Gold rises on bargain hunting but heads for weekly decline](https://www.brecorder.com/news/40448728/gold-rises-on-bargain-hunting-but-heads-for-weekly-decline)
+- [BigGo Finance: Gold steadies after three-day 6% rout](https://finance.biggo.com/news/49fcaa7c-66d4-474f-976b-2e3c2ca0152e)
+- [FXEmpire: Gold bounces from one-year low, can it clear $3,903?](https://www.fxempire.com/forecasts/article/gold-xauusd-silver-price-forecast-gold-bounces-from-one-year-low-can-it-clear-3903-1644413)
+- [FXEmpire: Gold forecasts hub (09:05 UTC quote)](https://www.fxempire.com/forecasts/gold)
+- [xauad: Gold price today (Swissquote spot, day high/low)](https://xauad.com/gold-price-today.html)
+- [AK Order Flow: US PPI Nov 13 (Asia high, VWAP)](https://akorderflow.com/news/2026-11-13-ppi-producer-prices/)
+- [1trader: Gold price today 13 Nov 2026](https://1trader.com/en/gold-price-2026-11-13/)
+- [Rio Times: Global economy briefing Nov 13 (Fed speaker times)](https://www.riotimesonline.com/global-economy-briefing-november-13-2026/)
+
+ออเดอร์ที่ตั้งตามแผนก่อนหน้ายังอยู่ ตรวจสอบและยกเลิกเองได้ในแอป Gold Brief (ระบบไม่ยกเลิกให้อัตโนมัติ)
+
+---
 
 ## อัปเดตปิดตลาดนิวยอร์ก
 
