@@ -12,9 +12,16 @@ The morning brief must read the latest 10 entries before writing a plan and say 
 - 5. (rev 11-10) Put TP1/TP2 3-5 inside the nearest tested extreme or level (before it), never at or past it - including the current session's own high/low once it is printed; a TP may sit past it only as TP2. (11-05 TP2 4,155 vs high 4,148; 11-06 TP1 4,030 vs low 4,033.29; 11-10 r1 TP1 4,004 vs low 4,012.70, missed by 8.7.)
 - 6. (11-12) SL at least 5 past the level it guards and at least 1/3 of the prior day range from entry. (11-03 limit SL 15 = 1/5 of range, hit; 11-11 r0 SL 1.2 past 4,067.8 survived by 1.1.)
 - 7. (11-13) In the session right after a > 2.5% day, put both entries max 10 from price_ref; if no level within 10, post no entry for that side. (Follow-up sessions ranged only 23-30: 10-30 r2 3,870-3,894, 11-06 post-NFP 4,047-4,070; 11-12 r0/r1 limits 13-15 away and stops 24-26 away all missed, NY high after 11:20 ET seen ~3,881.)
+- 8. (11-16) Revisions made after a high-impact US release has printed (and Friday sessions after 12:00 ET): entries max 10 from price_ref, built only from a high/low printed within the last 1 h; otherwise post no new entry. (11-06 r1 stops 18-22 missed in a ~23 post-NFP range; 11-13 r2 used a 2.5 h old 3,872.90 low after 3,867.40 had printed, stops 14/25 away missed in a ~3,879-3,883 afternoon.)
 
 ## Log
 <!-- newest first: "### YYYY-MM-DD  RESULT" then Expected / Happened / Why / Adjust -->
+
+### 2026-11-13  NOT_TRIGGERED
+- Expected: r0 BEARISH range plan (A sell lmt 3,884 SL 3,920 / B buy lmt 3,868); r1 NEUTRAL PPI straddle after 21:00 BKK (A buy stop 3,926 / B sell stop 3,884); r2 NEUTRAL post-PPI box (A sell stop 3,870 SL 3,912 / B buy stop 3,909 SL 3,867), cancel by Sat 04:00.
+- Happened: Asia 3,865.72-3,923.14/3,924.00; PPI 0.3% vs 0.4% -> 3,906 then 3,873; Kitco 3,894.40 at 09:53 ET; day low 3,867.40 printed by 12:18 ET (Admirals: 3,881.60 at 12:18 ET); 3,879 at 15:23 ET (FXStreet); late ~3,883.40 (+0.18%, Kitco PM); week ~-4.5%. r0 B filled, TP1/TP2 hit; r0 A filled, SL 3,920 likely hit (high 3,923-3,924). r1 A missed by 2; r1 B skipped at 21:00 (price ~3,881 past entry). r2 A 3,870 and B 3,909: no source shows either after 12:20 ET; NY afternoon high/low not reported, so a touch cannot be fully ruled out.
+- Why: r2 was built on Kitco's 09:53 ET range (2.5 h old) - the real low 3,867.40 had already printed, so the sell stop sat inside a level price had already rejected; and the Friday afternoon prints seen were only ~3,879-3,883, so stops 14 and 25 away did not fill. No loss, no trade. Same pattern as 11-06 r1 (post-NFP Friday, stops 18-22 away missed).
+- Adjust: post-release / Friday-afternoon revisions: entries max 10 from ref, from a high/low no older than 1 h, else no entry (promoted to standing rule 8).
 
 ### 2026-11-12  NOT_TRIGGERED
 - Expected: r0 (23:20) BEARISH after -3%: A sell lmt 3,888 retest (SL 3,916, TP1 3,868) / B buy stop 3,897 reclaim; r1 (00:25) same idea, A sell lmt 3,888 (SL 3,925) / B buy stop 3,899 (SL 3,862); cancel by Fri 18:30 BKK.

@@ -1,0 +1,94 @@
+{
+ "v": 1,
+ "date": "2026-11-16",
+ "generated": "2026-11-16 06:55 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "Fri NY: low 3,867.40 before 12:18 ET, late ~3,883.40 (+0.18%), week ~-4.5%, 10y 5.15%; r2 stops 3,870/3,909 not filled",
+ "rev_note": "",
+ "price_ref": 3880.5,
+ "bias": "BEARISH",
+ "bias_note": "Hike odds ~90%, 10y 5.15%, below all SMAs",
+ "headline": "Gold ~3,880 at week open after -4.5% week; Hormuz mine blasts; Warsh Tue 00:00 BKK",
+ "summary": [
+  "Kitco Mon 06:31 BKK 3,880.50 (-0.07%), early range 3,867.10-3,889.80; Fri late ~3,883.40 (+0.18%)",
+  "Week ~-4.5%; Fri 3,867.40-3,924.00; Thu low 3,852.10 = 1-yr low; RSI ~37.5, under 20/50/200d SMA",
+  "Dec hike odds ~89-90% (25bp), 50bp ~10-11%; US 10y ~5.15% (+~30bp on week); DXY above 103",
+  "Weekend: Iran says tankers hit mines in Hormuz, one supertanker sank; oil reaction not yet reported",
+  "Double low ~3,867 (Fri + Mon open): sell stop under it, buy stop over 3,889.80; both RR low"
+ ],
+ "events": [
+  "Mon 20:30 BKK  Empire State mfg",
+  "Tue 00:00 BKK  Fed Chair Warsh",
+  "Tue 20:30 BKK  US retail sales Oct"
+ ],
+ "levels": {
+  "r": [
+   3889.8,
+   3903.0,
+   3924.0
+  ],
+  "s": [
+   3867.1,
+   3852.0,
+   3823.0
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 3864,
+   "sl": 3895,
+   "tp1": 3856,
+   "tp2": 3827,
+   "note": "3.1 under 3,867.10 double low, 16.5 away; RR 0.26/1.19 low"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 3893,
+   "sl": 3862,
+   "tp1": 3899,
+   "tp2": 3920,
+   "note": "3.2 over Mon high 3,889.80, 12.5 away; RR 0.19/0.87 low"
+  }
+ ],
+ "invalid": "Bear view void on 1h close above 3,911.36; cancel unfilled A/B by Mon 22:00 BKK (Warsh)",
+ "risk_note": "Thin data: no Monday oil/gold reaction to the Hormuz sinking yet; SL 31 (rule 6) makes TP1 RR < 1.2, small size or skip. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "New rule 8 fresh levels; rules 1/2 stops 3 past 3,867.10/3,889.80; 4 <=25; 5 TPs; 6 SL 31",
+ "review": {
+  "for_date": "2026-11-13",
+  "result": "NOT_TRIGGERED",
+  "text": "r2 sell stop 3,870 / buy stop 3,909 not filled: low 3,867.40 set before 12:18 ET, late ~3,879-3,883. r0 B hit TP2, r0 A SL likely hit; r1 A missed by 2, r1 B skipped."
+ },
+ "sources": [
+  "Kitco PM Report 2026-11-13",
+  "Kitco gold chart 2026-11-15",
+  "Admirals 2026-11-13",
+  "FinanceFeeds (FXStreet) 2026-11-14",
+  "BullionVault 2026-11-13",
+  "USAGOLD 2026-11-13",
+  "ANC 2026-11-14",
+  "Trading Economics 2026-11-15",
+  "Rio Times 2026-11-15",
+  "Manila Times (AFP) 2026-11-15"
+ ],
+ "th": {
+  "headline": "ทอง ~3,880 เปิดสัปดาห์ หลังลบ 4.5% ทุ่นระเบิดฮอร์มุซ Warsh พูด 00:00",
+  "bias_note": "Fed น่าจะขึ้นดอกเบี้ย ยีลด์ 5.15%",
+  "summary": [
+   "Kitco 06:31 น. 3,880.50 กรอบเช้า 3,867.10-3,889.80 ศุกร์ปิดราว 3,883.40",
+   "สัปดาห์ก่อนลบราว 4.5% ศุกร์ 3,867.40-3,924 ต่ำสุดรอบปี 3,852.10 RSI ราว 37.5",
+   "Fed ขึ้น 25bp ธ.ค. ราว 90% บอนด์ 10 ปี 5.15% ดอลลาร์เหนือ 103",
+   "เสาร์-อาทิตย์ อิหร่านว่าเรือน้ำมันชนทุ่นระเบิดที่ฮอร์มุซ จม 1 ลำ ยังไม่เห็นผลต่อราคา",
+   "ฐานคู่ราว 3,867 ตั้ง Sell Stop ใต้ฐาน และ Buy Stop เหนือ 3,889.80 R:R ต่ำทั้งคู่"
+  ],
+  "invalid": "ปิด 1 ชม. เหนือ 3,911.36 ขาลงใช้ไม่ได้ ยกเลิกออเดอร์ค้างก่อน 22:00 น.",
+  "review_text": "r2 Sell Stop 3,870 และ Buy Stop 3,909 ไม่ถูกเปิด ต่ำสุด 3,867.40 เกิดก่อนออกแผน ช่วงท้ายแค่ 3,879-3,883 ส่วน r0 B ถึง TP2 r0 A น่าจะโดน SL",
+  "session_note": "ศุกร์ ต่ำสุด 3,867.40 ก่อนเที่ยงนิวยอร์ก ปิดราว 3,883.40 บวก 0.18% แผน r2 ไม่ถูกเปิด",
+  "rev_note": ""
+ }
+}
