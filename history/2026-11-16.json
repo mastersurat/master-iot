@@ -1,38 +1,39 @@
 {
  "v": 1,
  "date": "2026-11-16",
- "generated": "2026-11-16 16:16 +07",
- "rev": 1,
- "session": "ASIA_CLOSE",
- "session_note": "Asia 3,844.65-3,892.42, new 13-mo low, ~3,856.80 at 15:03; r0 A filled, TP1 hit, rest open; B not seen (top print 3,892.42)",
- "rev_note": "New sell stop 3.65 under 3,844.65 low; B sell limit retest of broken 3,867.10; both off by 22:00 before Warsh",
- "price_ref": 3856.8,
+ "generated": "2026-11-17 00:14 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "London ~3,855-3,872, day 3,832-3,901 (FXStreet); r1 B 3,866 filled, SL/TP unknown; r1 A not seen; Warsh speaking now",
+ "rev_note": "Warsh live, last print 3,872 at 20:30 BKK: two-sided stops past London levels, arm after Warsh; TP1 RR low, TP2 >2",
+ "price_ref": 3872.0,
  "bias": "BEARISH",
- "bias_note": "New 13-mo low, hike odds 90-94%, DXY 103.4",
- "headline": "Gold breaks 3,852 to 3,844.65 in Asia; ~3,857 into London; Warsh Tue 00:00 BKK",
+ "bias_note": "13-mo low, under 3,900, hike odds ~90%, DXY 103.5",
+ "headline": "Gold holds 3,855-3,872 in London after 3,832 low; Warsh speaking 00:00 BKK",
  "summary": [
-  "Asia: 3,892.42 at 07:50 BKK (top print), 3,877.66 at 09:48, 3,863.57 at 10:37, 3,844.65 at 12:50, ~3,856.80 at 15:03",
-  "3,844.65 is under last week's 3,852 low: a 13-month low (TE); silver -2.8% to 47.38",
-  "Dec hike odds 90-94% (25bp); DXY 103.44, US 10y ~5.14%; Fed Schmid: inflation too hot",
-  "Iran says 2 more tankers hit Hormuz mines Mon (unverified); Brent ~95.2-95.9, IEA sees Q4 surplus",
-  "r0 A sell stop 3,864 filled, TP1 3,856 hit, rest open to TP2 3,827 / SL 3,895; r0 B 3,893 not seen"
+  "Day range 3,832-3,901 (FXStreet 13:06 GMT); Reuters low 3,840.52 at 13:41 BKK; Asia top 3,892.42",
+  "London: 3,855 at 14:15 BKK, 3,861.43 and 3,870.27 prints, ~3,872 at 20:30 BKK; no fresher price found",
+  "Dec 25bp hike odds 90-94%; DXY ~103.5, 19-mo high; US 10y ~5.14%; silver ~47.1-47.3",
+  "Empire State Nov result not found; Warsh speech (AI, jobs) began 00:00 BKK, content not yet reported",
+  "r1 B sell lmt 3,866 filled, SL 3,886 vs untimed 3,901 high unknown; r0 A rest may have hit SL 3,895"
  ],
  "events": [
-  "Mon 20:30 BKK  Empire State mfg",
-  "Tue 00:00 BKK  Fed Chair Warsh",
+  "Tue 00:00 BKK  Fed Chair Warsh (live)",
   "Tue 20:30 BKK  US retail sales Oct",
-  "Thu 02:00 BKK  FOMC minutes"
+  "Tue 21:15 BKK  US industrial production",
+  "Thu 02:00 BKK  FOMC minutes",
+  "Thu 20:30 BKK  US jobless claims"
  ],
  "levels": {
   "r": [
-   3867.1,
    3877.7,
-   3892.4
+   3892.4,
+   3901.0
   ],
   "s": [
+   3861.4,
    3844.7,
-   3823.0,
-   3800.0
+   3832.0
   ]
  },
  "plans": [
@@ -40,55 +41,54 @@
    "id": "A",
    "side": "SELL",
    "type": "STOP",
-   "entry": 3841,
-   "sl": 3861,
-   "tp1": 3827,
+   "entry": 3858,
+   "sl": 3883,
+   "tp1": 3848,
    "tp2": 3804,
-   "note": "3.65 under 3,844.65 Asia low, 15.8 away; SL 6 past 3,855; RR 0.70/1.85, TP1 low"
+   "note": "3.4 under 3,861.43 London print, 14 away; SL 5.3 past 3,877.66; RR 0.40/2.16, TP1 low; arm after Warsh"
   },
   {
    "id": "B",
-   "side": "SELL",
-   "type": "LIMIT",
-   "entry": 3866,
-   "sl": 3886,
-   "tp1": 3848,
-   "tp2": 3827,
-   "note": "Retest of broken 3,867.10, 9.2 away; SL 5.5 past 3,880.50; RR 0.90/1.95, TP1 low"
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 3881,
+   "sl": 3856,
+   "tp1": 3888,
+   "tp2": 3940,
+   "note": "Reclaim 3.3 over 3,877.66, 9 away; SL 5.4 under 3,861.43; RR 0.28/2.36, TP1 low (3,892.42 near); arm after Warsh"
   }
  ],
- "invalid": "Bear view void on 1h close above 3,892.42; cancel unfilled A/B by Mon 22:00 BKK (Warsh)",
- "risk_note": "Asia low 3,844.65 from one source (TokenPost; TE cites 3,852); session high time-exact only as prints. A and B are both sells: do not double size; r0 A remainder already short. Scenario analysis from public sources. Not financial advice.",
- "lesson_applied": "Rules 1/2 A stop 3.65 past Asia low; 1 B limit <=15 at tested 3,867.10; 4 <=25; 5 TPs inside 3,844.65/3,823/3,800; 6 SL 20",
+ "invalid": "Skip if price already past entry after Warsh; cancel unfilled A/B by Tue 18:30 BKK (retail sales)",
+ "risk_note": "price_ref is a 20:30 BKK print (~3.7 h old) and Warsh is live: check price before placing. Day low/high differ by source (3,832/3,840.52/3,844.65; 3,901 untimed). r1 B and r0 A may still be open short. Two-sided: only one should fill. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "1/2 stops 3-3.4 past London-tested levels; 4 <=25; 5 TPs inside 3,844.65/3,892.42; 6 SL 25 >=1/3 Fri range; 8 n/a, Warsh not out",
  "review": {
   "for_date": "2026-11-13",
   "result": "NOT_TRIGGERED",
   "text": "r2 sell stop 3,870 / buy stop 3,909 not filled: low 3,867.40 set before 12:18 ET, late ~3,879-3,883. r0 B hit TP2, r0 A SL likely hit; r1 A missed by 2, r1 B skipped."
  },
  "sources": [
-  "TokenPost 2026-11-16 05:55 UTC",
-  "FXEmpire forecast 2026-11-16 06:30 UTC",
-  "FXEmpire gold page 2026-11-16 03:37 UTC",
-  "Investing.com 2026-11-16 05:16",
-  "StockPil 2026-11-16 08:05 UTC",
-  "Goodreturns 2026-11-16 13:20 IST",
+  "FinanceFeeds (FXStreet, Reuters) 2026-11-16 13:30 GMT",
+  "Trading and Investment News (Reuters) 2026-11-16 16:16 GMT",
+  "Goldreporter 2026-11-16 07:37 UTC",
+  "ad-hoc-news 2026-11-16",
   "Trading Economics 2026-11-16",
-  "Mitrade 2026-11-16",
-  "Rallies.ai (Reuters) oil 2026-11-16"
+  "MarketScreener (Reuters) 2026-11-16 05:11 GMT",
+  "Business Recorder (Reuters) 2026-11-16",
+  "Admirals Warsh preview 2026-11-14"
  ],
  "th": {
-  "headline": "ทองหลุด 3,852 ลงถึง 3,844.65 ช่วงเอเชีย ล่าสุด 3,857 Warsh พูด 00:00",
-  "bias_note": "ต่ำสุดรอบ 13 เดือน Fed น่าจะขึ้นดอกเบี้ย",
+  "headline": "ลอนดอนแกว่ง 3,855-3,872 หลังต่ำสุด 3,832 Warsh กำลังพูด 00:00 น.",
+  "bias_note": "ต่ำสุดรอบ 13 เดือน ยังต่ำกว่า 3,900",
   "summary": [
-   "เอเชีย สูงสุดที่เห็น 3,892.42 (07:50 น.) ต่ำสุด 3,844.65 (12:50 น.) 15:03 น. ราว 3,856.80",
-   "หลุดต่ำสุดสัปดาห์ก่อน 3,852 ต่ำสุดรอบ 13 เดือน เงินลบ 2.8% เหลือ 47.38",
-   "Fed ขึ้น 25bp ธ.ค. 90-94% ดอลลาร์ 103.44 บอนด์ 10 ปี ราว 5.14%",
-   "อิหร่านว่าเรือชนทุ่นระเบิดฮอร์มุซอีก 2 ลำ ยังยืนยันไม่ได้ Brent ราว 95",
-   "แผน A เดิม Sell Stop 3,864 ถูกเปิด ถึง TP1 แล้ว ที่เหลือยังเปิดอยู่ B เดิมไม่พบว่าถูกเปิด"
+   "ทั้งวัน 3,832-3,901 (FXStreet) Reuters ต่ำสุด 3,840.52 เวลา 13:41 น.",
+   "ลอนดอน 3,855 (14:15 น.) 3,861-3,870 ล่าสุดราว 3,872 (20:30 น.) ยังไม่พบราคาใหม่กว่า",
+   "Fed ขึ้น 25bp ธ.ค. 90-94% ดอลลาร์ราว 103.5 สูงสุด 19 เดือน บอนด์ 10 ปี 5.14%",
+   "ไม่พบผล Empire State ล่าสุด Warsh เริ่มพูด 00:00 น. ยังไม่มีรายงานเนื้อหา",
+   "B เดิม Sell Limit 3,866 ถูกเปิด ไม่รู้ว่าโดน SL 3,886 หรือยัง A เดิมไม่ถูกเปิด"
   ],
-  "invalid": "ปิด 1 ชม. เหนือ 3,892.42 ขาลงใช้ไม่ได้ ยกเลิกออเดอร์ค้างก่อน 22:00 น.",
+  "invalid": "ราคาเลยจุดเข้าแล้วหลัง Warsh ให้ข้าม ยกเลิกที่ค้างก่อน 18:30 น. อังคาร",
   "review_text": "r2 Sell Stop 3,870 และ Buy Stop 3,909 ไม่ถูกเปิด ต่ำสุด 3,867.40 เกิดก่อนออกแผน ช่วงท้ายแค่ 3,879-3,883 ส่วน r0 B ถึง TP2 r0 A น่าจะโดน SL",
-  "session_note": "เอเชีย 3,844.65-3,892.42 ทำต่ำสุดรอบ 13 เดือน แผน A เดิมถึง TP1 ที่เหลือยังเปิด แผน B เดิมไม่ถูกเปิด",
-  "rev_note": "A ใหม่ Sell Stop ใต้ต่ำสุดเอเชีย B Sell Limit รอราคาเด้งทดสอบ 3,867 ยกเลิกก่อน 22:00 น."
+  "session_note": "ลอนดอนราว 3,855-3,872 ทั้งวัน 3,832-3,901 B เดิมถูกเปิดที่ 3,866 ผลยังไม่ชัด A เดิมไม่ถูกเปิด",
+  "rev_note": "Warsh กำลังพูด ตั้ง Stop สองทาง Sell 3,858 Buy 3,881 รอให้ Warsh พูดจบก่อน TP1 ได้น้อย"
  }
 }
