@@ -17,6 +17,12 @@ The morning brief must read the latest 10 entries before writing a plan and say 
 ## Log
 <!-- newest first: "### YYYY-MM-DD  RESULT" then Expected / Happened / Why / Adjust -->
 
+### 2026-11-16  OPEN
+- Expected: BEARISH all day. r0 A sell stop 3,864 (SL 3,895, TP1 3,856, TP2 3,827) / B buy stop 3,893; r1 A sell stop 3,841 / B sell lmt 3,866 (SL 3,886, TP1 3,848); r2 two-sided, armed after Warsh: A sell stop 3,858 (SL 3,883, TP1 3,848, TP2 3,804) / B buy stop 3,881.
+- Happened: Kitco day 3,832.20-3,902.30 (high untimed; FXStreet had 3,901 by 13:06 GMT, before r2); Reuters low 3,840.52 at 13:41 BKK; London ~3,855-3,872; Warsh (12:00 ET) gave no rate signal, Nasdaq -2.5%, DXY ~103.5, Dec hike odds ~90%; late 3,855.50 (17:39 ET), 3,854.50 bid at 18:04 ET (-0.7%). r2 A filled in the post-Warsh drift (~3,872 -> ~3,855), TP1 3,848 and SL 3,883 not seen -> open; r2 B not seen. r0 A filled, TP1 3,856 hit, TP2 3,827 missed by 5.2; r0 A rest (SL 3,895), r0 B 3,893 and r1 B 3,866 (SL 3,886) depend on when 3,902.30 printed - order unknown. r1 A 3,841 not seen after 16:16 BKK.
+- Why: direction right (fresh hawkish drivers, DXY 20-month high) and stops 9-16 from ref at tested levels filled (rules 1/4), but TP1s sat at RR 0.19-0.40 (r0, r2) because the next tested level was 8-10 away; the post-Warsh NY drift was only ~17, so r2's TP1 10 away was not reached. The untimed 3,902.30 high leaves three SL outcomes unresolved.
+- Adjust: if rule 5 puts TP1 at RR < 0.5, skip that side (do not post it); a plan must earn at least half its SL at TP1.
+
 ### 2026-11-13  NOT_TRIGGERED
 - Expected: r0 BEARISH range plan (A sell lmt 3,884 SL 3,920 / B buy lmt 3,868); r1 NEUTRAL PPI straddle after 21:00 BKK (A buy stop 3,926 / B sell stop 3,884); r2 NEUTRAL post-PPI box (A sell stop 3,870 SL 3,912 / B buy stop 3,909 SL 3,867), cancel by Sat 04:00.
 - Happened: Asia 3,865.72-3,923.14/3,924.00; PPI 0.3% vs 0.4% -> 3,906 then 3,873; Kitco 3,894.40 at 09:53 ET; day low 3,867.40 printed by 12:18 ET (Admirals: 3,881.60 at 12:18 ET); 3,879 at 15:23 ET (FXStreet); late ~3,883.40 (+0.18%, Kitco PM); week ~-4.5%. r0 B filled, TP1/TP2 hit; r0 A filled, SL 3,920 likely hit (high 3,923-3,924). r1 A missed by 2; r1 B skipped at 21:00 (price ~3,881 past entry). r2 A 3,870 and B 3,909: no source shows either after 12:20 ET; NY afternoon high/low not reported, so a touch cannot be fully ruled out.

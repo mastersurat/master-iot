@@ -1,0 +1,93 @@
+{
+ "v": 1,
+ "date": "2026-11-17",
+ "generated": "2026-11-17 06:50 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "Mon 3,832.20-3,902.30, late 3,854.50 (-0.7%); Warsh no rate signal, Nasdaq -2.5%, DXY 103.5; r2 A 3,858 filled, open",
+ "rev_note": "",
+ "price_ref": 3854.5,
+ "bias": "BEARISH",
+ "bias_note": "Hike odds ~90%, DXY 20-mo high, 13-mo low",
+ "headline": "Gold ends Monday ~3,855 near 13-mo low; Warsh silent on rates; retail sales 20:30 BKK",
+ "summary": [
+  "Mon 3,832.20-3,902.30 (Kitco); 3,855.50 at 17:39 ET, 3,854.50 bid at 18:04 ET (-0.7%), lowest since Oct 2025",
+  "Warsh spoke on AI and productivity, no Dec rate signal; Nasdaq -2.5%, S&P -1.9%; selloff gave gold no support",
+  "Dec 25bp hike odds ~90% (50bp ~10%); DXY ~103.5, 20-mo high; US 10y ~5.12%; Empire State 7.8 vs 17.6 exp",
+  "Brent -3.6% to 92.44; silver -3.6% to ~46.86; LiteFinance 4H RSI ~29, price under SMA20 and VWAP",
+  "Retail sales Tue 20:30 BKK (exp +0.2%, ex-autos +0.4%); FOMC minutes Thu 02:00 BKK"
+ ],
+ "events": [
+  "Tue 20:30 BKK  US retail sales Oct",
+  "Tue 21:15 BKK  US industrial prod",
+  "Thu 02:00 BKK  FOMC minutes"
+ ],
+ "levels": {
+  "r": [
+   3872.0,
+   3891.8,
+   3902.3
+  ],
+  "s": [
+   3852.0,
+   3832.2,
+   3823.0
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 3830,
+   "sl": 3857,
+   "tp1": 3804,
+   "tp2": 3794,
+   "note": "2.2 under 3,832.20 low, 24.5 off; SL 5 >3,852; RR 0.96/1.33"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 3875,
+   "sl": 3849,
+   "tp1": 3888,
+   "tp2": 3898,
+   "note": "3 over 3,872 top, 20.5 off; SL 5.5 <3,854.5; RR 0.50/0.88"
+  }
+ ],
+ "invalid": "Bear view void on 1h close above 3,892.42; cancel unfilled A/B by Tue 18:30 BKK",
+ "risk_note": "A TP1 RR 0.96 < 1.2 (3,800 next level); B RR low, small size or skip. Filled trades run into retail sales 20:30 BKK. r2 A (3,858) may still be open short: do not double size. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "New: skip if TP1 RR<0.5; rules 1/2/4 stops <=25; 5 TPs inside 3,800/3,902.3; 6 SL 26-27",
+ "review": {
+  "for_date": "2026-11-16",
+  "result": "OPEN",
+  "text": "r2 A sell stop 3,858 filled post-Warsh (late 3,854.50), TP1 3,848/SL 3,883 not hit; r2 B 3,881 not seen. r0 A TP1 hit; r0/r1 SL vs 3,902.30 high order unknown."
+ },
+ "sources": [
+  "Kitco PM Report 2026-11-16",
+  "Kitco gold chart 2026-11-16",
+  "Kitco (Heraeus) 2026-11-16",
+  "Fast Company (AP) 2026-11-16",
+  "USAGOLD 2026-11-16",
+  "Trading Economics 2026-11-16",
+  "LiteFinance 2026-11-16",
+  "Forexuro 2026-11-14",
+  "RoboForex 2026-11-13"
+ ],
+ "th": {
+  "headline": "ทองปิดจันทร์ราว 3,855 ใกล้ต่ำสุดรอบ 13 เดือน Warsh ไม่พูดถึงดอกเบี้ย",
+  "bias_note": "Fed น่าจะขึ้นดอกเบี้ย ดอลลาร์แข็ง",
+  "summary": [
+   "จันทร์ 3,832.20-3,902.30 ช่วงท้ายนิวยอร์ก 3,854.50 ลบ 0.7%",
+   "Warsh พูดเรื่อง AI ไม่ส่งสัญญาณดอกเบี้ย Nasdaq ลบ 2.5% ทองไม่ได้แรงหนุน",
+   "Fed ขึ้น 25bp ธ.ค. ราว 90% ดอลลาร์ 103.5 บอนด์ 10 ปี 5.12% Empire State 7.8",
+   "น้ำมัน Brent ลบ 3.6% เหลือ 92.44 เงินลบ 3.6% RSI 4 ชม. ราว 29",
+   "ยอดค้าปลีกสหรัฐ 20:30 น. คาด +0.2% รายงานประชุม Fed พฤหัส 02:00 น."
+  ],
+  "invalid": "ปิด 1 ชม. เหนือ 3,892.42 ขาลงใช้ไม่ได้ ยกเลิกที่ค้างก่อน 18:30 น.",
+  "review_text": "r2 A Sell Stop 3,858 ถูกเปิดหลัง Warsh ยังไม่ถึง TP1 3,848 หรือ SL 3,883 ยังเปิดอยู่ B ไม่ถูกเปิด r0 A ถึง TP1 ส่วน SL ของ r0/r1 ไม่รู้ลำดับเวลา",
+  "session_note": "นิวยอร์ก Warsh ไม่ส่งสัญญาณ ราคาไหลลงปิดราว 3,854.50 ลบ 0.7% แผน r2 A ถูกเปิด ยังไม่ปิด",
+  "rev_note": ""
+ }
+}
