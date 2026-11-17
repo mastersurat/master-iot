@@ -1,0 +1,16 @@
+{
+ "updated": "2026-11-17 13:20 +07",
+ "by": "setup",
+ "stop_only": true,
+ "be_trigger": 15,
+ "be_lock": 0.5,
+ "max_hold_hours": 30,
+ "weekend_close": true,
+ "eval_from": "2026-11-17",
+ "gate_trades": 40,
+ "gate_days": 20,
+ "gate_pf": 1.3,
+ "gate_max_dd_pct": 15,
+ "note": "Start values from the 8-trade test (limits 0/4, stops 2/3 closed). Tuned by the morning brief within EA bounds.",
+ "changes": []
+}
