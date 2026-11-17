@@ -14,13 +14,17 @@
 //| v1.11: plans re-checked every second; a plan skipped because      |
 //| price ran past entry comes back when price returns; tickets of an |
 //| older plan are cleared when a new brief arrives.                  |
+//| v1.12: auto takes STOP plans only (option); break-even after a    |
+//| set move; closes positions before the weekend and after a max     |
+//| hold time; writes every closed trade (price, P/L, SL/TP/EA) to    |
+//| orders/results.json, rebuilt from MT5 history on start.           |
 //|                                                                  |
 //| Setup: Tools > Options > Expert Advisors > Allow WebRequest for  |
 //|   https://api.github.com                                         |
 //| Attach to any chart (one instance only). Needs Algo Trading ON.  |
 //+------------------------------------------------------------------+
 #property copyright "mastersurat"
-#property version   "1.11"
+#property version   "1.12"
 #property strict
 
 #include <Trade/Trade.mqh>
@@ -40,6 +44,15 @@ input bool   InpAutoAllowed   = true;               // let the app switch on aut
 input double InpAutoMaxSlip   = 3.0;                // auto: never open further than this past entry (USD)
 input double InpAutoMaxSpread = 1.0;                // auto: wait while spread is wider than this (USD)
 input string InpBriefBranch   = "cyd-brief";        // where brief.json lives
+input bool   InpAutoStopOnly  = true;               // auto: take STOP plans only, skip LIMIT (fade) plans
+input double InpBeTrigger     = 15.0;               // move SL to entry once this far in profit (USD, 0 = off)
+input double InpBeLock        = 0.5;                // ...plus this much locked in (covers spread)
+input bool   InpWeekendClose  = true;               // close positions + delete pendings before the weekend
+input int    InpWeekendHour   = 3;                  // Saturday, Bangkok time (NY close is 04:00 summer / 05:00 winter)
+input int    InpWeekendMin    = 30;
+input int    InpMaxHoldHours  = 30;                 // close a position older than this (0 = off)
+input bool   InpManageAppToo  = true;               // apply BE / weekend / max hold to app-placed orders too
+input datetime InpResultsFrom = D'2026.10.28';      // results.json covers trades closed since this date
 
 CTrade trade;
 
@@ -47,7 +60,7 @@ struct Entry { string name; string sha; };
 string g_doneIds[];           // ids already handled in this run (status written or attempted)
 string g_trackIds[];          // ids we placed and still watch (PLACED -> FILLED / EXPIRED)
 string g_lastErr = "";
-#define EA_VER "1.11"
+#define EA_VER "1.12"
 
 // ---- auto mode state
 string   g_autoSha = "";                // sha of orders/auto.json last read ("" = none)
@@ -65,6 +78,14 @@ string   g_autoState = "OFF", g_autoDetail = "", g_autoTickets = "";
 string   g_openedGen = "";              // brief revision in which auto already opened a trade
 string   g_autoStatusSig = "";
 datetime g_lastHeartbeat = 0;
+
+// ---- position management + results (v1.12)
+string   g_mgrTried[];                  // "ticket|action" tried in the last minute (avoid hammering the broker)
+datetime g_mgrTriedAt = 0;
+string   g_whyPid[], g_whyText[];       // position id -> why the EA closed it (WEEKEND / MAX_HOLD)
+bool     g_resultsDirty = true;         // rebuild results.json on next poll
+string   g_resultsSig = "";
+datetime g_resultsAt = 0;
 
 //------------------------------------------------------------------ helpers
 string BkkDate(datetime gmt) {
@@ -398,6 +419,17 @@ void TrackPlaced(Entry &list[]) {
 }
 
 
+//------------------------------------------------------------------ weekend window (v1.12)
+// Saturday in Bangkok from (close time - minutesBefore) until noon: the weekend window
+bool WeekendWindow(int minutesBefore = 0) {
+   if(!InpWeekendClose) return false;
+   MqlDateTime t; TimeToStruct(TimeGMT() + 7 * 3600, t);
+   int now = t.hour * 60 + t.min, at = InpWeekendHour * 60 + InpWeekendMin - minutesBefore;
+   if(t.day_of_week == 6) return now >= at && t.hour < 12;
+   if(t.day_of_week == 5 && at < 0) return now >= at + 1440;             // window starts late Friday
+   return false;
+}
+
 //------------------------------------------------------------------ auto mode
 string AutoTag() { return "GB AUTO "; }
 string PlanKeyOf(const string id) { return g_briefDate + "-" + (g_briefRev > 0 ? "R" + IntegerToString(g_briefRev) : "") + id; }
@@ -458,6 +490,7 @@ void SelectBest(bool keep = false) {
       double entry = JNum(pj, "entry"), sl = JNum(pj, "sl"), tp1 = JNum(pj, "tp1");
       string key = PlanKeyOf(id);
       if(InList(g_excluded, key)) continue;
+      if(InpAutoStopOnly && type == "LIMIT") continue;                             // v1.12: fades lost 4/4 in testing
       bool sell = side == "SELL";
       double risk = MathAbs(entry - sl);
       if(risk <= 0 || !(sell ? (sl > entry && tp1 < entry) : (sl < entry && tp1 > entry))) continue;
@@ -480,6 +513,7 @@ void SelectBest(bool keep = false) {
       g_autoState = "NONE";
       g_autoDetail = prevKey != "" ? "Plan " + prevId + " ran past entry or SL; no plan valid right now (rechecked every second)"
                                    : "No plan is valid right now (rechecked every second)";
+      if(InpAutoStopOnly) g_autoDetail += "; LIMIT plans skipped (stop-only)";
       return;
    }
    string pj = g_plans[best];
@@ -519,6 +553,7 @@ void CheckAuto() {
    }
    if(tk.ask - tk.bid > InpAutoMaxSpread) { g_autoDetail = StringFormat("Entry reached, waiting: spread %.2f > %.2f", tk.ask - tk.bid, InpAutoMaxSpread); return; }
    if(AccountInfoInteger(ACCOUNT_TRADE_MODE) != ACCOUNT_TRADE_MODE_DEMO && !InpAllowLive) { g_autoState = "BLOCKED"; g_autoDetail = "Real account: EA is set to demo only"; g_openedGen = g_briefGen; return; }
+   if(WeekendWindow(60)) { g_autoDetail = "Entry reached, skipped: less than 1 h before the weekend close"; return; }
    if(CountAutoPositions() > 0) { g_autoDetail = "Entry reached, waiting: an earlier auto position is still open"; return; }
    string tks;
    if(HasOurOrders(g_selKey, tks)) { g_autoState = "SKIPPED"; g_autoDetail = "You already placed plan " + g_selId + " from the app (#" + tks + ")"; g_openedGen = g_briefGen; return; }
@@ -594,6 +629,153 @@ void PollAuto(Entry &list[]) {
    if(PutFile(list, "auto-status.json", js, "auto " + g_autoState + " " + g_selKey)) { g_autoStatusSig = sig; g_lastHeartbeat = TimeGMT(); }
 }
 
+//------------------------------------------------------------------ position management (v1.12)
+bool OurPosition(bool &isAuto) {
+   if(PositionGetInteger(POSITION_MAGIC) != InpMagic) return false;
+   string cm = PositionGetString(POSITION_COMMENT);
+   isAuto = StringFind(cm, AutoTag()) == 0;
+   return isAuto || InpManageAppToo;
+}
+bool TryOnce(const string key) {                                          // one attempt per key per minute
+   if(TimeGMT() - g_mgrTriedAt >= 60) { ArrayResize(g_mgrTried, 0); g_mgrTriedAt = TimeGMT(); }
+   if(InList(g_mgrTried, key)) return false;
+   AddList(g_mgrTried, key); return true;
+}
+void NoteWhy(ulong pid, const string why) {
+   int n = ArraySize(g_whyPid); ArrayResize(g_whyPid, n + 1); ArrayResize(g_whyText, n + 1);
+   g_whyPid[n] = (string)pid; g_whyText[n] = why;
+}
+string WhyOf(ulong pid) { for(int i = ArraySize(g_whyPid) - 1; i >= 0; i--) if(g_whyPid[i] == (string)pid) return g_whyText[i]; return ""; }
+
+// runs every second: break-even, weekend close, max hold
+void ManagePositions() {
+   bool weekend = WeekendWindow(0);
+   if(weekend) {                                                          // no pendings over the weekend either
+      for(int i = OrdersTotal() - 1; i >= 0; i--) {
+         ulong t = OrderGetTicket(i);
+         if(OrderGetInteger(ORDER_MAGIC) != InpMagic) continue;
+         if(TryOnce((string)t + "|del") && trade.OrderDelete(t)) PrintFormat("GoldBrief: weekend - deleted pending #%I64u", t);
+      }
+   }
+   MqlTick tk; if(!SymbolInfoTick(InpSymbol, tk)) return;
+   int digits = (int)SymbolInfoInteger(InpSymbol, SYMBOL_DIGITS);
+   double stopLvl = SymbolInfoInteger(InpSymbol, SYMBOL_TRADE_STOPS_LEVEL) * SymbolInfoDouble(InpSymbol, SYMBOL_POINT);
+   for(int i = PositionsTotal() - 1; i >= 0; i--) {
+      ulong t = PositionGetTicket(i);
+      bool isAuto;
+      if(!OurPosition(isAuto) || PositionGetString(POSITION_SYMBOL) != InpSymbol) continue;
+      bool sell = PositionGetInteger(POSITION_TYPE) == POSITION_TYPE_SELL;
+      double open = PositionGetDouble(POSITION_PRICE_OPEN), sl = PositionGetDouble(POSITION_SL), tp = PositionGetDouble(POSITION_TP);
+      ulong pid = (ulong)PositionGetInteger(POSITION_IDENTIFIER);
+      string why = "";
+      if(weekend) why = "WEEKEND";
+      else if(InpMaxHoldHours > 0 && TimeCurrent() - (datetime)PositionGetInteger(POSITION_TIME) > InpMaxHoldHours * 3600) why = "MAX_HOLD";
+      if(why != "") {
+         if(TryOnce((string)t + "|close") && trade.PositionClose(t)) {
+            NoteWhy(pid, why); g_resultsDirty = true;
+            PrintFormat("GoldBrief: closed #%I64u (%s)", t, why);
+         }
+         continue;
+      }
+      if(InpBeTrigger <= 0) continue;
+      double gain = sell ? open - tk.ask : tk.bid - open;
+      if(gain < InpBeTrigger) continue;
+      double be = NormalizeDouble(sell ? open - InpBeLock : open + InpBeLock, digits);
+      bool better = sell ? (sl == 0 || sl > be + 1e-6) : (sl == 0 || sl < be - 1e-6);
+      if(!better) continue;
+      if(sell ? be - tk.ask <= stopLvl : tk.bid - be <= stopLvl) continue;
+      if(TryOnce((string)t + "|be") && trade.PositionModify(t, be, tp))
+         PrintFormat("GoldBrief: #%I64u SL -> %.2f (break-even, +%.2f)", t, be, gain);
+   }
+}
+
+//------------------------------------------------------------------ results.json (v1.12)
+string ReasonText(long r, ulong pid) {
+   if(r == DEAL_REASON_SL) return "SL";
+   if(r == DEAL_REASON_TP) return "TP";
+   if(r == DEAL_REASON_SO) return "STOP_OUT";
+   if(r == DEAL_REASON_EXPERT) { string w = WhyOf(pid); return w != "" ? w : "EA"; }
+   if(r == DEAL_REASON_CLIENT || r == DEAL_REASON_MOBILE || r == DEAL_REASON_WEB) return "MANUAL";
+   return "OTHER";
+}
+string BkkIso(datetime server) {
+   string s = TimeToString(server - (TimeTradeServer() - TimeGMT()) + 7 * 3600, TIME_DATE | TIME_MINUTES);
+   StringReplace(s, ".", "-"); StringReplace(s, " ", "T");
+   return s + "+07:00";
+}
+// rebuild the list of closed trades of this EA from MT5 history; write when it changed (or every 15 min for open P/L)
+void WriteResults(Entry &list[]) {
+   if(!g_resultsDirty && TimeGMT() - g_resultsAt < 15 * 60) return;
+   if(!HistorySelect(InpResultsFrom, TimeCurrent() + 86400)) return;
+   ulong pids[]; string keys[], sides[]; double inV[], inPV[], outV[], outPV[], pnl[]; datetime ot[], ct[]; long rs[];
+   int nd = HistoryDealsTotal();
+   for(int i = 0; i < nd; i++) {
+      ulong d = HistoryDealGetTicket(i);
+      if(HistoryDealGetString(d, DEAL_SYMBOL) != InpSymbol) continue;
+      ulong pid = (ulong)HistoryDealGetInteger(d, DEAL_POSITION_ID);
+      long entry = HistoryDealGetInteger(d, DEAL_ENTRY);
+      int k = -1;
+      for(int j = 0; j < ArraySize(pids); j++) if(pids[j] == pid) { k = j; break; }
+      if(k < 0) {
+         if(entry != DEAL_ENTRY_IN || HistoryDealGetInteger(d, DEAL_MAGIC) != InpMagic) continue;   // only positions this EA opened
+         k = ArraySize(pids);
+         ArrayResize(pids, k + 1); ArrayResize(keys, k + 1); ArrayResize(sides, k + 1); ArrayResize(inV, k + 1); ArrayResize(inPV, k + 1);
+         ArrayResize(outV, k + 1); ArrayResize(outPV, k + 1); ArrayResize(pnl, k + 1); ArrayResize(ot, k + 1); ArrayResize(ct, k + 1); ArrayResize(rs, k + 1);
+         pids[k] = pid; keys[k] = HistoryDealGetString(d, DEAL_COMMENT);
+         sides[k] = HistoryDealGetInteger(d, DEAL_TYPE) == DEAL_TYPE_BUY ? "BUY" : "SELL";
+         inV[k] = 0; inPV[k] = 0; outV[k] = 0; outPV[k] = 0; pnl[k] = 0; ot[k] = (datetime)HistoryDealGetInteger(d, DEAL_TIME); ct[k] = 0; rs[k] = -1;
+      }
+      double v = HistoryDealGetDouble(d, DEAL_VOLUME), px = HistoryDealGetDouble(d, DEAL_PRICE);
+      pnl[k] += HistoryDealGetDouble(d, DEAL_PROFIT) + HistoryDealGetDouble(d, DEAL_SWAP) + HistoryDealGetDouble(d, DEAL_COMMISSION) + HistoryDealGetDouble(d, DEAL_FEE);
+      if(entry == DEAL_ENTRY_IN) { inV[k] += v; inPV[k] += v * px; }
+      else if(entry == DEAL_ENTRY_OUT || entry == DEAL_ENTRY_OUT_BY || entry == DEAL_ENTRY_INOUT) {
+         outV[k] += v; outPV[k] += v * px; ct[k] = (datetime)HistoryDealGetInteger(d, DEAL_TIME); rs[k] = HistoryDealGetInteger(d, DEAL_REASON);
+      }
+   }
+   string trades = ""; int wins = 0, losses = 0, be = 0, cnt = 0; double net = 0;
+   for(int k = ArraySize(pids) - 1; k >= 0; k--) {                         // newest first
+      if(outV[k] <= 0 || outV[k] + 1e-9 < inV[k]) continue;                 // still open
+      double op = inPV[k] / inV[k], cp = outPV[k] / outV[k];
+      double pts = sides[k] == "BUY" ? cp - op : op - cp;
+      string res = pnl[k] > 0.05 ? "WIN" : pnl[k] < -0.05 ? "LOSS" : "BE";
+      if(res == "WIN") wins++; else if(res == "LOSS") losses++; else be++;
+      net += pnl[k]; cnt++;
+      string key = keys[k], src = "APP";
+      if(StringFind(key, AutoTag()) == 0) { src = "AUTO"; key = StringSubstr(key, StringLen(AutoTag())); }
+      else if(StringFind(key, "GB ") == 0) key = StringSubstr(key, 3);
+      trades += (trades == "" ? "" : ",") + "\n {\"pos\":\"" + (string)pids[k] + "\",\"key\":\"" + JEsc(key) + "\",\"src\":\"" + src +
+                "\",\"side\":\"" + sides[k] + "\",\"lot\":" + DoubleToString(inV[k], 2) + ",\"open\":" + DoubleToString(op, 2) +
+                ",\"close\":" + DoubleToString(cp, 2) + ",\"points\":" + DoubleToString(pts, 2) + ",\"pnl\":" + DoubleToString(pnl[k], 2) +
+                ",\"reason\":\"" + ReasonText(rs[k], pids[k]) + "\",\"result\":\"" + res + "\",\"opened\":\"" + BkkIso(ot[k]) + "\",\"closed\":\"" + BkkIso(ct[k]) + "\"}";
+   }
+   string open = ""; double flt = 0;
+   for(int i = PositionsTotal() - 1; i >= 0; i--) {
+      ulong t = PositionGetTicket(i);
+      if(PositionGetInteger(POSITION_MAGIC) != InpMagic) continue;
+      double pl = PositionGetDouble(POSITION_PROFIT) + PositionGetDouble(POSITION_SWAP); flt += pl;
+      string cm = PositionGetString(POSITION_COMMENT);
+      open += (open == "" ? "" : ",") + "\n {\"pos\":\"" + (string)t + "\",\"key\":\"" + JEsc(cm) + "\",\"side\":\"" +
+              (PositionGetInteger(POSITION_TYPE) == POSITION_TYPE_BUY ? "BUY" : "SELL") + "\",\"lot\":" + DoubleToString(PositionGetDouble(POSITION_VOLUME), 2) +
+              ",\"open\":" + DoubleToString(PositionGetDouble(POSITION_PRICE_OPEN), 2) + ",\"sl\":" + DoubleToString(PositionGetDouble(POSITION_SL), 2) +
+              ",\"tp\":" + DoubleToString(PositionGetDouble(POSITION_TP), 2) + ",\"pnl\":" + DoubleToString(pl, 2) +
+              ",\"opened\":\"" + BkkIso((datetime)PositionGetInteger(POSITION_TIME)) + "\"}";
+   }
+   string sig = trades + "|" + open;
+   g_resultsDirty = false;
+   if(sig == g_resultsSig && TimeGMT() - g_resultsAt < 15 * 60) return;
+   string js = "{\"account\":\"" + AccountKind() + "\",\"currency\":\"" + AccountInfoString(ACCOUNT_CURRENCY) + "\",\"ea\":\"" + EA_VER +
+               "\",\"from\":\"" + BkkDate(InpResultsFrom) + "\",\"time\":\"" + IsoNowBkk() + "\",\"closed\":" + IntegerToString(cnt) +
+               ",\"wins\":" + IntegerToString(wins) + ",\"losses\":" + IntegerToString(losses) + ",\"breakeven\":" + IntegerToString(be) +
+               ",\"net\":" + DoubleToString(net, 2) + ",\"floating\":" + DoubleToString(flt, 2) + ",\"balance\":" + DoubleToString(AccountInfoDouble(ACCOUNT_BALANCE), 2) +
+               ",\n\"open_positions\":[" + open + "],\n\"trades\":[" + trades + "]}";
+   if(PutFile(list, "results.json", js, StringFormat("results %d closed net %.2f", cnt, net))) { g_resultsSig = sig; g_resultsAt = TimeGMT(); }
+   else g_resultsDirty = true;
+}
+
+void OnTradeTransaction(const MqlTradeTransaction &trans, const MqlTradeRequest &request, const MqlTradeResult &result) {
+   if(trans.type == TRADE_TRANSACTION_DEAL_ADD) g_resultsDirty = true;   // a fill or a close: refresh results.json
+}
+
 void Poll() {
    if(InpToken == "") { Comment("GoldBriefBridge: set InpToken"); return; }
    Entry list[];
@@ -627,6 +809,7 @@ void Poll() {
    }
    TrackPlaced(list);
    PollAuto(list);
+   WriteResults(list);
    Comment(StringFormat("GoldBriefBridge %s  %s  %s\nlast poll %s BKK  watching %d\nAUTO %s %s %s",
                         EA_VER, AccountInfoInteger(ACCOUNT_TRADE_MODE) == ACCOUNT_TRADE_MODE_DEMO ? "DEMO" : (InpAllowLive ? "REAL (allowed)" : "REAL (blocked)"),
                         InpSymbol, TimeToString(TimeGMT() + 7 * 3600, TIME_SECONDS), ArraySize(g_trackIds),
@@ -644,6 +827,7 @@ int OnInit() {
 void OnDeinit(const int reason) { EventKillTimer(); Comment(""); }
 datetime g_lastPoll = 0;
 void OnTimer() {
+   ManagePositions();
    CheckAuto();
    if(TimeLocal() - g_lastPoll >= MathMax(5, InpPollSec)) { g_lastPoll = TimeLocal(); Poll(); }
 }

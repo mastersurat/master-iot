@@ -21,6 +21,10 @@ Scenario analysis from public sources. Not financial advice.
 - Orders placed on an older revision are never touched automatically; the app flags them with a cancel button.
 - `lessons.md` - the morning review logs why a plan missed and the rule that changes the next plans.
 
+## MT5 EA (`mt5/GoldBriefBridge.mq5`)
+- v1.12 adds: auto takes STOP plans only (`InpAutoStopOnly`), break-even after `InpBeTrigger` USD, weekend close (Sat `InpWeekendHour:InpWeekendMin` BKK), max hold (`InpMaxHoldHours`).
+- Every closed trade of the EA's magic (price, P/L incl. swap/commission, SL/TP/EA reason) goes to `orders/results.json` on `cyd-orders`, rebuilt from MT5 history since `InpResultsFrom`. The app shows it in the review tab.
+
 ## Board firmware (`firmware/`)
 - Mini OS 1.3+ checks `firmware/version.json` 1 minute after boot and every 6 hours; if `version` is newer it downloads its build (`builds.<variant>`) and reboots.
 - To ship an update: build, copy each `firmware.bin` to `firmware/minios-<variant>-ota.bin`, then raise `version`.

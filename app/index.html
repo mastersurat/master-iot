@@ -156,6 +156,8 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
     </div>
     <h2>สถิติจากประวัติ</h2>
     <div class="card" id="stats">กำลังโหลด…</div>
+    <h2>ผลเทรดจริงจาก MT5</h2>
+    <div class="card" id="mt5res"><span class="note">กำลังโหลด…</span></div>
   </section>
 
   <section id="t-full" hidden>
@@ -181,7 +183,7 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
 </nav>
 
 <script>
-const UI_VERSION = '1.7';
+const UI_VERSION = '1.8';
 const RAW = 'https://raw.githubusercontent.com/mastersurat/master-iot/cyd-brief/';
 const API = 'https://api.github.com/repos/mastersurat/master-iot/contents/history?ref=cyd-brief';
 const $ = id => document.getElementById(id);
@@ -406,6 +408,34 @@ async function loadHistory() {
       <p class="note">จาก ${res.length} แผนที่ตรวจแล้ว${tp + c('SL_HIT') ? ` · อัตราถึง TP ${(100 * tp / (tp + c('SL_HIT'))).toFixed(0)}% ของแผนที่จบแล้ว` : ''}</p>`
       : '<span class="note">ยังไม่มีแผนที่ตรวจผลแล้ว สถิติจะเริ่มขึ้นตั้งแต่พรุ่งนี้</span>';
   } catch (e) { $('hist').textContent = 'โหลดประวัติไม่ได้'; $('stats').textContent = '—'; }
+}
+
+/* ---------- real results written by the EA (orders/results.json, EA 1.12+) ---------- */
+const whyThai = {SL: 'โดน SL', TP: 'ถึง TP', WEEKEND: 'ปิดก่อนวันหยุด', MAX_HOLD: 'ถือนานเกินกำหนด', EA: 'EA ปิด', MANUAL: 'ปิดเอง', STOP_OUT: 'Stop out', OTHER: 'อื่นๆ'};
+const money = n => (n > 0 ? '+' : '') + Number(n).toFixed(2);
+async function loadResults() {
+  const el = $('mt5res');
+  if (!token()) { el.innerHTML = '<span class="note">ใส่ GitHub token ในแท็บแผนก่อน จึงจะดูผลเทรดจริงได้</span>'; return; }
+  try {
+    const r = await gh('GET', '/results.json', null, true);
+    if (r.status === 404) { el.innerHTML = '<span class="note">ยังไม่มีข้อมูล ต้องใช้ EA เวอร์ชัน 1.12 ขึ้นไป</span>'; return; }
+    if (!r.ok) throw new Error(r.status);
+    const j = await r.json();
+    const col = n => n > 0 ? 'var(--up)' : n < 0 ? 'var(--down)' : 'var(--dim)';
+    const done = j.wins + j.losses;
+    const rows = (j.trades || []).slice(0, 30).map(t => `<tr><td class="num">${esc(t.closed.slice(5, 16).replace('T', ' '))}</td>
+      <td>${esc(t.key)}<br><span class="note">${t.src === 'AUTO' ? 'อัตโนมัติ' : 'แอป'} · ${esc(t.side)} ${t.lot}</span></td>
+      <td class="num">${fmt(t.open)} → ${fmt(t.close)}<br><span class="note">${esc(whyThai[t.reason] || t.reason)}</span></td>
+      <td class="num" style="color:${col(t.pnl)};text-align:right">${money(t.pnl)}</td></tr>`).join('');
+    const opens = (j.open_positions || []).map(p => `<div class="note">เปิดอยู่: ${esc(p.key)} ${esc(p.side)} ${p.lot} @ ${fmt(p.open)} SL ${fmt(p.sl)} TP ${fmt(p.tp)} · <b style="color:${col(p.pnl)}">${money(p.pnl)}</b></div>`).join('');
+    el.innerHTML = `<div class="grid num">
+      <div><small>กำไรสุทธิ (${esc(j.currency)})</small><b style="color:${col(j.net)}">${money(j.net)}</b></div>
+      <div><small>ชนะ / แพ้ / เสมอ</small>${j.wins} / ${j.losses} / ${j.breakeven}</div>
+      <div><small>ยังเปิดอยู่</small><b style="color:${col(j.floating)}">${money(j.floating)}</b></div></div>
+      <p class="note">${j.closed} ไม้ที่ปิดแล้ว ตั้งแต่ ${esc(j.from)}${done ? ` · ชนะ ${(100 * j.wins / done).toFixed(0)}%` : ''} · บัญชี ${esc(j.account)} · อัปเดต ${esc(j.time.slice(5, 16).replace('T', ' '))} น. · รวมสเปรด/ค่าคอม/swap แล้ว</p>
+      ${opens}
+      ${rows ? `<div style="overflow-x:auto"><table style="width:100%;font-size:13px;border-collapse:collapse">${rows}</table></div>` : ''}`;
+  } catch (e) { el.innerHTML = '<span class="note">โหลดผลเทรดไม่ได้</span>'; }
 }
 
 /* ---------- tiny markdown renderer (headings, lists, tables, bold, links, hr) ---------- */
@@ -815,6 +845,7 @@ function show(t, keep) {
   if (t === 'plan' && !keep && viewing) loadBrief(null);
   if (t === 'plan') requestAnimationFrame(() => brief && renderLadder());
   if (t === 'hist' || t === 'review') loadHistory();
+  if (t === 'review') loadResults();
   window.scrollTo(0, 0);
 }
 document.querySelectorAll('nav button').forEach(b => b.onclick = () => show(b.dataset.t));
