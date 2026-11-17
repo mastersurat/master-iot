@@ -18,13 +18,17 @@
 //| set move; closes positions before the weekend and after a max     |
 //| hold time; writes every closed trade (price, P/L, SL/TP/EA) to    |
 //| orders/results.json, rebuilt from MT5 history on start.           |
+//| v1.13: rules can be tuned from orders/ea-config.json (clamped to  |
+//| safe bounds); tracks best/worst move of each trade (MFE/MAE);     |
+//| results.json adds profit factor, drawdown and a live-readiness    |
+//| check. Real-account trading still needs InpAllowLive in MT5.      |
 //|                                                                  |
 //| Setup: Tools > Options > Expert Advisors > Allow WebRequest for  |
 //|   https://api.github.com                                         |
 //| Attach to any chart (one instance only). Needs Algo Trading ON.  |
 //+------------------------------------------------------------------+
 #property copyright "mastersurat"
-#property version   "1.12"
+#property version   "1.13"
 #property strict
 
 #include <Trade/Trade.mqh>
@@ -53,6 +57,7 @@ input int    InpWeekendMin    = 30;
 input int    InpMaxHoldHours  = 30;                 // close a position older than this (0 = off)
 input bool   InpManageAppToo  = true;               // apply BE / weekend / max hold to app-placed orders too
 input datetime InpResultsFrom = D'2026.10.28';      // results.json covers trades closed since this date
+input bool   InpRemoteConfig  = true;               // let orders/ea-config.json tune the rules above (within bounds)
 
 CTrade trade;
 
@@ -60,7 +65,7 @@ struct Entry { string name; string sha; };
 string g_doneIds[];           // ids already handled in this run (status written or attempted)
 string g_trackIds[];          // ids we placed and still watch (PLACED -> FILLED / EXPIRED)
 string g_lastErr = "";
-#define EA_VER "1.12"
+#define EA_VER "1.13"
 
 // ---- auto mode state
 string   g_autoSha = "";                // sha of orders/auto.json last read ("" = none)
@@ -86,6 +91,15 @@ string   g_whyPid[], g_whyText[];       // position id -> why the EA closed it (
 bool     g_resultsDirty = true;         // rebuild results.json on next poll
 string   g_resultsSig = "";
 datetime g_resultsAt = 0;
+
+// ---- tunable rules (v1.13): start from the inputs, may be overridden by orders/ea-config.json
+bool     g_stopOnly = true, g_wkClose = true;
+double   g_beTrig = 15.0, g_beLock = 0.5;
+int      g_wkHour = 3, g_wkMin = 30, g_maxHold = 30;
+string   g_cfgSha = "", g_cfgNote = "", g_cfgUpdated = "";
+string   g_evalFrom = "2026-11-17";             // readiness is judged on trades closed since this date
+int      g_gateTrades = 40, g_gateDays = 20;
+double   g_gatePf = 1.3, g_gateDd = 15.0;
 
 //------------------------------------------------------------------ helpers
 string BkkDate(datetime gmt) {
@@ -422,12 +436,62 @@ void TrackPlaced(Entry &list[]) {
 //------------------------------------------------------------------ weekend window (v1.12)
 // Saturday in Bangkok from (close time - minutesBefore) until noon: the weekend window
 bool WeekendWindow(int minutesBefore = 0) {
-   if(!InpWeekendClose) return false;
+   if(!g_wkClose) return false;
    MqlDateTime t; TimeToStruct(TimeGMT() + 7 * 3600, t);
-   int now = t.hour * 60 + t.min, at = InpWeekendHour * 60 + InpWeekendMin - minutesBefore;
+   int now = t.hour * 60 + t.min, at = g_wkHour * 60 + g_wkMin - minutesBefore;
    if(t.day_of_week == 6) return now >= at && t.hour < 12;
    if(t.day_of_week == 5 && at < 0) return now >= at + 1440;             // window starts late Friday
    return false;
+}
+
+
+//------------------------------------------------------------------ excursion tracking (v1.13)
+// best (MFE) and worst (MAE) move of each position, kept in terminal global variables so a restart keeps them
+void TrackExcursion(ulong pid, double gain) {
+   string kf = "GBMFE" + (string)pid, ka = "GBMAE" + (string)pid;
+   if(!GlobalVariableCheck(kf) || gain > GlobalVariableGet(kf)) GlobalVariableSet(kf, gain);
+   if(!GlobalVariableCheck(ka) || -gain > GlobalVariableGet(ka)) GlobalVariableSet(ka, -gain);
+}
+double ExcursionOf(ulong pid, bool fav) {
+   string k = (fav ? "GBMFE" : "GBMAE") + (string)pid;
+   return GlobalVariableCheck(k) ? GlobalVariableGet(k) : -1;          // -1 = not tracked (closed before v1.13)
+}
+
+//------------------------------------------------------------------ remote config (v1.13)
+double Clamp(double v, double lo, double hi) { return v < lo ? lo : v > hi ? hi : v; }
+void ConfigFromInputs() {
+   g_stopOnly = InpAutoStopOnly; g_beTrig = InpBeTrigger; g_beLock = InpBeLock; g_wkClose = InpWeekendClose;
+   g_wkHour = InpWeekendHour; g_wkMin = InpWeekendMin; g_maxHold = InpMaxHoldHours;
+}
+// orders/ea-config.json: only the keys present are applied, each clamped to a safe range.
+// Safety switches (demo-only, lot caps, risk caps) are NOT remote-tunable.
+void PollConfig(Entry &list[]) {
+   if(!InpRemoteConfig) return;
+   string sha = FindSha(list, "ea-config.json");
+   if(sha == g_cfgSha) return;
+   if(sha == "") { g_cfgSha = ""; ConfigFromInputs(); g_cfgNote = "inputs"; return; }
+   string js = ReadFile("orders/ea-config.json");
+   if(js == "") return;                                                 // retry next poll
+   g_cfgSha = sha;
+   ConfigFromInputs();
+   string v;
+   v = JStr(js, "stop_only");      if(v != "") g_stopOnly = v == "true";
+   v = JStr(js, "be_trigger");     if(v != "") { double x = StringToDouble(v); g_beTrig = x <= 0 ? 0 : Clamp(x, 6, 40); }
+   v = JStr(js, "be_lock");        if(v != "") g_beLock = Clamp(StringToDouble(v), 0, 3);
+   v = JStr(js, "max_hold_hours"); if(v != "") { int h = (int)StringToInteger(v); g_maxHold = h <= 0 ? 0 : (int)Clamp(h, 12, 96); }
+   v = JStr(js, "weekend_close");  if(v != "") g_wkClose = v == "true";
+   v = JStr(js, "eval_from");      if(StringLen(v) == 10) g_evalFrom = v;
+   v = JStr(js, "gate_trades");    if(v != "") g_gateTrades = (int)Clamp(StringToInteger(v), 20, 500);
+   v = JStr(js, "gate_days");      if(v != "") g_gateDays = (int)Clamp(StringToInteger(v), 10, 365);
+   v = JStr(js, "gate_pf");        if(v != "") g_gatePf = Clamp(StringToDouble(v), 1.1, 5);
+   v = JStr(js, "gate_max_dd_pct"); if(v != "") g_gateDd = Clamp(StringToDouble(v), 5, 50);
+   g_cfgUpdated = JStr(js, "updated"); g_cfgNote = "ea-config " + g_cfgUpdated;
+   PrintFormat("GoldBrief: config %s -> stop_only=%s be=%.1f/%.1f max_hold=%d weekend=%s", g_cfgUpdated, g_stopOnly ? "1" : "0", g_beTrig, g_beLock, g_maxHold, g_wkClose ? "1" : "0");
+   g_resultsDirty = true;
+}
+string ConfigJson() {
+   return StringFormat("{\"source\":\"%s\",\"stop_only\":%s,\"be_trigger\":%.1f,\"be_lock\":%.1f,\"max_hold_hours\":%d,\"weekend_close\":%s}",
+                       JEsc(g_cfgNote == "" ? "inputs" : g_cfgNote), g_stopOnly ? "true" : "false", g_beTrig, g_beLock, g_maxHold, g_wkClose ? "true" : "false");
 }
 
 //------------------------------------------------------------------ auto mode
@@ -490,7 +554,7 @@ void SelectBest(bool keep = false) {
       double entry = JNum(pj, "entry"), sl = JNum(pj, "sl"), tp1 = JNum(pj, "tp1");
       string key = PlanKeyOf(id);
       if(InList(g_excluded, key)) continue;
-      if(InpAutoStopOnly && type == "LIMIT") continue;                             // v1.12: fades lost 4/4 in testing
+      if(g_stopOnly && type == "LIMIT") continue;                             // v1.12: fades lost 4/4 in testing
       bool sell = side == "SELL";
       double risk = MathAbs(entry - sl);
       if(risk <= 0 || !(sell ? (sl > entry && tp1 < entry) : (sl < entry && tp1 > entry))) continue;
@@ -513,7 +577,7 @@ void SelectBest(bool keep = false) {
       g_autoState = "NONE";
       g_autoDetail = prevKey != "" ? "Plan " + prevId + " ran past entry or SL; no plan valid right now (rechecked every second)"
                                    : "No plan is valid right now (rechecked every second)";
-      if(InpAutoStopOnly) g_autoDetail += "; LIMIT plans skipped (stop-only)";
+      if(g_stopOnly) g_autoDetail += "; LIMIT plans skipped (stop-only)";
       return;
    }
    string pj = g_plans[best];
@@ -617,7 +681,7 @@ void PollAuto(Entry &list[]) {
    }
    if(!InpAutoAllowed && g_autoOn) { g_autoState = "DISABLED_IN_EA"; g_autoDetail = "InpAutoAllowed is false in MT5"; }
 
-   string sig = g_autoState + "|" + g_selKey + "|" + g_autoDetail + "|" + g_autoTickets + "|" + (g_autoOn ? "1" : "0");
+   string sig = g_autoState + "|" + g_selKey + "|" + g_autoDetail + "|" + g_autoTickets + "|" + (g_autoOn ? "1" : "0") + "|" + ConfigJson();
    if(sig == g_autoStatusSig && TimeGMT() - g_lastHeartbeat < 15 * 60) return;
    string js = "{\"state\":\"" + g_autoState + "\",\"enabled\":" + (g_autoOn ? "true" : "false") +
                ",\"brief\":\"" + JEsc(g_briefGen) + "\",\"key\":\"" + JEsc(g_selKey) + "\",\"plan\":\"" + JEsc(g_selId) +
@@ -625,7 +689,7 @@ void PollAuto(Entry &list[]) {
                ",\"sl\":" + DoubleToString(g_selSl, 2) + ",\"tp1\":" + DoubleToString(g_selTp1, 2) + ",\"tp2\":" + DoubleToString(g_selTp2, 2) +
                ",\"score\":" + DoubleToString(g_selScore > -1e8 ? g_selScore : 0, 2) + ",\"reason\":\"" + JEsc(g_selReason) +
                "\",\"detail\":\"" + JEsc(g_autoDetail) + "\",\"tickets\":\"" + g_autoTickets + "\",\"account\":\"" + AccountKind() +
-               "\",\"ea\":\"" + EA_VER + "\",\"time\":\"" + IsoNowBkk() + "\"}";
+               "\",\"ea\":\"" + EA_VER + "\",\"cfg\":" + ConfigJson() + ",\"time\":\"" + IsoNowBkk() + "\"}";
    if(PutFile(list, "auto-status.json", js, "auto " + g_autoState + " " + g_selKey)) { g_autoStatusSig = sig; g_lastHeartbeat = TimeGMT(); }
 }
 
@@ -667,9 +731,11 @@ void ManagePositions() {
       bool sell = PositionGetInteger(POSITION_TYPE) == POSITION_TYPE_SELL;
       double open = PositionGetDouble(POSITION_PRICE_OPEN), sl = PositionGetDouble(POSITION_SL), tp = PositionGetDouble(POSITION_TP);
       ulong pid = (ulong)PositionGetInteger(POSITION_IDENTIFIER);
+      double gain = sell ? open - tk.ask : tk.bid - open;                      // + in profit, - against
+      TrackExcursion(pid, gain);
       string why = "";
       if(weekend) why = "WEEKEND";
-      else if(InpMaxHoldHours > 0 && TimeCurrent() - (datetime)PositionGetInteger(POSITION_TIME) > InpMaxHoldHours * 3600) why = "MAX_HOLD";
+      else if(g_maxHold > 0 && TimeCurrent() - (datetime)PositionGetInteger(POSITION_TIME) > g_maxHold * 3600) why = "MAX_HOLD";
       if(why != "") {
          if(TryOnce((string)t + "|close") && trade.PositionClose(t)) {
             NoteWhy(pid, why); g_resultsDirty = true;
@@ -677,10 +743,9 @@ void ManagePositions() {
          }
          continue;
       }
-      if(InpBeTrigger <= 0) continue;
-      double gain = sell ? open - tk.ask : tk.bid - open;
-      if(gain < InpBeTrigger) continue;
-      double be = NormalizeDouble(sell ? open - InpBeLock : open + InpBeLock, digits);
+      if(g_beTrig <= 0) continue;
+      if(gain < g_beTrig) continue;
+      double be = NormalizeDouble(sell ? open - g_beLock : open + g_beLock, digits);
       bool better = sell ? (sl == 0 || sl > be + 1e-6) : (sl == 0 || sl < be - 1e-6);
       if(!better) continue;
       if(sell ? be - tk.ask <= stopLvl : tk.bid - be <= stopLvl) continue;
@@ -746,6 +811,7 @@ void WriteResults(Entry &list[]) {
       trades += (trades == "" ? "" : ",") + "\n {\"pos\":\"" + (string)pids[k] + "\",\"key\":\"" + JEsc(key) + "\",\"src\":\"" + src +
                 "\",\"side\":\"" + sides[k] + "\",\"lot\":" + DoubleToString(inV[k], 2) + ",\"open\":" + DoubleToString(op, 2) +
                 ",\"close\":" + DoubleToString(cp, 2) + ",\"points\":" + DoubleToString(pts, 2) + ",\"pnl\":" + DoubleToString(pnl[k], 2) +
+                ",\"mfe\":" + DoubleToString(ExcursionOf(pids[k], true), 2) + ",\"mae\":" + DoubleToString(ExcursionOf(pids[k], false), 2) +
                 ",\"reason\":\"" + ReasonText(rs[k], pids[k]) + "\",\"result\":\"" + res + "\",\"opened\":\"" + BkkIso(ot[k]) + "\",\"closed\":\"" + BkkIso(ct[k]) + "\"}";
    }
    string open = ""; double flt = 0;
@@ -760,13 +826,44 @@ void WriteResults(Entry &list[]) {
               ",\"tp\":" + DoubleToString(PositionGetDouble(POSITION_TP), 2) + ",\"pnl\":" + DoubleToString(pl, 2) +
               ",\"opened\":\"" + BkkIso((datetime)PositionGetInteger(POSITION_TIME)) + "\"}";
    }
-   string sig = trades + "|" + open;
+
+   // ---- statistics (v1.13): all trades, and the evaluation window used for the live-readiness check
+   double gw = 0, gl = 0, eq = 0, peak = 0, mdd = 0;
+   double egw = 0, egl = 0, eeq = 0, epeak = 0, emdd = 0, enet = 0; int ecnt = 0, ewin = 0;
+   string evalDay = g_evalFrom; StringReplace(evalDay, "-", ".");
+   datetime evalFrom = StringToTime(evalDay);                                   // BKK midnight as wall time
+   for(int k = 0; k < ArraySize(pids); k++) {                                  // oldest first
+      if(outV[k] <= 0 || outV[k] + 1e-9 < inV[k]) continue;
+      double p = pnl[k];
+      if(p > 0) gw += p; else gl -= p;
+      eq += p; if(eq > peak) peak = eq; if(peak - eq > mdd) mdd = peak - eq;
+      datetime cBkk = ct[k] - (TimeTradeServer() - TimeGMT()) + 7 * 3600;
+      if(cBkk < evalFrom) continue;
+      ecnt++; enet += p; if(p > 0.05) ewin++;
+      if(p > 0) egw += p; else egl -= p;
+      eeq += p; if(eeq > epeak) epeak = eeq; if(epeak - eeq > emdd) emdd = epeak - eeq;
+   }
+   double bal = AccountInfoDouble(ACCOUNT_BALANCE);
+   double startBal = MathMax(1.0, bal - enet);                                  // balance at the start of the window
+   double pf = gl > 0 ? gw / gl : (gw > 0 ? 99 : 0), epf = egl > 0 ? egw / egl : (egw > 0 ? 99 : 0);
+   double eddPct = 100.0 * emdd / startBal;
+   int days = (int)((TimeGMT() + 7 * 3600 - evalFrom) / 86400);
+   bool okT = ecnt >= g_gateTrades, okD = days >= g_gateDays, okP = epf >= g_gatePf, okDd = eddPct <= g_gateDd, okN = enet > 0;
+   bool ready = okT && okD && okP && okDd && okN;
+   string gate = StringFormat("{\"from\":\"%s\",\"days\":%d,\"trades\":%d,\"wins\":%d,\"net\":%.2f,\"pf\":%.2f,\"max_dd\":%.2f,\"max_dd_pct\":%.1f,"
+                              "\"need\":{\"trades\":%d,\"days\":%d,\"pf\":%.2f,\"max_dd_pct\":%.1f},"
+                              "\"ok\":{\"trades\":%s,\"days\":%s,\"pf\":%s,\"dd\":%s,\"net\":%s},\"ready\":%s}",
+                              g_evalFrom, days, ecnt, ewin, enet, epf, emdd, eddPct, g_gateTrades, g_gateDays, g_gatePf, g_gateDd,
+                              okT ? "true" : "false", okD ? "true" : "false", okP ? "true" : "false", okDd ? "true" : "false", okN ? "true" : "false", ready ? "true" : "false");
+   string sig = trades + "|" + open + "|" + gate;
    g_resultsDirty = false;
    if(sig == g_resultsSig && TimeGMT() - g_resultsAt < 15 * 60) return;
    string js = "{\"account\":\"" + AccountKind() + "\",\"currency\":\"" + AccountInfoString(ACCOUNT_CURRENCY) + "\",\"ea\":\"" + EA_VER +
                "\",\"from\":\"" + BkkDate(InpResultsFrom) + "\",\"time\":\"" + IsoNowBkk() + "\",\"closed\":" + IntegerToString(cnt) +
                ",\"wins\":" + IntegerToString(wins) + ",\"losses\":" + IntegerToString(losses) + ",\"breakeven\":" + IntegerToString(be) +
                ",\"net\":" + DoubleToString(net, 2) + ",\"floating\":" + DoubleToString(flt, 2) + ",\"balance\":" + DoubleToString(AccountInfoDouble(ACCOUNT_BALANCE), 2) +
+               ",\"profit_factor\":" + DoubleToString(pf, 2) + ",\"max_dd\":" + DoubleToString(mdd, 2) +
+               ",\n\"cfg\":" + ConfigJson() + ",\n\"live_gate\":" + gate + ",\"live_allowed\":" + (InpAllowLive ? "true" : "false") +
                ",\n\"open_positions\":[" + open + "],\n\"trades\":[" + trades + "]}";
    if(PutFile(list, "results.json", js, StringFormat("results %d closed net %.2f", cnt, net))) { g_resultsSig = sig; g_resultsAt = TimeGMT(); }
    else g_resultsDirty = true;
@@ -808,6 +905,7 @@ void Poll() {
       }
    }
    TrackPlaced(list);
+   PollConfig(list);
    PollAuto(list);
    WriteResults(list);
    Comment(StringFormat("GoldBriefBridge %s  %s  %s\nlast poll %s BKK  watching %d\nAUTO %s %s %s",
@@ -817,6 +915,7 @@ void Poll() {
 }
 
 int OnInit() {
+   ConfigFromInputs();
    trade.SetExpertMagicNumber(InpMagic);
    trade.SetDeviationInPoints(50);
    if(!SymbolSelect(InpSymbol, true)) { Alert("GoldBriefBridge: symbol ", InpSymbol, " not found"); return INIT_PARAMETERS_INCORRECT; }

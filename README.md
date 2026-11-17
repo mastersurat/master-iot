@@ -23,6 +23,7 @@ Scenario analysis from public sources. Not financial advice.
 
 ## MT5 EA (`mt5/GoldBriefBridge.mq5`)
 - v1.12 adds: auto takes STOP plans only (`InpAutoStopOnly`), break-even after `InpBeTrigger` USD, weekend close (Sat `InpWeekendHour:InpWeekendMin` BKK), max hold (`InpMaxHoldHours`).
+- v1.13: the rules above can be tuned from `orders/ea-config.json` on `cyd-orders` (EA clamps every value; safety switches such as demo-only and lot caps are not remote). The morning brief adjusts at most one key per day from real results. `results.json` adds MFE/MAE per trade, profit factor, drawdown and a live-readiness gate (`live_gate`); going live still needs `InpAllowLive` set by hand.
 - Every closed trade of the EA's magic (price, P/L incl. swap/commission, SL/TP/EA reason) goes to `orders/results.json` on `cyd-orders`, rebuilt from MT5 history since `InpResultsFrom`. The app shows it in the review tab.
 
 ## Board firmware (`firmware/`)

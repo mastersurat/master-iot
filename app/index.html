@@ -183,7 +183,7 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
 </nav>
 
 <script>
-const UI_VERSION = '1.8';
+const UI_VERSION = '1.9';
 const RAW = 'https://raw.githubusercontent.com/mastersurat/master-iot/cyd-brief/';
 const API = 'https://api.github.com/repos/mastersurat/master-iot/contents/history?ref=cyd-brief';
 const $ = id => document.getElementById(id);
@@ -413,6 +413,24 @@ async function loadHistory() {
 /* ---------- real results written by the EA (orders/results.json, EA 1.12+) ---------- */
 const whyThai = {SL: 'โดน SL', TP: 'ถึง TP', WEEKEND: 'ปิดก่อนวันหยุด', MAX_HOLD: 'ถือนานเกินกำหนด', EA: 'EA ปิด', MANUAL: 'ปิดเอง', STOP_OUT: 'Stop out', OTHER: 'อื่นๆ'};
 const money = n => (n > 0 ? '+' : '') + Number(n).toFixed(2);
+function gateHtml(j) {
+  const g = j.live_gate, c = j.cfg;
+  if (!g) return '';
+  const mark = ok => ok ? '<b style="color:var(--up)">ผ่าน</b>' : '<b style="color:var(--warn)">ยัง</b>';
+  const cfg = c ? `<p class="note">กฎที่ EA ใช้ตอนนี้: ${c.stop_only ? 'เข้าเฉพาะ Stop' : 'เข้าได้ทั้ง Stop/Limit'} · SL มาที่ทุนเมื่อกำไร ${c.be_trigger} จุด · ถือไม่เกิน ${c.max_hold_hours || 'ไม่จำกัด'} ชม. · ${c.weekend_close ? 'ปิดก่อนวันหยุด' : 'ถือข้ามวันหยุดได้'} <span class="dim">(${esc(c.source)})</span></p>` : '';
+  return `<div style="margin-top:10px;padding:8px 10px;border-radius:8px;border:1px solid ${g.ready ? 'var(--up)' : 'var(--line, #333)'}">
+    <b>ทดสอบก่อนใช้บัญชีจริง</b> ${g.ready ? '<b style="color:var(--up)">ผ่านเกณฑ์แล้ว</b>' : '<span class="note">ยังไม่ผ่าน</span>'}
+    <div class="note">นับตั้งแต่ ${esc(g.from)} (${g.days} วัน)</div>
+    <table style="width:100%;font-size:13px;margin-top:4px">
+      <tr><td>จำนวนไม้</td><td class="num">${g.trades} / ${g.need.trades}</td><td>${mark(g.ok.trades)}</td></tr>
+      <tr><td>ระยะเวลา</td><td class="num">${g.days} / ${g.need.days} วัน</td><td>${mark(g.ok.days)}</td></tr>
+      <tr><td>Profit factor</td><td class="num">${g.pf.toFixed(2)} / ≥ ${g.need.pf}</td><td>${mark(g.ok.pf)}</td></tr>
+      <tr><td>Drawdown สูงสุด</td><td class="num">${g.max_dd_pct.toFixed(1)}% / ≤ ${g.need.max_dd_pct}%</td><td>${mark(g.ok.dd)}</td></tr>
+      <tr><td>กำไรสุทธิ</td><td class="num">${money(g.net)}</td><td>${mark(g.ok.net)}</td></tr>
+    </table>
+    <p class="note">ผ่านเกณฑ์แล้ว EA ก็ยังไม่เทรดบัญชีจริงเอง ต้องเปิด InpAllowLive ใน MT5 ด้วยตัวเอง${j.live_allowed ? ' · <b style="color:var(--warn)">ตอนนี้เปิด InpAllowLive อยู่</b>' : ''}</p>
+    ${cfg}</div>`;
+}
 async function loadResults() {
   const el = $('mt5res');
   if (!token()) { el.innerHTML = '<span class="note">ใส่ GitHub token ในแท็บแผนก่อน จึงจะดูผลเทรดจริงได้</span>'; return; }
@@ -433,6 +451,7 @@ async function loadResults() {
       <div><small>ชนะ / แพ้ / เสมอ</small>${j.wins} / ${j.losses} / ${j.breakeven}</div>
       <div><small>ยังเปิดอยู่</small><b style="color:${col(j.floating)}">${money(j.floating)}</b></div></div>
       <p class="note">${j.closed} ไม้ที่ปิดแล้ว ตั้งแต่ ${esc(j.from)}${done ? ` · ชนะ ${(100 * j.wins / done).toFixed(0)}%` : ''} · บัญชี ${esc(j.account)} · อัปเดต ${esc(j.time.slice(5, 16).replace('T', ' '))} น. · รวมสเปรด/ค่าคอม/swap แล้ว</p>
+      ${gateHtml(j)}
       ${opens}
       ${rows ? `<div style="overflow-x:auto"><table style="width:100%;font-size:13px;border-collapse:collapse">${rows}</table></div>` : ''}`;
   } catch (e) { el.innerHTML = '<span class="note">โหลดผลเทรดไม่ได้</span>'; }
