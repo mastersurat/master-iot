@@ -1,9 +1,10 @@
-{"account":"DEMO","currency":"USD","ea":"1.14","from":"2026-10-28","time":"2026-11-17T13:14:36+07:00","closed":10,"wins":5,"losses":5,"breakeven":0,"net":58.53,"floating":-2.01,"balance":158.53,"profit_factor":1.39,"max_dd":100.59,
+{"account":"DEMO","currency":"USD","ea":"1.14","from":"2026-10-28","time":"2026-11-17T13:14:47+07:00","closed":10,"wins":5,"losses":5,"breakeven":0,"net":58.53,"floating":-2.44,"balance":158.53,"profit_factor":1.39,"max_dd":100.59,
 "cfg":{"source":"ea-config 2026-11-17 13:20 +07","stop_only":true,"be_trigger":15.0,"be_lock":0.5,"max_hold_hours":30,"weekend_close":true,"min_conf":0.70,"conf_min_trades":3,"max_positions":2},
 "kinds":{"STOP_WITH":{"wins":0,"trades":0,"p":0.50,"gated":false},"STOP_NEUTRAL":{"wins":0,"trades":0,"p":0.50,"gated":false},"STOP_AGAINST":{"wins":0,"trades":0,"p":0.50,"gated":false},"LIMIT_WITH":{"wins":0,"trades":0,"p":0.50,"gated":false},"LIMIT_NEUTRAL":{"wins":0,"trades":0,"p":0.50,"gated":false},"LIMIT_AGAINST":{"wins":0,"trades":0,"p":0.50,"gated":false}},
 "live_gate":{"from":"2026-11-17","days":0,"trades":1,"wins":1,"net":2.52,"pf":99.00,"max_dd":0.00,"max_dd_pct":0.0,"need":{"trades":40,"days":20,"pf":1.30,"max_dd_pct":15.0},"ok":{"trades":false,"days":false,"pf":true,"dd":true,"net":true},"ready":false},"live_allowed":false,
 "open_positions":[
- {"pos":"5435756329","key":"GB AUTO 2026-11-17-B","side":"BUY","lot":0.01,"open":3876.96,"sl":3849.00,"tp":3898.00,"pnl":-2.01,"opened":"2026-11-17T13:03+07:00"}],
+ {"pos":"5435801955","key":"GB AUTO 2026-11-17-B","side":"BUY","lot":0.01,"open":3875.24,"sl":3849.00,"tp":3898.00,"pnl":-0.36,"opened":"2026-11-17T13:14+07:00"},
+ {"pos":"5435756329","key":"GB AUTO 2026-11-17-B","side":"BUY","lot":0.01,"open":3876.96,"sl":3849.00,"tp":3898.00,"pnl":-2.08,"opened":"2026-11-17T13:03+07:00"}],
 "trades":[
  {"pos":"5419749391","key":"2026-11-13-R1B","src":"AUTO","side":"SELL","lot":0.01,"open":3883.99,"close":3881.48,"points":2.52,"pnl":2.52,"kind":"","conf":-1,"need":-1,"mfe":-1.00,"mae":-1.00,"reason":"EA","result":"WIN","opened":"2026-11-13T20:16+07:00","closed":"2026-11-17T12:53+07:00"},
  {"pos":"5416086094","key":"2026-11-13-A","src":"AUTO","side":"SELL","lot":0.01,"open":3884.58,"close":3920.00,"points":-35.42,"pnl":-35.41,"kind":"","conf":-1,"need":-1,"mfe":-1.00,"mae":-1.00,"reason":"SL","result":"LOSS","opened":"2026-11-13T06:46+07:00","closed":"2026-11-13T10:00+07:00"},
