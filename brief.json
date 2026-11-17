@@ -1,36 +1,37 @@
 {
  "v": 1,
- "date": "2026-11-17",
- "generated": "2026-11-18 00:14 +07",
- "rev": 2,
- "session": "LONDON_CLOSE",
- "session_note": "London: day 3,842.80-3,887.60 (Kitco 07:44 ET); 3,845 after retail sales; r1 A skipped, r1 B fill not seen; r2 A SL/TP order unknown",
- "rev_note": "Rest of NY to 03:00 BKK: A sell stop under Mon low 3,830.74, B sell limit at tested 3,858; ref 3 h old, rule 8 not fully met",
- "price_ref": 3845.26,
+ "date": "2026-11-18",
+ "generated": "2026-11-18 06:55 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "NY: Tue 3,836.00-3,891.60, 3,850.80 at 18:13 ET; retail beat whipsaw ~55. r2 A not hit; r1 A EA sell SL -30; r1 B TP1 hit",
+ "rev_note": "",
+ "price_ref": 3850.8,
  "bias": "BEARISH",
- "bias_note": "Core retail beat, hike odds 96.6%, DXY 19-mo high",
- "headline": "Gold slips to ~3,845 after US retail sales; Nvidia 04:20 BKK, FOMC minutes Thu 02:00 BKK",
+ "bias_note": "Hike odds 92%, 10y ~5.14%, USD 19-mo high",
+ "headline": "Gold ~3,851 near 1-yr low after retail-sales whipsaw; FOMC minutes Thu 02:00 BKK",
  "summary": [
-  "Kitco day range 3,842.80-3,887.60 at 07:44 ET (19:44 BKK), times of high/low not given; bid then 3,858.20",
-  "Oct retail sales +0.2% (in line), ex-autos +0.6% vs 0.4%; gold 3,848.64 after data, ~3,845.26 early NY (Kitco)",
-  "Dec 25bp hike odds 96.6% (FedWatch); DXY 103.66 at 19-mo high; 10y ~5.12%; silver ~47.4",
-  "No timed print after ~21:00 BKK found: ref is ~3 h old, check live price; skip a plan if price is past its entry",
-  "r2 A sell 3,858 (Mon): SL 3,883 and TP1 3,848 both inside today range, order unknown; r1 B 3,874 limit may still rest"
+  "Tue 3,836.00-3,891.60 (Kitco); 3,858.19 at 10:08 ET, 3,849.02 at 14:47 ET, 3,850.80 bid 18:13 ET",
+  "Retail ex-autos +0.6% beat; Dec 25bp hike odds 92% (Reuters), 10y ~5.14%, dollar at 19-month high",
+  "Nvidia Q3 revenue $115.8B, guide $130B, shares +2.3% after hours (headlines); risk mood steadier",
+  "FXEmpire: break under 3,832 = bear continuation, next zone 3,747-3,736; pivot 3,865.5, 20-day MA ~3,996",
+  "LiteFinance range 3,820-3,894, 4h RSI 38; CPM sees gold settling near 3,800"
  ],
  "events": [
-  "Wed 04:20 BKK  Nvidia Q3 results",
-  "Thu 02:00 BKK  FOMC minutes (Oct 27-28)"
+  "Thu 00:00 BKK  Cancel unfilled A/B",
+  "Thu 02:00 BKK  FOMC minutes (Oct)",
+  "Thu 20:30 BKK  US jobless claims"
  ],
  "levels": {
   "r": [
-   3858.2,
-   3874.4,
-   3887.6
+   3865.5,
+   3891.6,
+   3898.6
   ],
   "s": [
-   3842.8,
-   3830.7,
-   3805.0
+   3836.0,
+   3832.0,
+   3800.0
   ]
  },
  "plans": [
@@ -38,53 +39,56 @@
    "id": "A",
    "side": "SELL",
    "type": "STOP",
-   "entry": 3827,
-   "sl": 3851,
-   "tp1": 3809,
-   "tp2": 3784,
-   "note": "3.7 under Mon low 3,830.74, 18.3 off ref; SL 8.2>day low 3,842.8; TP1 4 before 3,805; RR 0.75/1.79; cancel unfilled 03:00"
+   "entry": 3828,
+   "sl": 3848,
+   "tp1": 3804,
+   "tp2": 3751,
+   "note": "4 under Mon low 3,832, 22.8 off; SL 12>3,836; RR 1.2/3.85"
   },
   {
    "id": "B",
    "side": "SELL",
    "type": "LIMIT",
-   "entry": 3859,
+   "entry": 3864,
    "sl": 3883,
-   "tp1": 3846.5,
-   "tp2": 3836,
-   "note": "Fade retest of Asia low 3,856.5/bid 3,858.2, 13.7 off ref; SL 8.6>3,874.4; TP1 3.7 before 3,842.8; RR 0.52/0.96"
+   "tp1": 3840,
+   "tp2": 3824,
+   "note": "Fade pivot 3,865.5, 13.2 off; SL 13>3,870; RR 1.26/2.1"
   }
  ],
- "invalid": "Bear view void on 1h close above 3,888; cancel unfilled orders by Wed 03:00 BKK (Nvidia 04:20)",
- "risk_note": "TP1 RR 0.75/0.52 < 1.2: next tested levels are close. Rule 8 not fully met: no fresh 1 h high/low found, ref ~3 h old; check live price first. A and B both short: one size total. Do not hold unfilled orders past 03:00 BKK. Scenario analysis from public sources. Not financial advice.",
- "lesson_applied": "Rule 1 A stop 3.7 past Mon low, B limit 13.7 off at tested 3,858; 4 <=25; 5 TPs 3.7-4 inside; 6 SL 24; 11-16 RR>=0.5; rule 8 partial",
+ "invalid": "Bear view void on 1h close above 3,892 (Tue high); cancel unfilled by Thu 00:00 BKK",
+ "risk_note": "A and B are both short: one size total. Cancel unfilled orders by Thu 00:00 BKK, 2 h before FOMC minutes. Old 11-17 orders may still rest - check the app. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "New rule 8: no entry live 2h before FOMC minutes; rules 1,4,5,6; TP1 RR >= 0.5 (11-16)",
  "review": {
-  "for_date": "2026-11-16",
-  "result": "OPEN",
-  "text": "r2 A sell stop 3,858 filled post-Warsh (late 3,854.50), TP1 3,848/SL 3,883 not hit; r2 B 3,881 not seen. r0 A TP1 hit; r0/r1 SL vs 3,902.30 high order unknown."
+  "for_date": "2026-11-17",
+  "result": "NOT_TRIGGERED",
+  "text": "Final r2: A 3,827 not hit (low 3,836.00), B 3,859 fill unconfirmed. EA: r0 B buy 2x SL, r1 A sell SL 3,881 after retail whipsaw (-84.35). r1 B lmt 3,874 hit TP1 3,860."
  },
  "sources": [
-  "Kitco 2026-11-17 08:30 ET (retail sales)",
-  "Kitco AM Report 2026-11-17 08:54 ET",
-  "Kitco spot prices 2026-11-17 07:44 ET",
-  "PRICE Futures Group 2026-11-17",
-  "Centrino Capital 2026-11-17 06:15 UTC",
-  "Mitrade 2026-11-17",
-  "Kitco PM Report 2026-11-16"
+  "Kitco 2026-11-17 18:13 ET (chart)",
+  "Kitco/Reuters 2026-11-17 12:24 ET",
+  "Business Recorder/Reuters 2026-11-17",
+  "FXEmpire 2026-11-17 22:12 GMT",
+  "LiteFinance 2026-11-17",
+  "goldprice.com 2026-11-17 14:47 ET",
+  "Kitco CPM 2026-11-17",
+  "Newsquawk 2026-11-13",
+  "SimianX calendar 2026",
+  "Yahoo/24/7 Wall St 2026-11-17"
  ],
  "th": {
-  "headline": "ทองอ่อนลงราว 3,845 หลังยอดค้าปลีกสหรัฐ รอ Nvidia 04:20 น.",
-  "bias_note": "ค้าปลีกดีกว่าคาด Fed น่าขึ้นดอกเบี้ย",
+  "headline": "ทองราว 3,851 ใกล้ต่ำสุดรอบปี หลังค้าปลีกเหวี่ยง รอ FOMC พฤหัส 02:00 น.",
+  "bias_note": "Fed น่าขึ้นดอกเบี้ย 92% ดอลลาร์แข็ง",
   "summary": [
-   "กรอบวัน Kitco 3,842.80-3,887.60 ณ 19:44 น. ไม่ระบุเวลาสูงต่ำ ราคาตอนนั้น 3,858.20",
-   "ค้าปลีก ต.ค. +0.2% ตามคาด ไม่รวมรถ +0.6% ดีกว่าคาด ทองลง 3,848.64 แล้ว 3,845.26",
-   "Fed ขึ้น 25bp ธ.ค. 96.6% ดอลลาร์ 103.66 สูงสุดรอบ 19 เดือน บอนด์ 10 ปี 5.12%",
-   "ไม่พบราคาที่มีเวลาหลัง 21:00 น. ราคาอ้างอิงเก่าราว 3 ชม. เช็กราคาจริงก่อนตั้ง",
-   "r2 A Sell 3,858 เมื่อวาน ราคาผ่านทั้ง SL 3,883 และ TP1 3,848 ไม่รู้ลำดับ เช็กในแอป"
+   "อังคาร 3,836.00-3,891.60 (Kitco) 22:08 น. 3,858 ปิดราว 3,850.80 (06:13 น.)",
+   "ค้าปลีกไม่รวมรถ +0.6% ดีกว่าคาด Fed ขึ้น 25bp ธ.ค. 92% บอนด์ 10 ปี 5.14%",
+   "Nvidia รายได้ 115.8 พันล้าน คาดไตรมาสหน้า 130 พันล้าน หุ้น +2.3% หลังปิดตลาด",
+   "FXEmpire หลุด 3,832 ขาลงต่อ เป้าโซน 3,747-3,736 แนวกลาง 3,865.5",
+   "LiteFinance กรอบ 3,820-3,894 RSI 4 ชม. 38 CPM มองทองนิ่งราว 3,800"
   ],
-  "invalid": "ปิด 1 ชม. เหนือ 3,888 ขาลงใช้ไม่ได้ ยกเลิกที่ค้างก่อนพุธ 03:00 น.",
-  "review_text": "r2 A Sell Stop 3,858 ถูกเปิดหลัง Warsh ยังไม่ถึง TP1 3,848 หรือ SL 3,883 ยังเปิดอยู่ B ไม่ถูกเปิด r0 A ถึง TP1 ส่วน SL ของ r0/r1 ไม่รู้ลำดับเวลา",
-  "session_note": "ลอนดอนกรอบ 3,842.80-3,887.60 หลังค้าปลีกลงราว 3,845 r1 A ไม่ได้ตั้ง B ไม่เห็นถูกเปิด",
-  "rev_note": "ถึง 03:00 น. A Sell Stop ใต้ต่ำสุดจันทร์ 3,830.74 B Sell Limit ที่ 3,858 ราคาอ้างอิงเก่า 3 ชม."
+  "invalid": "ปิด 1 ชม. เหนือ 3,892 ขาลงใช้ไม่ได้ ยกเลิกที่ค้างก่อนพฤหัส 00:00 น.",
+  "review_text": "แผนสุดท้าย r2 A 3,827 ไม่ถูกเปิด B 3,859 ยืนยันไม่ได้ EA ขาดทุน 3 ไม้ -84.35 จากค้าปลีกเหวี่ยง r1 B Limit 3,874 ถึง TP1 3,860",
+  "session_note": "นิวยอร์ก 3,836-3,891.60 ปิดราว 3,850.80 ค้าปลีกทำราคาเหวี่ยง r1 A โดน SL r1 B ถึง TP1 r2 ไม่ถูกเปิด",
+  "rev_note": ""
  }
 }
