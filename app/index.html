@@ -183,7 +183,7 @@ nav button[aria-selected=true]{color:var(--gold);box-shadow:inset 0 2px 0 var(--
 </nav>
 
 <script>
-const UI_VERSION = '1.9';
+const UI_VERSION = '1.10';
 const RAW = 'https://raw.githubusercontent.com/mastersurat/master-iot/cyd-brief/';
 const API = 'https://api.github.com/repos/mastersurat/master-iot/contents/history?ref=cyd-brief';
 const $ = id => document.getElementById(id);
@@ -429,7 +429,16 @@ function gateHtml(j) {
       <tr><td>กำไรสุทธิ</td><td class="num">${money(g.net)}</td><td>${mark(g.ok.net)}</td></tr>
     </table>
     <p class="note">ผ่านเกณฑ์แล้ว EA ก็ยังไม่เทรดบัญชีจริงเอง ต้องเปิด InpAllowLive ใน MT5 ด้วยตัวเอง${j.live_allowed ? ' · <b style="color:var(--warn)">ตอนนี้เปิด InpAllowLive อยู่</b>' : ''}</p>
-    ${cfg}</div>`;
+    ${cfg}${kindsHtml(j)}</div>`;
+}
+const kindThai = {STOP_WITH: 'Stop ตาม bias', STOP_NEUTRAL: 'Stop วันไม่มีทิศ', STOP_AGAINST: 'Stop สวน bias', LIMIT_WITH: 'Limit ตาม bias', LIMIT_NEUTRAL: 'Limit วันไม่มีทิศ', LIMIT_AGAINST: 'Limit สวน bias'};
+function kindsHtml(j) {
+  const k = j.kinds, c = j.cfg;
+  if (!k || !c) return '';
+  const rows = Object.entries(k).map(([n, v]) => `<tr><td>${esc(kindThai[n] || n)}</td><td class="num">${v.wins}/${v.trades}</td>
+    <td class="num">${Math.round(v.p * 100)}%</td><td>${v.gated ? '<b style="color:var(--down)">ไม่เข้า</b>' : v.trades < c.conf_min_trades ? '<span class="note">กำลังเก็บข้อมูล</span>' : '<b style="color:var(--up)">เข้าได้</b>'}</td></tr>`).join('');
+  return `<p class="note" style="margin-top:8px">EA เข้าเมื่อโอกาสชนะโดยประมาณ ≥ ${Math.round(c.min_conf * 100)}% (ประเภทที่มีไม่ถึง ${c.conf_min_trades} ไม้ยังเข้าได้เพื่อเก็บข้อมูล) · ถือพร้อมกันได้ ${c.max_positions} ไม้</p>
+    <table style="width:100%;font-size:13px">${rows}</table>`;
 }
 async function loadResults() {
   const el = $('mt5res');

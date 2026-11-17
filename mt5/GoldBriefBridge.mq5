@@ -22,13 +22,17 @@
 //| safe bounds); tracks best/worst move of each trade (MFE/MAE);     |
 //| results.json adds profit factor, drawdown and a live-readiness    |
 //| check. Real-account trading still needs InpAllowLive in MT5.      |
+//| v1.14: confidence gate - each plan gets an estimated win % from   |
+//| past trades of the same kind (STOP/LIMIT x with/neutral/against   |
+//| the bias); enter only if >= min_conf once the kind has enough     |
+//| trades; up to max_positions auto positions at once.               |
 //|                                                                  |
 //| Setup: Tools > Options > Expert Advisors > Allow WebRequest for  |
 //|   https://api.github.com                                         |
 //| Attach to any chart (one instance only). Needs Algo Trading ON.  |
 //+------------------------------------------------------------------+
 #property copyright "mastersurat"
-#property version   "1.13"
+#property version   "1.14"
 #property strict
 
 #include <Trade/Trade.mqh>
@@ -65,7 +69,7 @@ struct Entry { string name; string sha; };
 string g_doneIds[];           // ids already handled in this run (status written or attempted)
 string g_trackIds[];          // ids we placed and still watch (PLACED -> FILLED / EXPIRED)
 string g_lastErr = "";
-#define EA_VER "1.13"
+#define EA_VER "1.14"
 
 // ---- auto mode state
 string   g_autoSha = "";                // sha of orders/auto.json last read ("" = none)
@@ -100,6 +104,15 @@ string   g_cfgSha = "", g_cfgNote = "", g_cfgUpdated = "";
 string   g_evalFrom = "2026-11-17";             // readiness is judged on trades closed since this date
 int      g_gateTrades = 40, g_gateDays = 20;
 double   g_gatePf = 1.3, g_gateDd = 15.0;
+
+// ---- confidence gate (v1.14)
+double   g_minConf = 0.70;              // enter only when the estimated win rate is at least this
+int      g_confMinN = 3;                // ...once the setup kind has at least this many closed trades (else: learning, allowed)
+int      g_maxPos = 2;                  // auto positions open at the same time
+int      g_seedW[6], g_seedN[6];        // wins / trades per kind from before tracking (ea-config seed_*)
+int      g_trkW[6], g_trkN[6];          // wins / trades per kind tracked by this EA (rebuilt in WriteResults)
+string   g_kindName[6] = {"STOP_WITH", "STOP_NEUTRAL", "STOP_AGAINST", "LIMIT_WITH", "LIMIT_NEUTRAL", "LIMIT_AGAINST"};
+double   g_selP = -1, g_selNeed = 0; int g_selKind = -1, g_selKindN = 0;
 
 //------------------------------------------------------------------ helpers
 string BkkDate(datetime gmt) {
@@ -480,6 +493,10 @@ void PollConfig(Entry &list[]) {
    v = JStr(js, "be_lock");        if(v != "") g_beLock = Clamp(StringToDouble(v), 0, 3);
    v = JStr(js, "max_hold_hours"); if(v != "") { int h = (int)StringToInteger(v); g_maxHold = h <= 0 ? 0 : (int)Clamp(h, 12, 96); }
    v = JStr(js, "weekend_close");  if(v != "") g_wkClose = v == "true";
+   v = JStr(js, "min_conf");       if(v != "") g_minConf = Clamp(StringToDouble(v), 0.5, 0.95);
+   v = JStr(js, "conf_min_trades"); if(v != "") g_confMinN = (int)Clamp(StringToInteger(v), 2, 30);
+   v = JStr(js, "max_positions");  if(v != "") g_maxPos = (int)Clamp(StringToInteger(v), 1, 3);
+   for(int k = 0; k < 6; k++) { g_seedW[k] = 0; g_seedN[k] = 0; ParseSeed(js, k); }
    v = JStr(js, "eval_from");      if(StringLen(v) == 10) g_evalFrom = v;
    v = JStr(js, "gate_trades");    if(v != "") g_gateTrades = (int)Clamp(StringToInteger(v), 20, 500);
    v = JStr(js, "gate_days");      if(v != "") g_gateDays = (int)Clamp(StringToInteger(v), 10, 365);
@@ -490,8 +507,38 @@ void PollConfig(Entry &list[]) {
    g_resultsDirty = true;
 }
 string ConfigJson() {
-   return StringFormat("{\"source\":\"%s\",\"stop_only\":%s,\"be_trigger\":%.1f,\"be_lock\":%.1f,\"max_hold_hours\":%d,\"weekend_close\":%s}",
-                       JEsc(g_cfgNote == "" ? "inputs" : g_cfgNote), g_stopOnly ? "true" : "false", g_beTrig, g_beLock, g_maxHold, g_wkClose ? "true" : "false");
+   return StringFormat("{\"source\":\"%s\",\"stop_only\":%s,\"be_trigger\":%.1f,\"be_lock\":%.1f,\"max_hold_hours\":%d,\"weekend_close\":%s,\"min_conf\":%.2f,\"conf_min_trades\":%d,\"max_positions\":%d}",
+                       JEsc(g_cfgNote == "" ? "inputs" : g_cfgNote), g_stopOnly ? "true" : "false", g_beTrig, g_beLock, g_maxHold, g_wkClose ? "true" : "false",
+                       g_minConf, g_confMinN, g_maxPos);
+}
+
+
+//------------------------------------------------------------------ confidence (v1.14)
+int KindOf(const string type, bool sell, const string bias) {
+   int a = bias == "NEUTRAL" || bias == "" ? 1 : ((bias == "BEARISH" && sell) || (bias == "BULLISH" && !sell) ? 0 : 2);
+   return (type == "LIMIT" ? 3 : 0) + a;
+}
+// estimated win rate of a setup kind: (wins + 2) / (trades + 4) - pulled toward 50% while there are few trades
+double ConfOf(int kind, int &n) {
+   int w = g_seedW[kind] + g_trkW[kind];
+   n = g_seedN[kind] + g_trkN[kind];
+   return (w + 2.0) / (n + 4.0);
+}
+void ParseSeed(const string js, int k) {
+   string v = JStr(js, "seed_" + g_kindName[k]);                       // "wins/trades"
+   int sl = StringFind(v, "/");
+   if(sl <= 0) return;
+   int w = (int)StringToInteger(StringSubstr(v, 0, sl)), n = (int)StringToInteger(StringSubstr(v, sl + 1));
+   if(n >= 0 && n <= 1000 && w >= 0 && w <= n) { g_seedW[k] = w; g_seedN[k] = n; }
+}
+string KindsJson() {
+   string out = "";
+   for(int k = 0; k < 6; k++) {
+      int n; double p = ConfOf(k, n);
+      out += (out == "" ? "" : ",") + StringFormat("\"%s\":{\"wins\":%d,\"trades\":%d,\"p\":%.2f,\"gated\":%s}", g_kindName[k],
+             g_seedW[k] + g_trkW[k], n, p, (n >= g_confMinN && p < g_minConf) ? "true" : "false");
+   }
+   return "{" + out + "}";
 }
 
 //------------------------------------------------------------------ auto mode
@@ -548,6 +595,7 @@ void SelectBest(bool keep = false) {
    int n = ArraySize(g_plans);
    int best = -1, prev = -1; double bestScore = -1e9, prevScore = -1e9;
    string reasons[]; ArrayResize(reasons, n);
+   string gated = "";
    for(int i = 0; i < n; i++) {
       string pj = g_plans[i];
       string id = JStr(pj, "id"), side = JStr(pj, "side"), type = JStr(pj, "type");
@@ -564,10 +612,18 @@ void SelectBest(bool keep = false) {
       bool reached = Reached(sell, type, ref, entry);
       if(reached && dist > slip) continue;                                         // past entry now; may come back later
       bool aligned = (g_briefBias == "BEARISH" && sell) || (g_briefBias == "BULLISH" && !sell);
+      int kind = KindOf(type, sell, g_briefBias), kn; double conf = ConfOf(kind, kn);
+      if(kn >= g_confMinN && conf < g_minConf) {                                   // v1.14 confidence gate
+         gated += (gated == "" ? "" : "; ") + StringFormat("%s %s %.0f%% < %.0f%%", id, g_kindName[kind], conf * 100, g_minConf * 100);
+         continue;
+      }
       double rr = MathAbs(tp1 - entry) / risk;
       double score = rr + (aligned ? 1.0 : 0.0) + (id == "A" ? 0.25 : 0.0) - 0.5 * MathMin(1.0, dist / (3.0 * risk));
       if(reached) score += 100.0;                                                  // at its entry right now: take it
-      reasons[i] = StringFormat("RR %.2f%s%s, %.1f away", rr, aligned ? ", follows " + g_briefBias : "", id == "A" ? ", primary plan" : "", dist);
+      double tpUse = (g_autoTp == "TP2" && JNum(pj, "tp2") > 0) ? JNum(pj, "tp2") : tp1;
+      double need = 1.0 / (1.0 + MathAbs(tpUse - entry) / risk);                  // win rate needed to break even
+      reasons[i] = StringFormat("win est %.0f%% (%s %d trades%s), need %.0f%%; RR %.2f%s%s, %.1f away", conf * 100, g_kindName[kind], kn,
+                                kn < g_confMinN ? ", learning" : "", need * 100, rr, aligned ? ", follows " + g_briefBias : "", id == "A" ? ", primary plan" : "", dist);
       if(key == prevKey) { prev = i; prevScore = score; }
       if(score > bestScore) { bestScore = score; best = i; }
    }
@@ -578,12 +634,16 @@ void SelectBest(bool keep = false) {
       g_autoDetail = prevKey != "" ? "Plan " + prevId + " ran past entry or SL; no plan valid right now (rechecked every second)"
                                    : "No plan is valid right now (rechecked every second)";
       if(g_stopOnly) g_autoDetail += "; LIMIT plans skipped (stop-only)";
+      if(gated != "") g_autoDetail += "; below confidence: " + gated;
       return;
    }
    string pj = g_plans[best];
    g_selId = JStr(pj, "id"); g_selKey = PlanKeyOf(g_selId); g_selSide = JStr(pj, "side"); g_selType = JStr(pj, "type");
    g_selEntry = JNum(pj, "entry"); g_selSl = JNum(pj, "sl"); g_selTp1 = JNum(pj, "tp1"); g_selTp2 = JNum(pj, "tp2");
    g_selScore = bestScore; g_selReason = reasons[best];
+   g_selKind = KindOf(g_selType, g_selSide == "SELL", g_briefBias); g_selP = ConfOf(g_selKind, g_selKindN);
+   double selTp = (g_autoTp == "TP2" && g_selTp2 > 0) ? g_selTp2 : g_selTp1;
+   g_selNeed = 1.0 / (1.0 + MathAbs(selTp - g_selEntry) / MathMax(0.01, MathAbs(g_selEntry - g_selSl)));
    if(g_selKey != prevKey || g_autoState != "WAITING") {
       g_autoState = "WAITING";
       g_autoDetail = (prevKey != "" && prevKey != g_selKey ? "Switched from plan " + prevId + ". " : "") +
@@ -618,7 +678,7 @@ void CheckAuto() {
    if(tk.ask - tk.bid > InpAutoMaxSpread) { g_autoDetail = StringFormat("Entry reached, waiting: spread %.2f > %.2f", tk.ask - tk.bid, InpAutoMaxSpread); return; }
    if(AccountInfoInteger(ACCOUNT_TRADE_MODE) != ACCOUNT_TRADE_MODE_DEMO && !InpAllowLive) { g_autoState = "BLOCKED"; g_autoDetail = "Real account: EA is set to demo only"; g_openedGen = g_briefGen; return; }
    if(WeekendWindow(60)) { g_autoDetail = "Entry reached, skipped: less than 1 h before the weekend close"; return; }
-   if(CountAutoPositions() > 0) { g_autoDetail = "Entry reached, waiting: an earlier auto position is still open"; return; }
+   if(CountAutoPositions() >= g_maxPos) { g_autoDetail = StringFormat("Entry reached, waiting: %d auto position(s) open (max %d)", CountAutoPositions(), g_maxPos); return; }
    string tks;
    if(HasOurOrders(g_selKey, tks)) { g_autoState = "SKIPPED"; g_autoDetail = "You already placed plan " + g_selId + " from the app (#" + tks + ")"; g_openedGen = g_briefGen; return; }
 
@@ -635,13 +695,15 @@ void CheckAuto() {
       bool ok = sell ? trade.Sell(lots[i], InpSymbol, 0, s, t, cm) : trade.Buy(lots[i], InpSymbol, 0, s, t, cm);
       if(ok && (trade.ResultRetcode() == TRADE_RETCODE_DONE || trade.ResultRetcode() == TRADE_RETCODE_PLACED)) {
          tickets += (tickets == "" ? "" : ",") + (string)trade.ResultOrder(); total += lots[i];
+         string tid = (string)trade.ResultOrder();                              // market order ticket = position id
+         GlobalVariableSet("GBKIND" + tid, g_selKind); GlobalVariableSet("GBCONF" + tid, g_selP); GlobalVariableSet("GBNEED" + tid, g_selNeed);
       } else errs += (errs == "" ? "" : "; ") + trade.ResultRetcodeDescription();
    }
    g_openedGen = g_briefGen;
    g_autoTickets = tickets;
    if(tickets == "") { g_autoState = "ERROR"; g_autoDetail = "Broker: " + errs; return; }
    g_autoState = "OPENED";
-   g_autoDetail = StringFormat("%s %.2f @ ~%.2f (plan %s, entry %.2f) SL %.2f TP %s", g_selSide, total, ref, g_selId, g_selEntry, g_selSl,
+   g_autoDetail = StringFormat("%s %.2f @ ~%.2f (plan %s, entry %.2f, win est %.0f%% vs need %.0f%%) SL %.2f TP %s", g_selSide, total, ref, g_selId, g_selEntry, g_selP * 100, g_selNeed * 100, g_selSl,
                                ArraySize(tps) > 1 ? DoubleToString(tps[0], 2) + "/" + DoubleToString(tps[1], 2) : DoubleToString(tps[0], 2));
    if(errs != "") g_autoDetail += " (part failed: " + errs + ")";
    PrintFormat("GoldBrief AUTO: %s %s", g_autoDetail, tickets);
@@ -798,6 +860,7 @@ void WriteResults(Entry &list[]) {
       }
    }
    string trades = ""; int wins = 0, losses = 0, be = 0, cnt = 0; double net = 0;
+   ArrayInitialize(g_trkW, 0); ArrayInitialize(g_trkN, 0);
    for(int k = ArraySize(pids) - 1; k >= 0; k--) {                         // newest first
       if(outV[k] <= 0 || outV[k] + 1e-9 < inV[k]) continue;                 // still open
       double op = inPV[k] / inV[k], cp = outPV[k] / outV[k];
@@ -805,12 +868,20 @@ void WriteResults(Entry &list[]) {
       string res = pnl[k] > 0.05 ? "WIN" : pnl[k] < -0.05 ? "LOSS" : "BE";
       if(res == "WIN") wins++; else if(res == "LOSS") losses++; else be++;
       net += pnl[k]; cnt++;
+      string kindTxt = "", confTxt = "-1", needTxt = "-1";
+      if(GlobalVariableCheck("GBKIND" + (string)pids[k])) {
+         int kd = (int)GlobalVariableGet("GBKIND" + (string)pids[k]);
+         if(kd >= 0 && kd < 6) { kindTxt = g_kindName[kd]; g_trkN[kd]++; if(pnl[k] > 0) g_trkW[kd]++; }
+         confTxt = DoubleToString(GlobalVariableGet("GBCONF" + (string)pids[k]), 2);
+         needTxt = GlobalVariableCheck("GBNEED" + (string)pids[k]) ? DoubleToString(GlobalVariableGet("GBNEED" + (string)pids[k]), 2) : "-1";
+      }
       string key = keys[k], src = "APP";
       if(StringFind(key, AutoTag()) == 0) { src = "AUTO"; key = StringSubstr(key, StringLen(AutoTag())); }
       else if(StringFind(key, "GB ") == 0) key = StringSubstr(key, 3);
       trades += (trades == "" ? "" : ",") + "\n {\"pos\":\"" + (string)pids[k] + "\",\"key\":\"" + JEsc(key) + "\",\"src\":\"" + src +
                 "\",\"side\":\"" + sides[k] + "\",\"lot\":" + DoubleToString(inV[k], 2) + ",\"open\":" + DoubleToString(op, 2) +
                 ",\"close\":" + DoubleToString(cp, 2) + ",\"points\":" + DoubleToString(pts, 2) + ",\"pnl\":" + DoubleToString(pnl[k], 2) +
+                ",\"kind\":\"" + kindTxt + "\",\"conf\":" + confTxt + ",\"need\":" + needTxt +
                 ",\"mfe\":" + DoubleToString(ExcursionOf(pids[k], true), 2) + ",\"mae\":" + DoubleToString(ExcursionOf(pids[k], false), 2) +
                 ",\"reason\":\"" + ReasonText(rs[k], pids[k]) + "\",\"result\":\"" + res + "\",\"opened\":\"" + BkkIso(ot[k]) + "\",\"closed\":\"" + BkkIso(ct[k]) + "\"}";
    }
@@ -855,7 +926,7 @@ void WriteResults(Entry &list[]) {
                               "\"ok\":{\"trades\":%s,\"days\":%s,\"pf\":%s,\"dd\":%s,\"net\":%s},\"ready\":%s}",
                               g_evalFrom, days, ecnt, ewin, enet, epf, emdd, eddPct, g_gateTrades, g_gateDays, g_gatePf, g_gateDd,
                               okT ? "true" : "false", okD ? "true" : "false", okP ? "true" : "false", okDd ? "true" : "false", okN ? "true" : "false", ready ? "true" : "false");
-   string sig = trades + "|" + open + "|" + gate;
+   string sig = trades + "|" + open + "|" + gate + "|" + KindsJson();
    g_resultsDirty = false;
    if(sig == g_resultsSig && TimeGMT() - g_resultsAt < 15 * 60) return;
    string js = "{\"account\":\"" + AccountKind() + "\",\"currency\":\"" + AccountInfoString(ACCOUNT_CURRENCY) + "\",\"ea\":\"" + EA_VER +
@@ -863,7 +934,7 @@ void WriteResults(Entry &list[]) {
                ",\"wins\":" + IntegerToString(wins) + ",\"losses\":" + IntegerToString(losses) + ",\"breakeven\":" + IntegerToString(be) +
                ",\"net\":" + DoubleToString(net, 2) + ",\"floating\":" + DoubleToString(flt, 2) + ",\"balance\":" + DoubleToString(AccountInfoDouble(ACCOUNT_BALANCE), 2) +
                ",\"profit_factor\":" + DoubleToString(pf, 2) + ",\"max_dd\":" + DoubleToString(mdd, 2) +
-               ",\n\"cfg\":" + ConfigJson() + ",\n\"live_gate\":" + gate + ",\"live_allowed\":" + (InpAllowLive ? "true" : "false") +
+               ",\n\"cfg\":" + ConfigJson() + ",\n\"kinds\":" + KindsJson() + ",\n\"live_gate\":" + gate + ",\"live_allowed\":" + (InpAllowLive ? "true" : "false") +
                ",\n\"open_positions\":[" + open + "],\n\"trades\":[" + trades + "]}";
    if(PutFile(list, "results.json", js, StringFormat("results %d closed net %.2f", cnt, net))) { g_resultsSig = sig; g_resultsAt = TimeGMT(); }
    else g_resultsDirty = true;
