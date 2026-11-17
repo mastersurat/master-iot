@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-17 13:20 +07",
- "by": "setup",
- "stop_only": true,
+ "updated": "2026-11-17 13:45 +07",
+ "by": "user request",
+ "stop_only": false,
  "be_trigger": 15,
  "be_lock": 0.5,
  "max_hold_hours": 30,
@@ -12,5 +12,22 @@
  "gate_pf": 1.3,
  "gate_max_dd_pct": 15,
  "note": "Start values from the 8-trade test (limits 0/4, stops 2/3 closed). Tuned by the morning brief within EA bounds.",
- "changes": []
+ "changes": [
+  {
+   "at": "2026-11-17 13:45 +07",
+   "key": "risk",
+   "from": "stop_only true, 1 position",
+   "to": "min_conf 0.70 gate, stop_only false, max_positions 2",
+   "why": "User asked for more risk: enter when estimated win rate >= 70%. Seeds = 10 trades 10-28..11-17 by kind."
+  }
+ ],
+ "min_conf": 0.7,
+ "conf_min_trades": 3,
+ "max_positions": 2,
+ "seed_STOP_WITH": "4/4",
+ "seed_STOP_NEUTRAL": "1/2",
+ "seed_STOP_AGAINST": "0/0",
+ "seed_LIMIT_WITH": "0/4",
+ "seed_LIMIT_NEUTRAL": "0/0",
+ "seed_LIMIT_AGAINST": "0/0"
 }
