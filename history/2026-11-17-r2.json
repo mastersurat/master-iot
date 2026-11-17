@@ -1,0 +1,90 @@
+{
+ "v": 1,
+ "date": "2026-11-17",
+ "generated": "2026-11-18 00:14 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "London: day 3,842.80-3,887.60 (Kitco 07:44 ET); 3,845 after retail sales; r1 A skipped, r1 B fill not seen; r2 A SL/TP order unknown",
+ "rev_note": "Rest of NY to 03:00 BKK: A sell stop under Mon low 3,830.74, B sell limit at tested 3,858; ref 3 h old, rule 8 not fully met",
+ "price_ref": 3845.26,
+ "bias": "BEARISH",
+ "bias_note": "Core retail beat, hike odds 96.6%, DXY 19-mo high",
+ "headline": "Gold slips to ~3,845 after US retail sales; Nvidia 04:20 BKK, FOMC minutes Thu 02:00 BKK",
+ "summary": [
+  "Kitco day range 3,842.80-3,887.60 at 07:44 ET (19:44 BKK), times of high/low not given; bid then 3,858.20",
+  "Oct retail sales +0.2% (in line), ex-autos +0.6% vs 0.4%; gold 3,848.64 after data, ~3,845.26 early NY (Kitco)",
+  "Dec 25bp hike odds 96.6% (FedWatch); DXY 103.66 at 19-mo high; 10y ~5.12%; silver ~47.4",
+  "No timed print after ~21:00 BKK found: ref is ~3 h old, check live price; skip a plan if price is past its entry",
+  "r2 A sell 3,858 (Mon): SL 3,883 and TP1 3,848 both inside today range, order unknown; r1 B 3,874 limit may still rest"
+ ],
+ "events": [
+  "Wed 04:20 BKK  Nvidia Q3 results",
+  "Thu 02:00 BKK  FOMC minutes (Oct 27-28)"
+ ],
+ "levels": {
+  "r": [
+   3858.2,
+   3874.4,
+   3887.6
+  ],
+  "s": [
+   3842.8,
+   3830.7,
+   3805.0
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 3827,
+   "sl": 3851,
+   "tp1": 3809,
+   "tp2": 3784,
+   "note": "3.7 under Mon low 3,830.74, 18.3 off ref; SL 8.2>day low 3,842.8; TP1 4 before 3,805; RR 0.75/1.79; cancel unfilled 03:00"
+  },
+  {
+   "id": "B",
+   "side": "SELL",
+   "type": "LIMIT",
+   "entry": 3859,
+   "sl": 3883,
+   "tp1": 3846.5,
+   "tp2": 3836,
+   "note": "Fade retest of Asia low 3,856.5/bid 3,858.2, 13.7 off ref; SL 8.6>3,874.4; TP1 3.7 before 3,842.8; RR 0.52/0.96"
+  }
+ ],
+ "invalid": "Bear view void on 1h close above 3,888; cancel unfilled orders by Wed 03:00 BKK (Nvidia 04:20)",
+ "risk_note": "TP1 RR 0.75/0.52 < 1.2: next tested levels are close. Rule 8 not fully met: no fresh 1 h high/low found, ref ~3 h old; check live price first. A and B both short: one size total. Do not hold unfilled orders past 03:00 BKK. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 1 A stop 3.7 past Mon low, B limit 13.7 off at tested 3,858; 4 <=25; 5 TPs 3.7-4 inside; 6 SL 24; 11-16 RR>=0.5; rule 8 partial",
+ "review": {
+  "for_date": "2026-11-16",
+  "result": "OPEN",
+  "text": "r2 A sell stop 3,858 filled post-Warsh (late 3,854.50), TP1 3,848/SL 3,883 not hit; r2 B 3,881 not seen. r0 A TP1 hit; r0/r1 SL vs 3,902.30 high order unknown."
+ },
+ "sources": [
+  "Kitco 2026-11-17 08:30 ET (retail sales)",
+  "Kitco AM Report 2026-11-17 08:54 ET",
+  "Kitco spot prices 2026-11-17 07:44 ET",
+  "PRICE Futures Group 2026-11-17",
+  "Centrino Capital 2026-11-17 06:15 UTC",
+  "Mitrade 2026-11-17",
+  "Kitco PM Report 2026-11-16"
+ ],
+ "th": {
+  "headline": "ทองอ่อนลงราว 3,845 หลังยอดค้าปลีกสหรัฐ รอ Nvidia 04:20 น.",
+  "bias_note": "ค้าปลีกดีกว่าคาด Fed น่าขึ้นดอกเบี้ย",
+  "summary": [
+   "กรอบวัน Kitco 3,842.80-3,887.60 ณ 19:44 น. ไม่ระบุเวลาสูงต่ำ ราคาตอนนั้น 3,858.20",
+   "ค้าปลีก ต.ค. +0.2% ตามคาด ไม่รวมรถ +0.6% ดีกว่าคาด ทองลง 3,848.64 แล้ว 3,845.26",
+   "Fed ขึ้น 25bp ธ.ค. 96.6% ดอลลาร์ 103.66 สูงสุดรอบ 19 เดือน บอนด์ 10 ปี 5.12%",
+   "ไม่พบราคาที่มีเวลาหลัง 21:00 น. ราคาอ้างอิงเก่าราว 3 ชม. เช็กราคาจริงก่อนตั้ง",
+   "r2 A Sell 3,858 เมื่อวาน ราคาผ่านทั้ง SL 3,883 และ TP1 3,848 ไม่รู้ลำดับ เช็กในแอป"
+  ],
+  "invalid": "ปิด 1 ชม. เหนือ 3,888 ขาลงใช้ไม่ได้ ยกเลิกที่ค้างก่อนพุธ 03:00 น.",
+  "review_text": "r2 A Sell Stop 3,858 ถูกเปิดหลัง Warsh ยังไม่ถึง TP1 3,848 หรือ SL 3,883 ยังเปิดอยู่ B ไม่ถูกเปิด r0 A ถึง TP1 ส่วน SL ของ r0/r1 ไม่รู้ลำดับเวลา",
+  "session_note": "ลอนดอนกรอบ 3,842.80-3,887.60 หลังค้าปลีกลงราว 3,845 r1 A ไม่ได้ตั้ง B ไม่เห็นถูกเปิด",
+  "rev_note": "ถึง 03:00 น. A Sell Stop ใต้ต่ำสุดจันทร์ 3,830.74 B Sell Limit ที่ 3,858 ราคาอ้างอิงเก่า 3 ชม."
+ }
+}
