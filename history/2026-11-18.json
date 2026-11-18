@@ -1,92 +1,94 @@
 {
  "v": 1,
  "date": "2026-11-18",
- "generated": "2026-11-18 16:16 +07",
- "rev": 1,
- "session": "ASIA_CLOSE",
- "session_note": "Asia broke 3,800: 3,820.65 07:36, 3,796.37 09:42, 3,778.96 13:30; A filled, TP1 hit, rest open; B not triggered",
- "rev_note": "Short the 3,779 low break or a 3,800 retest; ref 3,794.30 live; cancel unfilled 00:00 before FOMC minutes 02:00",
- "price_ref": 3794.3,
+ "generated": "2026-11-19 00:14 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "London/NY low 3,742.20 (-2.8%), 3,777 at 21:06; r1 A filled, TP1 3,754 hit, rest open; B not seen; FOMC mins 02:00",
+ "rev_note": "No live entry: FOMC minutes 02:00 (rule 8), -2.8% day and 3 h old ref (rules 3/7); 06:41 brief posts new A/B",
+ "price_ref": 3777.0,
  "bias": "BEARISH",
- "bias_note": "Hike odds 92-96%, DXY ~103.6, 10y ~5.1%",
- "headline": "Gold breaks 3,800 to 14-month low in Asia (3,778.96); FOMC minutes Thu 02:00 BKK",
+ "bias_note": "Hike odds 95.7-96.7%, DXY 103.88, 10y 5.07%",
+ "headline": "Gold hits 3,742.20 (-2.8%) 14-month low; no new entries into FOMC minutes 02:00 BKK",
  "summary": [
-  "Asia: 3,820.65 at 07:36 BKK, 3,796.37 at 09:42, 3,792 at 12:20, 3,778.96 at 13:30 (lowest seen)",
-  "Mitrade live ticker 3,794.30 (-1.43%) at ~16:10 BKK, untimed: small bounce off the low; RSI ~26 oversold",
-  "Dec 25bp hike odds 92-96%; Musalem: several hikes may be needed; DXY ~103.6, 10y ~5.09-5.10%",
-  "FXEmpire: support 3,781 then 3,766, resistance/pivot 3,802 then 3,821; Mitrade zone 3,750-3,770",
-  "Old r0 A sell stop 3,828 filled, TP1 3,804 hit, rest open (SL 3,848, TP2 3,751); r0 B lmt 3,864 still resting"
+  "London/NY: spot 3,777.00 ~21:06 BKK (-1.86%, Kitco), low 3,742.20 by 21:19 BKK; Dec futures 3,746 at 23:27 BKK",
+  "Housing starts 1.309M vs 1.25M exp, permits 1.295M vs 1.38M; DXY 103.88, 10y 5.07%; Dec hike odds 95.7-96.7%",
+  "r1 A sell stop 3,775 filled, TP1 3,754 hit; rest open (SL 3,807, TP2 3,739 missed by 3.2 at the low seen)",
+  "r1 B sell lmt 3,800 not seen; old r0 A rest hit TP2 3,751; old r0 B lmt 3,864 not reached, may still rest",
+  "No live entry now: FOMC minutes 02:00 BKK (rule 8), day -2.8% and ref 3 h old (rules 3/7); 06:41 brief posts A/B"
  ],
  "events": [
-  "Wed 20:30 BKK  US housing starts/permits",
-  "Thu 00:00 BKK  Cancel unfilled A/B",
-  "Thu 02:00 BKK  FOMC minutes (Oct)",
+  "Thu 02:00 BKK  FOMC minutes (Oct 27-28)",
+  "Thu 02:30 BKK  End of no-entry window (rule 8)",
+  "Thu 05:00 BKK  NY daily close",
+  "Thu 06:41 BKK  Morning brief posts new A/B",
   "Thu 20:30 BKK  US jobless claims, Philly Fed"
  ],
  "levels": {
   "r": [
+   3781.0,
    3802.0,
-   3821.0,
-   3836.0
+   3821.0
   ],
   "s": [
-   3781.0,
    3766.0,
-   3750.0
+   3742.2,
+   3731.0
   ]
  },
  "plans": [
   {
    "id": "A",
    "side": "SELL",
-   "type": "STOP",
-   "entry": 3775,
-   "sl": 3807,
-   "tp1": 3754,
-   "tp2": 3739,
-   "note": "4 under Asia low 3,778.96, 19.3 off; SL 5>3,802; TP1 4 in 3,750; RR 0.66/1.13, <1.2 as 3,750 is close"
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "No entry (rules 7/8: FOMC minutes 02:00, no 1 h high/low, ref 3 h old). Watch sell retest of broken 3,781-3,802 after 02:30"
   },
   {
    "id": "B",
-   "side": "SELL",
-   "type": "LIMIT",
-   "entry": 3800,
-   "sl": 3826,
-   "tp1": 3783,
-   "tp2": 3770,
-   "note": "Retest broken 3,800/3,802, 5.7 off; SL 5>3,821; TP1 4 in 3,778.96; RR 0.65/1.15, <1.2 as low is close"
+   "side": "BUY",
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "No entry (rules 3/7/8). Watch counter long only on a reclaim of 3,802 after the minutes; day low 3,742.20 is the line"
   }
  ],
- "invalid": "Bear view void on 1h close above 3,836 (broken Tue low); cancel unfilled by Thu 00:00 BKK",
- "risk_note": "A and B are both short: one size total, and old r0 A short may still be open. Cancel unfilled by Thu 00:00 BKK (FOMC minutes 02:00). Old r0 B lmt 3,864 still rests - check the app. Scenario analysis from public sources. Not financial advice.",
- "lesson_applied": "Rules 1,4,5,6,8; TP1 RR >= 0.5 (11-16); day -1.5 to -1.9%, under 2.5% so rules 3/7 not applied",
+ "invalid": "Bear view void on 1h close above 3,821; no entry live before 02:30 BKK (FOMC minutes 02:00)",
+ "risk_note": "No live entry this update (rules 3/7/8). r1 A short may still be open (SL 3,807, TP2 3,739) and old r0 B lmt 3,864 may still rest - check the app. Minutes can swing price 30+. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rules 3,7,8: day -2.8% to the low, ref 3 h old, FOMC minutes 02:00 -> no entry posted; rule 5: r1 TP2 3,739 sat 3.2 past low 3,742.20",
  "review": {
   "for_date": "2026-11-17",
   "result": "NOT_TRIGGERED",
   "text": "Final r2: A 3,827 not hit (low 3,836.00), B 3,859 fill unconfirmed. EA: r0 B buy 2x SL, r1 A sell SL 3,881 after retail whipsaw (-84.35). r1 B lmt 3,874 hit TP1 3,860."
  },
  "sources": [
-  "FXEmpire 2026-11-18 06:30 GMT",
-  "Yeni Safak 2026-11-18 05:20 GMT",
-  "5paisa/Reuters 2026-11-18 00:36 GMT",
-  "Mitrade 2026-11-18 (ticker ~09:10 GMT)",
-  "TechFlow/Bitget 2026-11-18 02:08 UTC",
-  "Goodreturns 2026-11-18 IST",
-  "Trader Factor 2026-11-18 05:12 UTC"
+  "Kitco AM report 2026-11-18 14:06 GMT",
+  "CryptoTicker/Yahoo 2026-11-18 16:55 GMT",
+  "USAGOLD 2026-11-18 13:46 GMT",
+  "Coinpaper 2026-11-18 13:35 GMT",
+  "SANA/Reuters 2026-11-18 08:37 GMT",
+  "Trading and Investment News 2026-11-18 11:54 GMT",
+  "Business Recorder/Reuters 2026-11-18 03:20 GMT",
+  "ATFX 2026-11-18 02:00 GMT"
  ],
  "th": {
-  "headline": "ทองหลุด 3,800 ต่ำสุดรอบ 14 เดือน 3,778.96 รอ FOMC พฤหัส 02:00 น.",
-  "bias_note": "Fed น่าขึ้นดอกเบี้ย 92-96% ดอลลาร์แข็ง",
+  "headline": "ทองลงถึง 3,742.20 ลบ 2.8% ไม่ตั้งออเดอร์ใหม่ก่อน FOMC 02:00 น.",
+  "bias_note": "Fed น่าขึ้นดอกเบี้ย 96% ดอลลาร์ 103.88",
   "summary": [
-   "เอเชีย 07:36 น. 3,820.65 09:42 น. 3,796.37 13:30 น. 3,778.96 ต่ำสุดที่เห็น",
-   "ราคาสด Mitrade 3,794.30 ราว 16:10 น. ไม่ระบุเวลา เด้งเล็กน้อย RSI ราว 26",
-   "Fed ขึ้น 25bp ธ.ค. 92-96% Musalem ว่าอาจขึ้นหลายครั้ง ดอลลาร์ 103.6",
-   "FXEmpire แนวรับ 3,781 3,766 แนวต้าน 3,802 3,821 Mitrade โซน 3,750-3,770",
-   "r0 A Sell Stop 3,828 ถูกเปิด ถึง TP1 3,804 ส่วนที่เหลือยังเปิด r0 B 3,864 ยังค้าง"
+   "ลอนดอน/นิวยอร์ก 21:06 น. 3,777.00 ต่ำสุด 3,742.20 ฟิวเจอร์ส 23:27 น. 3,746",
+   "บ้านเริ่มสร้าง 1.309 ล้าน ดีกว่าคาด ใบอนุญาต 1.295 ล้าน แย่กว่าคาด บอนด์ 10 ปี 5.07%",
+   "r1 A Sell Stop 3,775 ถูกเปิด ถึง TP1 3,754 ส่วนที่เหลือยังเปิด SL 3,807 TP2 3,739",
+   "r1 B 3,800 ไม่เห็นว่าถูกเปิด r0 A ส่วนที่เหลือถึง TP2 3,751 r0 B 3,864 อาจยังค้าง",
+   "รอบนี้ไม่มีจุดเข้า FOMC 02:00 น. วันลงแรง 2.8% แผนใหม่มากับแผนเช้า 06:41 น."
   ],
-  "invalid": "ปิด 1 ชม. เหนือ 3,836 ขาลงใช้ไม่ได้ ยกเลิกที่ค้างก่อนพฤหัส 00:00 น.",
+  "invalid": "ปิด 1 ชม. เหนือ 3,821 ขาลงใช้ไม่ได้ ไม่มีออเดอร์ก่อน 02:30 น.",
   "review_text": "แผนสุดท้าย r2 A 3,827 ไม่ถูกเปิด B 3,859 ยืนยันไม่ได้ EA ขาดทุน 3 ไม้ -84.35 จากค้าปลีกเหวี่ยง r1 B Limit 3,874 ถึง TP1 3,860",
-  "session_note": "เอเชียหลุด 3,800 ลงถึง 3,778.96 แผน A Sell Stop 3,828 ถูกเปิด ถึง TP1 3,804 ส่วนที่เหลือยังเปิด B ไม่ถูกเปิด",
-  "rev_note": "Sell Stop ใต้ต่ำสุดเอเชีย หรือ Sell Limit ที่ 3,800 ที่หลุดแล้ว ยกเลิกที่ค้าง 00:00 น. ก่อน FOMC"
+  "session_note": "ลอนดอน/นิวยอร์กลงถึง 3,742.20 r1 A ถูกเปิด ถึง TP1 3,754 ส่วนที่เหลือยังเปิด B ไม่ถูกเปิด",
+  "rev_note": "ไม่มีจุดเข้า เพราะ FOMC 02:00 น. วันลงแรงเกิน 2.5% ราคาอ้างอิงเก่า 3 ชม. รอแผนเช้า"
  }
 }

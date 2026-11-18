@@ -1,0 +1,94 @@
+{
+ "v": 1,
+ "date": "2026-11-18",
+ "generated": "2026-11-19 00:14 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "London/NY low 3,742.20 (-2.8%), 3,777 at 21:06; r1 A filled, TP1 3,754 hit, rest open; B not seen; FOMC mins 02:00",
+ "rev_note": "No live entry: FOMC minutes 02:00 (rule 8), -2.8% day and 3 h old ref (rules 3/7); 06:41 brief posts new A/B",
+ "price_ref": 3777.0,
+ "bias": "BEARISH",
+ "bias_note": "Hike odds 95.7-96.7%, DXY 103.88, 10y 5.07%",
+ "headline": "Gold hits 3,742.20 (-2.8%) 14-month low; no new entries into FOMC minutes 02:00 BKK",
+ "summary": [
+  "London/NY: spot 3,777.00 ~21:06 BKK (-1.86%, Kitco), low 3,742.20 by 21:19 BKK; Dec futures 3,746 at 23:27 BKK",
+  "Housing starts 1.309M vs 1.25M exp, permits 1.295M vs 1.38M; DXY 103.88, 10y 5.07%; Dec hike odds 95.7-96.7%",
+  "r1 A sell stop 3,775 filled, TP1 3,754 hit; rest open (SL 3,807, TP2 3,739 missed by 3.2 at the low seen)",
+  "r1 B sell lmt 3,800 not seen; old r0 A rest hit TP2 3,751; old r0 B lmt 3,864 not reached, may still rest",
+  "No live entry now: FOMC minutes 02:00 BKK (rule 8), day -2.8% and ref 3 h old (rules 3/7); 06:41 brief posts A/B"
+ ],
+ "events": [
+  "Thu 02:00 BKK  FOMC minutes (Oct 27-28)",
+  "Thu 02:30 BKK  End of no-entry window (rule 8)",
+  "Thu 05:00 BKK  NY daily close",
+  "Thu 06:41 BKK  Morning brief posts new A/B",
+  "Thu 20:30 BKK  US jobless claims, Philly Fed"
+ ],
+ "levels": {
+  "r": [
+   3781.0,
+   3802.0,
+   3821.0
+  ],
+  "s": [
+   3766.0,
+   3742.2,
+   3731.0
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "No entry (rules 7/8: FOMC minutes 02:00, no 1 h high/low, ref 3 h old). Watch sell retest of broken 3,781-3,802 after 02:30"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "No entry (rules 3/7/8). Watch counter long only on a reclaim of 3,802 after the minutes; day low 3,742.20 is the line"
+  }
+ ],
+ "invalid": "Bear view void on 1h close above 3,821; no entry live before 02:30 BKK (FOMC minutes 02:00)",
+ "risk_note": "No live entry this update (rules 3/7/8). r1 A short may still be open (SL 3,807, TP2 3,739) and old r0 B lmt 3,864 may still rest - check the app. Minutes can swing price 30+. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rules 3,7,8: day -2.8% to the low, ref 3 h old, FOMC minutes 02:00 -> no entry posted; rule 5: r1 TP2 3,739 sat 3.2 past low 3,742.20",
+ "review": {
+  "for_date": "2026-11-17",
+  "result": "NOT_TRIGGERED",
+  "text": "Final r2: A 3,827 not hit (low 3,836.00), B 3,859 fill unconfirmed. EA: r0 B buy 2x SL, r1 A sell SL 3,881 after retail whipsaw (-84.35). r1 B lmt 3,874 hit TP1 3,860."
+ },
+ "sources": [
+  "Kitco AM report 2026-11-18 14:06 GMT",
+  "CryptoTicker/Yahoo 2026-11-18 16:55 GMT",
+  "USAGOLD 2026-11-18 13:46 GMT",
+  "Coinpaper 2026-11-18 13:35 GMT",
+  "SANA/Reuters 2026-11-18 08:37 GMT",
+  "Trading and Investment News 2026-11-18 11:54 GMT",
+  "Business Recorder/Reuters 2026-11-18 03:20 GMT",
+  "ATFX 2026-11-18 02:00 GMT"
+ ],
+ "th": {
+  "headline": "ทองลงถึง 3,742.20 ลบ 2.8% ไม่ตั้งออเดอร์ใหม่ก่อน FOMC 02:00 น.",
+  "bias_note": "Fed น่าขึ้นดอกเบี้ย 96% ดอลลาร์ 103.88",
+  "summary": [
+   "ลอนดอน/นิวยอร์ก 21:06 น. 3,777.00 ต่ำสุด 3,742.20 ฟิวเจอร์ส 23:27 น. 3,746",
+   "บ้านเริ่มสร้าง 1.309 ล้าน ดีกว่าคาด ใบอนุญาต 1.295 ล้าน แย่กว่าคาด บอนด์ 10 ปี 5.07%",
+   "r1 A Sell Stop 3,775 ถูกเปิด ถึง TP1 3,754 ส่วนที่เหลือยังเปิด SL 3,807 TP2 3,739",
+   "r1 B 3,800 ไม่เห็นว่าถูกเปิด r0 A ส่วนที่เหลือถึง TP2 3,751 r0 B 3,864 อาจยังค้าง",
+   "รอบนี้ไม่มีจุดเข้า FOMC 02:00 น. วันลงแรง 2.8% แผนใหม่มากับแผนเช้า 06:41 น."
+  ],
+  "invalid": "ปิด 1 ชม. เหนือ 3,821 ขาลงใช้ไม่ได้ ไม่มีออเดอร์ก่อน 02:30 น.",
+  "review_text": "แผนสุดท้าย r2 A 3,827 ไม่ถูกเปิด B 3,859 ยืนยันไม่ได้ EA ขาดทุน 3 ไม้ -84.35 จากค้าปลีกเหวี่ยง r1 B Limit 3,874 ถึง TP1 3,860",
+  "session_note": "ลอนดอน/นิวยอร์กลงถึง 3,742.20 r1 A ถูกเปิด ถึง TP1 3,754 ส่วนที่เหลือยังเปิด B ไม่ถูกเปิด",
+  "rev_note": "ไม่มีจุดเข้า เพราะ FOMC 02:00 น. วันลงแรงเกิน 2.5% ราคาอ้างอิงเก่า 3 ชม. รอแผนเช้า"
+ }
+}
