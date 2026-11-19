@@ -1,39 +1,38 @@
 {
  "v": 1,
  "date": "2026-11-19",
- "generated": "2026-11-19 16:10 +07",
- "rev": 1,
- "session": "ASIA_CLOSE",
- "session_note": "Asia low 3,693.13 (Reuters), bounce to 3,754.85 05:48 GMT, 3,733.93 07:36 UTC; r0 A/B had no entry (NONE)",
- "rev_note": "Sell stop fails RR (TP1 0.4) so A none; B sells a 3,748 retest of broken 3,750/3,755; SL 1/3 of Wed range",
- "price_ref": 3733.93,
+ "generated": "2026-11-20 00:25 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "London/NY day 3,682.20-3,759.10, 3,691.50 at 22:43 BKK; claims 203k, Philly 6.3; A none; B fill untimed, if filled TP2 hit",
+ "rev_note": "No entry: post-claims revision on a 1.5 h old ref with no 1 h high/low (rule 7b); 3,693 broken, watch 3,707 retest",
+ "price_ref": 3691.5,
  "bias": "BEARISH",
- "bias_note": "Dec hike ~90%, DXY ~103.8; RSI oversold",
- "headline": "Gold bounces off 3,693.13 after Fed-minutes rout; sell rallies into 3,750-3,755",
+ "bias_note": "New low 3,682.20; Dec hike ~90-92%, DXY ~103.8",
+ "headline": "Gold breaks 3,693 to 3,682.20 after claims; no entry into thin late NY",
  "summary": [
-  "Asia low 3,693.13 (Reuters), 3,754.85 at 05:48 GMT (+0.8%), 3,733.93 at 07:36 UTC (FXEmpire ticker)",
-  "Minutes: almost all see more hikes; Waller backs 50bp in Dec; FedWatch 90% 25bp / 10% 50bp; DXY ~103.8",
-  "R 3,750 (Kitco) / 3,755 pivot / 3,780; S 3,719.10 / 3,707 / 3,693.13 / 3,678 (FXEmpire)",
-  "Oversold: 4h RSI 26 (LiteFinance), daily RSI ~31; hammer near 3,729.82, so bounces of 20-40 possible",
-  "No EA position from earlier plans (r0 was NONE); claims/Philly Fed 20:30 BKK can spike both ways"
+  "Day 3,682.20-3,759.10 (Kitco), 3,691.50 bid 10:43 ET = 22:43 BKK (-0.88%); 3,725.57 at 11:41 GMT",
+  "Claims 203k vs 197k, continuing 1.763m; Philly Fed 6.3 from 20.9; dollar near 19-month high, 10y ~5.1%",
+  "Barr would likely back tighter policy; Waller sees 50bp possible; FedWatch Dec 25bp 90-92%",
+  "B sell lmt 3,748: high 3,759.10 is untimed; if it filled, TP1 3,723 and TP2 3,697 hit, SL 3,785 not reached",
+  "R 3,707 / 3,725 / 3,755; S 3,682.20 / 3,678 / 3,650; no entry now, ref 1.5 h old (rule 7b)"
  ],
  "events": [
-  "Thu 20:30 BKK  US jobless claims, Philly Fed",
-  "Thu 21:25 BKK  Fed VC Jefferson speaks",
-  "Fri 00:05 BKK  London close update",
   "Fri 02:15 BKK  Fed Gov Barr speaks",
-  "Fri 05:00 BKK  NY close, next brief"
+  "Fri 05:00 BKK  NY close",
+  "Fri 06:41 BKK  morning brief",
+  "Fri 22:00 BKK  UMich sentiment (final)"
  ],
  "levels": {
   "r": [
-   3750.0,
-   3755.0,
-   3780.0
+   3707.0,
+   3725.57,
+   3755.0
   ],
   "s": [
-   3719.1,
-   3707.0,
-   3693.13
+   3682.2,
+   3678.0,
+   3650.0
   ]
  },
  "plans": [
@@ -45,48 +44,49 @@
    "sl": 0,
    "tp1": 0,
    "tp2": 0,
-   "note": "Stop 3,715 under 3,719.10: TP1 3,697 RR 0.4 vs SL 45 (rule 6) - under 0.5, skipped (11-16)"
+   "note": "Rule 7b: post-claims, ref 3,691.50 is 1.5 h old, no 1 h low; watch sell stop under 3,682.20 in the morning brief"
   },
   {
    "id": "B",
    "side": "SELL",
-   "type": "LIMIT",
-   "entry": 3748,
-   "sl": 3785,
-   "tp1": 3723,
-   "tp2": 3697,
-   "note": "Retest of 3,750/3,755 (high 3,754.85), 14.1 off; SL 5>3,780; TP1 4 in 3,719.10; RR 0.68/1.38"
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "Rule 7b; retest limit near broken 3,707 is 15.5 off ref (max 10); TP1 before 3,682.20 would give RR < 0.5"
   }
  ],
- "invalid": "Bear view void on 1h close above 3,780 (Kitco R2); skip B if price is already above 3,748",
- "risk_note": "Only B is live. Ref 3,733.93 is ~2 h old; skip B if price is already above 3,748. Claims 20:30 BKK may fill B on a spike - SL sized 37. Old orders may still rest - check the app. Scenario analysis from public sources. Not financial advice.",
- "lesson_applied": "Rules 1,4,5,6 (SL >= 1/3 Wed range ~102) and 11-16 RR>=0.5; Thu +0.3% so rules 3/7a covered Asia only",
+ "invalid": "Bear view void on 1h close above 3,759.10 (day high); 3,707 reclaim weakens it",
+ "risk_note": "No new entries. If r1 B 3,748 filled it should be closed at TP2 3,697; check the app. Old orders may still rest - check the app. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 7b (post-release revision, stale ref -> no entry), rule 8 (Barr 02:15), rule 6/16 RR check on B",
  "review": {
   "for_date": "2026-11-18",
   "result": "NOT_TRIGGERED",
   "text": "Final r2 posted no entry. r0 A sell stop 3,828 hit TP1 3,804 and TP2 3,751; r1 A 3,775 hit TP1/TP2 (low 3,719.10); B limits not seen. EA took none: conf 67%<70%."
  },
  "sources": [
-  "FXEmpire 2026-11-19 07:30 GMT",
-  "Investing.com 2026-11-19 05:58",
-  "ANC 2026-11-19 07:46 UTC",
-  "Traderfactor 2026-11-19 05:49 UTC",
-  "LiteFinance 2026-11-19 09:45",
-  "Mitrade 2026-11-19"
+  "Kitco quote 2026-11-19 10:43 EST",
+  "Kitco 2026-11-19 08:30 ET",
+  "Kitco AM 2026-11-19 09:04 ET",
+  "Reuters via Kitco 2026-11-19 14:02 GMT",
+  "1Trader 2026-11-19 14:46 GMT",
+  "FinanceFeeds 2026-11-19 13:20 GMT",
+  "Trading Economics 2026-11-19"
  ],
  "th": {
-  "headline": "ทองเด้งจาก 3,693.13 หลังรายงาน FOMC รอขายตอนเด้งถึง 3,750",
-  "bias_note": "Fed น่าขึ้นดอกเบี้ย 90% แต่ RSI ต่ำ",
+  "headline": "ทองหลุด 3,693 ลงถึง 3,682.20 หลังข่าวว่างงาน รอบนี้ไม่ตั้งจุดเข้า",
+  "bias_note": "ขาลง ต่ำสุดใหม่ 3,682.20",
   "summary": [
-   "เอเชียต่ำสุด 3,693.13 เด้งถึง 3,754.85 (12:48 น.) ล่าสุด 3,733.93 (14:36 น.)",
-   "FOMC เกือบทุกคนเห็นควรขึ้นดอกเบี้ยต่อ Waller หนุน 50bp โอกาสขึ้น ธ.ค. 90%",
-   "แนวต้าน 3,750 3,755 3,780 แนวรับ 3,719.10 3,707 3,693.13 3,678",
-   "RSI 4 ชม. 26 ขายมากเกิน มีแท่ง hammer แถว 3,730 อาจเด้ง 20-40 ได้",
-   "แผนเช้าไม่มีจุดเข้า EA ไม่มีไม้ค้าง ระวังข่าว 20:30 น. ราคาอาจกระชาก"
+   "กรอบวัน 3,682.20-3,759.10 ล่าสุด 3,691.50 ตอน 22:43 น. ลง 0.88%",
+   "ว่างงาน 203k สูงกว่าคาด 197k Philly Fed 6.3 จาก 20.9 ดอลลาร์ใกล้สูงสุด 19 เดือน",
+   "Barr หนุนนโยบายเข้มขึ้น Waller ว่า 50bp ได้ โอกาสขึ้น ธ.ค. 90-92%",
+   "B Limit 3,748 ไม่รู้เวลาสูงสุด 3,759.10 ถ้าเปิดไปแล้ว ถึง TP1 และ TP2 3,697 แล้ว",
+   "แนวต้าน 3,707 3,725 3,755 แนวรับ 3,682.20 3,678 3,650 ราคาอ้างอิงเก่า 1.5 ชม."
   ],
-  "invalid": "ปิด 1 ชม. เหนือ 3,780 ขาลงใช้ไม่ได้ ถ้าราคาเกิน 3,748 แล้ว ข้าม B",
+  "invalid": "ปิด 1 ชม. เหนือ 3,759.10 ขาลงใช้ไม่ได้ ยืนเหนือ 3,707 ได้ ขาลงอ่อนลง",
   "review_text": "แผนสุดท้าย r2 ไม่มีจุดเข้า r0 A Sell Stop 3,828 ถึง TP1 และ TP2 3,751 r1 A 3,775 ถึง TP1/TP2 ต่ำสุด 3,719.10 Limit B ไม่ถึง EA ไม่เปิด ความมั่นใจ 67% < 70%",
-  "session_note": "เอเชียลงต่ำสุด 3,693.13 แล้วเด้งถึง 3,754.85 ล่าสุด 3,733.93 แผนเช้าไม่มีจุดเข้า จึงไม่มีไม้",
-  "rev_note": "A ไม่มีจุดเข้า เพราะ Sell Stop ได้ R:R แค่ 0.4 B ขาย Limit 3,748 ตอนเด้งทดสอบ 3,750"
+  "session_note": "ลอนดอน/นิวยอร์ก ลงหลุด 3,693 ถึง 3,682.20 ล่าสุด 3,691.50 A ไม่มีจุดเข้า B ถ้าเปิดแล้วถึง TP2",
+  "rev_note": "รอบนี้ไม่ตั้งจุดเข้า เพราะเป็นรอบหลังข่าวสำคัญ และราคาอ้างอิงเก่า 1.5 ชม. (กฎ 7b)"
  }
 }
