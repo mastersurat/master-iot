@@ -1,5 +1,46 @@
 # XAUUSD Gold Brief — พฤหัส 19 พ.ย. 2026 (06:50 น.)
 
+## อัปเดตปิดตลาดเอเชีย (16:10 น.)
+
+**สรุปช่วงตลาดที่เพิ่งปิด:** ทองลงต่อช่วงเช้าเอเชีย ต่ำสุด 3,693.13 (Reuters) ต่ำกว่าต่ำสุดพุธ 3,719.10 · มีแรงซื้อของถูก เด้งถึง 3,754.85 ตอน 12:48 น. (+0.8%, Investing.com) · 14:36 น. 3,733.93 (FXEmpire) · ไม่มีแหล่งไหนรายงานจุดสูงสุดเอเชียแบบเต็ม · ข่าว: รายงาน FOMC เกือบทุกคนเห็นควรขึ้นดอกเบี้ยต่อ Waller หนุนขึ้น 50bp ใน ธ.ค. · CME FedWatch ขึ้น 25bp 90% / 50bp 10% · ดอลลาร์ราว 103.8 · RSI 4 ชม. 26 ขายมากเกิน (LiteFinance) มีแท่ง hammer/morning star แถว 3,729.82
+
+**ผลของแผนก่อนหน้า (r0 06:50 น.):** A และ B ไม่มีจุดเข้า (Type NONE ตามกฎ 3/7) จึงไม่มีออเดอร์และไม่มีไม้ค้างจากแผนเช้า
+
+**ราคาอ้างอิง 3,733.93 (FXEmpire 14:36 น.) · มุมมอง: ขาลง (Bearish)** — Fed น่าขึ้นดอกเบี้ย ธ.ค. 90% แต่ขายมากเกินแล้ว เด้ง 20–40 ได้ · วันนี้ +0.3% จาก 3,722.60 กฎ 3/7 (หลังวันวิ่งเกิน 2.5%) ใช้กับช่วงเอเชียที่ผ่านไปแล้ว
+
+### แผนใหม่ ช่วงลอนดอน + นิวยอร์ก (ถึงศุกร์ 05:00 น.)
+| Plan | Side | Type | Entry | SL | TP1 | TP2 | เงื่อนไข |
+|---|---|---|---|---|---|---|---|
+| A | SELL | ไม่มีจุดเข้า | – | – | – | – | Sell Stop 3,715 ใต้ 3,719.10 ต้องใช้ SL 45 (1/3 ของกรอบพุธ ≥ 101.6 ตามกฎ 6) แต่ TP1 ก่อนต่ำสุด 3,693.13 ได้แค่ 18 R:R 0.4 ต่ำกว่า 0.5 จึงข้าม (บทเรียน 16 พ.ย.) |
+| B | SELL | Limit | 3,748 | 3,785 | 3,723 | 3,697 | ขายตอนเด้งทดสอบ 3,750/3,755 ที่หลุดแล้ว (สูงสุดเอเชียที่เห็น 3,754.85) ห่าง 14.1 · SL เหนือ 3,780 อยู่ 5 · TP1 ก่อน 3,719.10 · TP2 ก่อน 3,693.13 · R:R 0.68 / 1.38 (TP1 ต่ำกว่า 1.2 เพราะแนวรับ 3,719 อยู่ใกล้) |
+
+**จุดที่แผนใช้ไม่ได้:** ปิด 1 ชม. เหนือ 3,780 (แนวต้าน 2 ของ Kitco) มุมมองขาลงใช้ไม่ได้ · ถ้าตอนตั้งออเดอร์ราคาอยู่เหนือ 3,748 แล้ว ให้ข้าม B
+
+**ความเสี่ยง:** ราคาอ้างอิงเก่าราว 2 ชม. · ข่าวผู้ขอรับสวัสดิการว่างงาน/Philly Fed 20:30 น. อาจกระชากจนเปิด B ได้ SL 37 ตั้งไว้กว้างพอรับแรงเหวี่ยงปกติ แต่ไม่รับประกัน · ถ้าไม่อยากถือผ่านข่าว ยกเลิก B ในแอปก่อน 18:30 น.
+
+### ข่าวที่รออยู่ (เวลาไทย)
+| เวลา | เหตุการณ์ |
+|---|---|
+| พฤหัส 19 พ.ย. 20:30 | ผู้ขอรับสวัสดิการว่างงานสหรัฐ · Philly Fed |
+| พฤหัส 19 พ.ย. 21:25 | รองประธาน Fed Jefferson พูด |
+| ศุกร์ 20 พ.ย. 00:05 | อัปเดตปิดลอนดอน |
+| ศุกร์ 20 พ.ย. 02:15 | ผู้ว่าการ Fed Barr พูด |
+| ศุกร์ 20 พ.ย. 05:00 | ปิดตลาดนิวยอร์ก แผนเช้าถัดไป |
+
+ออเดอร์ที่ตั้งตามแผนก่อนหน้ายังอยู่ ตรวจสอบและยกเลิกเองได้ในแอป Gold Brief (ระบบไม่ยกเลิกให้อัตโนมัติ)
+
+**แหล่งข้อมูลรอบนี้:**
+- [FXEmpire: Gold stuck near 14-month low as Fed hike bets build, can $3,707 hold?](https://www.fxempire.com/forecasts/article/gold-xauusd-silver-price-forecast-gold-stuck-near-14-month-low-as-fed-hike-bets-build-can-3707-hold-1645641)
+- [Investing.com: Gold rebounds from 14-month low as bargain hunters emerge despite Fed hike risks](https://uk.investing.com/news/commodities-news/gold-rebounds-from-14month-low-as-bargain-hunters-emerge-despite-fed-hike-risks-4992017)
+- [ANC: Gold price today near 14-month low after Fed minutes](https://ancstockinvestments.com/blog/2026/11/19/gold-price-today-14-month-low-fed-minutes/)
+- [Trader Factor: Hawkish FOMC minutes lift dollar as gold plunges 3.2%](https://traderfactor.com/hawkish-fomc-minutes-lift-dollar-as-gold-plunges/)
+- [LiteFinance: Gold price forecast daily and weekly](https://www.litefinance.org/blog/analysts-opinions/gold-price-prediction-forecast/daily-and-weekly/)
+- [Mitrade: Gold breaks 14-month low on hawkish Fed minutes](https://www.mitrade.com/insights/commodity-analysis/gold/gold-breaks-14-low-hawkish-fed-minutes)
+
+---
+
+## แผนเช้า (r0 06:50 น.)
+
 **อัปเดตปิดตลาดนิวยอร์ก:** พุธทองลงแรงทั้งวัน จาก 3,848.50 ลงถึง 3,722.60 (-3.27%, Kitco 05:02 น.) ต่ำสุด 3,719.10 ต่ำสุดตั้งแต่ ก.ย. 2025 · ปิดราว 3,725.18 (FXEmpire 04:59 น.) · ปัจจัยหลัก: รายงานประชุม FOMC (02:00 น.) เกือบทุกคนเห็นควรขึ้นดอกเบี้ย ธ.ค. และมี 2 คนพูดถึง 50bp ราคาลงเพิ่มราว 16 ใน 1 ชม. หลังรายงานออก (ฟิวเจอร์ส) · แผนเมื่อวาน r0 A และ r1 A ถึง TP2 ทั้งคู่ แต่ EA ไม่เปิดเพราะติดเกณฑ์ความมั่นใจ (67% < 70%) · r2 ไม่มีจุดเข้า
 
 **ราคาอ้างอิง 3,725.18 (FXEmpire ปิดตลาด 04:59 น.) · มุมมอง: ขาลง (Bearish)** — Fed น่าขึ้นดอกเบี้ย ธ.ค. ราว 95% ดอลลาร์ 103.82 สูงสุดตั้งแต่ เม.ย. 2025
