@@ -17,6 +17,13 @@ The morning brief must read the latest 10 entries before writing a plan and say 
 ## Log
 <!-- newest first: "### YYYY-MM-DD  RESULT" then Expected / Happened / Why / Adjust -->
 
+### 2026-11-19  NOT_TRIGGERED
+- Expected: BEARISH all day. r0 (06:50) no entry (rules 3/7 after -3.27%); r1 (16:10) A sell stop 3,715 skipped (TP1 RR 0.4 < 0.5), B sell lmt 3,748 (SL 3,785, TP1 3,723, TP2 3,697); r2 (00:25) no entry (rule 7b, ref 3,691.50 1.5 h old).
+- Happened: Asia low 3,693.13, Asia high 3,754.85 at 12:48 BKK (before r1); 3,725.57 at 18:41 BKK; claims 203k / Philly Fed 6.3 -> 3,714.80 at 20:49 BKK; 3,691.50 at 22:43; 3,686.70 ~01:45; Kitco day 3,759.10-3,620.40 (high untimed), 3,625.50 at 16:37 ET (-2.65%), -98.10 (-2.63%) at 16:40 ET, bid 3,621.40 at 18:32 ET. r1 B 3,748: no source times the 3,759.10 high, so a fill after 16:10 BKK is unknown; if filled, TP1 and TP2 hit and SL 3,785 not reached. r2: a sell stop 4 under the 3,682.20 low (3,678, 13.5 from ref) would have run ~58 to 3,620.40. EA facts: no trade on 11-19 (results unchanged at 13 closed).
+- Why: direction right again (hike odds ~90%, dollar 19-month high, weak claims/Philly not enough for a haven bid) but the rule set posted no live trade in a ~139-pt down day: rule 3/7 (r0), the RR-0.5 skip caused by rule 6's 1/3-range SL of 45 (r1 A), and rule 7b's 10-pt cap (r2). Only r1 B was live, and as a LIMIT it was gated by the EA (LIMIT_WITH 25%).
+- Adjust: no standing-rule change yet (each block came from a different rule, one case each). Watch: if rule 7b again blocks a stop 3-5 past a fresh session extreme that sat within 15 of ref and would have won, add that exception to rule 7.
+- EA: since eval_from 11-17: 4 trades, 1 win, net -81.83, PF 0.03, max DD 42.0%; ready 4/40 trades, 3/20 days; no change (3 trades closed after the 11-17 13:45 change, need 5; no trades on 11-19).
+
 ### 2026-11-18  NOT_TRIGGERED
 - Expected: BEARISH all day. r0 A sell stop 3,828 (SL 3,848, TP1 3,804, TP2 3,751) / B sell lmt 3,864; r1 A sell stop 3,775 (SL 3,807, TP1 3,754, TP2 3,739) / B sell lmt 3,800 (SL 3,826); r2 (00:14) no entry into FOMC minutes (rules 3/7/8).
 - Happened: 3,820.65 at 07:36 BKK, 3,796.37 at 09:42, 3,778.96 at 13:30, 3,777.00 ~21:06, 3,742.20 by 21:19; minutes (14:00 ET: nearly all saw a Dec hike, two raised 50bp) added ~16 in the first hour; Kitco low 3,719.10, 3,722.60 at 17:02 ET (-3.27%), FXEmpire 3,725.18 at 21:59 UTC. r0 A filled, TP1 and TP2 hit; r1 A filled, TP1 and TP2 hit (no source shows a rebound to SL 3,848 / 3,807 after the fills; intraday highs after 16:16 BKK not reported). r0 B 3,864 and r1 B 3,800 not seen. r2 had no entry. EA facts: no trade opened - auto-status showed "A STOP_WITH 67% < 70%" all day (min_conf gate), so both winning stops were skipped.
