@@ -1,49 +1,51 @@
 {
  "v": 1,
  "date": "2026-11-20",
- "generated": "2026-11-20 07:05 +07",
- "rev": 0,
- "session": "NY_CLOSE",
- "session_note": "NY day 3,759.10-3,620.40, -2.63% to ~3,624 on claims, Philly Fed, hike bets; r2 no entry; r1 B 3,748 fill untimed",
- "rev_note": "",
- "price_ref": 3621.4,
+ "generated": "2026-11-20 16:15 +07",
+ "rev": 1,
+ "session": "ASIA_CLOSE",
+ "session_note": "Asia 3,652.20-3,513.70 (Kitco), low since Sep 2025; bid 3,576.20 at 15:21 BKK (-1.32%); r0 A/B had no entry",
+ "rev_note": "Rule 3/7a done after Asia: A sell stop 3,552 at tested level 24 off; B none (no tested fade level within 15, buy stop RR 0.3)",
+ "price_ref": 3576.2,
  "bias": "BEARISH",
- "bias_note": "14-month low 3,620.40; Dec hike ~90%",
- "headline": "Gold -2.63% to 14-month low 3,620.40; no entry after second big down day",
+ "bias_note": "Fresh low 3,513.70; Dec hike ~94%",
+ "headline": "Gold hits 3,513.70 low in Asia, bounces to 3,576; sell stop 3,552 till 20:00 BKK",
  "summary": [
-  "Kitco day 3,759.10-3,620.40, -98.10 (-2.63%) at 16:40 ET; bid 3,621.40 at 18:32 ET = 06:32 BKK",
-  "Claims 203k vs 197k, Philly Fed 6.3 vs ~20, LEI -0.3%; Dec 25bp hike ~90%; dollar near 19-month high",
-  "10y eased to 5.04%; Dow -2.19%, S&P -2.02%; Hormuz ship attacks gave no safe-haven bid",
-  "Kitco R 3,640.51 / 3,678 / 3,707, S 3,620.40 then ~3,500; FXEmpire channel 3,650, Fib 3,475",
-  "No entry: 2nd >2.5% day (rule 3), only 3,611-3,631 allowed (rule 7a), TP1 RR < 0.5 there"
+  "Kitco day 3,652.20-3,513.70; bid 3,576.20 at 15:21 BKK, -48.00 (-1.32%); TokenPost low 3,514.62",
+  "Reuters 3,551.68 at 09:57 BKK; 3,561.30 at 13:26 BKK; week ~-8.9%, worst in 8 months",
+  "Dec 25bp hike ~94% (FedWatch via FXEmpire); dollar at highest since Apr 2025; US-Iran strike talk",
+  "FXEmpire S 3,518 then 3,421, R pivot 3,597 then 3,699; RSI ~24 oversold; 200d SMA 4,408.12",
+  "Only A live, until 20:00 BKK (rule 8, UMich 22:00); r0 had no orders; Friday EA weekend close"
  ],
  "events": [
-  "Fri 16:05 BKK  Asia update, new A/B",
-  "Fri 22:00 BKK  UMich sentiment final",
-  "Sat 00:05 BKK  London close update"
+  "Fri 20:00 BKK  No live entry 20:00-22:30 (rule 8)",
+  "Fri 22:00 BKK  UMich sentiment final, EU cons. conf. flash",
+  "Fri late  Fed Waller and Cook speak (time n/a)",
+  "Sat 00:05 BKK  London close update",
+  "Sat 05:00 BKK  Weekly close"
  ],
  "levels": {
   "r": [
-   3640.51,
-   3650.0,
-   3678.0
+   3597.0,
+   3624.2,
+   3652.2
   ],
   "s": [
-   3620.4,
-   3500.0,
-   3475.0
+   3551.68,
+   3518.0,
+   3513.7
   ]
  },
  "plans": [
   {
    "id": "A",
    "side": "SELL",
-   "type": "NONE",
-   "entry": 0,
-   "sl": 0,
-   "tp1": 0,
-   "tp2": 0,
-   "note": "Rule 3/7a: retest limit 3,629 fails RR (TP1 3,624 vs SL 54)"
+   "type": "STOP",
+   "entry": 3552,
+   "sl": 3602,
+   "tp1": 3522,
+   "tp2": 3480,
+   "note": "Under Reuters 3,551.68 test, 24.2 off (rule 4); SL 5>3,597, 50>=46 (rule 6); TP1 4 in 3,518; RR 0.6/1.44"
   },
   {
    "id": "B",
@@ -53,41 +55,39 @@
    "sl": 0,
    "tp1": 0,
    "tp2": 0,
-   "note": "Rule 3/7a: reclaim stop 3,630 fails RR (TP1 3,636 vs SL 46)"
+   "note": "Reclaim stop 3,600 over 3,597: TP1 3,616 RR 0.3 vs SL 54 - under 0.5, skipped; no tested fade level within 15"
   }
  ],
- "invalid": "Bear view void on 1h close above 3,678 (Kitco R2); 3,640.51 reclaim weakens it",
- "risk_note": "No live entry this brief (rules 3/7). Old orders may still rest - check the app. UMich 22:00 BKK; EA weekend close Fri. Scenario analysis from public sources. Not financial advice.",
- "lesson_applied": "Rules 3/7a after -2.63% day: entries 3,611-3,631 only; RR < 0.5 there -> no entry (11-16)",
+ "invalid": "Bear view void on 1h close above 3,624.20 (Thu close); 3,597 reclaim weakens it",
+ "risk_note": "A only, cancel by 20:00 BKK (UMich 22:00). TP1 RR 0.6 < 1.2: support 3,518 is close. RSI ~24 oversold, sharp bounces likely. Old orders may still rest - check the app. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 3/7a covered Asia only; rule 1/4 A stop at tested 3,551.68 within 25; rule 6 SL 50; rule 8 till 20:00; 11-16 RR<0.5 B skip",
  "review": {
   "for_date": "2026-11-19",
   "result": "NOT_TRIGGERED",
   "text": "Final r2 no entry; price fell 3,691.50 -> 3,620.40. r0 none. r1 A skipped (RR); r1 B lmt 3,748: high 3,759.10 untimed, if filled TP2 3,697 hit, SL 3,785 not. EA: no trade."
  },
  "sources": [
-  "Kitco PM 2026-11-19 16:55 ET",
-  "Kitco AM 2026-11-19 09:04 ET",
-  "Kitco claims 2026-11-19 08:30 ET",
-  "Kitco/Razaqzada 2026-11-19 13:45 ET",
-  "Kitco quote 2026-11-19 18:32 ET",
-  "USAGOLD 2026-11-19",
-  "FXEmpire 2026-11-19 22:28 GMT",
-  "TokenPost 2026-11-19 16:26 ET",
-  "Trading Economics 2026-11-19"
+  "Kitco quote 2026-11-20 03:21 ET",
+  "FXEmpire 2026-11-20 06:30 GMT",
+  "TokenPost 2026-11-20 02:38 ET",
+  "World Today Journal/Reuters 2026-11-20 06:06 GMT",
+  "JournalArta 2026-11-20 04:37 GMT",
+  "Mitrade/FXStreet 2026-11-20",
+  "Trading Economics 2026-11-20"
  ],
  "th": {
-  "headline": "ทองลง 2.63% ต่ำสุด 14 เดือน 3,620.40 รอบนี้ไม่ตั้งจุดเข้า",
-  "bias_note": "ขาลง Fed น่าขึ้นดอกเบี้ย ธ.ค. 90%",
+  "headline": "ทองทำต่ำสุด 3,513.70 ช่วงเอเชีย เด้งถึง 3,576 ตั้ง Sell Stop 3,552",
+  "bias_note": "ขาลง ต่ำสุดใหม่ Fed ขึ้นดอกเบี้ย 94%",
   "summary": [
-   "กรอบวัน 3,759.10-3,620.40 ลง 98.10 (2.63%) ล่าสุด 3,621.40 ตอน 06:32 น.",
-   "ว่างงาน 203k สูงกว่าคาด Philly Fed 6.3 โอกาสขึ้นดอกเบี้ย ธ.ค. 90% ดอลลาร์แข็ง",
-   "บอนด์ 10 ปี 5.04% หุ้นสหรัฐลงราว 2% ข่าวช่องแคบฮอร์มุซ ไม่ช่วยทอง",
-   "แนวต้าน 3,640.51 3,650 3,678 แนวรับ 3,620.40 ถัดไปราว 3,500",
-   "ไม่ตั้งจุดเข้า วันลงเกิน 2.5% วันที่ 2 (กฎ 3/7) และ R:R ต่ำกว่า 0.5"
+   "กรอบวัน Kitco 3,652.20-3,513.70 ล่าสุด 3,576.20 ตอน 15:21 น. ลง 1.32%",
+   "Reuters 3,551.68 ตอน 09:57 น. 3,561.30 ตอน 13:26 น. สัปดาห์นี้ลงราว 8.9%",
+   "โอกาสขึ้นดอกเบี้ย ธ.ค. ราว 94% ดอลลาร์สูงสุดตั้งแต่ เม.ย. 2025 ข่าวสหรัฐ-อิหร่าน",
+   "แนวรับ 3,518 และ 3,421 แนวต้าน 3,597 และ 3,699 RSI ราว 24 ขายมากเกิน",
+   "มีแค่ A ใช้ได้ถึง 20:00 น. (กฎ 8 ข่าว UMich 22:00 น.) วันศุกร์ EA ปิดไม้ก่อนหยุด"
   ],
-  "invalid": "ปิด 1 ชม. เหนือ 3,678 ขาลงใช้ไม่ได้ ยืนเหนือ 3,640.51 ขาลงอ่อนลง",
+  "invalid": "ปิด 1 ชม. เหนือ 3,624.20 ขาลงใช้ไม่ได้ ยืนเหนือ 3,597 ขาลงอ่อนลง",
   "review_text": "แผนสุดท้าย r2 ไม่มีจุดเข้า ราคาลงจาก 3,691.50 ถึง 3,620.40 r1 B Limit 3,748 ไม่รู้เวลาสูงสุด 3,759.10 ถ้าเปิดแล้ว ถึง TP2 3,697 SL ไม่โดน EA ไม่เปิดไม้",
-  "session_note": "นิวยอร์กลงต่อ 2.63% ต่ำสุด 3,620.40 ปิดราว 3,624 r2 ไม่มีจุดเข้า r1 B ไม่รู้ว่าเปิดหรือไม่",
-  "rev_note": ""
+  "session_note": "เอเชียลงถึง 3,513.70 ต่ำสุดตั้งแต่ ก.ย. 2025 แล้วเด้งถึง 3,576.20 แผนเช้า A และ B ไม่มีจุดเข้า",
+  "rev_note": "A Sell Stop 3,552 ใต้จุดทดสอบ 3,551.68 ห่าง 24 B ไม่มีจุดเข้า เพราะ R:R ต่ำกว่า 0.5"
  }
 }

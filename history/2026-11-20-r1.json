@@ -1,0 +1,93 @@
+{
+ "v": 1,
+ "date": "2026-11-20",
+ "generated": "2026-11-20 16:15 +07",
+ "rev": 1,
+ "session": "ASIA_CLOSE",
+ "session_note": "Asia 3,652.20-3,513.70 (Kitco), low since Sep 2025; bid 3,576.20 at 15:21 BKK (-1.32%); r0 A/B had no entry",
+ "rev_note": "Rule 3/7a done after Asia: A sell stop 3,552 at tested level 24 off; B none (no tested fade level within 15, buy stop RR 0.3)",
+ "price_ref": 3576.2,
+ "bias": "BEARISH",
+ "bias_note": "Fresh low 3,513.70; Dec hike ~94%",
+ "headline": "Gold hits 3,513.70 low in Asia, bounces to 3,576; sell stop 3,552 till 20:00 BKK",
+ "summary": [
+  "Kitco day 3,652.20-3,513.70; bid 3,576.20 at 15:21 BKK, -48.00 (-1.32%); TokenPost low 3,514.62",
+  "Reuters 3,551.68 at 09:57 BKK; 3,561.30 at 13:26 BKK; week ~-8.9%, worst in 8 months",
+  "Dec 25bp hike ~94% (FedWatch via FXEmpire); dollar at highest since Apr 2025; US-Iran strike talk",
+  "FXEmpire S 3,518 then 3,421, R pivot 3,597 then 3,699; RSI ~24 oversold; 200d SMA 4,408.12",
+  "Only A live, until 20:00 BKK (rule 8, UMich 22:00); r0 had no orders; Friday EA weekend close"
+ ],
+ "events": [
+  "Fri 20:00 BKK  No live entry 20:00-22:30 (rule 8)",
+  "Fri 22:00 BKK  UMich sentiment final, EU cons. conf. flash",
+  "Fri late  Fed Waller and Cook speak (time n/a)",
+  "Sat 00:05 BKK  London close update",
+  "Sat 05:00 BKK  Weekly close"
+ ],
+ "levels": {
+  "r": [
+   3597.0,
+   3624.2,
+   3652.2
+  ],
+  "s": [
+   3551.68,
+   3518.0,
+   3513.7
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 3552,
+   "sl": 3602,
+   "tp1": 3522,
+   "tp2": 3480,
+   "note": "Under Reuters 3,551.68 test, 24.2 off (rule 4); SL 5>3,597, 50>=46 (rule 6); TP1 4 in 3,518; RR 0.6/1.44"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "Reclaim stop 3,600 over 3,597: TP1 3,616 RR 0.3 vs SL 54 - under 0.5, skipped; no tested fade level within 15"
+  }
+ ],
+ "invalid": "Bear view void on 1h close above 3,624.20 (Thu close); 3,597 reclaim weakens it",
+ "risk_note": "A only, cancel by 20:00 BKK (UMich 22:00). TP1 RR 0.6 < 1.2: support 3,518 is close. RSI ~24 oversold, sharp bounces likely. Old orders may still rest - check the app. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 3/7a covered Asia only; rule 1/4 A stop at tested 3,551.68 within 25; rule 6 SL 50; rule 8 till 20:00; 11-16 RR<0.5 B skip",
+ "review": {
+  "for_date": "2026-11-19",
+  "result": "NOT_TRIGGERED",
+  "text": "Final r2 no entry; price fell 3,691.50 -> 3,620.40. r0 none. r1 A skipped (RR); r1 B lmt 3,748: high 3,759.10 untimed, if filled TP2 3,697 hit, SL 3,785 not. EA: no trade."
+ },
+ "sources": [
+  "Kitco quote 2026-11-20 03:21 ET",
+  "FXEmpire 2026-11-20 06:30 GMT",
+  "TokenPost 2026-11-20 02:38 ET",
+  "World Today Journal/Reuters 2026-11-20 06:06 GMT",
+  "JournalArta 2026-11-20 04:37 GMT",
+  "Mitrade/FXStreet 2026-11-20",
+  "Trading Economics 2026-11-20"
+ ],
+ "th": {
+  "headline": "ทองทำต่ำสุด 3,513.70 ช่วงเอเชีย เด้งถึง 3,576 ตั้ง Sell Stop 3,552",
+  "bias_note": "ขาลง ต่ำสุดใหม่ Fed ขึ้นดอกเบี้ย 94%",
+  "summary": [
+   "กรอบวัน Kitco 3,652.20-3,513.70 ล่าสุด 3,576.20 ตอน 15:21 น. ลง 1.32%",
+   "Reuters 3,551.68 ตอน 09:57 น. 3,561.30 ตอน 13:26 น. สัปดาห์นี้ลงราว 8.9%",
+   "โอกาสขึ้นดอกเบี้ย ธ.ค. ราว 94% ดอลลาร์สูงสุดตั้งแต่ เม.ย. 2025 ข่าวสหรัฐ-อิหร่าน",
+   "แนวรับ 3,518 และ 3,421 แนวต้าน 3,597 และ 3,699 RSI ราว 24 ขายมากเกิน",
+   "มีแค่ A ใช้ได้ถึง 20:00 น. (กฎ 8 ข่าว UMich 22:00 น.) วันศุกร์ EA ปิดไม้ก่อนหยุด"
+  ],
+  "invalid": "ปิด 1 ชม. เหนือ 3,624.20 ขาลงใช้ไม่ได้ ยืนเหนือ 3,597 ขาลงอ่อนลง",
+  "review_text": "แผนสุดท้าย r2 ไม่มีจุดเข้า ราคาลงจาก 3,691.50 ถึง 3,620.40 r1 B Limit 3,748 ไม่รู้เวลาสูงสุด 3,759.10 ถ้าเปิดแล้ว ถึง TP2 3,697 SL ไม่โดน EA ไม่เปิดไม้",
+  "session_note": "เอเชียลงถึง 3,513.70 ต่ำสุดตั้งแต่ ก.ย. 2025 แล้วเด้งถึง 3,576.20 แผนเช้า A และ B ไม่มีจุดเข้า",
+  "rev_note": "A Sell Stop 3,552 ใต้จุดทดสอบ 3,551.68 ห่าง 24 B ไม่มีจุดเข้า เพราะ R:R ต่ำกว่า 0.5"
+ }
+}
