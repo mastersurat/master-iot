@@ -1,0 +1,91 @@
+{
+ "v": 1,
+ "date": "2026-11-20",
+ "generated": "2026-11-21 00:07 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "London 3,576.09 (16:13) to 3,558.20 (~20:42), 3,572.40 at 22:03 BKK; A not seen filled by 20:00 cancel; B none",
+ "rev_note": "No entry A/B: rule 7b Friday after 12:00 ET, no high/low within 1 h; rule 8 Cook 01:15 BKK; weekly close 05:00",
+ "price_ref": 3572.4,
+ "bias": "BEARISH",
+ "bias_note": "Dec hike odds 94-99%; worst week in 8 months",
+ "headline": "Gold holds 3,560-3,576 after 3,513.70 low; no new entry into weekend close",
+ "summary": [
+  "Kitco 3,572.40 bid at 22:03 BKK, -51.80 (-1.43%); day 3,652.20-3,513.70; TE 3,539.55 (-2.39%) untimed",
+  "London: Reuters 3,576.09 at 16:13 BKK; FXStreet ~3,570 at 19:50; Kitco 3,558.20 early US",
+  "UMich final 51.5 in line, 1y infl. exp. 3.7% from 4.7%; gold 3,568.65 after; DXY ~103.8",
+  "FedWatch Dec 25bp 93.9% (Kitco) to 99.3% (FinanceFeeds); TE says Waller floated 50bp",
+  "Plan A 3,552 not seen filled before 20:00 cancel; if left live, check app - may have filled"
+ ],
+ "events": [
+  "Sat 01:15 BKK  Fed Governor Cook speaks",
+  "Sat 05:00 BKK  Weekly close; EA weekend close",
+  "Mon ~05:00-06:00 BKK  Market reopens"
+ ],
+ "levels": {
+  "r": [
+   3597.0,
+   3624.2,
+   3652.2
+  ],
+  "s": [
+   3551.68,
+   3518.0,
+   3513.7
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "Rule 7b: Friday after 12:00 ET, ref 2 h old, no high/low printed in last 1 h; sell stop under 3,551.68 not posted; Cook 01:15"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "Rule 7b same; reclaim over 3,597 is 25 off and RR < 0.5 vs 3,624.20; no entry into weekly close 05:00 BKK"
+  }
+ ],
+ "invalid": "Bear view void on 1h close above 3,624.20 (Thu close); 3,597 reclaim weakens it",
+ "risk_note": "No new entry. Weekly close 05:00 BKK, EA weekend close. Ref 2 h old; TE untimed 3,539.55 lower. Old orders may still rest - check the app. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 7b Friday after 12:00 ET: no 1 h high/low, no entry; rule 8 Cook 01:15; rule 4/5 levels kept for Monday",
+ "review": {
+  "for_date": "2026-11-19",
+  "result": "NOT_TRIGGERED",
+  "text": "Final r2 no entry; price fell 3,691.50 -> 3,620.40. r0 none. r1 A skipped (RR); r1 B lmt 3,748: high 3,759.10 untimed, if filled TP2 3,697 hit, SL 3,785 not. EA: no trade."
+ },
+ "sources": [
+  "Kitco quote 2026-11-20 10:03 ET",
+  "Kitco UMich article 2026-11-20 10:00 ET",
+  "Kitco AM Report 2026-11-20 08:42 ET",
+  "FinanceFeeds/FXStreet 2026-11-20 13:15 GMT",
+  "Cryptometer/Reuters 2026-11-20 11:08 GMT",
+  "Mitrade 2026-11-20",
+  "Trading Economics 2026-11-20"
+ ],
+ "th": {
+  "headline": "ทองยืน 3,560-3,576 หลังต่ำสุด 3,513.70 ไม่ตั้งไม้ใหม่ก่อนปิดสัปดาห์",
+  "bias_note": "ขาลง Fed ขึ้นดอกเบี้ย 94-99%",
+  "summary": [
+   "Kitco 3,572.40 ตอน 22:03 น. ลง 1.43% กรอบวัน 3,652.20-3,513.70 TE 3,539.55 ไม่ระบุเวลา",
+   "ลอนดอน 3,576.09 ตอน 16:13 น. ราว 3,570 ตอน 19:50 น. ต้นตลาดสหรัฐ 3,558.20",
+   "UMich 51.5 ตามคาด คาดเงินเฟ้อ 1 ปี 3.7% ทองอยู่ 3,568.65 ดอลลาร์ราว 103.8",
+   "โอกาสขึ้นดอกเบี้ย ธ.ค. 93.9-99.3% TE ระบุ Waller เปิดทาง 50bp",
+   "A 3,552 ไม่เห็นว่าเปิดก่อน 20:00 น. ถ้ายังไม่ยกเลิก ตรวจในแอป อาจถูกเปิดแล้ว"
+  ],
+  "invalid": "ปิด 1 ชม. เหนือ 3,624.20 ขาลงใช้ไม่ได้ ยืนเหนือ 3,597 ขาลงอ่อนลง",
+  "review_text": "แผนสุดท้าย r2 ไม่มีจุดเข้า ราคาลงจาก 3,691.50 ถึง 3,620.40 r1 B Limit 3,748 ไม่รู้เวลาสูงสุด 3,759.10 ถ้าเปิดแล้ว ถึง TP2 3,697 SL ไม่โดน EA ไม่เปิดไม้",
+  "session_note": "ลอนดอนแกว่ง 3,558-3,576 ล่าสุด 3,572.40 ตอน 22:03 น. A ไม่เห็นว่าเปิดก่อนยกเลิก 20:00 น. B ไม่มีจุดเข้า",
+  "rev_note": "ไม่มีจุดเข้า A/B ตามกฎ 7b วันศุกร์หลัง 12:00 ET ไม่มีราคาสูง/ต่ำใน 1 ชม. Cook พูด 01:15 น. ใกล้ปิดสัปดาห์"
+ }
+}

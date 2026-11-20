@@ -1,6 +1,35 @@
 # XAUUSD Gold Brief — ศุกร์ 20 พ.ย. 2026 (07:05 น.)
 
-## อัปเดตปิดตลาดเอเชีย (16:15 น.)
+## อัปเดตปิดตลาดลอนดอน (00:07 น.)
+
+**สรุปช่วงตลาดที่เพิ่งปิด:** ช่วงลอนดอนทองแกว่งใต้ 3,580 · Reuters 3,576.09 ตอน 16:13 น. · FXStreet ราว 3,570 ตอน 19:50 น. · ต้นตลาดสหรัฐ 3,558.20 (Kitco AM) · หลังข่าว UMich 22:00 น. อยู่ 3,568.65 · Kitco 3,572.40 ตอน 22:03 น. ลง 51.80 (1.43%) · กรอบวัน Kitco 3,652.20–3,513.70 (ต่ำสุดเกิดในช่วงเอเชีย) · Trading Economics แสดง 3,539.55 (ลง 2.39%) แต่ไม่ระบุเวลา · ข่าว: UMich ตัวเลขสุดท้าย 51.5 ตามคาด คาดการณ์เงินเฟ้อ 1 ปีลดเหลือ 3.7% จาก 4.7% · ดอลลาร์ราว 103.8 บอนด์ 10 ปีราว 5.0% · FedWatch ขึ้น 25bp ธ.ค. 93.9% (Kitco) ถึง 99.3% (FinanceFeeds) · TE ระบุว่า Waller เปิดทางขึ้น 50bp · สัปดาห์นี้ลงราว 8–9% แย่สุดตั้งแต่มี.ค.
+
+**ผลของแผนก่อนหน้า (r1 16:15 น.):** A Sell Stop 3,552 — ราคาที่มีเวลาระบุก่อน 20:00 น. (3,576.09 และราว 3,570) ไม่ลงถึง 3,552 จึง **ไม่เห็นว่าถูกเปิดก่อนเวลายกเลิก 20:00 น.** · ถ้าออเดอร์ยังไม่ถูกยกเลิก ราคา 3,539.55 ของ TE (ไม่ระบุเวลา) แปลว่าอาจถูกเปิดหลังจากนั้น ไม่รู้ว่าถึง TP1 3,522 หรือ SL 3,602 ก่อน ให้ตรวจในแอป · B ไม่มีจุดเข้า
+
+**ราคาอ้างอิง 3,572.40 (Kitco 22:03 น.) · มุมมอง: ขาลง (Bearish)** — Fed ขึ้นดอกเบี้ยเกือบแน่นอน ดอลลาร์แข็ง แต่ RSI ต่ำมาก เด้งแรงได้
+
+### แผนใหม่ ช่วงนิวยอร์กที่เหลือ (ถึงปิดสัปดาห์ 05:00 น.)
+| Plan | Side | Type | Entry | SL | TP1 | TP2 | เงื่อนไข |
+|---|---|---|---|---|---|---|---|
+| A | SELL | ไม่มีจุดเข้า | – | – | – | – | กฎ 7b: วันศุกร์หลัง 12:00 ET ต้องใช้ราคาสูง/ต่ำภายใน 1 ชม. และห่างไม่เกิน 10 แต่ราคาอ้างอิงเก่าราว 2 ชม. จึงไม่ตั้ง Sell Stop ใต้ 3,551.68 · Cook พูด 01:15 น. (กฎ 8) |
+| B | BUY | ไม่มีจุดเข้า | – | – | – | – | กฎ 7b เหมือนกัน · Buy Stop ยืนกลับเหนือ 3,597 ห่าง 25 และ TP1 ก่อน 3,624.20 R:R ต่ำกว่า 0.5 |
+
+ในไฟล์ brief.json ใส่ Type เป็น NONE เพื่อให้ EA ไม่เปิดออเดอร์ใหม่ · ใกล้ปิดสัปดาห์ EA ปิดไม้ก่อนหยุดสุดสัปดาห์
+
+**แนวต้าน:** 3,597 · 3,624.20 · 3,652.20   **แนวรับ:** 3,551.68 · 3,518 · 3,513.70
+
+**จุดที่แผนใช้ไม่ได้:** ปิด 1 ชม. เหนือ 3,624.20 (ราคาปิดพฤหัส) มุมมองขาลงใช้ไม่ได้ · ยืนเหนือ 3,597 ได้ ขาลงอ่อนลง
+
+### ข่าวที่รออยู่ (เวลาไทย)
+| เวลา | เหตุการณ์ |
+|---|---|
+| เสาร์ 21 พ.ย. 01:15 | ผู้ว่าการ Fed Lisa Cook พูด |
+| เสาร์ 21 พ.ย. 05:00 | ปิดตลาดประจำสัปดาห์ · EA ปิดไม้ก่อนหยุด |
+| จันทร์ 23 พ.ย. ราว 05:00–06:00 | ตลาดเปิด |
+
+ออเดอร์ที่ตั้งตามแผนก่อนหน้ายังอยู่ ตรวจสอบและยกเลิกเองได้ในแอป Gold Brief (ระบบไม่ยกเลิกให้อัตโนมัติ)
+
+## อัปเดตปิดตลาดเอเชีย (16:15 น., r1)
 
 **สรุปช่วงตลาดที่เพิ่งปิด:** ทองลงต่อเป็นวันที่ 3 · Reuters 3,551.68 ตอน 09:57 น. (ลง 1.9%) · ต่ำสุดวัน 3,513.70 (Kitco) / 3,514.62 (TokenPost) ต่ำสุดตั้งแต่ ก.ย. 2025 · แล้วเด้ง 3,561.30 ตอน 13:26 น. และ 3,576.20 ตอน 15:21 น. (Kitco ลง 48.00 หรือ 1.32%) · กรอบวัน Kitco 3,652.20–3,513.70 · ข่าว: CME FedWatch ขึ้นดอกเบี้ย 25bp วันที่ 9 ธ.ค. ราว 94% ดอลลาร์สูงสุดตั้งแต่ เม.ย. 2025 ข่าวสหรัฐอาจโจมตีอิหร่านเพิ่ม แรงขายหุ้นเทคทำให้ขายทองหาสภาพคล่อง · สัปดาห์นี้ลงราว 8.9% แย่สุดในรอบ 8 เดือน · RSI ราว 24 ขายมากเกิน (FXEmpire)
 
@@ -88,6 +117,13 @@
 *เป็นการวิเคราะห์สถานการณ์จากข้อมูลสาธารณะ ไม่ใช่คำแนะนำการลงทุน ผู้เขียนไม่ใช่ที่ปรึกษาการเงินที่ได้รับอนุญาต Not financial advice.*
 
 **แหล่งข้อมูล:**
+- [Kitco: Gold price trades near $3,568/oz after final Consumer Sentiment rises to 51.5](https://www.kitco.com/news/article/2026-11-20/gold-price-trades-near-3568oz-after-final-consumer-sentiment-rises-515)
+- [Kitco AM Report: Gold heads for worst week in eight months as silver slides below $42](https://www.kitco.com/news/article/2026-11-20/gold-heads-worst-week-eight-months-silver-slides-below-42-kitco-am-report)
+- [Kitco: Gold chart / live quote (10:03 ET 20 พ.ย.)](https://www.kitco.com/charts/gold)
+- [FinanceFeeds: Gold Price Today $3,570, worst week since March](https://financefeeds.com/gold-price-today-3570-friday-worst-week-since-march-fed-hike-bets-bull-3700-bear-3500/)
+- [Cryptometer: Gold falls below $3,540 as weekly loss nears 9%](https://www.cryptometer.io/news/gold-falls-below-3540-as-weekly-loss-nears-9/)
+- [Mitrade: Gold slides below $3,600](https://www.mitrade.com/insights/commodity-analysis/gold/gold-slides-below-3600-fed-pressure)
+- [Trading Economics: Gold](https://tradingeconomics.com/commodity/gold)
 - [Kitco: Gold chart / live quote (03:21 ET 20 พ.ย.)](https://www.kitco.com/charts/gold)
 - [FXEmpire: Gold heads for worst week in eight months, can $3,518 hold?](https://www.fxempire.com/forecasts/article/gold-xauusd-silver-price-forecast-gold-heads-for-worst-week-in-eight-months-can-3518-hold-1645958)
 - [TokenPost: Spot gold rebounds nearly $50 from daily low](https://www.tokenpost.com/news/investing/61815)
