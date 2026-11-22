@@ -1,91 +1,94 @@
 {
  "v": 1,
- "date": "2026-11-20",
- "generated": "2026-11-21 00:07 +07",
- "rev": 2,
- "session": "LONDON_CLOSE",
- "session_note": "London 3,576.09 (16:13) to 3,558.20 (~20:42), 3,572.40 at 22:03 BKK; A not seen filled by 20:00 cancel; B none",
- "rev_note": "No entry A/B: rule 7b Friday after 12:00 ET, no high/low within 1 h; rule 8 Cook 01:15 BKK; weekly close 05:00",
- "price_ref": 3572.4,
+ "date": "2026-11-23",
+ "generated": "2026-11-23 06:45 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "Fri NY fell from 3,572 to 3,502 low, close 3,537.90 (-2.38%) on equity liquidation; Fri plans had no live fill",
+ "rev_note": "",
+ "price_ref": 3549.5,
  "bias": "BEARISH",
- "bias_note": "Dec hike odds 94-99%; worst week in 8 months",
- "headline": "Gold holds 3,560-3,576 after 3,513.70 low; no new entry into weekend close",
+ "bias_note": "Hike odds 94-99%; RSI lowest since 2023",
+ "headline": "Gold ~3,550 after 9% weekly drop; sell stop under 3,539.80, PCE Wednesday",
  "summary": [
-  "Kitco 3,572.40 bid at 22:03 BKK, -51.80 (-1.43%); day 3,652.20-3,513.70; TE 3,539.55 (-2.39%) untimed",
-  "London: Reuters 3,576.09 at 16:13 BKK; FXStreet ~3,570 at 19:50; Kitco 3,558.20 early US",
-  "UMich final 51.5 in line, 1y infl. exp. 3.7% from 4.7%; gold 3,568.65 after; DXY ~103.8",
-  "FedWatch Dec 25bp 93.9% (Kitco) to 99.3% (FinanceFeeds); TE says Waller floated 50bp",
-  "Plan A 3,552 not seen filled before 20:00 cancel; if left live, check app - may have filled"
+  "Fri NY low 3,502.00, close 3,537.90 (-86.30, -2.38%, Kitco); week -8.7% to -9%, worst in 8 months",
+  "Sun open: Kitco bid 3,549.50 (+11.60) at 06:01 BKK, range 3,539.80-3,558.80; JM/TE show 3,576-3,589",
+  "Dec 25bp hike 94-99% (FedWatch); DXY 103.84 19-month high; 10y 4.94%; S&P -3.7%, VIX 35.89",
+  "FXEmpire: support zone 3,500-3,447, S1 3,485, pivot 3,556, R 3,597; RSI lowest since Sep 2023",
+  "Week: PCE, GDP, durables Wed 20:30 BKK; US closed Thu (Thanksgiving); thin trade into Friday"
  ],
  "events": [
-  "Sat 01:15 BKK  Fed Governor Cook speaks",
-  "Sat 05:00 BKK  Weekly close; EA weekend close",
-  "Mon ~05:00-06:00 BKK  Market reopens"
+  "Mon 21:45 BKK  US flash PMI Nov",
+  "Tue 22:00 BKK  Conf Board confidence",
+  "Wed 20:30 BKK  PCE, GDP Q3, durables"
  ],
  "levels": {
   "r": [
+   3558.8,
    3597.0,
-   3624.2,
-   3652.2
+   3624.2
   ],
   "s": [
-   3551.68,
-   3518.0,
-   3513.7
+   3539.8,
+   3502.0,
+   3485.14
   ]
  },
  "plans": [
   {
    "id": "A",
    "side": "SELL",
-   "type": "NONE",
-   "entry": 0,
-   "sl": 0,
-   "tp1": 0,
-   "tp2": 0,
-   "note": "Rule 7b: Friday after 12:00 ET, ref 2 h old, no high/low printed in last 1 h; sell stop under 3,551.68 not posted; Cook 01:15"
+   "type": "STOP",
+   "entry": 3535,
+   "sl": 3586,
+   "tp1": 3506,
+   "tp2": 3489,
+   "note": "4 under Mon low 3,539.80; SL 51=1/3 range; RR 0.57/0.90"
   },
   {
    "id": "B",
    "side": "BUY",
-   "type": "NONE",
-   "entry": 0,
-   "sl": 0,
-   "tp1": 0,
-   "tp2": 0,
-   "note": "Rule 7b same; reclaim over 3,597 is 25 off and RR < 0.5 vs 3,624.20; no entry into weekly close 05:00 BKK"
+   "type": "STOP",
+   "entry": 3562,
+   "sl": 3511,
+   "tp1": 3593,
+   "tp2": 3620,
+   "note": "Over Mon high 3,558.80; skip if price above; RR 0.61/1.14"
   }
  ],
- "invalid": "Bear view void on 1h close above 3,624.20 (Thu close); 3,597 reclaim weakens it",
- "risk_note": "No new entry. Weekly close 05:00 BKK, EA weekend close. Ref 2 h old; TE untimed 3,539.55 lower. Old orders may still rest - check the app. Scenario analysis from public sources. Not financial advice.",
- "lesson_applied": "Rule 7b Friday after 12:00 ET: no 1 h high/low, no entry; rule 8 Cook 01:15; rule 4/5 levels kept for Monday",
+ "invalid": "Bear view void on 1h close above 3,597 pivot; daily close above 3,624.20 ends it",
+ "risk_note": "Feeds disagree on the open (3,549.50 Kitco vs 3,576-3,589 JM/TE): check live price first. TP1 RR < 1.2: supports close. Cancel all by Wed 18:30 BKK (PCE). Old orders may still rest - check the app. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rules 1/4: stop 4 under nearest tested low within 25; rule 6 SL 51; rule 8 skips PMI",
  "review": {
-  "for_date": "2026-11-19",
+  "for_date": "2026-11-20",
   "result": "NOT_TRIGGERED",
-  "text": "Final r2 no entry; price fell 3,691.50 -> 3,620.40. r0 none. r1 A skipped (RR); r1 B lmt 3,748: high 3,759.10 untimed, if filled TP2 3,697 hit, SL 3,785 not. EA: no trade."
+  "text": "Final r2 no entry. r0 none; r1 A sell stop 3,552 not hit before 20:00 cancel (UMich), then NY fell to 3,502, close 3,537.90. If left live, TP1 3,522 hit. EA: no trade."
  },
  "sources": [
-  "Kitco quote 2026-11-20 10:03 ET",
-  "Kitco UMich article 2026-11-20 10:00 ET",
-  "Kitco AM Report 2026-11-20 08:42 ET",
-  "FinanceFeeds/FXStreet 2026-11-20 13:15 GMT",
-  "Cryptometer/Reuters 2026-11-20 11:08 GMT",
-  "Mitrade 2026-11-20",
-  "Trading Economics 2026-11-20"
+  "Kitco 2026-11-22",
+  "FXEmpire 2026-11-22",
+  "FXEmpire 2026-11-20",
+  "FinanceFeeds 2026-11-21",
+  "1TRADER 2026-11-21",
+  "Rio Times 2026-11-21",
+  "Cryptometer/Reuters 2026-11-20",
+  "FinancialJuice 2026-11-20",
+  "Newsquawk 2026-11-20",
+  "Trading Economics 2026-11-22"
  ],
  "th": {
-  "headline": "ทองยืน 3,560-3,576 หลังต่ำสุด 3,513.70 ไม่ตั้งไม้ใหม่ก่อนปิดสัปดาห์",
+  "headline": "ทองราว 3,550 หลังลง 9% ในสัปดาห์ Sell Stop ใต้ 3,539.80 รอ PCE วันพุธ",
   "bias_note": "ขาลง Fed ขึ้นดอกเบี้ย 94-99%",
   "summary": [
-   "Kitco 3,572.40 ตอน 22:03 น. ลง 1.43% กรอบวัน 3,652.20-3,513.70 TE 3,539.55 ไม่ระบุเวลา",
-   "ลอนดอน 3,576.09 ตอน 16:13 น. ราว 3,570 ตอน 19:50 น. ต้นตลาดสหรัฐ 3,558.20",
-   "UMich 51.5 ตามคาด คาดเงินเฟ้อ 1 ปี 3.7% ทองอยู่ 3,568.65 ดอลลาร์ราว 103.8",
-   "โอกาสขึ้นดอกเบี้ย ธ.ค. 93.9-99.3% TE ระบุ Waller เปิดทาง 50bp",
-   "A 3,552 ไม่เห็นว่าเปิดก่อน 20:00 น. ถ้ายังไม่ยกเลิก ตรวจในแอป อาจถูกเปิดแล้ว"
+   "ศุกร์ตลาดนิวยอร์กต่ำสุด 3,502 ปิด 3,537.90 ลง 2.38% ทั้งสัปดาห์ลงราว 9%",
+   "เปิดตลาด Kitco 3,549.50 ตอน 06:01 น. กรอบ 3,539.80-3,558.80 แต่ JM/TE แสดง 3,576-3,589",
+   "โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. 94-99% ดอลลาร์ 103.84 สูงสุด 19 เดือน หุ้น S&P ลง 3.7%",
+   "แนวรับ 3,500-3,447 แนวต้าน 3,556 และ 3,597 RSI ต่ำสุดตั้งแต่ 2023",
+   "พุธ 20:30 น. PCE GDP ยอดสั่งซื้อ พฤหัสตลาดสหรัฐปิด วันขอบคุณพระเจ้า"
   ],
-  "invalid": "ปิด 1 ชม. เหนือ 3,624.20 ขาลงใช้ไม่ได้ ยืนเหนือ 3,597 ขาลงอ่อนลง",
-  "review_text": "แผนสุดท้าย r2 ไม่มีจุดเข้า ราคาลงจาก 3,691.50 ถึง 3,620.40 r1 B Limit 3,748 ไม่รู้เวลาสูงสุด 3,759.10 ถ้าเปิดแล้ว ถึง TP2 3,697 SL ไม่โดน EA ไม่เปิดไม้",
-  "session_note": "ลอนดอนแกว่ง 3,558-3,576 ล่าสุด 3,572.40 ตอน 22:03 น. A ไม่เห็นว่าเปิดก่อนยกเลิก 20:00 น. B ไม่มีจุดเข้า",
-  "rev_note": "ไม่มีจุดเข้า A/B ตามกฎ 7b วันศุกร์หลัง 12:00 ET ไม่มีราคาสูง/ต่ำใน 1 ชม. Cook พูด 01:15 น. ใกล้ปิดสัปดาห์"
+  "invalid": "ปิด 1 ชม. เหนือ 3,597 ขาลงใช้ไม่ได้ ปิดวันเหนือ 3,624.20 จบขาลง",
+  "review_text": "แผนสุดท้าย r2 ไม่มีจุดเข้า r1 A Sell Stop 3,552 ไม่ถึงก่อนยกเลิก 20:00 น. แล้วนิวยอร์กลงถึง 3,502 ปิด 3,537.90 ถ้าไม่ยกเลิกถึง TP1 3,522 EA ไม่เปิดไม้",
+  "session_note": "ศุกร์นิวยอร์กลงจาก 3,572 ถึง 3,502 ปิด 3,537.90 แรงขายจากหุ้นร่วง แผนศุกร์ไม่มีไม้ถูกเปิด",
+  "rev_note": ""
  }
 }

@@ -1,0 +1,94 @@
+{
+ "v": 1,
+ "date": "2026-11-23",
+ "generated": "2026-11-23 06:45 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "Fri NY fell from 3,572 to 3,502 low, close 3,537.90 (-2.38%) on equity liquidation; Fri plans had no live fill",
+ "rev_note": "",
+ "price_ref": 3549.5,
+ "bias": "BEARISH",
+ "bias_note": "Hike odds 94-99%; RSI lowest since 2023",
+ "headline": "Gold ~3,550 after 9% weekly drop; sell stop under 3,539.80, PCE Wednesday",
+ "summary": [
+  "Fri NY low 3,502.00, close 3,537.90 (-86.30, -2.38%, Kitco); week -8.7% to -9%, worst in 8 months",
+  "Sun open: Kitco bid 3,549.50 (+11.60) at 06:01 BKK, range 3,539.80-3,558.80; JM/TE show 3,576-3,589",
+  "Dec 25bp hike 94-99% (FedWatch); DXY 103.84 19-month high; 10y 4.94%; S&P -3.7%, VIX 35.89",
+  "FXEmpire: support zone 3,500-3,447, S1 3,485, pivot 3,556, R 3,597; RSI lowest since Sep 2023",
+  "Week: PCE, GDP, durables Wed 20:30 BKK; US closed Thu (Thanksgiving); thin trade into Friday"
+ ],
+ "events": [
+  "Mon 21:45 BKK  US flash PMI Nov",
+  "Tue 22:00 BKK  Conf Board confidence",
+  "Wed 20:30 BKK  PCE, GDP Q3, durables"
+ ],
+ "levels": {
+  "r": [
+   3558.8,
+   3597.0,
+   3624.2
+  ],
+  "s": [
+   3539.8,
+   3502.0,
+   3485.14
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 3535,
+   "sl": 3586,
+   "tp1": 3506,
+   "tp2": 3489,
+   "note": "4 under Mon low 3,539.80; SL 51=1/3 range; RR 0.57/0.90"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "STOP",
+   "entry": 3562,
+   "sl": 3511,
+   "tp1": 3593,
+   "tp2": 3620,
+   "note": "Over Mon high 3,558.80; skip if price above; RR 0.61/1.14"
+  }
+ ],
+ "invalid": "Bear view void on 1h close above 3,597 pivot; daily close above 3,624.20 ends it",
+ "risk_note": "Feeds disagree on the open (3,549.50 Kitco vs 3,576-3,589 JM/TE): check live price first. TP1 RR < 1.2: supports close. Cancel all by Wed 18:30 BKK (PCE). Old orders may still rest - check the app. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rules 1/4: stop 4 under nearest tested low within 25; rule 6 SL 51; rule 8 skips PMI",
+ "review": {
+  "for_date": "2026-11-20",
+  "result": "NOT_TRIGGERED",
+  "text": "Final r2 no entry. r0 none; r1 A sell stop 3,552 not hit before 20:00 cancel (UMich), then NY fell to 3,502, close 3,537.90. If left live, TP1 3,522 hit. EA: no trade."
+ },
+ "sources": [
+  "Kitco 2026-11-22",
+  "FXEmpire 2026-11-22",
+  "FXEmpire 2026-11-20",
+  "FinanceFeeds 2026-11-21",
+  "1TRADER 2026-11-21",
+  "Rio Times 2026-11-21",
+  "Cryptometer/Reuters 2026-11-20",
+  "FinancialJuice 2026-11-20",
+  "Newsquawk 2026-11-20",
+  "Trading Economics 2026-11-22"
+ ],
+ "th": {
+  "headline": "ทองราว 3,550 หลังลง 9% ในสัปดาห์ Sell Stop ใต้ 3,539.80 รอ PCE วันพุธ",
+  "bias_note": "ขาลง Fed ขึ้นดอกเบี้ย 94-99%",
+  "summary": [
+   "ศุกร์ตลาดนิวยอร์กต่ำสุด 3,502 ปิด 3,537.90 ลง 2.38% ทั้งสัปดาห์ลงราว 9%",
+   "เปิดตลาด Kitco 3,549.50 ตอน 06:01 น. กรอบ 3,539.80-3,558.80 แต่ JM/TE แสดง 3,576-3,589",
+   "โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. 94-99% ดอลลาร์ 103.84 สูงสุด 19 เดือน หุ้น S&P ลง 3.7%",
+   "แนวรับ 3,500-3,447 แนวต้าน 3,556 และ 3,597 RSI ต่ำสุดตั้งแต่ 2023",
+   "พุธ 20:30 น. PCE GDP ยอดสั่งซื้อ พฤหัสตลาดสหรัฐปิด วันขอบคุณพระเจ้า"
+  ],
+  "invalid": "ปิด 1 ชม. เหนือ 3,597 ขาลงใช้ไม่ได้ ปิดวันเหนือ 3,624.20 จบขาลง",
+  "review_text": "แผนสุดท้าย r2 ไม่มีจุดเข้า r1 A Sell Stop 3,552 ไม่ถึงก่อนยกเลิก 20:00 น. แล้วนิวยอร์กลงถึง 3,502 ปิด 3,537.90 ถ้าไม่ยกเลิกถึง TP1 3,522 EA ไม่เปิดไม้",
+  "session_note": "ศุกร์นิวยอร์กลงจาก 3,572 ถึง 3,502 ปิด 3,537.90 แรงขายจากหุ้นร่วง แผนศุกร์ไม่มีไม้ถูกเปิด",
+  "rev_note": ""
+ }
+}
