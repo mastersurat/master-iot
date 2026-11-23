@@ -1,0 +1,94 @@
+{
+ "v": 1,
+ "date": "2026-11-23",
+ "generated": "2026-11-24 00:15 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "London/NY AM up from ~3,625 to 3,668.20 (~22:00 BKK), 3,662.53 at 00:10; day +3.5%; A 3,601 not triggered, B none",
+ "rev_note": "No entry both sides: rule 3/7a after +3.5% day, no 1h extreme within 10; buy lmt 3,655 RR 0.2, sell stop 3,648 RR 0.14",
+ "price_ref": 3662.53,
+ "bias": "NEUTRAL",
+ "bias_note": "Day +3.5% vs hike odds ~93%; PCE Wed",
+ "headline": "Gold +3.5% to ~3,662 after soft PMI; no entry tonight (rules 3/7a), PCE Wed 20:30 BKK",
+ "summary": [
+  "Kitco: 3,617.50 at 20:08 BKK (range 3,539.80-3,637.90), 3,668.20 last ~22:00-22:21 BKK, up >3%",
+  "FXEmpire ticker 3,625.55 at 20:30, 3,664.07 at 00:05, 3,662.53 at 00:10 BKK; +3.52% vs Fri 3,537.90",
+  "US flash PMI comp 54.6 (55.9), 4-month low, little gold reaction; Dec hike odds ~93%, 10y ~4.91-4.95%",
+  "Prior r1 A sell stop 3,601 not seen triggered (lowest print after 16:15 was 3,617.50); B had no entry",
+  "Old A orders 3,601 (r1) and 3,535 (r0) may rest 60-130 below price - check the app; cancel all by Wed 18:30"
+ ],
+ "events": [
+  "Tue 22:00 BKK  Conf Board confidence",
+  "Wed 00:00 BKK  Fed industrial production revision",
+  "Wed 20:30 BKK  PCE, GDP Q3, durables, claims",
+  "Thu 02:00 BKK  Beige Book; Thu US holiday"
+ ],
+ "levels": {
+  "r": [
+   3668.2,
+   3695.0,
+   3700.0
+  ],
+  "s": [
+   3652.2,
+   3637.9,
+   3617.5
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "BUY",
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "Retest buy lmt 3,655 over broken 3,651/3,652.20 (7.5 off): SL 3,605 (50 = 1/3 Fri range), TP1 3,665 under 3,668.20, RR 0.2 < 0.5, skip"
+  },
+  {
+   "id": "B",
+   "side": "SELL",
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "Counter sell stop 3,648 under 3,651 is 14.5 off (> 10, rule 7a); TP1 3,641 over 3,637.90, SL 50, RR 0.14 < 0.5, skip"
+  }
+ ],
+ "invalid": "Rebound fails on 1h close below 3,637.90; hold above 3,668.20 opens 3,695-3,700",
+ "risk_note": "No entry: rule 3/7a after +3.5% day and both TP1 RR < 0.5. Old A 3,601/3,535 may still rest - check the app. Cancel all by Wed 18:30 BKK (PCE). Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 3 no buy stops after +3.5%; rule 7a max 10 from ref, no 1h extreme found; rule 6 SL 50; rule 5 TP inside 3,668.20; RR<0.5 skip",
+ "review": {
+  "for_date": "2026-11-20",
+  "result": "NOT_TRIGGERED",
+  "text": "Final r2 no entry. r0 none; r1 A sell stop 3,552 not hit before 20:00 cancel (UMich), then NY fell to 3,502, close 3,537.90. If left live, TP1 3,522 hit. EA: no trade."
+ },
+ "sources": [
+  "Kitco 2026-11-23 10:00 ET (PMI)",
+  "Kitco AM 2026-11-23 09:18 ET",
+  "FinanceFeeds 2026-11-23 13:10 GMT",
+  "FXEmpire 2026-11-23 (tickers 13:30/17:05/17:10 UTC)",
+  "1TRADER 2026-11-23 (PMI)",
+  "World Today Journal 2026-11-23",
+  "StartupFortune 2026-11-23",
+  "LiteFinance 2026-11-23",
+  "Mitrade 2026-11-23"
+ ],
+ "th": {
+  "headline": "ทองบวก 3.5% ราว 3,662 หลัง PMI อ่อน คืนนี้งดเข้า รอ PCE พุธ 20:30 น.",
+  "bias_note": "กลาง เด้งแรง แต่ Fed ยังขึ้นดอกเบี้ย",
+  "summary": [
+   "Kitco 3,617.50 ตอน 20:08 น. กรอบ 3,539.80-3,637.90 แล้วขึ้นถึง 3,668.20 ราว 22:00 น.",
+   "FXEmpire 3,664.07 ตอน 00:05 น. และ 3,662.53 ตอน 00:10 น. บวก 3.52% จากปิดศุกร์ 3,537.90",
+   "PMI สหรัฐ 54.6 จาก 55.9 ต่ำสุด 4 เดือน ทองแทบไม่ตอบสนอง โอกาสขึ้นดอกเบี้ย ธ.ค. ราว 93%",
+   "แผน A Sell Stop 3,601 ไม่ถูกเปิด ต่ำสุดที่พบหลัง 16:15 น. คือ 3,617.50 B ไม่มีจุดเข้า",
+   "ออเดอร์ A 3,601 และ 3,535 เดิมอาจยังค้าง ตรวจในแอป ยกเลิกทั้งหมดก่อนพุธ 18:30 น."
+  ],
+  "invalid": "ปิด 1 ชม. ใต้ 3,637.90 ขาเด้งเสีย ยืนเหนือ 3,668.20 ไปต่อ 3,695-3,700",
+  "review_text": "แผนสุดท้าย r2 ไม่มีจุดเข้า r1 A Sell Stop 3,552 ไม่ถึงก่อนยกเลิก 20:00 น. แล้วนิวยอร์กลงถึง 3,502 ปิด 3,537.90 ถ้าไม่ยกเลิกถึง TP1 3,522 EA ไม่เปิดไม้",
+  "session_note": "ลอนดอนขึ้นจากราว 3,625 ถึง 3,668.20 วันนี้บวก 3.5% แผน A 3,601 ไม่ถูกเปิด B ไม่มีจุดเข้า",
+  "rev_note": "งดเข้าทั้งสองฝั่ง เพราะกฎ 3/7a หลังวันบวก 3.5% และ R:R ของ TP1 ต่ำกว่า 0.5 ทั้งสองทาง"
+ }
+}

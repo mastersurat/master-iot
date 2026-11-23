@@ -1,6 +1,54 @@
 # XAUUSD Gold Brief — จันทร์ 23 พ.ย. 2026 (06:45 น.)
 
-## อัปเดตปิดตลาดเอเชีย (16:15 น.)
+## อัปเดตปิดตลาดลอนดอน (00:15 น.)
+
+**สรุปช่วงลอนดอน + นิวยอร์กช่วงเช้า (จันทร์ 23 พ.ย.):** ต่อจากราว 3,625 (14:43 น.) · Kitco 3,617.50 ตอน 20:08 น. (กรอบวันขณะนั้น 3,539.80–3,637.90) · FXEmpire 3,625.55 ตอน 20:30 น. · หลัง PMI ขึ้นถึง Kitco 3,668.20 (ราว 22:00–22:21 น. บวกกว่า 3%) · FXEmpire 3,664.07 ตอน 00:05 น. และ 3,662.53 ตอน 00:10 น. · เทียบปิดศุกร์ 3,537.90 บวก 3.52%
+- ข่าว: PMI สหรัฐ (flash) พ.ย. Composite 54.6 จาก 55.9 ต่ำสุด 4 เดือน (บริการ 54.7 การผลิต 54.5) ทองแทบไม่ตอบสนอง (Kitco) · โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ราว 93% (Reuters/CME) · บอนด์ 10 ปีราว 4.91–4.95% · ดอลลาร์พักตัวจากสูงสุด 19 เดือน · Waller เคยเสนอขึ้น 50bp แต่ตลาดลดคาดการณ์ 50bp ลง
+- แนวต้าน/แนวรับจากนักวิเคราะห์: 3,651 และ 3,695 (Morrison/FXEmpire) · 3,699–3,700 (Kitco/FinanceFeeds) · แนวรับ 3,595 และ 3,503
+
+**ผลของแผนก่อนหน้า (r1):**
+- A Sell Stop 3,601: ราคาต่ำสุดที่พบหลัง 16:15 น. คือ 3,617.50 (20:08 น.) · **ไม่ถูกเปิด** · ถ้าตั้งไว้ยังค้างอยู่ ห่างราคาราว 60
+- B ไม่มีจุดเข้า
+- ออเดอร์ r0 A Sell Stop 3,535 ไม่ถึง (ต่ำสุดวัน 3,539.80) ถ้ายังค้างห่างราว 128
+
+**ราคาอ้างอิง 3,662.53 (FXEmpire 00:10 น.) · มุมมอง: กลาง (Neutral)** — เด้งแรง 3.5% จากจุดขายมากเกิน แต่ Fed ยังมีแนวโน้มขึ้นดอกเบี้ย และ PCE วันพุธ
+
+## แผนใหม่ ช่วงนิวยอร์กที่เหลือ (r2)
+| Plan | Side | Type | Entry | SL | TP1 | TP2 | เงื่อนไข |
+|---|---|---|---|---|---|---|---|
+| A | — | ไม่เข้า | — | — | — | — | Buy Limit 3,655 ทดสอบ 3,651/3,652.20 ที่ทะลุ (ห่าง 7.5) · SL 3,605 (50 = 1/3 กรอบศุกร์ กฎ 6) · TP1 3,665 ก่อน 3,668.20 · R:R 0.2 ต่ำกว่า 0.5 จึงข้าม |
+| B | — | ไม่เข้า | — | — | — | — | Sell Stop 3,648 ใต้ 3,651 ห่าง 14.5 เกิน 10 (กฎ 7a) · TP1 3,641 ก่อน 3,637.90 SL 50 R:R 0.14 จึงข้าม |
+
+ไม่ตั้ง Buy Stop ตามขาขึ้น (กฎ 3 หลังวันบวกเกิน 2.5%) · ไม่พบจุดสูง/ต่ำใน 1 ชม. ล่าสุดที่อยู่ไม่เกิน 10 จากราคา (กฎ 7a) · แผนเช้าจะประเมินใหม่
+
+**จุดที่แผนใช้ไม่ได้ / จุดเปลี่ยน:** ปิด 1 ชม. ต่ำกว่า 3,637.90 ขาเด้งเสีย · ยืนเหนือ 3,668.20 ได้ เปิดทาง 3,695–3,700
+
+**แนวต้าน:** 3,668.20 · 3,695 · 3,700   **แนวรับ:** 3,652.20 · 3,637.90 · 3,617.50
+
+## ข่าวที่รออยู่ (เวลาไทย)
+| เวลา | เหตุการณ์ |
+|---|---|
+| อังคาร 24 พ.ย. 22:00 | ความเชื่อมั่นผู้บริโภค Conference Board |
+| พุธ 25 พ.ย. 00:00 | Fed ปรับปรุงข้อมูลผลผลิตอุตสาหกรรมรายปี |
+| พุธ 25 พ.ย. 20:30 | PCE ต.ค., GDP ไตรมาส 3, ยอดสั่งซื้อสินค้าคงทน, ผู้ขอสวัสดิการว่างงาน · **ยกเลิกออเดอร์ทั้งหมดภายใน 18:30 น.** (กฎ 8) |
+| พฤหัส 26 พ.ย. 02:00 | Beige Book · พฤหัสตลาดสหรัฐปิด (วันขอบคุณพระเจ้า) |
+
+ออเดอร์ที่ตั้งตามแผนก่อนหน้ายังอยู่ ตรวจสอบและยกเลิกเองได้ในแอป Gold Brief (ระบบไม่ยกเลิกให้อัตโนมัติ)
+
+**แหล่งข้อมูลอัปเดตนี้:**
+- [Kitco: Gold prices jump 3% as bargain hunting overshadows slowing U.S. activity (23 พ.ย. 10:00 ET)](https://www.kitco.com/news/article/2026-11-23/gold-prices-jump-3-bargain-hunting-overshadows-slowing-us-manufacturing-and)
+- [Kitco AM Report: Gold rallies above $3,600 (23 พ.ย. 09:18 ET)](https://www.kitco.com/news/article/2026-11-23/gold-price-rallies-above-3600-ai-selloff-reshapes-fed-outlook-kitco-am)
+- [FinanceFeeds: Gold Price Today $3,618 (23 พ.ย. 13:10 GMT)](https://financefeeds.com/gold-price-today-3618-monday-rebound-hike-odds-ease-pce-wednesday-bull-3700-bear-3500/)
+- [FXEmpire: Gold Weekly Price Forecast – PCE Tests Rebound (23 พ.ย.)](https://www.fxempire.com/forecasts/article/gold-weekly-price-forecast-pce-inflation-tests-rebound-after-9-drop-1646512)
+- [FXEmpire: Gold Price Forecast – $3,500 Bounce May Face Selling Pressure (23 พ.ย.)](https://www.fxempire.com/forecasts/article/gold-price-forecast-3500-bounce-may-face-selling-pressure-1646542)
+- [FXEmpire: Gold Rebounds From 14-Month Low, Can $3,595 Hold? (23 พ.ย.)](https://www.fxempire.com/forecasts/article/gold-xauusd-silver-price-forecast-gold-rebounds-from-14-month-low-as-hike-bets-cool-can-3595-hold-1646447)
+- [1TRADER: Forex News 23 Nov 2026](https://1trader.com/en/forex-news-2026-11-23/)
+- [World Today Journal: Spot Gold Climbs 2.9% (23 พ.ย.)](https://world-today-journal.com/spot-gold-climbs-2-9-after-tech-selloff-fuels-safe-haven-demand/)
+- [LiteFinance: Gold Price Forecast (23 พ.ย.)](https://www.litefinance.org/blog/analysts-opinions/gold-price-prediction-forecast/daily-and-weekly/)
+
+---
+
+## อัปเดตปิดตลาดเอเชีย (16:15 น.) — แทนที่ด้วยแผน r2 ด้านบนแล้ว
 
 **สรุปช่วงตลาดเอเชีย (จันทร์ 23 พ.ย.):** เปิด Kitco 3,549.50 (06:01 น.) ต่ำสุดช่วงเปิด 3,539.80 · ทองเด้งแรงหลังลง 9% สัปดาห์ก่อน · 3,603.72 ช่วงเช้า (Mitrade) · 3,619.15 ตอน 13:05 น. (Anadolu) · 3,622.32 ตอน 14:07 น. (JournalArta) · ราว 3,625 ตอน 14:43 น. (Swissquote ผ่าน ANC) · สูงสุดแตะราว 3,630 (Mitrade ไม่ระบุเวลา) · เทียบปิดศุกร์ 3,537.90 บวก 2.46% ที่ 3,625
 - ปัจจัย: โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ลดเหลือ 93% (จากราว 100%) · บอนด์ 2 ปีลง 12bp วันศุกร์ 10 ปีราว 4.91% · ดอลลาร์ราว 103.6 · หุ้นเทค/AI ร่วงหนุนแรงซื้อสินทรัพย์ปลอดภัย
@@ -13,7 +61,7 @@
 
 **ราคาอ้างอิง 3,625 (14:43 น.) · มุมมอง: กลาง (Neutral)** — เด้งแรงจากจุดขายมากเกินไป แต่ Fed ยังมีแนวโน้มขึ้นดอกเบี้ย แนวโน้มใหญ่ยังลง
 
-## แผนใหม่ ช่วงลอนดอน + นิวยอร์ก (r1)
+### แผน r1 ช่วงลอนดอน + นิวยอร์ก (เดิม)
 | Plan | Side | Type | Entry | SL | TP1 | TP2 | เงื่อนไข |
 |---|---|---|---|---|---|---|---|
 | A | SELL | STOP | 3,601 | 3,658 | 3,563 | 3,544 | ใต้จุดทดสอบ 3,603.72 / 3,600 ที่เพิ่งทะลุ 2.7 (ห่างราคา 24 กฎ 4) · SL เหนือสูงสุดศุกร์ 3,652.20 อยู่ 5.8 และ 57 ≥ 1/3 กรอบศุกร์ (กฎ 6) · TP1 ก่อน 3,558.80 · TP2 ก่อน 3,539.80 · R:R 0.67/1.0 |
