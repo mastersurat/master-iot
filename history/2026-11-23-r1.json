@@ -1,0 +1,94 @@
+{
+ "v": 1,
+ "date": "2026-11-23",
+ "generated": "2026-11-23 16:15 +07",
+ "rev": 1,
+ "session": "ASIA_CLOSE",
+ "session_note": "Asia rebound 3,539.80 to ~3,630 (+2.5%), 3,625 at 14:43 BKK; A not triggered, B filled 3,562 and hit TP1/TP2",
+ "rev_note": "New A sell stop 3,601 under broken 3,600; B none (TP1 RR<0.5 both ways); bias NEUTRAL after the rebound",
+ "price_ref": 3625.0,
+ "bias": "NEUTRAL",
+ "bias_note": "Rebound vs hike odds 93%; trend still down",
+ "headline": "Gold rebounds ~2.5% to ~3,625; sell stop 3,601 if 3,600 fails, PMI 21:45 BKK",
+ "summary": [
+  "Asia: Kitco 3,549.50 at 06:01 BKK (low 3,539.80), 3,619.15 at 13:05, 3,622.32 at 14:07, ~3,625 at 14:43",
+  "High tested ~3,630 (Mitrade, untimed); vs Fri close 3,537.90: +2.46% at 3,625, +2.6% at 3,630",
+  "Dec hike odds 93% (from ~100%), 10y ~4.91% Fri, 2y -12bp, DXY ~103.6; tech rout lifts havens",
+  "Prior B buy stop 3,562 filled on the rally, TP1 3,593 and TP2 3,620 hit, SL 3,511 not seen; A 3,535 not hit",
+  "Old A sell stop 3,535 may still rest ~90 under price - check the app; PCE Wed 20:30, cancel all by 18:30"
+ ],
+ "events": [
+  "Mon 21:45 BKK  US flash PMI Nov",
+  "Tue 22:00 BKK  Conf Board confidence",
+  "Wed 20:30 BKK  PCE, GDP Q3, durables"
+ ],
+ "levels": {
+  "r": [
+   3630.0,
+   3643.24,
+   3652.2
+  ],
+  "s": [
+   3603.72,
+   3570.0,
+   3558.8
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 3601,
+   "sl": 3658,
+   "tp1": 3563,
+   "tp2": 3544,
+   "note": "2.7 under 3,603.72 test, 24 off (rule 4); SL 5.8>3,652.20, 57>=51 (rule 6); TP1 4 in 3,558.80; RR 0.67/1.0"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "Buy stop 3,634 over 3,630: TP1 3,648 RR 0.27; limit 3,614: TP1 3,626 RR 0.24; both < 0.5, skipped"
+  }
+ ],
+ "invalid": "Sell idea void on 1h close above 3,652.20 Fri high; holding above 3,600 keeps the rebound alive",
+ "risk_note": "TP1 RR 0.67 < 1.2: supports close. Rebound may extend to 3,643-3,652. Cancel all by Wed 18:30 BKK (PCE). Old A 3,535 may still rest - check the app. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 3/7a not hit (+2.46% at ref); rule 4 test 24 off; rule 6 SL 57; rule 5 TP inside 3,558.80; B skipped RR<0.5",
+ "review": {
+  "for_date": "2026-11-20",
+  "result": "NOT_TRIGGERED",
+  "text": "Final r2 no entry. r0 none; r1 A sell stop 3,552 not hit before 20:00 cancel (UMich), then NY fell to 3,502, close 3,537.90. If left live, TP1 3,522 hit. EA: no trade."
+ },
+ "sources": [
+  "Anadolu via ANC 2026-11-23",
+  "JournalArta 2026-11-23",
+  "Mitrade 2026-11-23",
+  "LiteFinance 2026-11-23",
+  "KuCoin/FX678 2026-11-23",
+  "TradingKey 2026-11-23",
+  "Business Today 2026-11-23",
+  "Newsquawk 2026-11-23",
+  "1TRADER 2026-11-23",
+  "Kitco 2026-11-22"
+ ],
+ "th": {
+  "headline": "ทองเด้ง 2.5% ราว 3,625 Sell Stop 3,601 ถ้าหลุด 3,600 รอ PMI 21:45 น.",
+  "bias_note": "กลาง เด้งแรง แต่ Fed ยังกดดัน",
+  "summary": [
+   "เอเชีย เปิด 3,549.50 ต่ำสุด 3,539.80 ขึ้นถึง 3,619 ตอน 13:05 น. และราว 3,625 ตอน 14:43 น.",
+   "สูงสุดแตะราว 3,630 เทียบปิดศุกร์ 3,537.90 บวก 2.46% ที่ 3,625 และ 2.6% ที่ 3,630",
+   "โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ลดเหลือ 93% บอนด์ 2 ปีลง 12bp หุ้นเทคร่วงหนุนทอง",
+   "แผน B Buy Stop 3,562 ถูกเปิด ถึง TP1 3,593 และ TP2 3,620 ไม่โดน SL แผน A 3,535 ไม่ถึง",
+   "ออเดอร์ A 3,535 เดิมอาจยังค้าง ตรวจในแอป PCE พุธ 20:30 น. ยกเลิกทั้งหมดก่อน 18:30 น."
+  ],
+  "invalid": "ปิด 1 ชม. เหนือ 3,652.20 แผนขายใช้ไม่ได้ ยืนเหนือ 3,600 ขาเด้งยังไปต่อ",
+  "review_text": "แผนสุดท้าย r2 ไม่มีจุดเข้า r1 A Sell Stop 3,552 ไม่ถึงก่อนยกเลิก 20:00 น. แล้วนิวยอร์กลงถึง 3,502 ปิด 3,537.90 ถ้าไม่ยกเลิกถึง TP1 3,522 EA ไม่เปิดไม้",
+  "session_note": "เอเชียเด้งจาก 3,539.80 ถึงราว 3,630 แผน A ไม่ถึง แผน B ถูกเปิด 3,562 ถึง TP1 และ TP2",
+  "rev_note": "A ใหม่ Sell Stop 3,601 ใต้ 3,600 B งดเข้า เพราะ R:R ต่ำ มุมมองเป็นกลางหลังเด้งแรง"
+ }
+}
