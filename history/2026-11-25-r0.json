@@ -1,0 +1,94 @@
+{
+ "v": 1,
+ "date": "2026-11-25",
+ "generated": "2026-11-25 06:45 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "NY: Conf Board 103.3 sank gold 3,602 -> 3,560.76 low, 3,562.4 at 06:31 (-2%); r0 A filled 3,604.6, TP1 hit; r1 no entry",
+ "rev_note": "",
+ "price_ref": 3562.4,
+ "bias": "BEARISH",
+ "bias_note": "Below 3,595 pivot; Dec hike odds ~95%",
+ "headline": "Gold ~3,562 after -2% day on hot confidence; Mon low 3,539.80 in play before PCE",
+ "summary": [
+  "Conf Board Nov 103.3 vs 92.4 exp (Oct 91.9); Kitco 3,602 at 10:01 ET, NY low 3,560.76 (TE), GSM ~3,566 late",
+  "Tue range 3,679.00-3,560.76, -1.93 to -2.04% (TE; prev close 3,634.93); EA feed 3,562.4 at 06:31 BKK",
+  "FedWatch Dec 25bp hike ~95%, 50bp ~5%; DXY ~103.7-103.8; 10y ~4.90-4.93%; Nasdaq -1.48% on AI selloff",
+  "Levels: R 3,587.66 / 3,595 pivot / 3,651; S 3,539.80 Mon low, 3,502 Fri low, options 3,492",
+  "PCE, GDP and claims 20:30 BKK, then Thanksgiving; all orders off by 18:30 BKK (rule 8)"
+ ],
+ "events": [
+  "Wed 18:30 BKK  Cancel all open orders",
+  "Wed 20:30 BKK  PCE, GDP Q3, claims",
+  "Thu 02:00 BKK  Beige Book; Thu US hol"
+ ],
+ "levels": {
+  "r": [
+   3587.7,
+   3595.0,
+   3651.0
+  ],
+  "s": [
+   3560.8,
+   3539.8,
+   3502.0
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 3537.5,
+   "sl": 3578,
+   "tp1": 3507,
+   "tp2": 3496,
+   "note": "2.3 under 3,539.80, 25 off; SL 17>3,560.76; RR 0.75/1.02"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "Buy stop over 3,587.66 is 28.6 off (>25, rule 4); skip"
+  }
+ ],
+ "invalid": "Bear view void on 1h close above 3,587.66; above 3,595 opens 3,651",
+ "risk_note": "TP1 RR < 1.2 (3,502 low is close). Cancel by Wed 18:30 BKK (PCE 20:30). Prior 11-24 A sell 3,604.6 open, SL at BE 3,604.1, TP 3,544 - manage in the app. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 4 stop within 25 at Mon low; 5 TP1 before 3,502; 6 SL 1/3 of 118; 8 off by 18:30",
+ "review": {
+  "for_date": "2026-11-24",
+  "result": "NOT_TRIGGERED",
+  "text": "Final r1 (00:09) no entry. r0 A sell stop 3,604.7 filled (EA 3,604.6 22:10), TP1 3,563 hit (low 3,560.76), TP2 3,544 not yet, EA SL at BE. r0 B 3,644 not seen. Day -2%."
+ },
+ "sources": [
+  "Kitco 2026-11-24 10:01 ET",
+  "Golden State Mint 2026-11-24 16:34 ET",
+  "TradingEconomics 2026-11-24",
+  "Vista Partners 2026-11-24",
+  "Eurasia Business News 2026-11-24",
+  "World Today Journal 2026-11-24",
+  "FXEmpire 2026-11-24",
+  "LiteFinance 2026-11-24",
+  "1Trader 2026-11-24",
+  "EA results feed 2026-11-25 06:31"
+ ],
+ "th": {
+  "headline": "ทองลง 2% ราว 3,562 หลังความเชื่อมั่นสูง จับตา 3,539.80 ก่อน PCE",
+  "bias_note": "ขาลง ต่ำกว่า 3,595 Fed กดดัน",
+  "summary": [
+   "ความเชื่อมั่น Conf Board 103.3 คาด 92.4 ทองลงจาก 3,602 ถึงต่ำสุด 3,560.76",
+   "กรอบวันอังคาร 3,679-3,560.76 ลบราว 2% ล่าสุด 3,562.4 ตอน 06:31 น.",
+   "โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ราว 95% ดอลลาร์ราว 103.7 บอนด์ 10 ปี ราว 4.9%",
+   "แนวต้าน 3,587.66 3,595 3,651 แนวรับ 3,539.80 3,502 3,492",
+   "PCE GDP ตอน 20:30 น. แล้ววันหยุดสหรัฐ ยกเลิกออเดอร์ภายใน 18:30 น."
+  ],
+  "invalid": "ปิด 1 ชม. เหนือ 3,587.66 มุมมองขาลงใช้ไม่ได้ เหนือ 3,595 ไป 3,651",
+  "review_text": "แผนสุดท้าย r1 ไม่มีจุดเข้า r0 A Sell Stop 3,604.7 ถูกเปิด ถึง TP1 3,563 (ต่ำสุด 3,560.76) TP2 3,544 ยังไม่ถึง EA เลื่อน SL ไปจุดทุน r0 B ไม่ถูกเปิด",
+  "session_note": "นิวยอร์ก ทองลงจาก 3,602 ถึง 3,560.76 ลบราว 2% แผน A เมื่อวานถูกเปิด ถึง TP1 ไม้ EA ยังเปิดอยู่",
+  "rev_note": ""
+ }
+}
