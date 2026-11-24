@@ -1,97 +1,95 @@
 {
  "v": 1,
- "date": "2026-11-23",
- "generated": "2026-11-24 19:20 +07",
- "rev": 3,
- "session": "ASIA_CLOSE",
- "session_note": "Mon NY ran to 3,690.20 then closed ~3,634.80 (+2.7%); Asia 3,619-3,679, ~3,650 at 16:08; old A 3,601 not hit; r2 no entry",
- "rev_note": "Still no entry: rule 3/7a after +2.7% day, Asia extremes ~30 from ref, no 1h extreme known; TP1 RR < 0.5 both sides",
- "price_ref": 3650.0,
- "bias": "NEUTRAL",
- "bias_note": "Rebound stalls under 3,651-3,679; hike ~95%",
- "headline": "Gold ~3,650 after Asia 3,619-3,679; rebound stalls, no entry tonight; PCE Wed 20:30 BKK",
+ "date": "2026-11-24",
+ "generated": "2026-11-24 19:25 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "Mon NY high 3,668.20-3,690.20 (sources differ), close 3,634.20 (+2.72%) on AI rally; 11-23 r3 no entry, r0 B won",
+ "rev_note": "",
+ "price_ref": 3629.7,
+ "bias": "BEARISH",
+ "bias_note": "Rebound capped 3,679; hike odds 95-98%",
+ "headline": "Gold fades to ~3,630 after 3,679 top; hike bets and 20-month USD high weigh before PCE",
  "summary": [
-  "Mon: Kitco high 3,690.20, late spot 3,635.10 (+2.75%); FXEmpire close ~3,634.80 vs Fri 3,537.90",
-  "Asia Tue: BigGo ~3,668 at 10:35 BKK; Kitco 3,633.30 at 12:24 BKK, range 3,619.00-3,679.00",
-  "FXEmpire 3,620.40 at 13:25 BKK; IC Markets ~3,650 at 16:08 BKK; FXLeaders: rejected at 3,651",
-  "Dec hike odds ~95% (CME), 10y ~4.93-4.95%, DXY ~104.2-104.3; Natixis sees 3,340 by January",
-  "r2 had no entry; old A sell stops 3,601 (r1) and 3,535 (r0) not hit (low 3,619) - check app, cancel by Wed 18:30"
+  "Kitco Mon close 3,634.20 (+2.72%), high 3,668.20; Tue range 3,606.80-3,679.00, 3,629.70 at 19:03 BKK",
+  "Reuters 3,645.29 at 07:23 BKK, 3,619.95 at 13:35 BKK, 3,611.99 at 15:27 BKK; rebound lost steam",
+  "FedWatch Dec 25bp hike 95-98%; DXY ~104.3 near 20-month high; 10y ~4.92%; Williams leans hawkish",
+  "Nvidia +31% on Huang return lifted stocks Mon (S&P +4.7%); oil fell (WTI 80.17); risk-on cut haven bid",
+  "FXEmpire: pivot 3,595, R 3,651/3,674/3,697; 14-day RSI ~33; Natixis sees 3,340 by Jan"
  ],
  "events": [
-  "Tue 22:00 BKK  Conf Board consumer confidence (fcst 92.1)",
-  "Wed 20:30 BKK  Core PCE Oct, GDP Q3, jobless claims",
-  "Thu 02:00 BKK  Beige Book; Thu US Thanksgiving holiday",
-  "Wed 9 Dec  FOMC decision (Dec 8-9 meeting)"
+  "Tue 22:00 BKK  Conf Board confidence",
+  "Wed 20:30 BKK  PCE, GDP Q3, claims",
+  "Thu 02:00 BKK  Beige Book; Thu US hol"
  ],
  "levels": {
   "r": [
    3651.0,
-   3679.0,
-   3690.2
+   3668.2,
+   3679.0
   ],
   "s": [
-   3619.0,
+   3606.8,
    3595.0,
-   3526.0
+   3558.8
   ]
  },
  "plans": [
   {
    "id": "A",
    "side": "SELL",
-   "type": "NONE",
-   "entry": 0,
-   "sl": 0,
-   "tp1": 0,
-   "tp2": 0,
-   "note": "Sell stop 3,616 under Asia low 3,619 is 34 off (> 10/20, rule 7a); SL 55 (1/3 of 164 Mon range), TP1 3,599 over 3,595: RR 0.31, skip"
+   "type": "STOP",
+   "entry": 3604.7,
+   "sl": 3660,
+   "tp1": 3563,
+   "tp2": 3544,
+   "note": "2.1 under 3,606.80 low, 25 off; SL 9>3,651; RR 0.75/1.10"
   },
   {
    "id": "B",
-   "side": "BUY",
-   "type": "NONE",
-   "entry": 0,
-   "sl": 0,
-   "tp1": 0,
-   "tp2": 0,
-   "note": "Buy stop 3,682 over Asia high 3,679 is 32 off and rule 3 bars buy stops after +2.7% day; TP1 3,686 under 3,690.20: RR 0.07, skip"
+   "side": "SELL",
+   "type": "LIMIT",
+   "entry": 3644,
+   "sl": 3699,
+   "tp1": 3611,
+   "tp2": 3563,
+   "note": "Fade 3,645.29 Asia print, 14 off; SL 9>3,690.20; RR 0.6/1.47"
   }
  ],
- "invalid": "1h close below 3,619 opens 3,595; hold above 3,679 retests 3,690.20",
- "risk_note": "No entry: rules 3/7a after +2.7% day, Asia extremes ~30 from ref, both TP1 RR < 0.5. Old A 3,601/3,535 may still rest - check the app. Cancel all by Wed 18:30 BKK (PCE). Scenario analysis from public sources. Not financial advice.",
- "lesson_applied": "Rule 3 no buy stops after +2.7% day; rule 7a max 10 from ref, no 1h extreme found; rule 6 SL 55; rule 5 TP inside 3,595/3,690.20; rule 8 PCE",
+ "invalid": "Bear view void on 1h close above 3,651; break of 3,679 opens 3,695-3,700",
+ "risk_note": "TP1 RR < 1.2 (levels close). Cancel all orders by Wed 18:30 BKK (PCE 20:30). Old r1 A 3,601 / r0 A 3,535 may still rest - check the app. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 1/2/4 stop 2 under low, 25 off; 5 TP before 3,558.80; 6 SL 55; 8 cancel pre-PCE",
  "review": {
-  "for_date": "2026-11-20",
+  "for_date": "2026-11-23",
   "result": "NOT_TRIGGERED",
-  "text": "Final r2 no entry. r0 none; r1 A sell stop 3,552 not hit before 20:00 cancel (UMich), then NY fell to 3,502, close 3,537.90. If left live, TP1 3,522 hit. EA: no trade."
+  "text": "Final r3 (19:20 Tue) no entry, r2 none. r0 B buy stop 3,562 hit TP1/TP2 on paper; r0 A 3,535 and r1 A 3,601 not hit (lows 3,539.80, 3,606.80). Close 3,634.20. EA: no trade."
  },
  "sources": [
-  "Kitco precious metals 2026-11-24 00:24 ET",
-  "Kitco text quotes 2026-11-23 11:52 ET",
-  "Kitco PM report 2026-11-23",
-  "FXEmpire 2026-11-24 06:25 UTC (Arslan Ali)",
-  "FXEmpire 2026-11-23 21:51 UTC (Bruce Powers)",
-  "BigGo Finance 2026-11-24 03:35 UTC",
-  "IC Markets Europe forecast 2026-11-24 09:08 UTC",
+  "Kitco 2026-11-24 07:03 ET",
+  "Kitco PM 2026-11-23",
+  "FinanceFeeds 2026-11-24",
+  "FXEmpire 2026-11-24 10:19 GMT",
+  "FXEmpire 2026-11-24 06:25 GMT",
+  "Reuters via Business Recorder 2026-11-24",
+  "Reuters via Rallies 2026-11-24",
   "1TRADER 2026-11-24",
-  "Trading and Investment News 2026-11-24",
-  "Mitrade 2026-11-24",
-  "LiteFinance 2026-11-24",
-  "Asharq Al-Awsat 2026-11-24"
+  "ANC 2026-11-24",
+  "CappNotes 2026-11-23",
+  "Mitrade 2026-11-24"
  ],
  "th": {
-  "headline": "ทองราว 3,650 เอเชียแกว่ง 3,619-3,679 เด้งแผ่ว คืนนี้งดเข้า รอ PCE พุธ",
-  "bias_note": "กลาง เด้งติด 3,651-3,679",
+  "headline": "ทองอ่อนตัวราว 3,630 หลังชน 3,679 ตลาดคาด Fed ขึ้นดอกเบี้ย รอ PCE",
+  "bias_note": "ขาลง เด้งไม่ผ่าน 3,679 Fed กดดัน",
   "summary": [
-   "จันทร์ Kitco สูงสุด 3,690.20 ปลายวัน 3,635.10 บวก 2.75% ปิดราว 3,634.80",
-   "เอเชียอังคาร BigGo ราว 3,668 ตอน 10:35 น. Kitco 3,633.30 ตอน 12:24 น. กรอบ 3,619-3,679",
-   "FXEmpire 3,620.40 ตอน 13:25 น. IC Markets ราว 3,650 ตอน 16:08 น. ติดต้าน 3,651",
-   "โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ราว 95% บอนด์ 10 ปี 4.93-4.95% Natixis มองลง 3,340",
-   "r2 ไม่มีจุดเข้า Sell Stop เดิม 3,601 และ 3,535 ไม่ถึง ตรวจในแอป ยกเลิกก่อนพุธ 18:30 น."
+   "ปิดจันทร์ 3,634.20 บวก 2.72% วันนี้กรอบ 3,606.80-3,679 ล่าสุด 3,629.70 ตอน 19:03 น.",
+   "3,645.29 ตอน 07:23 น. 3,619.95 ตอน 13:35 น. 3,611.99 ตอน 15:27 น. แรงเด้งหมด",
+   "โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. 95-98% ดอลลาร์ 104.3 สูงสุด 20 เดือน บอนด์ 10 ปี 4.92%",
+   "Nvidia บวก 31% หนุนหุ้น S&P บวก 4.7% น้ำมันลง แรงซื้อทองหลบภัยลดลง",
+   "แนวรับ 3,595 แนวต้าน 3,651 3,674 3,697 RSI ราว 33 Natixis มอง 3,340 ใน ม.ค."
   ],
-  "invalid": "ปิด 1 ชม. ใต้ 3,619 ไปต่อ 3,595 ยืนเหนือ 3,679 ลุ้น 3,690.20",
-  "review_text": "แผนสุดท้าย r2 ไม่มีจุดเข้า r1 A Sell Stop 3,552 ไม่ถึงก่อนยกเลิก 20:00 น. แล้วนิวยอร์กลงถึง 3,502 ปิด 3,537.90 ถ้าไม่ยกเลิกถึง TP1 3,522 EA ไม่เปิดไม้",
-  "session_note": "เอเชียแกว่ง 3,619-3,679 ล่าสุดราว 3,650 แผน r2 ไม่มีจุดเข้า Sell Stop เดิม 3,601 ไม่ถูกเปิด",
-  "rev_note": "ยังงดเข้า เพราะกฎ 3/7a หลังวันบวก 2.7% จุดสุดเอเชียห่างราว 30 และ R:R ต่ำกว่า 0.5"
+  "invalid": "ปิด 1 ชม. เหนือ 3,651 มุมมองขาลงใช้ไม่ได้ ผ่าน 3,679 ไปต่อ 3,695-3,700",
+  "review_text": "แผนสุดท้าย r3 และ r2 ไม่มีจุดเข้า r0 B Buy Stop 3,562 ถึง TP1 TP2 บนกระดาษ r0 A 3,535 และ r1 A 3,601 ไม่ถึง ปิด 3,634.20 EA ไม่เปิดไม้",
+  "session_note": "นิวยอร์กจันทร์ขึ้นถึง 3,668-3,690 แล้วปิด 3,634.20 บวก 2.72% r3 ไม่มีจุดเข้า r0 B ได้กำไร",
+  "rev_note": ""
  }
 }

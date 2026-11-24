@@ -1,0 +1,95 @@
+{
+ "v": 1,
+ "date": "2026-11-24",
+ "generated": "2026-11-24 19:25 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "Mon NY high 3,668.20-3,690.20 (sources differ), close 3,634.20 (+2.72%) on AI rally; 11-23 r3 no entry, r0 B won",
+ "rev_note": "",
+ "price_ref": 3629.7,
+ "bias": "BEARISH",
+ "bias_note": "Rebound capped 3,679; hike odds 95-98%",
+ "headline": "Gold fades to ~3,630 after 3,679 top; hike bets and 20-month USD high weigh before PCE",
+ "summary": [
+  "Kitco Mon close 3,634.20 (+2.72%), high 3,668.20; Tue range 3,606.80-3,679.00, 3,629.70 at 19:03 BKK",
+  "Reuters 3,645.29 at 07:23 BKK, 3,619.95 at 13:35 BKK, 3,611.99 at 15:27 BKK; rebound lost steam",
+  "FedWatch Dec 25bp hike 95-98%; DXY ~104.3 near 20-month high; 10y ~4.92%; Williams leans hawkish",
+  "Nvidia +31% on Huang return lifted stocks Mon (S&P +4.7%); oil fell (WTI 80.17); risk-on cut haven bid",
+  "FXEmpire: pivot 3,595, R 3,651/3,674/3,697; 14-day RSI ~33; Natixis sees 3,340 by Jan"
+ ],
+ "events": [
+  "Tue 22:00 BKK  Conf Board confidence",
+  "Wed 20:30 BKK  PCE, GDP Q3, claims",
+  "Thu 02:00 BKK  Beige Book; Thu US hol"
+ ],
+ "levels": {
+  "r": [
+   3651.0,
+   3668.2,
+   3679.0
+  ],
+  "s": [
+   3606.8,
+   3595.0,
+   3558.8
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 3604.7,
+   "sl": 3660,
+   "tp1": 3563,
+   "tp2": 3544,
+   "note": "2.1 under 3,606.80 low, 25 off; SL 9>3,651; RR 0.75/1.10"
+  },
+  {
+   "id": "B",
+   "side": "SELL",
+   "type": "LIMIT",
+   "entry": 3644,
+   "sl": 3699,
+   "tp1": 3611,
+   "tp2": 3563,
+   "note": "Fade 3,645.29 Asia print, 14 off; SL 9>3,690.20; RR 0.6/1.47"
+  }
+ ],
+ "invalid": "Bear view void on 1h close above 3,651; break of 3,679 opens 3,695-3,700",
+ "risk_note": "TP1 RR < 1.2 (levels close). Cancel all orders by Wed 18:30 BKK (PCE 20:30). Old r1 A 3,601 / r0 A 3,535 may still rest - check the app. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 1/2/4 stop 2 under low, 25 off; 5 TP before 3,558.80; 6 SL 55; 8 cancel pre-PCE",
+ "review": {
+  "for_date": "2026-11-23",
+  "result": "NOT_TRIGGERED",
+  "text": "Final r3 (19:20 Tue) no entry, r2 none. r0 B buy stop 3,562 hit TP1/TP2 on paper; r0 A 3,535 and r1 A 3,601 not hit (lows 3,539.80, 3,606.80). Close 3,634.20. EA: no trade."
+ },
+ "sources": [
+  "Kitco 2026-11-24 07:03 ET",
+  "Kitco PM 2026-11-23",
+  "FinanceFeeds 2026-11-24",
+  "FXEmpire 2026-11-24 10:19 GMT",
+  "FXEmpire 2026-11-24 06:25 GMT",
+  "Reuters via Business Recorder 2026-11-24",
+  "Reuters via Rallies 2026-11-24",
+  "1TRADER 2026-11-24",
+  "ANC 2026-11-24",
+  "CappNotes 2026-11-23",
+  "Mitrade 2026-11-24"
+ ],
+ "th": {
+  "headline": "ทองอ่อนตัวราว 3,630 หลังชน 3,679 ตลาดคาด Fed ขึ้นดอกเบี้ย รอ PCE",
+  "bias_note": "ขาลง เด้งไม่ผ่าน 3,679 Fed กดดัน",
+  "summary": [
+   "ปิดจันทร์ 3,634.20 บวก 2.72% วันนี้กรอบ 3,606.80-3,679 ล่าสุด 3,629.70 ตอน 19:03 น.",
+   "3,645.29 ตอน 07:23 น. 3,619.95 ตอน 13:35 น. 3,611.99 ตอน 15:27 น. แรงเด้งหมด",
+   "โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. 95-98% ดอลลาร์ 104.3 สูงสุด 20 เดือน บอนด์ 10 ปี 4.92%",
+   "Nvidia บวก 31% หนุนหุ้น S&P บวก 4.7% น้ำมันลง แรงซื้อทองหลบภัยลดลง",
+   "แนวรับ 3,595 แนวต้าน 3,651 3,674 3,697 RSI ราว 33 Natixis มอง 3,340 ใน ม.ค."
+  ],
+  "invalid": "ปิด 1 ชม. เหนือ 3,651 มุมมองขาลงใช้ไม่ได้ ผ่าน 3,679 ไปต่อ 3,695-3,700",
+  "review_text": "แผนสุดท้าย r3 และ r2 ไม่มีจุดเข้า r0 B Buy Stop 3,562 ถึง TP1 TP2 บนกระดาษ r0 A 3,535 และ r1 A 3,601 ไม่ถึง ปิด 3,634.20 EA ไม่เปิดไม้",
+  "session_note": "นิวยอร์กจันทร์ขึ้นถึง 3,668-3,690 แล้วปิด 3,634.20 บวก 2.72% r3 ไม่มีจุดเข้า r0 B ได้กำไร",
+  "rev_note": ""
+ }
+}
