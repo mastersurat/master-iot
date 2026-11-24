@@ -1,6 +1,36 @@
 # XAUUSD Gold Brief — จันทร์ 23 พ.ย. 2026 (06:45 น.)
 
-## อัปเดตปิดตลาดลอนดอน (00:15 น.)
+## อัปเดตปิดตลาดเอเชีย (19:20 น. อังคาร 24 พ.ย.) — r3
+
+**สรุปช่วงที่เพิ่งปิด:**
+- ต่อจากอัปเดตลอนดอน (3,662.53 ตอน 00:10 น.) นิวยอร์กขึ้นต่อถึง Kitco 3,690.20 แล้วย่อลง ปลายวัน Kitco 3,635.10 (บวก 2.75%) · FXEmpire ปิดราว 3,634.80 เทียบปิดศุกร์ 3,537.90
+- เอเชียอังคาร: BigGo ราว 3,668 ตอน 10:35 น. (ขึ้นเกือบ 3,670) · Kitco 3,633.30 ตอน 12:24 น. กรอบ 3,619.00–3,679.00 · FXEmpire 3,620.40 ตอน 13:25 น. · IC Markets ราว 3,650 ตอน 16:08 น. · FXLeaders: ถูกตีกลับที่ 3,651
+- ข่าว: Nvidia คืนตำแหน่ง CEO ให้ Jensen Huang หุ้นฟื้น ลดแรงขายทองเพื่อวางมาร์จิน · โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ราว 95% (CME) · Williams (NY Fed) ยังต้องคุมเงินเฟ้อ · DXY ราว 104.2–104.3 บอนด์ 10 ปี 4.93–4.95% · Natixis มองทองลง 3,340 ภายในมกราคม
+- แนวต้าน/แนวรับจากนักวิเคราะห์: 3,651 / 3,674 / 3,697 (FXEmpire) · 3,685–3,700 (Mitrade) · แนวรับ 3,595 (FXEmpire) 3,572–3,591 (Mitrade) 3,526 (ต่ำสุดจันทร์)
+
+**ผลของแผนก่อนหน้า (r2):** A และ B ไม่มีจุดเข้า · ออเดอร์เก่า r1 A Sell Stop 3,601 และ r0 A Sell Stop 3,535 **ไม่ถูกเปิด** (ต่ำสุดที่พบหลังจากนั้นคือ 3,617.50 วันจันทร์ และ 3,619 ช่วงเอเชีย) ถ้ายังค้างอยู่ห่างราคาราว 50 และ 115
+
+## แผนใหม่ ช่วงลอนดอน + นิวยอร์ก (r3)
+
+| Plan | Side | Type | Entry | SL | TP1 | TP2 | เงื่อนไข |
+|---|---|---|---|---|---|---|---|
+| A | SELL | NONE | – | – | – | – | Sell Stop 3,616 ใต้ต่ำสุดเอเชีย 3,619 ห่าง 34 เกินกฎ 7a · SL 55 TP1 3,599 R:R 0.31 งดเข้า |
+| B | BUY | NONE | – | – | – | – | Buy Stop 3,682 เหนือ 3,679 ห่าง 32 และกฎ 3 ห้าม Buy Stop หลังวันบวก 2.7% · TP1 3,686 R:R 0.07 งดเข้า |
+
+- เหตุผล: วันจันทร์บวกราว 2.7% (เกิน 2.5%) จึงใช้กฎ 3 และ 7a (จุดเข้าห่างราคาไม่เกิน 10 และต้องมาจากจุดสูง/ต่ำใน 1 ชม.ล่าสุด ซึ่งหาแหล่งยืนยันไม่ได้) · SL ตามกฎ 6 ต้องอย่างน้อย 1/3 ของกรอบวันจันทร์ 164 = 55 · TP ตามกฎ 5 อยู่ก่อน 3,595 และ 3,690.20 ทำให้ R:R ต่ำกว่า 0.5 ทั้งสองฝั่ง
+- **จุดที่แผนใช้ไม่ได้ / ภาพเปลี่ยน:** ปิด 1 ชม. ใต้ 3,619 เปิดทางลง 3,595 · ยืนเหนือ 3,679 ลุ้นกลับไปทดสอบ 3,690.20
+- รอบถัดไป (เช้าพุธ) จะประเมินใหม่ ต้องไม่มีออเดอร์ค้างตั้งแต่ 18:30 น. วันพุธ (2 ชม. ก่อน PCE กฎ 8)
+
+**ออเดอร์ที่ตั้งตามแผนก่อนหน้ายังอยู่ ตรวจสอบและยกเลิกเองได้ในแอป Gold Brief (ระบบไม่ยกเลิกให้อัตโนมัติ)**
+
+## ข่าวที่รออยู่ (เวลาไทย)
+- อังคาร 22:00 น. ความเชื่อมั่นผู้บริโภค Conference Board (คาด 92.1 ก่อนหน้า 91.7) — ไม่ใช่ข่าวที่ต้องยกเลิกออเดอร์ตามกฎ 8
+- พุธ 20:30 น. Core PCE ต.ค. (คาด 3.2% y/y), GDP Q3, ผู้ขอสวัสดิการว่างงาน — ข่าวแรง
+- พฤหัส 02:00 น. Beige Book · พฤหัส ตลาดสหรัฐหยุด Thanksgiving
+- 9 ธ.ค. ผลประชุม FOMC (ประชุม 8–9 ธ.ค.)
+
+
+## อัปเดตปิดตลาดลอนดอน (00:15 น.) — แทนที่ด้วยแผน r3 ด้านบนแล้ว
 
 **สรุปช่วงลอนดอน + นิวยอร์กช่วงเช้า (จันทร์ 23 พ.ย.):** ต่อจากราว 3,625 (14:43 น.) · Kitco 3,617.50 ตอน 20:08 น. (กรอบวันขณะนั้น 3,539.80–3,637.90) · FXEmpire 3,625.55 ตอน 20:30 น. · หลัง PMI ขึ้นถึง Kitco 3,668.20 (ราว 22:00–22:21 น. บวกกว่า 3%) · FXEmpire 3,664.07 ตอน 00:05 น. และ 3,662.53 ตอน 00:10 น. · เทียบปิดศุกร์ 3,537.90 บวก 3.52%
 - ข่าว: PMI สหรัฐ (flash) พ.ย. Composite 54.6 จาก 55.9 ต่ำสุด 4 เดือน (บริการ 54.7 การผลิต 54.5) ทองแทบไม่ตอบสนอง (Kitco) · โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ราว 93% (Reuters/CME) · บอนด์ 10 ปีราว 4.91–4.95% · ดอลลาร์พักตัวจากสูงสุด 19 เดือน · Waller เคยเสนอขึ้น 50bp แต่ตลาดลดคาดการณ์ 50bp ลง
@@ -158,6 +188,18 @@ TP1 ได้ R:R ต่ำกว่า 1.2 เพราะแนวรับ/�
 *เป็นการวิเคราะห์สถานการณ์จากข้อมูลสาธารณะ ไม่ใช่คำแนะนำการลงทุน ผู้เขียนไม่ใช่ที่ปรึกษาการเงินที่ได้รับอนุญาต Not financial advice.*
 
 **แหล่งข้อมูล:**
+- [Kitco: Precious metals spot (24 พ.ย. 00:24 EST)](https://www.kitco.com/price/precious-metals)
+- [Kitco: Text quotes (23 พ.ย. 11:52 EST)](https://www.kitco.com/price/precious-metals/text-quotes)
+- [Kitco PM Report (23 พ.ย.)](https://www.kitco.com/news/article/2026-11-23/gold-silver-prices-see-sharp-rebounds-ai-shares-rally-renewed-fed)
+- [FXEmpire: Gold Extends Rebound, Can $3,595 Hold? (24 พ.ย. 06:25 UTC)](https://www.fxempire.com/forecasts/article/gold-xauusd-silver-price-forecast-gold-extends-rebound-as-bargain-hunters-return-can-3595-hold-1646771)
+- [FXEmpire: Bullish Reversal Targets $3,900 (23 พ.ย. 21:51 UTC)](https://www.fxempire.com/forecasts/article/gold-xau-usd-price-forecast-bullish-reversal-targets-3900-resistance-1646727)
+- [BigGo Finance: Gold Tops $3,660 (24 พ.ย. 03:35 UTC)](https://finance.biggo.com/news/be0b6e75-bd19-4e95-aeaa-f3e75bd65ae9)
+- [IC Markets: Europe Fundamental Forecast (24 พ.ย.)](https://www.ic.com/blog/europe-fundamental-forecast-24-november-2026-ic/)
+- [1TRADER: Gold Price Today 24 Nov 2026](https://1trader.com/en/gold-price-2026-11-24/)
+- [Trading & Investment News: Gold Holds Near $3,645 (24 พ.ย.)](https://www.tradingandinvestmentnews.co.uk/gold-price-today-4-percent/)
+- [Mitrade: Gold rebounds on Nvidia, PMI; Natixis warns (24 พ.ย.)](https://www.mitrade.com/insights/commodity-analysis/gold/gold-rebounds-nvidia-pmi-natixis-warns)
+- [LiteFinance: Gold forecast (24 พ.ย.)](https://www.litefinance.org/blog/analysts-opinions/gold-price-prediction-forecast/daily-and-weekly/)
+- [Asharq Al-Awsat: Asian stocks rally (24 พ.ย.)](https://english.aawsat.com/business/5344926-asian-stocks-rally-huang%E2%80%99s-return-nvidia-revives-ai-trade)
 - [Kitco: Gold Price Today (22 พ.ย. 18:01 EST)](https://www.kitco.com/charts/gold)
 - [Kitco: Precious metals spot (ปิด 20 พ.ย.)](https://www.kitco.com/price/precious-metals)
 - [FXEmpire: Gold Price Forecast – Deepening Selloff Nears Major Support (22 พ.ย.)](https://www.fxempire.com/forecasts/article/gold-xau-usd-price-forecast-deepening-selloff-nears-major-support-1646229)
