@@ -1,0 +1,92 @@
+{
+ "v": 1,
+ "date": "2026-11-25",
+ "generated": "2026-11-25 16:09 +07",
+ "rev": 1,
+ "session": "ASIA_CLOSE",
+ "session_note": "Asia ~3,512.7-3,575.2 (EA feed); A filled 3,537.11 08:10, TP1 3,507 missed by ~6, SL held, closed BE 15:36; B none",
+ "rev_note": "A sell stop under 3,512.7 skipped (26 off, TP1 RR<0.5); B sell limit 3,550 at Tue close zone, cancel 18:30 before PCE",
+ "price_ref": 3536.6,
+ "bias": "BEARISH",
+ "bias_note": "Below 3,595 pivot; Dec hike odds 96.4%",
+ "headline": "Gold ~3,537 after Asia dip to ~3,513 and bounce; A closed at BE; PCE/GDP 20:30 BKK",
+ "summary": [
+  "Asia spot 3,544.19 at 07:25, 3,558.85 at 10:12, 3,526.60 at 12:50, ~3,527 at 14:47 BKK; EA 3,536.6 at 15:36",
+  "r0 A sell stop filled 3,537.11 08:10; EA low ~3,512.7 (TP1 3,507 missed), high ~3,575.2 (SL 3,578 held); BE exit +0.50",
+  "FedWatch Dec 25bp hike 96.4%; CME gold margin 5% -> 6%; BCA closed gold long; Tue settle 3,556.16 (-2.2%)",
+  "Levels: R 3,550 / 3,575.2 / 3,595 pivot; S 3,512.7 Asia low, 3,502 Fri low, 3,492",
+  "PCE, GDP Q3 and claims 20:30 BKK; all orders off by 18:30 BKK (rule 8); no open EA position"
+ ],
+ "events": [
+  "Wed 18:30 BKK  Cancel all open orders",
+  "Wed 20:30 BKK  PCE, GDP Q3, claims",
+  "Thu 02:00 BKK  Beige Book; Thu US hol"
+ ],
+ "levels": {
+  "r": [
+   3550.0,
+   3575.2,
+   3595.0
+  ],
+  "s": [
+   3512.7,
+   3502.0,
+   3492.0
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "Stop under 3,512.7 Asia low is 26 off (>25, rule 4); TP1 before 3,502 gives RR<0.5; skip"
+  },
+  {
+   "id": "B",
+   "side": "SELL",
+   "type": "LIMIT",
+   "entry": 3550.0,
+   "sl": 3590,
+   "tp1": 3517,
+   "tp2": 3506,
+   "note": "Fade Tue close 3,552.5 zone, 13.4 off; SL 15>3,575.2 (1/3 of 118); RR 0.83/1.10; off 18:30"
+  }
+ ],
+ "invalid": "Bear view void on 1h close above 3,590; above 3,595 opens 3,651",
+ "risk_note": "TP1 RR 0.83 < 1.2 (Asia low 3,512.7 close). Cancel by Wed 18:30 BKK (PCE 20:30). EA gates LIMIT_WITH (25%), so B is manual only. 11-25 A closed at BE 3,536.61; no open position. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 1/4: A stop 26 off and RR<0.5 - skipped; B limit 13.4 off at tested zone; 5 TP1 before 3,512.7; 6 SL 1/3 of 118; 8 off by 18:30",
+ "review": {
+  "for_date": "2026-11-24",
+  "result": "NOT_TRIGGERED",
+  "text": "Final r1 (00:09) no entry. r0 A sell stop 3,604.7 filled (EA 3,604.6 22:10), TP1 3,563 hit (low 3,560.76), TP2 3,544 not yet, EA SL at BE. r0 B 3,644 not seen. Day -2%."
+ },
+ "sources": [
+  "FinanceFeeds 2026-11-25 07:30 GMT",
+  "ANC Stock Investments 2026-11-25 07:52 GMT",
+  "FXEmpire 2026-11-25 06:20 GMT",
+  "Mitrade 2026-11-25",
+  "Mitrade AU 2026-11-25",
+  "LiteFinance 2026-11-25",
+  "Upstox 2026-11-25 14:19 IST",
+  "EA results feed 2026-11-25 16:06"
+ ],
+ "th": {
+  "headline": "ทองราว 3,537 เอเชียลงถึงราว 3,513 แล้วเด้ง รอ PCE 20:30 น.",
+  "bias_note": "ขาลง ต่ำกว่า 3,595 Fed ขึ้นดอกเบี้ย 96%",
+  "summary": [
+   "เอเชีย 3,544 ตอน 07:25 น. 3,558.85 ตอน 10:12 น. 3,526.60 ตอน 12:50 น. EA 3,536.6 15:36 น.",
+   "แผน A ถูกเปิด 3,537.11 ต่ำสุดราว 3,512.7 TP1 ไม่ถึง สูงสุดราว 3,575.2 SL ไม่โดน ปิดจุดทุน",
+   "โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. 96.4% CME ขึ้นมาร์จิ้นทอง 5% เป็น 6% BCA ปิดสถานะซื้อทอง",
+   "แนวต้าน 3,550 3,575.2 3,595 แนวรับ 3,512.7 3,502 3,492",
+   "PCE GDP ผู้ขอสวัสดิการว่างงาน 20:30 น. ยกเลิกออเดอร์ภายใน 18:30 น. ไม่มีไม้เปิดค้าง"
+  ],
+  "invalid": "ปิด 1 ชม. เหนือ 3,590 มุมมองขาลงใช้ไม่ได้ เหนือ 3,595 ไป 3,651",
+  "review_text": "แผนสุดท้าย r1 ไม่มีจุดเข้า r0 A Sell Stop 3,604.7 ถูกเปิด ถึง TP1 3,563 (ต่ำสุด 3,560.76) TP2 3,544 ยังไม่ถึง EA เลื่อน SL ไปจุดทุน r0 B ไม่ถูกเปิด",
+  "session_note": "เอเชีย กรอบราว 3,513-3,575 แผน A ถูกเปิด 3,537.11 TP1 ไม่ถึง EA ปิดที่จุดทุน 15:36 น. แผน B ไม่มี",
+  "rev_note": "A Sell Stop ใต้ 3,512.7 ห่างเกิน 25 และ R:R ต่ำ จึงไม่ตั้ง B Sell Limit 3,550 ใช้ถึง 18:30 น."
+ }
+}
