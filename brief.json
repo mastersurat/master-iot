@@ -1,37 +1,37 @@
 {
  "v": 1,
  "date": "2026-11-25",
- "generated": "2026-11-25 16:09 +07",
- "rev": 1,
- "session": "ASIA_CLOSE",
- "session_note": "Asia ~3,512.7-3,575.2 (EA feed); A filled 3,537.11 08:10, TP1 3,507 missed by ~6, SL held, closed BE 15:36; B none",
- "rev_note": "A sell stop under 3,512.7 skipped (26 off, TP1 RR<0.5); B sell limit 3,550 at Tue close zone, cancel 18:30 before PCE",
- "price_ref": 3536.6,
+ "generated": "2026-11-26 00:15 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "London/NY 3,519 (19:03) -> low 3,454 after hot core PCE 3.3%, GDP 4.3%; B 3,550 not reached, cancelled 18:30; no fill",
+ "rev_note": "No entry: rule 7b after PCE (no 1h high/low, ref 3h old); low-stop 26 off >20; retest 3,496 16 off >10",
+ "price_ref": 3480.0,
  "bias": "BEARISH",
- "bias_note": "Below 3,595 pivot; Dec hike odds 96.4%",
- "headline": "Gold ~3,537 after Asia dip to ~3,513 and bounce; A closed at BE; PCE/GDP 20:30 BKK",
+ "bias_note": "Below 3,500; core PCE hot, Dec hike ~96%",
+ "headline": "Gold breaks 3,500 on hot core PCE and GDP 4.3%; low 3,454, ~3,480; no entry",
  "summary": [
-  "Asia spot 3,544.19 at 07:25, 3,558.85 at 10:12, 3,526.60 at 12:50, ~3,527 at 14:47 BKK; EA 3,536.6 at 15:36",
-  "r0 A sell stop filled 3,537.11 08:10; EA low ~3,512.7 (TP1 3,507 missed), high ~3,575.2 (SL 3,578 held); BE exit +0.50",
-  "FedWatch Dec 25bp hike 96.4%; CME gold margin 5% -> 6%; BCA closed gold long; Tue settle 3,556.16 (-2.2%)",
-  "Levels: R 3,550 / 3,575.2 / 3,595 pivot; S 3,512.7 Asia low, 3,502 Fri low, 3,492",
-  "PCE, GDP Q3 and claims 20:30 BKK; all orders off by 18:30 BKK (rule 8); no open EA position"
+  "Spot 3,519.48 at 19:03 BKK (roic); 3,496.05 after claims 20:30; 3,482.30 / 3,480.00 at 21:01-21:03 BKK (Kitco)",
+  "Lows: Kitco 3,469.30 (by 21:01 BKK), TradingKey 3,454 (-2.8%, untimed); Tue close ~3,555.1; 15-month low",
+  "Core PCE 0.3% m/m, 3.3% y/y vs 3.2%; headline 3.8%; GDP Q3 4.3%; claims 189k vs 200k; Dec hike ~96%",
+  "Levels: R 3,503 / 3,519.5 / 3,550; S 3,454 low, 3,431, 3,400",
+  "No EA position open; r1 B 3,550 not reached. Thu US holiday, thin; next plan 06:41 BKK"
  ],
  "events": [
-  "Wed 18:30 BKK  Cancel all open orders",
-  "Wed 20:30 BKK  PCE, GDP Q3, claims",
-  "Thu 02:00 BKK  Beige Book; Thu US hol"
+  "Thu 02:00 BKK  Fed Beige Book",
+  "Thu  US Thanksgiving, markets closed",
+  "Sat 01:00 BKK  Fri US early close"
  ],
  "levels": {
   "r": [
-   3550.0,
-   3575.2,
-   3595.0
+   3503.0,
+   3519.5,
+   3550.0
   ],
   "s": [
-   3512.7,
-   3502.0,
-   3492.0
+   3454.0,
+   3431.0,
+   3400.0
   ]
  },
  "plans": [
@@ -43,50 +43,51 @@
    "sl": 0,
    "tp1": 0,
    "tp2": 0,
-   "note": "Stop under 3,512.7 Asia low is 26 off (>25, rule 4); TP1 before 3,502 gives RR<0.5; skip"
+   "note": "Sell stop 3-5 under 3,454 low is ~26-29 from ref (>20, rule 7 exception); no 1h low known (7b); skip"
   },
   {
    "id": "B",
    "side": "SELL",
-   "type": "LIMIT",
-   "entry": 3550.0,
-   "sl": 3590,
-   "tp1": 3517,
-   "tp2": 3506,
-   "note": "Fade Tue close 3,552.5 zone, 13.4 off; SL 15>3,575.2 (1/3 of 118); RR 0.83/1.10; off 18:30"
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "Retest sell 3,496 (broken 3,500) is 16 from ref (>10, rule 7b) and ref is 3h old; skip, see 06:41"
   }
  ],
- "invalid": "Bear view void on 1h close above 3,590; above 3,595 opens 3,651",
- "risk_note": "TP1 RR 0.83 < 1.2 (Asia low 3,512.7 close). Cancel by Wed 18:30 BKK (PCE 20:30). EA gates LIMIT_WITH (25%), so B is manual only. 11-25 A closed at BE 3,536.61; no open position. Scenario analysis from public sources. Not financial advice.",
- "lesson_applied": "Rule 1/4: A stop 26 off and RR<0.5 - skipped; B limit 13.4 off at tested zone; 5 TP1 before 3,512.7; 6 SL 1/3 of 118; 8 off by 18:30",
+ "invalid": "Bear view void on 1h close above 3,519.5; above 3,550 opens 3,595",
+ "risk_note": "No entry this revision (rule 7b after PCE/GDP; day -2.1% to -2.8%, rule 3 may apply next session). Prior B 3,550 not reached; no open EA position at 23:56 BKK. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 7b: post-PCE revision needs entries <=10 from ref off a 1h high/low - not available, no entry; rule 4/7 exception: low stop >20 off",
  "review": {
   "for_date": "2026-11-24",
   "result": "NOT_TRIGGERED",
   "text": "Final r1 (00:09) no entry. r0 A sell stop 3,604.7 filled (EA 3,604.6 22:10), TP1 3,563 hit (low 3,560.76), TP2 3,544 not yet, EA SL at BE. r0 B 3,644 not seen. Day -2%."
  },
  "sources": [
-  "FinanceFeeds 2026-11-25 07:30 GMT",
-  "ANC Stock Investments 2026-11-25 07:52 GMT",
-  "FXEmpire 2026-11-25 06:20 GMT",
-  "Mitrade 2026-11-25",
-  "Mitrade AU 2026-11-25",
-  "LiteFinance 2026-11-25",
-  "Upstox 2026-11-25 14:19 IST",
-  "EA results feed 2026-11-25 16:06"
+  "Kitco AM Report 2026-11-25 09:01 ET",
+  "Kitco jobless claims 2026-11-25 08:16 ET",
+  "Kitco.com quote 2026-11-25 09:03 ET",
+  "TradingKey 2026-11-25",
+  "roic.ai 2026-11-25 12:03 GMT",
+  "Le Private Banker 2026-11-25 13:35 GMT",
+  "FXEmpire 2026-11-25 13:33 GMT",
+  "Upstox 2026-11-25 20:02 IST",
+  "EA results feed 2026-11-25 23:56"
  ],
  "th": {
-  "headline": "ทองราว 3,537 เอเชียลงถึงราว 3,513 แล้วเด้ง รอ PCE 20:30 น.",
-  "bias_note": "ขาลง ต่ำกว่า 3,595 Fed ขึ้นดอกเบี้ย 96%",
+  "headline": "ทองหลุด 3,500 หลัง core PCE สูงกว่าคาด ต่ำสุด 3,454 ราว 3,480",
+  "bias_note": "ขาลง ต่ำกว่า 3,500 Fed ขึ้นดอกเบี้ย 96%",
   "summary": [
-   "เอเชีย 3,544 ตอน 07:25 น. 3,558.85 ตอน 10:12 น. 3,526.60 ตอน 12:50 น. EA 3,536.6 15:36 น.",
-   "แผน A ถูกเปิด 3,537.11 ต่ำสุดราว 3,512.7 TP1 ไม่ถึง สูงสุดราว 3,575.2 SL ไม่โดน ปิดจุดทุน",
-   "โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. 96.4% CME ขึ้นมาร์จิ้นทอง 5% เป็น 6% BCA ปิดสถานะซื้อทอง",
-   "แนวต้าน 3,550 3,575.2 3,595 แนวรับ 3,512.7 3,502 3,492",
-   "PCE GDP ผู้ขอสวัสดิการว่างงาน 20:30 น. ยกเลิกออเดอร์ภายใน 18:30 น. ไม่มีไม้เปิดค้าง"
+   "3,519.48 ตอน 19:03 น. 3,496.05 หลังข่าว 20:30 น. 3,480 ตอน 21:03 น. (Kitco)",
+   "ต่ำสุด Kitco 3,469.30 TradingKey 3,454 (ลบ 2.8%) ต่ำสุดในรอบ 15 เดือน",
+   "core PCE 3.3% สูงกว่าคาด 3.2% GDP ไตรมาส 3 4.3% ผู้ขอสวัสดิการ 189k โอกาสขึ้นดอกเบี้ย 96%",
+   "แนวต้าน 3,503 3,519.5 3,550 แนวรับ 3,454 3,431 3,400",
+   "ไม่มีไม้ EA เปิดค้าง แผน B 3,550 ไม่ถูกเปิด พฤหัสตลาดสหรัฐหยุด แผนถัดไป 06:41 น."
   ],
-  "invalid": "ปิด 1 ชม. เหนือ 3,590 มุมมองขาลงใช้ไม่ได้ เหนือ 3,595 ไป 3,651",
+  "invalid": "ปิด 1 ชม. เหนือ 3,519.5 มุมมองขาลงใช้ไม่ได้ เหนือ 3,550 ไป 3,595",
   "review_text": "แผนสุดท้าย r1 ไม่มีจุดเข้า r0 A Sell Stop 3,604.7 ถูกเปิด ถึง TP1 3,563 (ต่ำสุด 3,560.76) TP2 3,544 ยังไม่ถึง EA เลื่อน SL ไปจุดทุน r0 B ไม่ถูกเปิด",
-  "session_note": "เอเชีย กรอบราว 3,513-3,575 แผน A ถูกเปิด 3,537.11 TP1 ไม่ถึง EA ปิดที่จุดทุน 15:36 น. แผน B ไม่มี",
-  "rev_note": "A Sell Stop ใต้ 3,512.7 ห่างเกิน 25 และ R:R ต่ำ จึงไม่ตั้ง B Sell Limit 3,550 ใช้ถึง 18:30 น."
+  "session_note": "ลอนดอน/นิวยอร์ก 3,519 ลงถึง 3,454 หลัง PCE และ GDP แข็ง แผน B 3,550 ไม่ถูกเปิด ยกเลิก 18:30 น.",
+  "rev_note": "ไม่ตั้งจุดเข้า หลังข่าว PCE ระยะเกิน 10 และไม่มีจุดสูงต่ำ 1 ชม. ล่าสุด รอแผนเช้า 06:41 น."
  }
 }

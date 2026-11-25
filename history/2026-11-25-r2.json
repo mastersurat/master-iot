@@ -1,0 +1,93 @@
+{
+ "v": 1,
+ "date": "2026-11-25",
+ "generated": "2026-11-26 00:15 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "London/NY 3,519 (19:03) -> low 3,454 after hot core PCE 3.3%, GDP 4.3%; B 3,550 not reached, cancelled 18:30; no fill",
+ "rev_note": "No entry: rule 7b after PCE (no 1h high/low, ref 3h old); low-stop 26 off >20; retest 3,496 16 off >10",
+ "price_ref": 3480.0,
+ "bias": "BEARISH",
+ "bias_note": "Below 3,500; core PCE hot, Dec hike ~96%",
+ "headline": "Gold breaks 3,500 on hot core PCE and GDP 4.3%; low 3,454, ~3,480; no entry",
+ "summary": [
+  "Spot 3,519.48 at 19:03 BKK (roic); 3,496.05 after claims 20:30; 3,482.30 / 3,480.00 at 21:01-21:03 BKK (Kitco)",
+  "Lows: Kitco 3,469.30 (by 21:01 BKK), TradingKey 3,454 (-2.8%, untimed); Tue close ~3,555.1; 15-month low",
+  "Core PCE 0.3% m/m, 3.3% y/y vs 3.2%; headline 3.8%; GDP Q3 4.3%; claims 189k vs 200k; Dec hike ~96%",
+  "Levels: R 3,503 / 3,519.5 / 3,550; S 3,454 low, 3,431, 3,400",
+  "No EA position open; r1 B 3,550 not reached. Thu US holiday, thin; next plan 06:41 BKK"
+ ],
+ "events": [
+  "Thu 02:00 BKK  Fed Beige Book",
+  "Thu  US Thanksgiving, markets closed",
+  "Sat 01:00 BKK  Fri US early close"
+ ],
+ "levels": {
+  "r": [
+   3503.0,
+   3519.5,
+   3550.0
+  ],
+  "s": [
+   3454.0,
+   3431.0,
+   3400.0
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "Sell stop 3-5 under 3,454 low is ~26-29 from ref (>20, rule 7 exception); no 1h low known (7b); skip"
+  },
+  {
+   "id": "B",
+   "side": "SELL",
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "Retest sell 3,496 (broken 3,500) is 16 from ref (>10, rule 7b) and ref is 3h old; skip, see 06:41"
+  }
+ ],
+ "invalid": "Bear view void on 1h close above 3,519.5; above 3,550 opens 3,595",
+ "risk_note": "No entry this revision (rule 7b after PCE/GDP; day -2.1% to -2.8%, rule 3 may apply next session). Prior B 3,550 not reached; no open EA position at 23:56 BKK. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 7b: post-PCE revision needs entries <=10 from ref off a 1h high/low - not available, no entry; rule 4/7 exception: low stop >20 off",
+ "review": {
+  "for_date": "2026-11-24",
+  "result": "NOT_TRIGGERED",
+  "text": "Final r1 (00:09) no entry. r0 A sell stop 3,604.7 filled (EA 3,604.6 22:10), TP1 3,563 hit (low 3,560.76), TP2 3,544 not yet, EA SL at BE. r0 B 3,644 not seen. Day -2%."
+ },
+ "sources": [
+  "Kitco AM Report 2026-11-25 09:01 ET",
+  "Kitco jobless claims 2026-11-25 08:16 ET",
+  "Kitco.com quote 2026-11-25 09:03 ET",
+  "TradingKey 2026-11-25",
+  "roic.ai 2026-11-25 12:03 GMT",
+  "Le Private Banker 2026-11-25 13:35 GMT",
+  "FXEmpire 2026-11-25 13:33 GMT",
+  "Upstox 2026-11-25 20:02 IST",
+  "EA results feed 2026-11-25 23:56"
+ ],
+ "th": {
+  "headline": "ทองหลุด 3,500 หลัง core PCE สูงกว่าคาด ต่ำสุด 3,454 ราว 3,480",
+  "bias_note": "ขาลง ต่ำกว่า 3,500 Fed ขึ้นดอกเบี้ย 96%",
+  "summary": [
+   "3,519.48 ตอน 19:03 น. 3,496.05 หลังข่าว 20:30 น. 3,480 ตอน 21:03 น. (Kitco)",
+   "ต่ำสุด Kitco 3,469.30 TradingKey 3,454 (ลบ 2.8%) ต่ำสุดในรอบ 15 เดือน",
+   "core PCE 3.3% สูงกว่าคาด 3.2% GDP ไตรมาส 3 4.3% ผู้ขอสวัสดิการ 189k โอกาสขึ้นดอกเบี้ย 96%",
+   "แนวต้าน 3,503 3,519.5 3,550 แนวรับ 3,454 3,431 3,400",
+   "ไม่มีไม้ EA เปิดค้าง แผน B 3,550 ไม่ถูกเปิด พฤหัสตลาดสหรัฐหยุด แผนถัดไป 06:41 น."
+  ],
+  "invalid": "ปิด 1 ชม. เหนือ 3,519.5 มุมมองขาลงใช้ไม่ได้ เหนือ 3,550 ไป 3,595",
+  "review_text": "แผนสุดท้าย r1 ไม่มีจุดเข้า r0 A Sell Stop 3,604.7 ถูกเปิด ถึง TP1 3,563 (ต่ำสุด 3,560.76) TP2 3,544 ยังไม่ถึง EA เลื่อน SL ไปจุดทุน r0 B ไม่ถูกเปิด",
+  "session_note": "ลอนดอน/นิวยอร์ก 3,519 ลงถึง 3,454 หลัง PCE และ GDP แข็ง แผน B 3,550 ไม่ถูกเปิด ยกเลิก 18:30 น.",
+  "rev_note": "ไม่ตั้งจุดเข้า หลังข่าว PCE ระยะเกิน 10 และไม่มีจุดสูงต่ำ 1 ชม. ล่าสุด รอแผนเช้า 06:41 น."
+ }
+}

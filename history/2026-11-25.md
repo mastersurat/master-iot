@@ -1,6 +1,54 @@
-# XAUUSD Gold Brief — พุธ 25 พ.ย. 2026 (อัปเดต r1 16:09 น.)
+# XAUUSD Gold Brief — พุธ 25 พ.ย. 2026 (อัปเดต r2 00:15 น. คืนพฤหัส 26 พ.ย.)
 
-## อัปเดตปิดตลาดเอเชีย (16:09 น.)
+## อัปเดตปิดตลาดลอนดอน (00:15 น.)
+
+**ราคาอ้างอิง 3,480.00 (Kitco 21:03 น.) · มุมมอง: ขาลง (Bearish)** — ต่ำกว่า 3,500 · core PCE สูงกว่าคาด · โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ราว 96%
+
+### สรุปช่วงลอนดอน/นิวยอร์กที่เพิ่งปิด
+- ราคา: 3,519.48 ตอน 19:03 น. (roic.ai) → 3,496.05 หลังข่าว 20:30 น. (Kitco) → 3,482.30 ตอน 21:01 น. (Kitco AM Report) → 3,480.00 ตอน 21:03 น. (Kitco)
+- ต่ำสุด: Kitco 3,469.30 (ช่วงเช้าสหรัฐ) · TradingKey 3,454 (ลบ 2.8% ไม่ระบุเวลา) · ต่ำสุดในรอบราว 15 เดือน · ปิดวันอังคารราว 3,555.1 (คำนวณจาก Kitco 3,482.30 + 72.80)
+- ข่าว: PCE ต.ค. 0.3% m/m 3.8% y/y · core PCE 0.3% m/m 3.3% y/y (คาด 3.2%) · GDP ไตรมาส 3 ปรับขึ้นเป็น 4.3% · ผู้ขอสวัสดิการว่างงาน 189k (คาด 200k) · CME FedWatch ขึ้น 25bp ธ.ค. ราว 96%
+- ไม่พบแหล่งที่ให้ราคาหลัง 21:03 น. ราคาอ้างอิงจึงเก่าราว 3 ชม.
+
+### ผลของแผนก่อนหน้า (r1 16:09 น.)
+- A: ไม่มีแผน (NONE)
+- **B Sell Limit 3,550 ไม่ถูกเปิด** · ราคาสูงสุดที่พบหลัง 16:09 น. คือ COMEX 3,524.20 (17:06 น.) และสปอต 3,519.48 (19:03 น.) · ตามแผนต้องยกเลิกตอน 18:30 น. ก่อน PCE
+- ฟีด EA 23:56 น.: ไม่มีไม้เปิดค้าง ไม่มีไม้ปิดใหม่หลังไม้ A วันนี้ (ปิดจุดทุน +0.50)
+
+### แผนใหม่สำหรับช่วงนิวยอร์กที่เหลือ (ถึงปิดวัน 05:00 น.)
+| Plan | Side | Type | Entry | SL | TP1 | TP2 | เงื่อนไข |
+|---|---|---|---|---|---|---|---|
+| A | – | NONE | – | – | – | – | Sell Stop 3-5 ใต้ต่ำสุด 3,454 ห่างราคาอ้างอิงราว 26-29 เกิน 20 (ข้อยกเว้นกฎ 7) และไม่มีจุดต่ำ 1 ชม. ล่าสุด (กฎ 7b) จึงไม่ตั้ง |
+| B | – | NONE | – | – | – | – | Sell รีเทสต์ 3,496 (แนว 3,500 ที่หลุด) ห่าง 16 เกิน 10 (กฎ 7b หลังข่าว PCE) และราคาอ้างอิงเก่า 3 ชม. จึงไม่ตั้ง |
+
+รอบนี้ไม่มีจุดเข้า · วันนี้ลง 2.1–2.8% ถ้าปิดวันลงเกิน 2.5% กฎ 3 จะใช้กับช่วงถัดไป · แผนเช้า 06:41 น. จะทบทวนใหม่
+
+**จุดที่แผนใช้ไม่ได้:** ปิด 1 ชม. เหนือ 3,519.5 มุมมองขาลงใช้ไม่ได้ · เหนือ 3,550 เปิดทาง 3,595
+
+**แนวต้าน:** 3,503 · 3,519.5 · 3,550   **แนวรับ:** 3,454 · 3,431 · 3,400
+
+### ข่าวที่รออยู่ (เวลาไทย)
+| เวลา | เหตุการณ์ |
+|---|---|
+| พฤหัส 26 พ.ย. 02:00 | Fed Beige Book |
+| พฤหัส 26 พ.ย. | ตลาดสหรัฐปิด (Thanksgiving) สภาพคล่องบาง |
+| เสาร์ 28 พ.ย. 01:00 | ตลาดสหรัฐวันศุกร์ปิดเร็ว (13:00 ET) |
+| 8–9 ธ.ค. | ประชุม Fed |
+
+ออเดอร์ที่ตั้งตามแผนก่อนหน้ายังอยู่ ตรวจสอบและยกเลิกเองได้ในแอป Gold Brief (ระบบไม่ยกเลิกให้อัตโนมัติ)
+
+**แหล่งข้อมูลรอบนี้:**
+- [Kitco AM Report: Gold, silver remain under pressure as strong GDP, sticky inflation reinforce Fed hike bets (25 พ.ย. 09:01 ET)](https://www.kitco.com/news/article/2026-11-25/gold-silver-remain-under-pressure-strong-gdp-sticky-inflation-reinforce-fed)
+- [Kitco: Gold price approaches $3,500/oz after U.S. weekly jobless claims fall to 189k (25 พ.ย. 08:16 ET)](https://www.kitco.com/news/article/2026-11-25/gold-price-approaches-3500oz-after-us-weekly-jobless-claims-fall-189k)
+- [Kitco.com (ราคา 09:03 ET)](https://www.kitco.com/)
+- [TradingKey: Gold Falls Below $3,500 to Hit Nearly 15-Month Low (25 พ.ย.)](https://www.tradingkey.com/analysis/commodities/metal/262322306-gold-drop-3500-gdp-pce-fed-rate-hike-what-reasons-prices-to-fall-tradingkey)
+- [roic.ai: Gold slides nearly 1% as dollar strengthens (25 พ.ย. 12:03 GMT)](https://www.roic.ai/news/gold-slides-nearly-1-as-dollar-strengthens-fed-rate-expectations-weigh-11-25-2026)
+- [Le Private Banker: Gold Falls Below $3,500 (25 พ.ย. 13:35 GMT)](https://leprivatebanker.com/2026/11/25/gold-falls-below-3500-an-ounce-for-the-first-time-since-september-2025-as-fed-hike-bets-and-the-ai-rout-force-liquidations/)
+- [FXEmpire: Rallies Remain Vulnerable Despite Falling Yields (25 พ.ย. 13:33 GMT)](https://www.fxempire.com/forecasts/article/gold-price-forecast-rallies-remain-vulnerable-despite-falling-yields-1647182)
+
+---
+
+## อัปเดตปิดตลาดเอเชีย (16:09 น.) — แทนที่ด้วยแผนด้านบนแล้ว
 
 **ราคาอ้างอิง 3,536.6 (ฟีด EA 15:36 น.) · มุมมอง: ขาลง (Bearish)** — ต่ำกว่า pivot 3,595 · CME FedWatch ขึ้นดอกเบี้ย 25bp เดือน ธ.ค. 96.4%
 
