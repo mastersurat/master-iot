@@ -1,154 +1,69 @@
-# XAUUSD Gold Brief — พุธ 25 พ.ย. 2026 (อัปเดต r2 00:15 น. คืนพฤหัส 26 พ.ย.)
-
-## อัปเดตปิดตลาดลอนดอน (00:15 น.)
-
-**ราคาอ้างอิง 3,480.00 (Kitco 21:03 น.) · มุมมอง: ขาลง (Bearish)** — ต่ำกว่า 3,500 · core PCE สูงกว่าคาด · โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ราว 96%
-
-### สรุปช่วงลอนดอน/นิวยอร์กที่เพิ่งปิด
-- ราคา: 3,519.48 ตอน 19:03 น. (roic.ai) → 3,496.05 หลังข่าว 20:30 น. (Kitco) → 3,482.30 ตอน 21:01 น. (Kitco AM Report) → 3,480.00 ตอน 21:03 น. (Kitco)
-- ต่ำสุด: Kitco 3,469.30 (ช่วงเช้าสหรัฐ) · TradingKey 3,454 (ลบ 2.8% ไม่ระบุเวลา) · ต่ำสุดในรอบราว 15 เดือน · ปิดวันอังคารราว 3,555.1 (คำนวณจาก Kitco 3,482.30 + 72.80)
-- ข่าว: PCE ต.ค. 0.3% m/m 3.8% y/y · core PCE 0.3% m/m 3.3% y/y (คาด 3.2%) · GDP ไตรมาส 3 ปรับขึ้นเป็น 4.3% · ผู้ขอสวัสดิการว่างงาน 189k (คาด 200k) · CME FedWatch ขึ้น 25bp ธ.ค. ราว 96%
-- ไม่พบแหล่งที่ให้ราคาหลัง 21:03 น. ราคาอ้างอิงจึงเก่าราว 3 ชม.
-
-### ผลของแผนก่อนหน้า (r1 16:09 น.)
-- A: ไม่มีแผน (NONE)
-- **B Sell Limit 3,550 ไม่ถูกเปิด** · ราคาสูงสุดที่พบหลัง 16:09 น. คือ COMEX 3,524.20 (17:06 น.) และสปอต 3,519.48 (19:03 น.) · ตามแผนต้องยกเลิกตอน 18:30 น. ก่อน PCE
-- ฟีด EA 23:56 น.: ไม่มีไม้เปิดค้าง ไม่มีไม้ปิดใหม่หลังไม้ A วันนี้ (ปิดจุดทุน +0.50)
-
-### แผนใหม่สำหรับช่วงนิวยอร์กที่เหลือ (ถึงปิดวัน 05:00 น.)
-| Plan | Side | Type | Entry | SL | TP1 | TP2 | เงื่อนไข |
-|---|---|---|---|---|---|---|---|
-| A | – | NONE | – | – | – | – | Sell Stop 3-5 ใต้ต่ำสุด 3,454 ห่างราคาอ้างอิงราว 26-29 เกิน 20 (ข้อยกเว้นกฎ 7) และไม่มีจุดต่ำ 1 ชม. ล่าสุด (กฎ 7b) จึงไม่ตั้ง |
-| B | – | NONE | – | – | – | – | Sell รีเทสต์ 3,496 (แนว 3,500 ที่หลุด) ห่าง 16 เกิน 10 (กฎ 7b หลังข่าว PCE) และราคาอ้างอิงเก่า 3 ชม. จึงไม่ตั้ง |
-
-รอบนี้ไม่มีจุดเข้า · วันนี้ลง 2.1–2.8% ถ้าปิดวันลงเกิน 2.5% กฎ 3 จะใช้กับช่วงถัดไป · แผนเช้า 06:41 น. จะทบทวนใหม่
-
-**จุดที่แผนใช้ไม่ได้:** ปิด 1 ชม. เหนือ 3,519.5 มุมมองขาลงใช้ไม่ได้ · เหนือ 3,550 เปิดทาง 3,595
-
-**แนวต้าน:** 3,503 · 3,519.5 · 3,550   **แนวรับ:** 3,454 · 3,431 · 3,400
-
-### ข่าวที่รออยู่ (เวลาไทย)
-| เวลา | เหตุการณ์ |
-|---|---|
-| พฤหัส 26 พ.ย. 02:00 | Fed Beige Book |
-| พฤหัส 26 พ.ย. | ตลาดสหรัฐปิด (Thanksgiving) สภาพคล่องบาง |
-| เสาร์ 28 พ.ย. 01:00 | ตลาดสหรัฐวันศุกร์ปิดเร็ว (13:00 ET) |
-| 8–9 ธ.ค. | ประชุม Fed |
-
-ออเดอร์ที่ตั้งตามแผนก่อนหน้ายังอยู่ ตรวจสอบและยกเลิกเองได้ในแอป Gold Brief (ระบบไม่ยกเลิกให้อัตโนมัติ)
-
-**แหล่งข้อมูลรอบนี้:**
-- [Kitco AM Report: Gold, silver remain under pressure as strong GDP, sticky inflation reinforce Fed hike bets (25 พ.ย. 09:01 ET)](https://www.kitco.com/news/article/2026-11-25/gold-silver-remain-under-pressure-strong-gdp-sticky-inflation-reinforce-fed)
-- [Kitco: Gold price approaches $3,500/oz after U.S. weekly jobless claims fall to 189k (25 พ.ย. 08:16 ET)](https://www.kitco.com/news/article/2026-11-25/gold-price-approaches-3500oz-after-us-weekly-jobless-claims-fall-189k)
-- [Kitco.com (ราคา 09:03 ET)](https://www.kitco.com/)
-- [TradingKey: Gold Falls Below $3,500 to Hit Nearly 15-Month Low (25 พ.ย.)](https://www.tradingkey.com/analysis/commodities/metal/262322306-gold-drop-3500-gdp-pce-fed-rate-hike-what-reasons-prices-to-fall-tradingkey)
-- [roic.ai: Gold slides nearly 1% as dollar strengthens (25 พ.ย. 12:03 GMT)](https://www.roic.ai/news/gold-slides-nearly-1-as-dollar-strengthens-fed-rate-expectations-weigh-11-25-2026)
-- [Le Private Banker: Gold Falls Below $3,500 (25 พ.ย. 13:35 GMT)](https://leprivatebanker.com/2026/11/25/gold-falls-below-3500-an-ounce-for-the-first-time-since-september-2025-as-fed-hike-bets-and-the-ai-rout-force-liquidations/)
-- [FXEmpire: Rallies Remain Vulnerable Despite Falling Yields (25 พ.ย. 13:33 GMT)](https://www.fxempire.com/forecasts/article/gold-price-forecast-rallies-remain-vulnerable-despite-falling-yields-1647182)
-
----
-
-## อัปเดตปิดตลาดเอเชีย (16:09 น.) — แทนที่ด้วยแผนด้านบนแล้ว
-
-**ราคาอ้างอิง 3,536.6 (ฟีด EA 15:36 น.) · มุมมอง: ขาลง (Bearish)** — ต่ำกว่า pivot 3,595 · CME FedWatch ขึ้นดอกเบี้ย 25bp เดือน ธ.ค. 96.4%
-
-### สรุปช่วงเอเชียที่เพิ่งปิด
-- ราคา: 3,544.19 ตอน 07:25 น. (Bloomberg) → 3,558.85 ตอน 10:12 น. (CNBC) → 3,526.60 ตอน 12:50 น. (Investing.com) → ราว 3,527 ตอน 14:47 น. (Swissquote) → 3,536.6 ตอน 15:36 น. (ฟีด EA)
-- กรอบเอเชียตามฟีด EA หลัง 08:10 น.: สูงราว 3,575.2 ต่ำราว 3,512.7 (คำนวณจาก MAE/MFE ของไม้ A) · RSI 1 ชม. ราว 28 (Mitrade)
-- ข่าว: CME ขึ้นมาร์จิ้นทองจาก 5% เป็น 6% หลังปิดวันอังคาร · BCA Research ปิดสถานะซื้อทองที่ถือมาตั้งแต่ พ.ย. 2022 · สหรัฐเตรียมข้อเสนอภาษีนำเข้าจีน/EU · ปิดวันอังคาร 3,556.16 (−2.2%, Reuters)
-
-### ผลของแผนก่อนหน้า (r0 06:45 น.)
-- **A Sell Stop 3,537.5 ถูกเปิด** (EA 3,537.11 ตอน 08:10 น.) · ต่ำสุดราว 3,512.7 **TP1 3,507 ไม่ถึง** (ขาด ~6) · สูงสุดราว 3,575.2 **SL 3,578 ไม่โดน** (ห่าง ~2.8) · EA เลื่อน SL ไปจุดทุนแล้วปิดที่ 3,536.61 ตอน 15:36 น. (+0.50)
-- B: ไม่มีแผน (NONE)
-- ตอนนี้ไม่มีไม้ของ EA เปิดค้าง (ไม้ Sell 3,604.6 ของ 24 พ.ย. ปิดที่ TP 3,544 ตอน 07:18 น. +60.60)
-
-### แผนใหม่สำหรับลอนดอน (ใช้ได้ถึง 18:30 น. แล้วยกเลิกก่อน PCE)
-| Plan | Side | Type | Entry | SL | TP1 | TP2 | เงื่อนไข |
-|---|---|---|---|---|---|---|---|
-| A | – | NONE | – | – | – | – | Sell Stop ใต้ต่ำสุดเอเชีย 3,512.7 ห่างราคา ~26 เกิน 25 (กฎ 4) และ TP1 ก่อน 3,502 ได้ R:R ต่ำกว่า 0.5 จึงไม่ตั้ง |
-| B | SELL | LIMIT | 3,550 | 3,590 | 3,517 | 3,506 | ขายรีบาวด์ที่โซนปิดวันอังคาร 3,552.5 ห่าง 13.4 · SL เหนือสูงสุดเอเชีย 3,575.2 อยู่ 15 (1/3 ของกรอบ 118) · R:R 0.83 / 1.10 · EA ไม่ตั้ง LIMIT_WITH อัตโนมัติ (25%) |
-
-TP1 R:R ต่ำกว่า 1.2 เพราะต่ำสุดเอเชีย 3,512.7 อยู่ใกล้ · หลัง PCE รอแผนรอบปิดลอนดอน (กฎ 7b ระยะไม่เกิน 10)
-
-**จุดที่แผนใช้ไม่ได้:** ปิด 1 ชม. เหนือ 3,590 มุมมองขาลงใช้ไม่ได้ · เหนือ 3,595 เปิดทาง 3,651
-
-### ข่าวที่รออยู่ (เวลาไทย)
-| เวลา | เหตุการณ์ |
-|---|---|
-| พุธ 25 พ.ย. 18:30 | **ยกเลิกออเดอร์ที่ค้างทั้งหมด** (กฎ 8) |
-| พุธ 25 พ.ย. 20:30 | PCE ต.ค. (core คาด 0.3% m/m 3.2% y/y), GDP ไตรมาส 3 ครั้งที่ 2, ผู้ขอสวัสดิการว่างงาน |
-| พฤหัส 26 พ.ย. 02:00 | Beige Book · พฤหัสตลาดสหรัฐปิด (Thanksgiving) · ศุกร์ NYSE ปิด 13:00 ET (01:00 น. เช้าวันเสาร์) |
-
-ออเดอร์ที่ตั้งตามแผนก่อนหน้ายังอยู่ ตรวจสอบและยกเลิกเองได้ในแอป Gold Brief (ระบบไม่ยกเลิกให้อัตโนมัติ)
-
----
+# XAUUSD Gold Brief — พฤหัส 26 พ.ย. 2026 (06:48 น.)
 
 ## อัปเดตปิดตลาดนิวยอร์ก
-ความเชื่อมั่นผู้บริโภค Conference Board พ.ย. ออกมา 103.3 สูงกว่าคาด 92.4 มาก (ต.ค. 91.9) ดอลลาร์และความคาดหวังว่า Fed จะขึ้นดอกเบี้ยกดทอง ราคาลงจาก 3,602 (Kitco 10:01 ET) ถึงต่ำสุด 3,560.76 (Trading Economics) ปิดวันลบราว 2% · แผน A เมื่อวานถูกเปิดและถึง TP1
+core PCE ต.ค. 3.3% สูงกว่าคาด 3.2% และ GDP ไตรมาส 3 โต 4.3% ทำให้ทองหลุด 3,500 ลงถึง 3,426 ต่ำสุดตั้งแต่ ก.ย. 2025 จากนั้นดีดกลับแรงเป็นรูปตัว V เพราะบอนด์ 10 ปี ลงเหลือ 4.82–4.84% และดอลลาร์อ่อน ปิดราว 3,589.44 (FXEmpire 04:59 น.) บวกราว 0.9–1.1% · กรอบวันราว 163 · แผน A เมื่อวานออกที่จุดทุน +0.50 แผนอื่นไม่ถูกเปิด
 
-**ราคาอ้างอิง 3,562.4 (ฟีด EA 06:31 น.) · มุมมอง: ขาลง (Bearish)** — ต่ำกว่า pivot 3,595 โอกาส Fed ขึ้นดอกเบี้ย ธ.ค. ราว 95%
+**ราคาอ้างอิง 3,589.4 (ปิดนิวยอร์ก 04:59 น.) · มุมมอง: กลางๆ (Neutral)** — แท่งค้อนดีดจาก 3,426 แต่ Fed ยังจะขึ้นดอกเบี้ย ธ.ค.
 
 ### สรุปข่าว
-- Conf Board 103.3 สูงสุดในรอบเกือบ 2 ปี คาดการณ์เงินเฟ้อ 12 เดือน 5.7% → ลดแรงซื้อทองเป็นที่หลบภัย
-- กรอบวันอังคาร 3,679.00 – 3,560.76 · ลบ 1.93–2.04% จากปิดก่อนหน้า 3,634.93 (TE) · Golden State Mint ราว 3,566 ตอนปิด
-- CME FedWatch: ขึ้น 25bp เดือน ธ.ค. ราว 95% (50bp ราว 5%) · DXY ราว 103.7–103.8 · บอนด์ 10 ปี ราว 4.90–4.93%
-- หุ้นเทค/AI ถูกขาย Nasdaq −1.48% (Nvidia ลบ) · ตลาดออปชันมองความเสี่ยงหลุด 3,524 ไป 3,492 ราว 12%
-- คืนนี้ PCE ต.ค. + GDP + ผู้ขอสวัสดิการว่างงาน ก่อนวันหยุดขอบคุณพระเจ้า
+- ต่ำสุด 3,426 (FXStreet/TMGM, FXDailyReport 3,426.12) · 3,470.66 ตอน 09:00 ET · 3,446.06 ช่วงสาย (TradingNews) · ปิด 3,589.44 (FXEmpire) / 3,588.82 (Trading Economics +0.90%)
+- บอนด์ 10 ปี 4.82–4.84% (ลง 6–9bp) · DXY ลง 0.22% เหลือ 103.61 · Nasdaq ลบกว่า 4% ช่วงเปิดแล้วลดช่วงติดลบ
+- CME FedWatch ขึ้น 25bp เดือน ธ.ค. 92% (แหล่งอื่น 98%) · ม.ค. ราว 60% · Beige Book: 8 ใน 12 เขตโต ค่าจ้างเร่งขึ้น
+- RSI รายวันต่ำกว่า 25 ก่อนเด้ง (ขายมากเกิน) · ข้อเสนอภาษีนำเข้าใหม่ต่อ 14 ประเทศ
+- พฤหัสสหรัฐหยุด Thanksgiving ศุกร์ปิดครึ่งวัน สภาพคล่องบาง ราคาอาจกระชาก
 
 ### ข่าวที่รออยู่ (เวลาไทย)
 | เวลา | เหตุการณ์ |
 |---|---|
-| พุธ 25 พ.ย. 18:30 | **ยกเลิกออเดอร์ที่ค้างทั้งหมด** (กฎ 8 ก่อน PCE 2 ชม.) |
-| พุธ 25 พ.ย. 20:30 | PCE ต.ค., GDP ไตรมาส 3, ผู้ขอสวัสดิการว่างงาน |
-| พฤหัส 26 พ.ย. 02:00 | Beige Book · พฤหัสตลาดสหรัฐปิด (Thanksgiving) |
+| พฤหัส 26 พ.ย. ทั้งวัน | ตลาดสหรัฐหยุด Thanksgiving (ไม่มีข่าวเศรษฐกิจสหรัฐ) |
+| เสาร์ 28 พ.ย. 01:00 | ตลาดสหรัฐปิดเร็ววันศุกร์ (EA ปิดไม้ก่อนสุดสัปดาห์) |
+| จันทร์ 30 พ.ย. | First notice day สัญญาทอง COMEX ธ.ค. |
 
 ### แนวรับ / แนวต้าน
-**แนวต้าน:** 3,587.7 · 3,595 · 3,651   **แนวรับ:** 3,560.8 · 3,539.80 · 3,502
+**แนวต้าน:** 3,589.4 (สูงสุดนิวยอร์ก) · 3,634 · 3,676.7   **แนวรับ:** 3,547.2 · 3,500 · 3,426 (ต่ำสุด)
 
-### แผนเช้า r0 (06:45 น.) — แทนที่ด้วยแผนด้านบนแล้ว
+### แผนวันนี้
 | Plan | Side | Type | Entry | SL | TP1 | TP2 | เงื่อนไข |
 |---|---|---|---|---|---|---|---|
-| A | SELL | STOP | 3,537.5 | 3,578 | 3,507 | 3,496 | ต่ำกว่าจุดต่ำวันจันทร์ 3,539.80 อยู่ 2.3 ห่างราคา 24.9 · SL เหนือ 3,560.76 อยู่ 17 (1/3 ของกรอบ 118) · R:R 0.75 / 1.02 |
-| B | – | NONE | – | – | – | – | Buy Stop เหนือ 3,587.66 ห่าง 28.6 เกิน 25 (กฎ 4) จึงไม่ตั้ง |
+| A | BUY | STOP | 3,594 | 3,539 | 3,630 | 3,672 | เหนือจุดสูงนิวยอร์ก 3,589.4 อยู่ 4.6 · SL ใต้ 3,547.2 อยู่ 8 (1/3 ของกรอบ 163) · R:R 0.65 / 1.42 |
+| B | – | NONE | – | – | – | – | จุดต่ำ 3,426 ห่าง 163 เกิน 25 (กฎ 4) · Sell Stop ใต้ 3,575 ได้ R:R ต่ำกว่า 0.5 จึงไม่ตั้ง |
 
-TP1 R:R ต่ำกว่า 1.2 เพราะจุดต่ำวันศุกร์ 3,502 อยู่ใกล้
+TP1 R:R ต่ำกว่า 1.2 เพราะแนวต้าน 3,634 อยู่ใกล้ · ตลาดวันหยุดบาง Stop อาจถูกเปิดจากราคากระชาก
 
-**จุดที่แผนใช้ไม่ได้:** ปิด 1 ชม. เหนือ 3,587.66 มุมมองขาลงใช้ไม่ได้ · เหนือ 3,595 เปิดทาง 3,651
+**จุดที่แผนใช้ไม่ได้:** ปิด 1 ชม. ต่ำกว่า 3,547 มุมมองขึ้นใช้ไม่ได้ · ต่ำกว่า 3,500 กลับไปทดสอบ 3,426
 
 ## บทเรียนที่นำมาใช้วันนี้
-- กฎ 4: Stop ไม่เกิน 25 จากราคา → ใช้จุดต่ำวันจันทร์ 3,539.80 (ห่าง 22.6) แทนจุดที่ไกลกว่า
-- กฎ 5: TP1 อยู่ก่อนจุดต่ำ 3,502 (3,507) · กฎ 6: SL อย่างน้อย 1/3 ของกรอบวันอังคาร 118
-- กฎ 8: ไม่มีออเดอร์ค้างตั้งแต่ 18:30 ถึง 21:00 น. (PCE 20:30)
-- บทเรียนใหม่ (24 พ.ย.): เก็บกฎ 1/2/4/5/8 ไว้ · ถ้า Stop ฝั่งสวนห่างเกิน 25 ให้ไม่ตั้งแผน B ดีกว่ายืดระยะ
+- บทเรียนใหม่ (25 พ.ย.): วันข่าวที่ปิดใกล้จุดสูงของกรอบกว้างกว่า 4% (แท่งค้อน) แผนถัดไปมุมมองกลางๆ ไม่ตามเทรนด์เดิม
+- กฎ 1/4: Buy Stop เหนือจุดสูงของรอบนิวยอร์ก 4.6 ห่างราคาไม่เกิน 25
+- กฎ 6: SL อย่างน้อย 1/3 ของกรอบวันพุธ 163 (55) และพ้นแนว 3,547.2 · กฎ 5: TP1/TP2 อยู่ก่อนแนว 3,634 และ 3,676.7
+- กฎ 3/7 ไม่ใช้: ราคาปิดวันพุธ +0.9% ไม่ถึง 2.5% · ไม่มีข่าวสำคัญสหรัฐวันนี้ (กฎ 8)
 
 ## ผลเทรดจริงของ EA
-- ตั้งแต่ 17 พ.ย. (eval_from): ปิดแล้ว 4 ไม้ ชนะ 1 · สุทธิ −81.83 · PF 0.03 · DD สูงสุด 42.0%
-- ไม้ที่เปิดอยู่: Sell 3,604.6 (แผน A 24 พ.ย.) เลื่อน SL ไปจุดทุน 3,604.1 · TP 3,544 · กำไรลอย +42.23 ตอน 06:31 น.
-- ความพร้อมบัญชีจริง: 4/40 ไม้ · 8/20 วัน · ยังไม่พร้อม (PF และ DD ยังไม่ผ่าน)
-- ไม่ปรับค่า ea-config วันนี้ (ยังไม่มีไม้ที่ปิดหลังการปรับ 17 พ.ย. 13:45 ต้องมีอย่างน้อย 5 ไม้)
+- ตั้งแต่ 17 พ.ย. (eval_from): ปิดแล้ว 6 ไม้ ชนะ 3 · สุทธิ −20.73 · PF 0.75 · DD สูงสุด 42.0%
+- ไม้ 24 พ.ย. A ปิดที่ TP 3,544 (+60.60) ตอน 07:18 น. 25 พ.ย. · ไม้ 25 พ.ย. A ออกที่จุดทุน +0.50 ตอน 15:36 น. · ไม่มีไม้เปิดค้าง
+- ความพร้อมบัญชีจริง: 6/40 ไม้ · 9/20 วัน · PF 0.75 (ต้อง 1.3) · DD 42% (ต้องไม่เกิน 15%) · ยังไม่พร้อม
+- ไม่ปรับค่า ea-config วันนี้: มี 5 ไม้ปิดหลังการปรับ 17 พ.ย. แต่ไม่มีเงื่อนไขใดครบ (3 ไม้ที่ขาดทุนไม่มีข้อมูล mfe · ออกจุดทุนแล้วราคาไปถึง TP1 มีแค่ 1 ไม้ ต้อง 3 · ไม่มีปิดแบบ MAX_HOLD · ไม่มีไม้ LIMIT)
 
-## ทบทวนแผนเมื่อวาน (24 พ.ย. r0–r1) — ไม่ถูกเปิด (NOT_TRIGGERED, แผนสุดท้าย r1 ไม่มีจุดเข้า)
-- r0 (19:25 น.): **A Sell Stop 3,604.7 ถูกเปิด** (EA 3,604.6 ตอน 22:10 น.) · **ถึง TP1 3,563** (ต่ำสุด 3,560.76) · TP2 3,544 ยังไม่ถึง · SL 3,660 ไม่ถึง
-- r0: B Sell Limit 3,644 ไม่ถูกเปิด (สูงสุดหลังวางแผน 3,633.70 ตอน 20:11 น.)
-- r1 (00:09 น.): ไม่มีจุดเข้า (Sell Stop 3,558 R:R 0.25) · ถ้าตั้งไว้ก็จะไม่ถูกเปิด (ต่ำสุด 3,560.76)
-- **ทำไมได้ผล:** Stop ใต้จุดต่ำที่ทดสอบแล้ว ตามทิศทางปัจจัยใหม่ (Fed ดอลลาร์ ข้อมูลแข็ง) และ TP1 อยู่ก่อนแนว · กฎ 8 ไม่ยกเลิกออเดอร์ก่อนข่าวรอง (Conf Board) จึงจับขาลงได้ · จุดอ่อน: EA ปิดที่ TP2 อย่างเดียว กำไรที่ TP1 ยังไม่ได้เก็บ แต่ SL จุดทุนช่วยกันไว้
+## ทบทวนแผนเมื่อวาน (25 พ.ย. r0–r2) — ไม่ถูกเปิด (NOT_TRIGGERED, แผนสุดท้าย r2 ไม่มีจุดเข้า)
+- r0 (06:45 น.): **A Sell Stop 3,537.5 ถูกเปิด** ที่ 3,537.11 ตอน 08:10 น. · ลงไปได้ 24.42 (ต่ำสุดเอเชียราว 3,512.7) TP1 3,507 ยังไม่ถึง · เด้งไปราว 3,575.2 (SL 3,578 รอด 2.8) · **ออกที่จุดทุน 15:36 น. +0.50** · หลังจากนั้นช่วงนิวยอร์กราคาลงถึง TP1 3,507 และ TP2 3,496 (ต่ำสุด 3,426) โดยไม่กลับไปเหนือ 3,578 ก่อน
+- r1 (16:09 น.): A ไม่ตั้ง (ห่าง 26 R:R ต่ำ) · B Sell Limit 3,550 ไม่ถูกเปิดก่อนยกเลิก 18:30 น.
+- r2 (00:15 น.): ไม่มีจุดเข้า (กฎ 7b หลัง PCE) · ต่อมาราคาลงถึง 3,426 แล้วดีดกลับไปปิด 3,589 ถ้าขายที่ 3,480 จะเจอกรอบเด้ง 163
+- **ทำไม:** ทิศทางและจุดเข้า r0 ถูก แต่ EA เลื่อน SL ไปจุดทุนเมื่อกำไร 15 (be_trigger) แล้วโดนกวาดในการแกว่งปกติช่วงเอเชีย ถ้าใช้ SL เดิมจะได้ TP1/TP2 · r2 ที่ไม่เข้าเทรดหลังข่าวถูกต้อง เพราะราคากลับตัวแรง
+- **ปรับ:** วันข่าวที่ปิดเป็นแท่งค้อน แผนถัดไปมุมมองกลางๆ · เฝ้าดู be_trigger ถ้าเกิดซ้ำครบ 3 ครั้งจะปรับขึ้นตามกติกา
+
+ออเดอร์ที่ตั้งตามแผนก่อนหน้ายังอยู่ ตรวจสอบและยกเลิกเองได้ในแอป Gold Brief (ระบบไม่ยกเลิกให้อัตโนมัติ)
 
 ---
 การวิเคราะห์สถานการณ์จากแหล่งข่าวสาธารณะ ไม่ใช่คำแนะนำการลงทุน (Not financial advice.)
 
 **แหล่งข้อมูล:**
-- [FinanceFeeds: Gold Price Today $3,559 (25 พ.ย. 07:30 GMT)](https://financefeeds.com/gold-price-today-3559-wednesday-pce-test-after-2-percent-slide-bull-3680-bear-3500/)
-- [ANC: Gold Price Falls Toward $3,500 Before US PCE Data (25 พ.ย.)](https://ancstockinvestments.com/blog/2026/11/25/gold-price-falls-toward-3500/)
-- [FXEmpire: Gold Slips Again as Fed Hike Bets Firm, Can $3,503 Hold? (25 พ.ย. 06:20 GMT)](https://www.fxempire.com/forecasts/article/gold-xauusd-silver-price-forecast-gold-slips-again-as-fed-hike-bets-firm-can-3503-hold-1647067)
-- [Mitrade: Gold tumbles, BCA exits before PCE (25 พ.ย.)](https://www.mitrade.com/insights/commodity-analysis/gold/gold-tumbles-bca-exits-before-pce)
-- [Mitrade AU: $3,500 support in focus before PCE (25 พ.ย.)](https://www.mitrade.com/au/insights/commodity-analysis/gold-price/gold-price-3500-support-in-focus)
-- [Upstox: Gold price tracker Nov 25 (14:19 IST)](https://upstox.com/news/market-news/commodities/gold-price-tracker-nov-25-mcx-gold-prices-mcx-silver-rates-comex-gold-comex-silver-us-pce-inflation-data-in-focus-check-silver-prices-today/liveblog-203915/)
-- [Kitco: Gold price testing support near $3,600 as US Consumer Confidence sees sharp rise (24 พ.ย. 10:01 ET)](https://www.kitco.com/news/article/2026-11-24/gold-price-testing-support-near-3600-us-consumer-confidence-sees-sharp-rise)
-- [Golden State Mint: On the Spot 24 พ.ย. (16:34 ET)](https://www.goldenstatemint.com/blog/on-the-spot-with-gsm-precious-metals-market-report-for-11-24-2026/)
+- [FXEmpire: Gold (XAU/USD) Price Forecast: Buyers Defend Critical Support After Sharp Selloff (25 พ.ย.)](https://www.fxempire.com/forecasts/article/gold-xau-usd-price-forecast-buyers-defend-critical-support-after-sharp-selloff-1647393)
+- [TMGM (FXStreet): Gold sinks despite falling US yields as core PCE hits 3.3% (25 พ.ย.)](https://www.tmgm.com/en/analysis/market-news/article/gold-sinks-despite-falling-us-yields-as-core-pce-hits-33-202611251933)
+- [TradingNews: Gold breaks $3,500 to $3,446 (25 พ.ย.)](https://www.tradingnews.com/news/gold-xau-usd-breaks-3500-to-3446-as-real-yields-rise-22bp-3650-usd-rebound-target-hinges-on-3400)
+- [TradingNews: Stock Market Today 25 พ.ย.](https://www.tradingnews.com/news/stock-market-today-nasdaq-ixic-sinks-4-2-sp-500-spx-tests-7000-dow-dji-slips-7240-usd-target)
 - [Trading Economics: Gold](https://tradingeconomics.com/commodity/gold)
-- [Vista Partners: Stock Market Today 24 พ.ย.](https://vistapglobal.com/stock-market-today-november-24-2026-dow-tops-50000-as-nasdaq-slides-consumer-confidence-surges-with-pce-due-on-thanksgiving-eve-ant-bby-dell-dks-dltr-eprx-gld-insm-kymr-modd-msft-n/)
-- [Eurasia Business News: Stock Market Today 24 พ.ย.](https://eurasiabusinessnews.com/2026/11/24/stock-market-today-november-24-2026-nasdaq-falls-as-nvidia-and-anthropic-slide-oil-price-at-89-gold-drops-to-3620/)
-- [World Today Journal: Gold falls ahead of US inflation data (24 พ.ย.)](https://world-today-journal.com/gold-falls-near-3500-on-profit-taking-ahead-of-us-inflation-data/)
-- [FXEmpire: Gold Extends Rebound, Can $3,595 Hold? (24 พ.ย.)](https://www.fxempire.com/forecasts/article/gold-xauusd-silver-price-forecast-gold-extends-rebound-as-bargain-hunters-return-can-3595-hold-1646771)
-- [LiteFinance: Gold Forecast daily and weekly](https://www.litefinance.org/blog/analysts-opinions/gold-price-prediction-forecast/daily-and-weekly/)
-- [1TRADER: Gold Price Today 24 Nov 2026](https://1trader.com/en/gold-price-2026-11-24/)
+- [USAGOLD: Gold Breaks Below $3,500 As Core PCE Runs Hot (25 พ.ย.)](https://www.usagold.com/daily-precious-metals-market-report-november-25-2026/)
+- [FXDailyReport: Daily Oil, Gold, Silver Technical Analysis (25 พ.ย.)](https://fxdailyreport.com/daily-oil-gold-silver-technical-analysis-november-25-2026/)
+- [investingLive: Beige Book - eight of 12 districts report growth (25 พ.ย.)](https://investinglive.com/central-banks/beige-book-eight-of-12-districts-report-growth-as-wage-pressures-pick-up/)
+- [Upstox: Gold price tracker Nov 25](https://upstox.com/news/market-news/commodities/gold-price-tracker-nov-25-mcx-gold-prices-mcx-silver-rates-comex-gold-comex-silver-us-pce-inflation-data-in-focus-check-silver-prices-today/liveblog-203915/)
+- [mining.com.au: Gold price sinks to 15-month low](https://mining.com.au/gold-price-sinks-15-month-low-inflation-fears/)
