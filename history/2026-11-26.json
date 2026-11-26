@@ -1,93 +1,95 @@
 {
  "v": 1,
  "date": "2026-11-26",
- "generated": "2026-11-26 06:48 +07",
- "rev": 0,
- "session": "NY_CLOSE",
- "session_note": "NY: hot core PCE sank gold to 3,426, then V to 3,589.4 close (+0.9%); r0 A BE exit +0.50, r1 B cancelled, r2 no entry",
- "rev_note": "",
- "price_ref": 3589.4,
+ "generated": "2026-11-26 16:09 +07",
+ "rev": 1,
+ "session": "ASIA_CLOSE",
+ "session_note": "Asia 3,561.41-3,603.41 (CNBC), 3,600 rejected, ~3,573 at 15:53; r0 A buy stop filled 3,594.27, open -20.9; B none",
+ "rev_note": "Neutral kept; new A sell stop 4 under Asia low (16 off), SL past Asia high; no B: buy side is the open r0 A, Asia high 30 off",
+ "price_ref": 3573.4,
  "bias": "NEUTRAL",
- "bias_note": "Hammer off 3,426; Dec hike still 92-98%",
- "headline": "Gold V-rebounds from 3,426 low to ~3,589 after hot PCE; thin Thanksgiving trade",
+ "bias_note": "3,600 rejected in Asia; thin holiday trade",
+ "headline": "Gold slips back to ~3,573 after Asia rejects 3,600; US shut for Thanksgiving",
  "summary": [
-  "Low 3,426 (FXStreet/TMGM) after core PCE 3.3%; close 3,589.44 at 21:59 UTC (FXEmpire), +0.9-1.1% vs ~3,557",
-  "Rebound as 10y fell to 4.82-4.84% and DXY -0.22% to 103.61; Nasdaq -4% at open, then pared losses",
-  "Dec 25bp hike 92% FedWatch (98% per others); Jan ~60%; Beige Book: 8 of 12 districts grew, wages up",
-  "Levels: R 3,589.4 high / 3,634 / 3,676.7; S 3,547.2 / 3,500 / 3,426 low; daily RSI was < 25",
-  "Thu US Thanksgiving, Fri half-day: thin, gappy prices; EA closes positions before the weekend"
+  "Asia range 3,561.41-3,603.41 (CNBC); 3,600.13 at 05:51 GMT, 3,565.39 at 06:43 GMT, ~3,573 at 08:53 GMT",
+  "r0 A buy stop filled 3,594.27 at 09:34 BKK (EA), open -20.9 at 15:53; SL 3,539 / TP 3,672 still live",
+  "Drivers: short covering after core PCE 3.3%; Dec hike fully priced (94-96%), Jan ~55%; DXY ~103.7",
+  "Levels: R 3,603.41 / 3,651 trendline / 3,697; S 3,561.41 / 3,500 / 3,445.89 (Wed low, Reuters)",
+  "US shut Thu, half-day Fri: thin and gappy; EA closes positions before the weekend"
  ],
  "events": [
+  "Thu 17:30 BKK  BoE Financial Stability Report",
+  "Thu 19:30 BKK  ECB meeting accounts",
   "Thu  US Thanksgiving, markets shut",
+  "Fri 06:30 BKK  Tokyo CPI (Nov)",
   "Sat 01:00 BKK  Fri US early close",
   "Mon  COMEX Dec first notice day"
  ],
  "levels": {
   "r": [
-   3589.4,
-   3634.0,
-   3676.7
+   3603.41,
+   3651.0,
+   3697.0
   ],
   "s": [
-   3547.2,
+   3561.41,
    3500.0,
-   3426.0
+   3445.89
   ]
  },
  "plans": [
   {
    "id": "A",
-   "side": "BUY",
+   "side": "SELL",
    "type": "STOP",
-   "entry": 3594.0,
-   "sl": 3539.0,
-   "tp1": 3630.0,
-   "tp2": 3672.0,
-   "note": "4.6 over NY high 3,589.4; SL 1/3 of 163; RR 0.65/1.42"
+   "entry": 3557.0,
+   "sl": 3612.0,
+   "tp1": 3504.0,
+   "tp2": 3450.0,
+   "note": "4.4 under Asia low 3,561.41, 16 from ref; SL 55 (1/3 of 163), 8.6 over 3,603.41; RR 0.96/1.95"
   },
   {
    "id": "B",
-   "side": "SELL",
+   "side": "BUY",
    "type": "NONE",
    "entry": 0,
    "sl": 0,
    "tp1": 0,
    "tp2": 0,
-   "note": "Low 3,426 is 163 off (rule 4); stop <3,575 has RR<0.5; skip"
+   "note": "Buy side = open r0 A 3,594.27; Asia high 3,603.41 is 30 off (rule 4); dip limit would sit by A stop"
   }
  ],
- "invalid": "Upside view void on 1h close below 3,547; below 3,500 reopens 3,426",
- "risk_note": "TP1 RR 0.65 < 1.2 (3,634 is close); SL 55 by rule 6. Holiday-thin market: stops can fill on spikes. No open EA position. Scenario analysis from public sources. Not financial advice.",
- "lesson_applied": "11-25 lesson: hammer day -> NEUTRAL; rules 1/4 stop past NY high, 6 SL 1/3 range, 5 TPs",
+ "invalid": "Sell view void above 3,603.41 (Asia high); 1h close over 3,610 opens 3,651",
+ "risk_note": "TP1 RR 0.96 < 1.2: 3,500 is the first real support. If A sell fills while the r0 buy is open, both run (hedge); r0 buy SL 3,539 is under A entry. Holiday-thin market. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rules 1/4 stop 4.4 past Asia low, 16 from ref; 6 SL 1/3 of 163 past high; 5 TPs inside 3,500/3,445.89; 11-25 hammer -> NEUTRAL",
  "review": {
   "for_date": "2026-11-25",
   "result": "NOT_TRIGGERED",
   "text": "Final r2 no entry. r0 A sell stop filled 3,537.11, BE exit +0.50; TP1/TP2 later hit in NY (low 3,426). r1 B 3,550 cancelled unfilled. Day V: 3,426 low, 3,589 close."
  },
  "sources": [
-  "FXEmpire 2026-11-25",
-  "TMGM/FXStreet 2026-11-25",
-  "TradingNews 2026-11-25",
-  "Trading Economics 2026-11-25",
-  "USAGOLD 2026-11-25",
-  "FXDailyReport 2026-11-25",
-  "investingLive 2026-11-25",
-  "Upstox 2026-11-25",
-  "EA results feed 2026-11-26 06:30"
+  "FinanceFeeds 2026-11-26 (CNBC/Reuters)",
+  "ANC Trading 2026-11-26 (Reuters/Swissquote)",
+  "TokenPost 2026-11-26",
+  "TraderFactor 2026-11-26",
+  "LiteFinance 2026-11-26",
+  "Mitrade 2026-11-26",
+  "1Trader 2026-11-26",
+  "EA results feed 2026-11-26 15:53"
  ],
  "th": {
-  "headline": "ทองดีดกลับแรงจาก 3,426 ปิดราว 3,589 หลัง PCE ร้อน ตลาดบางช่วงวันหยุด",
-  "bias_note": "กลางๆ ดีดจาก 3,426 Fed ยังจะขึ้นดอกเบี้ย",
+  "headline": "ทองถูกกดที่ 3,600 ช่วงเอเชีย ย่อกลับราว 3,573 สหรัฐหยุดยาว",
+  "bias_note": "กลางๆ ไม่ผ่าน 3,600 ตลาดวันหยุดบาง",
   "summary": [
-   "ต่ำสุด 3,426 หลัง core PCE 3.3% ปิด 3,589.44 (FXEmpire) บวกราว 0.9-1.1%",
-   "ดีดกลับเพราะบอนด์ 10 ปี ลงเหลือ 4.82-4.84% และ DXY ลง 0.22% หุ้นลดช่วงติดลบ",
-   "Fed ขึ้น 25bp เดือน ธ.ค. 92-98% Beige Book 8 ใน 12 เขตโต ค่าจ้างเร่งขึ้น",
-   "แนวต้าน 3,589.4 3,634 3,676.7 แนวรับ 3,547.2 3,500 3,426",
-   "พฤหัสสหรัฐหยุด ศุกร์ปิดครึ่งวัน สภาพคล่องบาง ราคาอาจกระชาก"
+   "กรอบเอเชีย 3,561.41-3,603.41 (CNBC) แตะ 3,600 แล้วย่อ ราว 3,573 ตอน 15:53 น.",
+   "แผน A เดิม Buy Stop ถูกเปิด 3,594.27 ตอน 09:34 น. ยังถืออยู่ ลบ 20.9 SL 3,539 TP 3,672",
+   "แรงซื้อคืนหลัง core PCE 3.3% ตลาดให้ Fed ขึ้นดอกเบี้ย ธ.ค. 94-96% ม.ค. ราว 55%",
+   "แนวต้าน 3,603.41 3,651 3,697 แนวรับ 3,561.41 3,500 3,445.89",
+   "พฤหัสสหรัฐหยุด ศุกร์ครึ่งวัน สภาพคล่องบาง EA ปิดไม้ก่อนสุดสัปดาห์"
   ],
-  "invalid": "ปิด 1 ชม. ต่ำกว่า 3,547 มุมมองขึ้นใช้ไม่ได้ ต่ำกว่า 3,500 กลับไป 3,426",
+  "invalid": "เหนือ 3,603.41 มุมมองขายใช้ไม่ได้ ปิด 1 ชม. เหนือ 3,610 ไปทาง 3,651",
   "review_text": "แผนสุดท้าย r2 ไม่มีจุดเข้า r0 A Sell Stop เปิดที่ 3,537.11 ออกที่จุดทุน +0.50 แล้วราคาลงถึง TP1 TP2 ภายหลัง (ต่ำสุด 3,426) r1 B 3,550 ไม่ถูกเปิด",
-  "session_note": "นิวยอร์ก PCE สูง ทองลงถึง 3,426 แล้วดีดกลับปิด 3,589.4 แผน A ออกจุดทุน +0.50 แผนอื่นไม่ถูกเปิด",
-  "rev_note": ""
+  "session_note": "เอเชีย 3,561.41-3,603.41 ไม่ผ่าน 3,600 แผน A Buy Stop ถูกเปิด 3,594.27 ยังถืออยู่ ลบ 20.9 แผน B ไม่มี",
+  "rev_note": "คงมุมมองกลางๆ แผน A ใหม่ Sell Stop ใต้จุดต่ำเอเชีย 4 จุด ไม่ตั้ง B เพราะมีไม้ซื้อเปิดอยู่แล้ว"
  }
 }
