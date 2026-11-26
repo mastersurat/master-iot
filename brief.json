@@ -1,36 +1,32 @@
 {
  "v": 1,
- "date": "2026-11-26",
- "generated": "2026-11-27 00:10 +07",
- "rev": 2,
- "session": "LONDON_CLOSE",
- "session_note": "London low 3,552.05 17:50 BKK, ~3,571 at close; r1 A sell stop filled 3,556.97, open; r0 A buy still open; US shut",
- "rev_note": "Neutral kept; A sell stop moved under day low 3,551.40 (23 off), SL past day high 3,607.90; B none: buy side is r0 A",
- "price_ref": 3571.4,
+ "date": "2026-11-27",
+ "generated": "2026-11-27 06:44 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "Holiday day 3,551.40-3,607.90, 3,565.50 at 06:15 BKK; r2 sell stop 3,548 missed by 3.4; r0 buy + r1 sell open (hedge)",
+ "rev_note": "",
+ "price_ref": 3565.5,
  "bias": "NEUTRAL",
- "bias_note": "3,551-3,608 holiday range; no US data",
- "headline": "Gold holds ~3,571 in a 3,551-3,608 holiday range; ECB accounts no spark",
+ "bias_note": "3,551-3,608 holiday range; Dec hike priced",
+ "headline": "Gold ~3,565 after 3,551-3,608 Thanksgiving range; Friday half day, thin trade",
  "summary": [
-  "Day range 3,551.40-3,607.90 (Kitco); London low 3,552.05 at 17:50 BKK; 3,574.50 at 23:09 BKK",
-  "r1 A sell stop filled 3,556.97 at 17:36 (EA), -14.6 at 23:55; SL 3,612.7 / TP 3,450 live",
-  "r0 A buy 3,594.27 still open (-22.9, SL 3,539 / TP 3,672): hedged; EA at max 2 positions",
-  "ECB accounts mixed (hawkish vs uneventful); DXY flat 103.62-103.84; Dec hike priced 94-100%",
-  "COMEX pauses 02:30-06:00 BKK; Fri US half day, EA closes positions before the weekend"
+  "Kitco Thu 3,551.40-3,607.90, 3,565.50 bid 18:15 ET; Wed low 3,445.89, Wed close ~3,577-3,581",
+  "Core PCE 3.3% and GDP 4.3%: Dec 25bp hike 94-99% priced; Jan hike ~55-60%; DXY ~103.7",
+  "Levels: res 3,583-3,600 then 3,607.90/3,651; sup 3,551.40, 3,500, 3,445.89 (Mitrade, FXEmpire)",
+  "EA holds r0 buy 3,594.27 and r1 sell 3,556.97 (-37.50); full at 2 positions, closes them pre-weekend",
+  "Fri US stocks shut 13:00 ET, COMEX gold 13:45 ET; OPEC+ Sun; FOMC Dec 8-9"
  ],
  "events": [
-  "Fri 02:30 BKK  COMEX holiday pause until 06:00",
-  "Fri 06:30 BKK  Tokyo CPI (Nov)",
-  "Fri 15:55 BKK  Germany unemployment (Nov)",
-  "Fri 17:00 BKK  Euro area economic sentiment",
-  "Sat 01:00 BKK  Fri US stock early close; COMEX gold 02:45",
-  "Sun  OPEC+ meeting",
-  "Mon  COMEX Dec first notice day"
+  "Sat 01:00 BKK  US stocks early close",
+  "Sat 02:45 BKK  COMEX gold early close",
+  "Sun  OPEC+ ministers meeting"
  ],
  "levels": {
   "r": [
+   3583.0,
    3607.9,
-   3651.0,
-   3697.0
+   3651.0
   ],
   "s": [
    3551.4,
@@ -44,10 +40,10 @@
    "side": "SELL",
    "type": "STOP",
    "entry": 3548.0,
-   "sl": 3613.0,
+   "sl": 3588.0,
    "tp1": 3504.0,
    "tp2": 3450.0,
-   "note": "3.4 under day low 3,551.40, 23.4 from ref; SL 65, 5.1 over 3,607.90; RR 0.68/1.51; EA full at 2 positions"
+   "note": "3.4 under 3,551.40, 17.5 off; SL 5 over 3,583; RR 1.1/2.45"
   },
   {
    "id": "B",
@@ -57,41 +53,41 @@
    "sl": 0,
    "tp1": 0,
    "tp2": 0,
-   "note": "Buy side = open r0 A 3,594.27; day high 3,607.90 is 36.5 off (rule 4); no tested level within 25"
+   "note": "High 3,607.90 42 off (rule 4); stop over 3,583 RR 0.43 skip"
   }
  ],
- "invalid": "Sell view void above 3,607.90 (day high); 1h close over 3,610 opens 3,651",
- "risk_note": "TP1 RR 0.68 < 1.2: 3,500 is the first real support and the SL must clear the day high (rule 6). r1 A sell 3,556.97 and r0 A buy 3,594.27 are both open (hedge); EA max_positions 2 means new A cannot fill until one closes. Thin holiday trade, COMEX pause 02:30-06:00 BKK. Scenario analysis from public sources. Not financial advice.",
- "lesson_applied": "Rules 1/4 stop 3.4 past day low, 23.4 from ref; 6 SL 65 >= 1/3 of 163, 5.1 past high; 5 TPs inside 3,500/3,445.89; 8 no US release",
+ "invalid": "Sell view void on a 1h close above 3,600; above 3,607.90 opens 3,651",
+ "risk_note": "TP1 RR 1.1 < 1.2: 3,500 is the first tested support. EA is full (r0 buy 3,594.27 + r1 sell 3,556.97 open), so Plan A cannot fill until one closes; the EA closes positions before the weekend. Thin Friday half day. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rules 1/4 stop 3.4 under low; 6 SL 40 >= 1/3 range; 5 TPs inside levels; B skip RR<0.5",
  "review": {
-  "for_date": "2026-11-25",
+  "for_date": "2026-11-26",
   "result": "NOT_TRIGGERED",
-  "text": "Final r2 no entry. r0 A sell stop filled 3,537.11, BE exit +0.50; TP1/TP2 later hit in NY (low 3,426). r1 B 3,550 cancelled unfilled. Day V: 3,426 low, 3,589 close."
+  "text": "Final r2 sell stop 3,548 missed by 3.4 (low 3,551.40). r0 A buy filled 3,594.27, r1 A sell filled 3,556.97: both open, hedged -37.50, no SL/TP hit. Range 3,551.40-3,607.90."
  },
  "sources": [
-  "Kitco spot 2026-11-26 11:09 ET",
-  "FXBrokerTrust 2026-11-26 (ECB minutes)",
-  "Newsquawk European wrap via StockNow 2026-11-26",
-  "investingLive European wrap 2026-11-26",
-  "FinanceFeeds 2026-11-26 (CNBC/Reuters)",
-  "ANC Trading 2026-11-26",
+  "Kitco spot 2026-11-26 18:15 ET",
+  "FinanceFeeds 2026-11-26",
+  "USAGOLD 2026-11-26",
+  "Mining.com.au 2026-11-26",
+  "The Library Estate (Reuters) 2026-11-26",
   "Mitrade 2026-11-26",
-  "ATFX 2026-11-26",
-  "EA results feed 2026-11-26 23:55"
+  "ANC Trading 2026-11-26",
+  "LiteFinance 2026-11-26",
+  "EA results feed 2026-11-27 06:29"
  ],
  "th": {
-  "headline": "ทองแกว่ง 3,551-3,608 ช่วงวันหยุด ราว 3,571 ตอนปิดลอนดอน",
-  "bias_note": "กลางๆ กรอบแคบ ไม่มีข่าวสหรัฐ",
+  "headline": "ทองราว 3,565 หลังแกว่ง 3,551-3,608 ช่วงวันหยุด ศุกร์สหรัฐเปิดครึ่งวัน",
+  "bias_note": "กลางๆ กรอบแคบ Fed จะขึ้นดอกเบี้ย",
   "summary": [
-   "กรอบวัน 3,551.40-3,607.90 (Kitco) ต่ำสุดลอนดอน 3,552.05 ตอน 17:50 น. ราว 3,574 ตอน 23:09",
-   "แผน A r1 Sell Stop ถูกเปิด 3,556.97 ตอน 17:36 น. ยังถืออยู่ ลบ 14.6 SL 3,612.7 TP 3,450",
-   "ไม้ Buy r0 3,594.27 ยังเปิด ลบ 22.9 SL 3,539 TP 3,672 ถือสองฝั่ง EA เต็ม 2 ไม้แล้ว",
-   "บันทึก ECB ไม่ชัดเจน ดอลลาร์ทรงตัว 103.6-103.8 ตลาดให้ Fed ขึ้นดอกเบี้ย ธ.ค. เกือบเต็ม",
-   "COMEX พัก 02:30-06:00 น. ศุกร์สหรัฐครึ่งวัน EA ปิดไม้ก่อนสุดสัปดาห์"
+   "Kitco พฤหัส 3,551.40-3,607.90 ล่าสุด 3,565.50 ตอน 06:15 น. ต่ำสุดวันพุธ 3,445.89",
+   "core PCE 3.3% GDP 4.3% ตลาดให้ Fed ขึ้น 25bp เดือน ธ.ค. 94-99% DXY ราว 103.7",
+   "แนวต้าน 3,583-3,600 และ 3,607.90 แนวรับ 3,551.40 3,500 3,445.89",
+   "EA ถือ Buy 3,594.27 และ Sell 3,556.97 รวมลบ 37.50 เต็ม 2 ไม้ ปิดก่อนสุดสัปดาห์",
+   "ศุกร์หุ้นสหรัฐปิด 01:00 น. ทอง COMEX ปิด 02:45 น. OPEC+ ประชุมอาทิตย์"
   ],
-  "invalid": "เหนือ 3,607.90 มุมมองขายใช้ไม่ได้ ปิด 1 ชม. เหนือ 3,610 ไปทาง 3,651",
-  "review_text": "แผนสุดท้าย r2 ไม่มีจุดเข้า r0 A Sell Stop เปิดที่ 3,537.11 ออกที่จุดทุน +0.50 แล้วราคาลงถึง TP1 TP2 ภายหลัง (ต่ำสุด 3,426) r1 B 3,550 ไม่ถูกเปิด",
-  "session_note": "ลอนดอนต่ำสุด 3,552.05 ปิดราว 3,571 แผน A Sell Stop ถูกเปิด 3,556.97 ยังถืออยู่ ไม้ Buy r0 ยังเปิด B ไม่มี",
-  "rev_note": "คงมุมมองกลางๆ ย้าย Sell Stop ไปใต้จุดต่ำของวัน 3,548 SL เหนือจุดสูงของวัน ไม่ตั้ง B เพราะมีไม้ซื้อเปิดอยู่"
+  "invalid": "ปิด 1 ชม. เหนือ 3,600 มุมมองขายใช้ไม่ได้ เหนือ 3,607.90 ไปทาง 3,651",
+  "review_text": "แผนสุดท้าย r2 Sell Stop 3,548 ไม่ถูกเปิด ขาดอีก 3.4 (ต่ำสุด 3,551.40) ไม้ Buy r0 3,594.27 และ Sell r1 3,556.97 ยังเปิดทั้งคู่ ลบรวม 37.50 ยังไม่โดน SL หรือ TP",
+  "session_note": "วันหยุดสหรัฐ กรอบ 3,551.40-3,607.90 ล่าสุด 3,565.50 Sell Stop 3,548 ไม่ถูกเปิด ถือ Buy และ Sell ค้าง",
+  "rev_note": ""
  }
 }

@@ -1,0 +1,93 @@
+{
+ "v": 1,
+ "date": "2026-11-27",
+ "generated": "2026-11-27 06:44 +07",
+ "rev": 0,
+ "session": "NY_CLOSE",
+ "session_note": "Holiday day 3,551.40-3,607.90, 3,565.50 at 06:15 BKK; r2 sell stop 3,548 missed by 3.4; r0 buy + r1 sell open (hedge)",
+ "rev_note": "",
+ "price_ref": 3565.5,
+ "bias": "NEUTRAL",
+ "bias_note": "3,551-3,608 holiday range; Dec hike priced",
+ "headline": "Gold ~3,565 after 3,551-3,608 Thanksgiving range; Friday half day, thin trade",
+ "summary": [
+  "Kitco Thu 3,551.40-3,607.90, 3,565.50 bid 18:15 ET; Wed low 3,445.89, Wed close ~3,577-3,581",
+  "Core PCE 3.3% and GDP 4.3%: Dec 25bp hike 94-99% priced; Jan hike ~55-60%; DXY ~103.7",
+  "Levels: res 3,583-3,600 then 3,607.90/3,651; sup 3,551.40, 3,500, 3,445.89 (Mitrade, FXEmpire)",
+  "EA holds r0 buy 3,594.27 and r1 sell 3,556.97 (-37.50); full at 2 positions, closes them pre-weekend",
+  "Fri US stocks shut 13:00 ET, COMEX gold 13:45 ET; OPEC+ Sun; FOMC Dec 8-9"
+ ],
+ "events": [
+  "Sat 01:00 BKK  US stocks early close",
+  "Sat 02:45 BKK  COMEX gold early close",
+  "Sun  OPEC+ ministers meeting"
+ ],
+ "levels": {
+  "r": [
+   3583.0,
+   3607.9,
+   3651.0
+  ],
+  "s": [
+   3551.4,
+   3500.0,
+   3445.89
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 3548.0,
+   "sl": 3588.0,
+   "tp1": 3504.0,
+   "tp2": 3450.0,
+   "note": "3.4 under 3,551.40, 17.5 off; SL 5 over 3,583; RR 1.1/2.45"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "High 3,607.90 42 off (rule 4); stop over 3,583 RR 0.43 skip"
+  }
+ ],
+ "invalid": "Sell view void on a 1h close above 3,600; above 3,607.90 opens 3,651",
+ "risk_note": "TP1 RR 1.1 < 1.2: 3,500 is the first tested support. EA is full (r0 buy 3,594.27 + r1 sell 3,556.97 open), so Plan A cannot fill until one closes; the EA closes positions before the weekend. Thin Friday half day. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rules 1/4 stop 3.4 under low; 6 SL 40 >= 1/3 range; 5 TPs inside levels; B skip RR<0.5",
+ "review": {
+  "for_date": "2026-11-26",
+  "result": "NOT_TRIGGERED",
+  "text": "Final r2 sell stop 3,548 missed by 3.4 (low 3,551.40). r0 A buy filled 3,594.27, r1 A sell filled 3,556.97: both open, hedged -37.50, no SL/TP hit. Range 3,551.40-3,607.90."
+ },
+ "sources": [
+  "Kitco spot 2026-11-26 18:15 ET",
+  "FinanceFeeds 2026-11-26",
+  "USAGOLD 2026-11-26",
+  "Mining.com.au 2026-11-26",
+  "The Library Estate (Reuters) 2026-11-26",
+  "Mitrade 2026-11-26",
+  "ANC Trading 2026-11-26",
+  "LiteFinance 2026-11-26",
+  "EA results feed 2026-11-27 06:29"
+ ],
+ "th": {
+  "headline": "ทองราว 3,565 หลังแกว่ง 3,551-3,608 ช่วงวันหยุด ศุกร์สหรัฐเปิดครึ่งวัน",
+  "bias_note": "กลางๆ กรอบแคบ Fed จะขึ้นดอกเบี้ย",
+  "summary": [
+   "Kitco พฤหัส 3,551.40-3,607.90 ล่าสุด 3,565.50 ตอน 06:15 น. ต่ำสุดวันพุธ 3,445.89",
+   "core PCE 3.3% GDP 4.3% ตลาดให้ Fed ขึ้น 25bp เดือน ธ.ค. 94-99% DXY ราว 103.7",
+   "แนวต้าน 3,583-3,600 และ 3,607.90 แนวรับ 3,551.40 3,500 3,445.89",
+   "EA ถือ Buy 3,594.27 และ Sell 3,556.97 รวมลบ 37.50 เต็ม 2 ไม้ ปิดก่อนสุดสัปดาห์",
+   "ศุกร์หุ้นสหรัฐปิด 01:00 น. ทอง COMEX ปิด 02:45 น. OPEC+ ประชุมอาทิตย์"
+  ],
+  "invalid": "ปิด 1 ชม. เหนือ 3,600 มุมมองขายใช้ไม่ได้ เหนือ 3,607.90 ไปทาง 3,651",
+  "review_text": "แผนสุดท้าย r2 Sell Stop 3,548 ไม่ถูกเปิด ขาดอีก 3.4 (ต่ำสุด 3,551.40) ไม้ Buy r0 3,594.27 และ Sell r1 3,556.97 ยังเปิดทั้งคู่ ลบรวม 37.50 ยังไม่โดน SL หรือ TP",
+  "session_note": "วันหยุดสหรัฐ กรอบ 3,551.40-3,607.90 ล่าสุด 3,565.50 Sell Stop 3,548 ไม่ถูกเปิด ถือ Buy และ Sell ค้าง",
+  "rev_note": ""
+ }
+}
