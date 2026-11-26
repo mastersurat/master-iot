@@ -1,4 +1,55 @@
-# XAUUSD Gold Brief — พฤหัส 26 พ.ย. 2026 (r1 16:09 น.)
+# XAUUSD Gold Brief — พฤหัส 26 พ.ย. 2026 (r2 00:25 น. ศุกร์)
+
+## อัปเดตปิดตลาดลอนดอน (00:25 น.)
+**ราคาอ้างอิง ~3,571.4 (คำนวณจากผลไม้ EA 23:55 น.; Kitco 3,574.50 ตอน 23:09 น.) · มุมมอง: กลางๆ (Neutral)** — ทองแกว่งในกรอบ 3,551–3,608 ช่วงวันหยุดสหรัฐ ไม่มีข่าวสหรัฐ
+
+### สรุปช่วงตลาดที่เพิ่งปิด
+- กรอบวัน 3,551.40–3,607.90 (Kitco 23:09 น.) · Newsquawk ให้กรอบยุโรป 3,551–3,607 · ต่ำสุดช่วงลอนดอน 3,552.05 ราว 17:50 น. (FXBrokerTrust)
+- ราว 3,571 ตอน 19:51 น. (investingLive) · บันทึกประชุม ECB 19:30 น. ทำให้ราคาหลุด 3,570 ชั่วครู่แล้วฟื้น (FXBrokerTrust มองว่าเหยี่ยว Newsquawk มองว่าไม่มีอะไรใหม่)
+- ดอลลาร์ทรงตัว DXY 103.62–103.84 · ตลาดให้ Fed ขึ้นดอกเบี้ย ธ.ค. 94–100% · ตลาดสหรัฐหยุด Thanksgiving สภาพคล่องบาง
+
+### ผลของแผนก่อนหน้า (r1 16:09 น.)
+- **A Sell Stop 3,557 ถูกเปิด** ที่ 3,556.97 ตอน 17:36 น. (EA) · ต่ำสุดหลังจากนั้น 3,551.40 ยังไม่ถึง TP1 3,504 · SL 3,612.7 ไม่ถูกแตะ · ตอน 23:55 น. ลบ 14.6 **ยังถืออยู่** (EA ตั้ง TP 3,450)
+- B ไม่มีจุดเข้า
+- ไม้ r0 A Buy 3,594.27 ยังเปิดอยู่ ลบ 22.9 SL 3,539 TP 3,672 · ตอนนี้ถือทั้งสองฝั่ง และ EA มีไม้ครบ 2 ไม้ (max_positions 2)
+
+### แผนใหม่ช่วงนิวยอร์กที่เหลือ (ถึงปิดตลาด)
+| Plan | Side | Type | Entry | SL | TP1 | TP2 | เงื่อนไข |
+|---|---|---|---|---|---|---|---|
+| A | SELL | STOP | 3,548 | 3,613 | 3,504 | 3,450 | ใต้จุดต่ำของวัน 3,551.40 อยู่ 3.4 ห่างราคา 23.4 · SL 65 เหนือจุดสูงของวัน 3,607.90 อยู่ 5.1 · R:R 0.68 / 1.51 |
+| B | – | NONE | – | – | – | – | ฝั่งซื้อมีไม้ r0 A เปิดอยู่แล้ว · จุดสูงของวันห่าง 36.5 เกิน 25 (กฎ 4) จึงไม่ตั้ง |
+
+TP1 R:R ต่ำกว่า 1.2 เพราะแนวรับจริงแรกคือ 3,500 และ SL ต้องพ้นจุดสูงของวัน (กฎ 6) · EA มีไม้ครบ 2 ไม้ แผน A ใหม่จะยังเปิดไม่ได้จนกว่าไม้เดิมจะปิด · ตลาดวันหยุดบาง COMEX พัก 02:30–06:00 น.
+
+**จุดที่แผนใช้ไม่ได้:** เหนือ 3,607.90 มุมมองขายใช้ไม่ได้ · ปิด 1 ชม. เหนือ 3,610 ไปทาง 3,651
+
+ออเดอร์ที่ตั้งตามแผนก่อนหน้ายังอยู่ ตรวจสอบและยกเลิกเองได้ในแอป Gold Brief (ระบบไม่ยกเลิกให้อัตโนมัติ)
+
+### ข่าวที่รออยู่ (เวลาไทย)
+| เวลา | เหตุการณ์ |
+|---|---|
+| ศุกร์ 02:30 | COMEX พักช่วงวันหยุด ถึง 06:00 น. |
+| ศุกร์ 06:30 | Tokyo CPI (พ.ย.) |
+| ศุกร์ 15:55 | อัตราว่างงานเยอรมนี (พ.ย.) |
+| ศุกร์ 17:00 | ดัชนีความเชื่อมั่นเศรษฐกิจยูโรโซน |
+| เสาร์ 01:00 | ตลาดหุ้นสหรัฐปิดเร็ววันศุกร์ · COMEX ทองปิด 02:45 น. (EA ปิดไม้ก่อนสุดสัปดาห์) |
+| อาทิตย์ 29 พ.ย. | ประชุม OPEC+ |
+| จันทร์ 30 พ.ย. | First notice day ทอง COMEX ธ.ค. |
+
+### บทเรียนที่ใช้
+- กฎ 1/4: Sell Stop ใต้จุดต่ำของวัน 3.4 ห่างราคา 23.4 · กฎ 6: SL 65 พ้นจุดสูงของวัน 5.1 · กฎ 5: TP อยู่ก่อน 3,500 และ 3,445.89 · กฎ 8: ไม่มีข่าวสำคัญสหรัฐช่วงนี้
+
+### แหล่งข้อมูลรอบนี้
+- [Kitco Gold Spot](https://www.kitco.com/charts/gold)
+- [FXBrokerTrust: Spot Gold Rebounds to Near $3,570 as Hawkish ECB Minutes Cap Gains](https://www.fxbrokertrust.com/insights/spot-gold-rebounds-to-near-3570-as-hawkish-ecb-minutes-cap-gains)
+- [Newsquawk European Market Wrap (StockNow)](https://stocknow.ai/en/breaking-news/swfpykmc7zbb1p8vfkugdpzj/newsquawk-european-market-wrap-26th-november-2026)
+- [investingLive European session wrap](https://investinglive.com/news/investinglive-european-session-wrap-european-stocks-ride-wall-street-s-comeback-into-thanksgiving/)
+- [FinanceFeeds: Gold Price Today $3,565](https://financefeeds.com/gold-price-today-3565-thursday-holiday-bounce-from-15-month-low-bull-3697-bear-3446/)
+- [ATFX Daily Market Highlight](https://www.atfxcapital.com/en/analysis/market-news/20261126-daily-market-highlight)
+- [Mitrade: Gold rebounds ahead of Thanksgiving](https://www.mitrade.com/insights/commodity-analysis/gold/gold-rebounds-ahead-thanksgiving-strong-gdp)
+
+---
+# อัปเดต r1 (16:09 น.)
 
 ## อัปเดตปิดตลาดเอเชีย (16:09 น.)
 **ราคาอ้างอิง ~3,573.4 (คำนวณจากผลไม้ EA 15:53 น.) · มุมมอง: กลางๆ (Neutral)** — ช่วงเอเชียขึ้นแตะ 3,600 แล้วถูกกดลง ตลาดวันหยุดสหรัฐบาง

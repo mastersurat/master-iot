@@ -1,0 +1,97 @@
+{
+ "v": 1,
+ "date": "2026-11-26",
+ "generated": "2026-11-27 00:25 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "London low 3,552.05 17:50 BKK, ~3,571 at close; r1 A sell stop filled 3,556.97, open; r0 A buy still open; US shut",
+ "rev_note": "Neutral kept; A sell stop moved under day low 3,551.40 (23 off), SL past day high 3,607.90; B none: buy side is r0 A",
+ "price_ref": 3571.4,
+ "bias": "NEUTRAL",
+ "bias_note": "3,551-3,608 holiday range; no US data",
+ "headline": "Gold holds ~3,571 in a 3,551-3,608 holiday range; ECB accounts no spark",
+ "summary": [
+  "Day range 3,551.40-3,607.90 (Kitco); London low 3,552.05 at 17:50 BKK; 3,574.50 at 23:09 BKK",
+  "r1 A sell stop filled 3,556.97 at 17:36 (EA), -14.6 at 23:55; SL 3,612.7 / TP 3,450 live",
+  "r0 A buy 3,594.27 still open (-22.9, SL 3,539 / TP 3,672): hedged; EA at max 2 positions",
+  "ECB accounts mixed (hawkish vs uneventful); DXY flat 103.62-103.84; Dec hike priced 94-100%",
+  "COMEX pauses 02:30-06:00 BKK; Fri US half day, EA closes positions before the weekend"
+ ],
+ "events": [
+  "Fri 02:30 BKK  COMEX holiday pause until 06:00",
+  "Fri 06:30 BKK  Tokyo CPI (Nov)",
+  "Fri 15:55 BKK  Germany unemployment (Nov)",
+  "Fri 17:00 BKK  Euro area economic sentiment",
+  "Sat 01:00 BKK  Fri US stock early close; COMEX gold 02:45",
+  "Sun  OPEC+ meeting",
+  "Mon  COMEX Dec first notice day"
+ ],
+ "levels": {
+  "r": [
+   3607.9,
+   3651.0,
+   3697.0
+  ],
+  "s": [
+   3551.4,
+   3500.0,
+   3445.89
+  ]
+ },
+ "plans": [
+  {
+   "id": "A",
+   "side": "SELL",
+   "type": "STOP",
+   "entry": 3548.0,
+   "sl": 3613.0,
+   "tp1": 3504.0,
+   "tp2": 3450.0,
+   "note": "3.4 under day low 3,551.40, 23.4 from ref; SL 65, 5.1 over 3,607.90; RR 0.68/1.51; EA full at 2 positions"
+  },
+  {
+   "id": "B",
+   "side": "BUY",
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "Buy side = open r0 A 3,594.27; day high 3,607.90 is 36.5 off (rule 4); no tested level within 25"
+  }
+ ],
+ "invalid": "Sell view void above 3,607.90 (day high); 1h close over 3,610 opens 3,651",
+ "risk_note": "TP1 RR 0.68 < 1.2: 3,500 is the first real support and the SL must clear the day high (rule 6). r1 A sell 3,556.97 and r0 A buy 3,594.27 are both open (hedge); EA max_positions 2 means new A cannot fill until one closes. Thin holiday trade, COMEX pause 02:30-06:00 BKK. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rules 1/4 stop 3.4 past day low, 23.4 from ref; 6 SL 65 >= 1/3 of 163, 5.1 past high; 5 TPs inside 3,500/3,445.89; 8 no US release",
+ "review": {
+  "for_date": "2026-11-25",
+  "result": "NOT_TRIGGERED",
+  "text": "Final r2 no entry. r0 A sell stop filled 3,537.11, BE exit +0.50; TP1/TP2 later hit in NY (low 3,426). r1 B 3,550 cancelled unfilled. Day V: 3,426 low, 3,589 close."
+ },
+ "sources": [
+  "Kitco spot 2026-11-26 11:09 ET",
+  "FXBrokerTrust 2026-11-26 (ECB minutes)",
+  "Newsquawk European wrap via StockNow 2026-11-26",
+  "investingLive European wrap 2026-11-26",
+  "FinanceFeeds 2026-11-26 (CNBC/Reuters)",
+  "ANC Trading 2026-11-26",
+  "Mitrade 2026-11-26",
+  "ATFX 2026-11-26",
+  "EA results feed 2026-11-26 23:55"
+ ],
+ "th": {
+  "headline": "ทองแกว่ง 3,551-3,608 ช่วงวันหยุด ราว 3,571 ตอนปิดลอนดอน",
+  "bias_note": "กลางๆ กรอบแคบ ไม่มีข่าวสหรัฐ",
+  "summary": [
+   "กรอบวัน 3,551.40-3,607.90 (Kitco) ต่ำสุดลอนดอน 3,552.05 ตอน 17:50 น. ราว 3,574 ตอน 23:09",
+   "แผน A r1 Sell Stop ถูกเปิด 3,556.97 ตอน 17:36 น. ยังถืออยู่ ลบ 14.6 SL 3,612.7 TP 3,450",
+   "ไม้ Buy r0 3,594.27 ยังเปิด ลบ 22.9 SL 3,539 TP 3,672 ถือสองฝั่ง EA เต็ม 2 ไม้แล้ว",
+   "บันทึก ECB ไม่ชัดเจน ดอลลาร์ทรงตัว 103.6-103.8 ตลาดให้ Fed ขึ้นดอกเบี้ย ธ.ค. เกือบเต็ม",
+   "COMEX พัก 02:30-06:00 น. ศุกร์สหรัฐครึ่งวัน EA ปิดไม้ก่อนสุดสัปดาห์"
+  ],
+  "invalid": "เหนือ 3,607.90 มุมมองขายใช้ไม่ได้ ปิด 1 ชม. เหนือ 3,610 ไปทาง 3,651",
+  "review_text": "แผนสุดท้าย r2 ไม่มีจุดเข้า r0 A Sell Stop เปิดที่ 3,537.11 ออกที่จุดทุน +0.50 แล้วราคาลงถึง TP1 TP2 ภายหลัง (ต่ำสุด 3,426) r1 B 3,550 ไม่ถูกเปิด",
+  "session_note": "ลอนดอนต่ำสุด 3,552.05 ปิดราว 3,571 แผน A Sell Stop ถูกเปิด 3,556.97 ยังถืออยู่ ไม้ Buy r0 ยังเปิด B ไม่มี",
+  "rev_note": "คงมุมมองกลางๆ ย้าย Sell Stop ไปใต้จุดต่ำของวัน 3,548 SL เหนือจุดสูงของวัน ไม่ตั้ง B เพราะมีไม้ซื้อเปิดอยู่"
+ }
+}
