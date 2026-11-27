@@ -1,51 +1,53 @@
 {
  "v": 1,
  "date": "2026-11-27",
- "generated": "2026-11-27 16:15 +07",
- "rev": 1,
- "session": "ASIA_CLOSE",
- "session_note": "Asia 3,558.05-3,672 (+2.9%), 3,670.69 at 16:01; r0 A sell stop 3,548 not hit, B none; EA hedge closed: buy TP 3,672, sell SL",
- "rev_note": "Neutral kept; no buy chase after +2.9% (rule 3); new A sell stop 4 under 200h MA 3,665, 9.7 off; B none (retest buy RR<0.5)",
- "price_ref": 3670.69,
+ "generated": "2026-11-28 00:08 +07",
+ "rev": 2,
+ "session": "LONDON_CLOSE",
+ "session_note": "Day 3,569.60-3,686 (Kitco); 3,637.20 at 21:29 BKK. A sell stop 3,661 traded through, fill/SL order unknown; EA had it gated",
+ "rev_note": "No entries: Friday after 12:00 ET (rule 7b), no 1h high/low in sources, ~2.5h to COMEX close, EA weekend close",
+ "price_ref": 3637.2,
  "bias": "NEUTRAL",
- "bias_note": "+2.9% Asia rebound into 3,665-3,690; Dec hike priced",
- "headline": "Gold jumps ~2.9% to ~3,670 in Asia as dollar pauses; thin Friday half day ahead",
+ "bias_note": "Rebound faded from 3,686 to ~3,637; Dec hike priced",
+ "headline": "Gold eases to ~3,637 after 3,686 high in thin US half day; still +2% on day",
  "summary": [
-  "Asia Fri: open 3,568.20, low 3,558.05, 3,666.76 by 13:15 BKK (Investing); 3,640.84 13:09 (Reuters)",
-  "Swissquote ~3,658 at 14:48 BKK; EA buy TP 3,672 at 15:15; 3,670.69 (+2.9%) at 16:01 BKK (iux24)",
-  "Drivers: dollar off 22-month peak (DXY ~103.7), tech/AI stocks steady, silver +6-10%; Dec hike 96% priced",
-  "Levels: res 3,672 then 3,689.80 (Mon high) and 3,750; sup 3,665 (200h MA), 3,608 (50% Fib), 3,558",
-  "EA hedge closed: r0 buy 3,594.27 TP 3,672 (+77.73), r1 sell 3,556.97 SL 3,612.7 (-55.73); no open trades"
+  "Kitco day range 3,569.60-3,686.00; 3,637.20 bid (+71.70, +2.01%) at 9:29 ET / 21:29 BKK",
+  "Reuters 3,635.81 at 9:34 ET after >3% earlier; gains pared on firm dollar, yields (10y ~4.89%)",
+  "r1 A sell stop 3,661: price traded below it (3,637); SL 3,681 vs 3,686 high order unknown",
+  "EA status 17:32 BKK: A gated (STOP_NEUTRAL), no auto order, no open positions; check app",
+  "No new entry: thin Friday close, COMEX ends 02:45 BKK; next plan Monday morning brief"
  ],
  "events": [
-  "Fri 20:30 BKK  US advance goods trade balance",
   "Sat 01:00 BKK  US stocks early close",
   "Sat 02:45 BKK  COMEX gold early close",
   "Sun  OPEC+ ministers meeting",
-  "Dec 8-9  FOMC"
+  "Mon 30 Nov  month-end, Chicago PMI",
+  "Tue 1 Dec 22:00 BKK  ISM manufacturing, JOLTS",
+  "Fri 4 Dec 20:30 BKK  US NFP",
+  "Thu 10 Dec 02:00 BKK  FOMC decision"
  ],
  "levels": {
   "r": [
-   3672.0,
-   3689.8,
+   3665.0,
+   3686.0,
    3750.0
   ],
   "s": [
-   3665.0,
    3608.0,
-   3558.05
+   3569.6,
+   3500.0
   ]
  },
  "plans": [
   {
    "id": "A",
    "side": "SELL",
-   "type": "STOP",
-   "entry": 3661.0,
-   "sl": 3681.0,
-   "tp1": 3612.0,
-   "tp2": 3562.0,
-   "note": "4 under 200h MA 3,665, 9.7 off; SL 9 over 3,672 high; TP1 4 over 3,608, TP2 4 over 3,558.05; RR 2.45/4.95"
+   "type": "NONE",
+   "entry": 0,
+   "sl": 0,
+   "tp1": 0,
+   "tp2": 0,
+   "note": "Rule 7b: Friday after 12:00 ET, no 1h high/low in sources; sell stop under 3,608 is 29 off (rule 4). Skip"
   },
   {
    "id": "B",
@@ -55,39 +57,39 @@
    "sl": 0,
    "tp1": 0,
    "tp2": 0,
-   "note": "Rule 3: no buy stop after +2.9%; retest lmt 3,665 has TP1 inside 3,672 high, RR<0.5, skip"
+   "note": "Rule 7b; buy limit 3,608 would be 29 off (>15, rule 1) with ~2.5h left before weekend close. Skip"
   }
  ],
- "invalid": "Sell view void above 3,681; a 1h close above 3,690 opens 3,750",
- "risk_note": "Counter-move sell stop on a thin Friday half day: whipsaw risk (11-26). EA gates STOP_NEUTRAL (50% < 70%), so it may not auto-place. EA closes trades before the weekend. Scenario analysis from public sources. Not financial advice.",
- "lesson_applied": "Rule 3 no buy stop after +2.9% (RSI n/a); 7 entry 9.7 from ref; 6 SL 20 >= 1/3 of 56.5; 5 TPs 4 inside levels",
+ "invalid": "Neutral view void: 1h close above 3,686 opens 3,750; below 3,608 reopens 3,570",
+ "risk_note": "No entries for the rest of Friday. If r1 A (sell stop 3,661) was placed by hand it may be open: check SL 3,681 / TP 3,612 in the app. EA closes trades before the weekend. Scenario analysis from public sources. Not financial advice.",
+ "lesson_applied": "Rule 7b Friday after 12:00 ET: no 1h extreme -> no entry; rule 4/1 distance caps also fail",
  "review": {
   "for_date": "2026-11-26",
   "result": "NOT_TRIGGERED",
   "text": "Final r2 sell stop 3,548 missed by 3.4 (low 3,551.40). r0 A buy filled 3,594.27, r1 A sell filled 3,556.97: both open, hedged -37.50, no SL/TP hit. Range 3,551.40-3,607.90."
  },
  "sources": [
-  "FXBrokerTrust (Investing.com intraday, investingLive) 2026-11-27",
+  "Kitco spot gold page 2026-11-27 9:29 ET",
+  "Eurasia Business News (Reuters, Kitco) 2026-11-27 16:23 UTC",
+  "FinanceFeeds 2026-11-27 07:00 GMT",
   "ANC Trading (Reuters, Swissquote) 2026-11-27",
-  "iux24 2026-11-27 09:01 UTC",
-  "Business Standard 2026-11-27",
-  "Upstox live blog 2026-11-27",
-  "TraderFactor 2026-11-27",
-  "EA results feed 2026-11-27 16:01"
+  "Mitrade AU 2026-11-27",
+  "LiteFinance 2026-11-27",
+  "EA status/results feed 2026-11-27 17:32"
  ],
  "th": {
-  "headline": "ทองดีดขึ้นราว 2.9% สู่ 3,670 ช่วงเอเชีย คืนนี้สหรัฐเปิดครึ่งวัน",
-  "bias_note": "กลางๆ ดีดแรงชนแนวต้าน 3,665-3,690",
+  "headline": "ทองย่อจาก 3,686 มาราว 3,637 ช่วงสหรัฐครึ่งวัน ยังบวก 2%",
+  "bias_note": "กลางๆ ดีดแล้วย่อ ตลาดให้ Fed ขึ้นดอก",
   "summary": [
-   "เอเชียศุกร์ เปิด 3,568.20 ต่ำสุด 3,558.05 ขึ้นถึง 3,666.76 ตอน 13:15 น. (Investing)",
-   "Swissquote 3,658 ตอน 14:48 น. EA ปิด TP 3,672 ตอน 15:15 น. ล่าสุด 3,670.69 (16:01)",
-   "ดอลลาร์ถอยจากจุดสูง 22 เดือน หุ้นเทคนิ่ง เงินพุ่ง 6-10% ตลาดยังให้ Fed ขึ้นดอกเบี้ย 96%",
-   "แนวต้าน 3,672 3,689.80 3,750 แนวรับ 3,665 (MA 200 ชม.) 3,608 3,558",
-   "ไม้ค้าง EA ปิดหมดแล้ว Buy 3,594.27 ถึง TP 3,672 (+77.73) Sell 3,556.97 โดน SL (-55.73)"
+   "Kitco ทั้งวัน 3,569.60-3,686.00 ล่าสุด 3,637.20 (+2.01%) ตอน 21:29 น.",
+   "Reuters 3,635.81 ตอน 21:34 น. หลังขึ้นเกิน 3% ดอลลาร์และบอนด์ยีลด์กดราคา",
+   "แผน A Sell Stop 3,661 ราคาลงผ่านแล้ว แต่ไม่รู้ว่าโดน SL 3,681 ก่อนหรือไม่ (สูงสุด 3,686)",
+   "EA ตอน 17:32 น. ไม่ตั้งแผน A ให้ (ถูกกรอง) ไม่มีไม้เปิด ตรวจในแอปอีกครั้ง",
+   "ไม่ตั้งจุดเข้าใหม่ ตลาดศุกร์บาง COMEX ปิด 02:45 น. แผนถัดไปเช้าวันจันทร์"
   ],
-  "invalid": "เหนือ 3,681 มุมมองขายใช้ไม่ได้ ปิด 1 ชม. เหนือ 3,690 ไปทาง 3,750",
+  "invalid": "ปิด 1 ชม. เหนือ 3,686 ไปทาง 3,750 หลุด 3,608 กลับไปหา 3,570",
   "review_text": "แผนสุดท้าย r2 Sell Stop 3,548 ไม่ถูกเปิด ขาดอีก 3.4 (ต่ำสุด 3,551.40) ไม้ Buy r0 3,594.27 และ Sell r1 3,556.97 ยังเปิดทั้งคู่ ลบรวม 37.50 ยังไม่โดน SL หรือ TP",
-  "session_note": "เอเชียดีดจาก 3,558.05 ถึงราว 3,672 (+2.9%) Sell Stop 3,548 ไม่ถูกเปิด ไม้ค้าง Buy ถึง TP ไม้ Sell โดน SL",
-  "rev_note": "ยังกลางๆ ไม่ไล่ซื้อหลังขึ้น 2.9% (กฎ 3) ตั้ง Sell Stop 3,661 ใต้ MA 200 ชม. ไม่มีแผน B เพราะ R:R ต่ำ"
+  "session_note": "ลอนดอน+ครึ่งแรกสหรัฐ ทองแตะ 3,686 แล้วย่อมา 3,637 แผน A ราคาผ่านจุดเข้า แต่ EA ไม่ได้ตั้งให้",
+  "rev_note": "ไม่ตั้งจุดเข้า เพราะศุกร์หลังเที่ยง ET (กฎ 7b) ไม่มีข้อมูลจุดสูงต่ำ 1 ชม. ตลาดใกล้ปิดสุดสัปดาห์"
  }
 }
