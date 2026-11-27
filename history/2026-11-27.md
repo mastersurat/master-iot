@@ -1,6 +1,44 @@
-# XAUUSD Gold Brief — ศุกร์ 27 พ.ย. 2026 (06:44 น.)
+# XAUUSD Gold Brief — ศุกร์ 27 พ.ย. 2026 (r1 16:15 น.)
 
-## อัปเดตปิดตลาดนิวยอร์ก
+## อัปเดตปิดตลาดเอเชีย (16:15 น.)
+**ราคาอ้างอิง 3,670.69 (iux24 16:01 น.) · มุมมอง: กลางๆ (Neutral)** — ทองดีดแรงราว 2.9% ในช่วงเอเชีย ขึ้นมาชนแนวต้าน 3,665–3,690 ขณะที่ตลาดยังให้ Fed ขึ้นดอกเบี้ย ธ.ค.
+
+### สรุปช่วงตลาดที่เพิ่งปิด
+- กรอบเอเชีย: เปิด 3,568.20 · ต่ำสุด 3,558.05 · สูง 3,666.76 ณ 13:15 น. (Investing.com ผ่าน FXBrokerTrust) · EA ปิด TP ที่ 3,672 ตอน 15:15 น. (ราคาโบรกเกอร์)
+- Reuters 3,640.84 ตอน 13:09 น. (+2.1%) · Swissquote ราว 3,658 ตอน 14:48 น. · 3,670.69 (+2.9%) ตอน 16:01 น. (iux24)
+- ข่าว: ดอลลาร์ถอยจากจุดสูง 22 เดือน (DXY ราว 103.7) · หุ้นเทคและ AI ในเอเชียฟื้น แรงขายบังคับลดลง · เงินพุ่ง 6–10% · จีนนำเข้าทองผ่านฮ่องกง ต.ค. สูงสุดตั้งแต่ เม.ย.
+- ตัวกด: ตลาดให้ Fed ขึ้น 25bp วันที่ 9 ธ.ค. ราว 96% · investingLive: เบรก MA 100 ชม. ครั้งแรกในรอบ 3 สัปดาห์ แนวต้าน MA 200 ชม. ราว 3,665 · Fibo 50% ราว 3,608
+
+### ผลของแผนก่อนหน้า (r0 06:44 น.)
+- A Sell Stop 3,548: **ไม่ถูกเปิด** (ต่ำสุดเอเชีย 3,558.05)
+- B: ไม่มีจุดเข้า
+- ไม้ค้างจากเมื่อวาน (EA): Sell r1 3,556.97 **โดน SL 3,612.7** ตอน 09:05 น. (−55.73) · Buy r0 3,594.27 **ถึง TP 3,672** ตอน 15:15 น. (+77.73) · ตอนนี้ไม่มีไม้เปิด
+
+### แผนใหม่ช่วงลอนดอน + นิวยอร์ก
+| Plan | Side | Type | Entry | SL | TP1 | TP2 | เงื่อนไข |
+|---|---|---|---|---|---|---|---|
+| A | SELL | STOP | 3,661 | 3,681 | 3,612 | 3,562 | ใต้ MA 200 ชม. 3,665 อยู่ 4 ห่างราคา 9.7 · SL 20 เหนือจุดสูง 3,672 อยู่ 9 · TP1 เหนือ 3,608 อยู่ 4 · TP2 เหนือ 3,558.05 อยู่ 4 · R:R 2.45 / 4.95 |
+| B | – | NONE | – | – | – | – | กฎ 3: ไม่ตั้ง Buy Stop ไล่ราคาหลังขึ้น 2.9% · Buy Limit รอย่อที่ 3,665 ได้ TP1 แค่ใต้จุดสูง 3,672 R:R ต่ำกว่า 0.5 จึงไม่ตั้ง |
+
+แผน A เป็นการเล่นสวนแรงดีด ตลาดศุกร์บางเสี่ยงโดนสะบัด (แบบ 26 พ.ย.) · EA กรองแบบ STOP_NEUTRAL (50% ต่ำกว่า 70%) อาจไม่ตั้งออเดอร์ให้อัตโนมัติ · EA ปิดไม้ก่อนสุดสัปดาห์
+
+**จุดที่แผนใช้ไม่ได้:** เหนือ 3,681 มุมมองขายใช้ไม่ได้ · ปิด 1 ชม. เหนือ 3,690 ไปทาง 3,750
+
+### ข่าวที่รออยู่ (เวลาไทย)
+| เวลา | เหตุการณ์ |
+|---|---|
+| ศุกร์ 20:30 | ดุลการค้าสินค้าสหรัฐเบื้องต้น (ไม่ใช่ข่าวแรง) |
+| เสาร์ 28 พ.ย. 01:00 | ตลาดหุ้นสหรัฐปิดเร็ว |
+| เสาร์ 28 พ.ย. 02:45 | ทอง COMEX ปิดเร็ว |
+| อาทิตย์ 29 พ.ย. | ประชุมรัฐมนตรี OPEC+ |
+| จันทร์ 30 พ.ย. | วันสุดท้ายของเดือน |
+| 8–9 ธ.ค. | ประชุม FOMC |
+
+ออเดอร์ที่ตั้งตามแผนก่อนหน้ายังอยู่ ตรวจสอบและยกเลิกเองได้ในแอป Gold Brief (ระบบไม่ยกเลิกให้อัตโนมัติ)
+
+---
+
+## แผนเช้า r0 (06:44 น.) — อัปเดตปิดตลาดนิวยอร์ก
 วันพฤหัสตลาดสหรัฐหยุด Thanksgiving สภาพคล่องบาง ทองแกว่งในกรอบ 3,551.40–3,607.90 (Kitco) กว้างแค่ 56.5 เทียบกับ 163 ในวันพุธ · ช่วงเอเชียขึ้นไป 3,603.41 แล้วถูกกดลง ต่ำสุดลอนดอน 3,552.05 ตอน 17:50 น. · ล่าสุด 3,565.50 (bid) ตอน 06:15 น. ศุกร์ · แผนสุดท้าย r2 Sell Stop 3,548 ไม่ถูกเปิด (ขาดอีก 3.4) · ไม้ Buy r0 และ Sell r1 ยังเปิดอยู่ทั้งคู่
 
 **ราคาอ้างอิง 3,565.5 (Kitco 06:15 น.) · มุมมอง: กลางๆ (Neutral)** — กรอบแคบช่วงวันหยุด ตลาดให้ Fed ขึ้นดอกเบี้ย ธ.ค. เกือบเต็ม
@@ -54,12 +92,19 @@ TP1 R:R 1.1 ต่ำกว่า 1.2 เพราะแนวรับที่
 - **ทำไม:** ตลาดวันหยุดกรอบแคบ 56.5 ทำให้ Stop ทั้งสองทางถูกเปิดแล้วไม่ไปต่อ · Buy Stop r0 ถูกเปิดต่ำกว่าจุดสูงของวันแค่ 13.6 แล้วราคากลับลง · r1 ตั้ง Sell Stop ขณะไม้ Buy ยังเปิด จึงกลายเป็นถือสองฝั่ง ล็อกขาดทุนไว้ 37.50 และ EA เต็ม 2 ไม้ แผนใหม่เปิดไม่ได้
 - **ปรับ:** รอบใหม่ห้ามตั้งจุดเข้าฝั่งตรงข้ามกับไม้ที่ยังเปิดจากรอบก่อนในวันเดียวกัน เว้นแต่จุดเข้าอยู่เลย SL ของไม้นั้น
 
-ออเดอร์ที่ตั้งตามแผนก่อนหน้ายังอยู่ ตรวจสอบและยกเลิกเองได้ในแอป Gold Brief (ระบบไม่ยกเลิกให้อัตโนมัติ)
-
 ---
 การวิเคราะห์สถานการณ์จากแหล่งข่าวสาธารณะ ไม่ใช่คำแนะนำการลงทุน (Not financial advice.)
 
-**แหล่งข้อมูล:**
+**แหล่งข้อมูล (อัปเดตเอเชีย):**
+- [FXBrokerTrust: Spot Gold Rises Above $3,600 (Investing.com, investingLive)](https://www.fxbrokertrust.com/insights/spot-gold-rises-above-3600-as-analyst-urges-caution)
+- [ANC Trading: Gold Heads for Weekly Gain After One-Year Low (Reuters, Swissquote)](https://ancstockinvestments.com/blog/2026/11/27/gold-heads-for-weekly-gain-after-one-year-low/)
+- [iux24: Gold rises nearly 3 percent as dollar rally pauses](https://www.iux24.com/news/gold-rises-nearly-3-percent-as-dollar-rally-pauses-and-equities-stabilise-20261127/)
+- [Business Standard: Gold, silver prices extend rebound](https://business-standard.com/markets/commodities/gold-silver-prices-extend-rebound-on-strong-buying-at-lower-levels-126112700373_1.html)
+- [Upstox: Gold price tracker Nov 27](https://upstox.com/news/market-news/commodities/gold-price-tracker-nov-27-mcx-gold-prices-mcx-silver-rates-comex-gold-comex-silver-gold-prices-today-bullion-market-silver-prices-today/liveblog-204059/)
+- [TraderFactor: Forex Market Today, Black Friday](https://traderfactor.com/forex-market-today-gold-oil-black-friday-trading/)
+- ผลเทรดจริง EA: orders/results.json (branch cyd-orders, 27 พ.ย. 16:01 น.)
+
+**แหล่งข้อมูล (แผนเช้า):**
 - [Kitco: Gold Price Today (26 พ.ย. 18:15 ET)](https://www.kitco.com/charts/gold)
 - [FinanceFeeds: Gold Price Today $3,565 (26 พ.ย.)](https://financefeeds.com/gold-price-today-3565-thursday-holiday-bounce-from-15-month-low-bull-3697-bear-3446/)
 - [USAGOLD: Daily Precious Metals Market Report (26 พ.ย.)](https://www.usagold.com/daily-precious-metals-market-report-november-26-2026/)
